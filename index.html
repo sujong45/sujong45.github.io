@@ -19,7 +19,7 @@ nav{display:flex;gap:12px;flex-wrap:wrap;color:#47506c;font-size:13px;font-weigh
 section{margin-top:38px;scroll-margin-top:20px}.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:17px}.section-head h2{font-size:23px;letter-spacing:-.7px;margin:0;color:#282847}.section-head small{color:#68728b}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.card{background:#fff;border:1px solid #e7e7f4;box-shadow:0 10px 25px #2229530c;transition:transform .2s,box-shadow .2s;border-radius:20px;padding:22px;min-height:150px;position:relative;overflow:hidden}.card:hover{transform:translateY(-3px);box-shadow:0 15px 30px #22295316}.card .meta{color:#6852c8;font-size:12px;font-weight:700}.card h3{color:#27304a;font-size:18px;margin:12px 0 8px}.card p{color:#546079;font-size:14px;line-height:1.75;margin:0}.wide{grid-column:span 2}.interest{font-size:29px}
 .media-card{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;margin-top:14px}.media-card img{width:110px;height:150px;object-fit:cover;border-radius:16px;border:1px solid #e6e5ef;background:#fff;box-shadow:0 8px 18px #262c4d12}
-.thumb-square img{width:110px;height:110px;object-fit:cover}.music-tile{display:grid;grid-template-columns:112px 1fr;gap:16px;align-items:center;margin-top:15px}.music-thumb{display:block;border-radius:18px;overflow:hidden;border:1px solid #d8d0fa;box-shadow:0 10px 22px #6f52cd20}.music-thumb img{width:100%;height:100%;display:block;object-fit:cover}.song-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bookmark-photo{grid-template-columns:220px 1fr;align-items:center}.bookmark-photo img{width:220px;height:auto;aspect-ratio:3/4;object-fit:contain;border-radius:16px;background:#fff}.music-tile{display:grid;grid-template-columns:112px 1fr;gap:16px;align-items:center;margin-top:15px}.music-thumb{display:block;border-radius:18px;overflow:hidden;border:1px solid #d8d0fa;box-shadow:0 10px 22px #6f52cd20}.music-thumb img{width:100%;height:100%;display:block;object-fit:cover}.song-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .btn-link,.place-link{display:inline-flex;align-items:center;gap:7px;margin-top:16px;padding:10px 14px;border-radius:10px;background:#fff;color:#4130a3;border:1px solid #bcb2ec;box-shadow:0 3px 8px #5a4dad15;font-size:13px;font-weight:700}.btn-link:hover,.btn-link:focus-visible,.place-link:hover,.place-link:focus-visible{background:#e9e4ff;color:#34208d;outline:2px solid #8a79df;outline-offset:2px}
 .todo{display:flex;gap:11px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #e9eaf5;color:#37435e;font-size:14px}.todo:last-child{border:0}.todo input{accent-color:#7460d4;margin-top:3px}.note{font-size:12px;color:#68748b;margin-top:12px}footer{margin-top:60px;padding-top:22px;border-top:1px solid #dedfec;color:#646d86;font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
@@ -31,7 +31,7 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
 #restaurants .card:first-child{background:#fff7ec;border-color:#f7dfbf;border-top:5px solid #ee9f4c}#restaurants .card:last-child{background:#f0fbfa;border-color:#bde9e4;border-top:5px solid #36b4a5}
 #backlog .card{background:#fff;border-top:5px solid #7e8ae9}
 @media(max-width:860px){.hero{grid-template-columns:1fr}.profile{min-height:210px}.grid{grid-template-columns:1fr}.wide{grid-column:span 1}}
-@media(max-width:620px){header{align-items:flex-start;flex-direction:column;padding-bottom:30px}.hero h1{letter-spacing:-2px}.media-card,.music-tile{grid-template-columns:1fr}.media-card img,.thumb-square img{width:100%;max-width:180px;height:auto;aspect-ratio:1/1}.music-thumb{max-width:220px}}
+@media(max-width:620px){header{align-items:flex-start;flex-direction:column;padding-bottom:30px}.hero h1{letter-spacing:-2px}.media-card,.music-tile{grid-template-columns:1fr}.media-card img{width:100%;max-width:180px;height:auto;aspect-ratio:1/1}.media-card.bookmark-photo{grid-template-columns:1fr}.media-card.bookmark-photo img{width:100%;max-width:240px;aspect-ratio:3/4}.music-thumb{max-width:220px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,nav a{transition:none}}
 </style>
 </head>
@@ -93,10 +93,10 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
       <article class="card wide">
         <div class="meta">최근 기록</div>
         <h3>🔖 민음사 책갈피 구매</h3>
-        <div class="media-card thumb-square">
-          <img src="assets/animal-farm-bookmark.png" alt="민음사 동물농장 이미지">
+        <div class="media-card bookmark-photo">
+          <img src="assets/animal-farm-bookmark.png" alt="직접 촬영한 민음사 세계문학전집 책갈피 사진. 동물농장 등 여러 디자인이 보입니다.">
           <div>
-            <p>최근에 민음사 책갈피를 구매했습니다. 그중에서도 <strong>동물농장</strong> 디자인이 특히 마음에 들어서 함께 기록해 두었습니다.</p>
+            <p>최근 구매한 민음사 책갈피를 직접 촬영해 기록했습니다. 사진에는 <strong>《동물농장》</strong> 등 여러 세계문학전집 디자인이 담겨 있습니다.</p>
           </div>
         </div>
       </article>
@@ -181,7 +181,7 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
   </section>
 
   <section id="backlog">
-    <div class="section-head"><h2>🛠️ Next Sprint Backlog</h2><small>Version 1.5 → 2.0</small></div>
+    <div class="section-head"><h2>🛠️ Next Sprint Backlog</h2><small>Version 1.6 → 2.0</small></div>
     <div class="card">
       <label class="todo"><input type="checkbox" checked disabled> 첫 번째 홈페이지(index.html) 구현</label>
       <label class="todo"><input type="checkbox" checked disabled> 모바일 반응형 디자인 적용</label>
@@ -197,7 +197,7 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
     </div>
   </section>
 </main>
-<footer><span>© 2026 배수종. Made with curiosity.</span><span>Powered by GitHub Pages · v1.5</span></footer>
+<footer><span>© 2026 배수종. Made with curiosity.</span><span>Powered by GitHub Pages · v1.6</span></footer>
 </div>
 </body>
 </html>
