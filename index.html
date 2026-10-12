@@ -1,20 +1,203 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#10121b">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f8ff">
 <title>배수종 | Personal Homepage</title>
 <style>
-:root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#f1f2f8;background:#0d1018}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#29204a 0%,transparent 45%),#0d1018}a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:auto;padding:28px 22px 80px}header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:10px 0 45px}.logo{font-weight:850;font-size:22px;letter-spacing:-1px}.logo span{color:#ac9aff}nav{display:flex;gap:19px;flex-wrap:wrap;color:#b7b9c8;font-size:13px}nav a:hover{color:white}.hero{display:grid;grid-template-columns:1.5fr .8fr;gap:25px;align-items:stretch;margin-bottom:42px}.eyebrow{color:#b6a8ff;font-size:13px;font-weight:700;letter-spacing:2px}.hero h1{font-size:clamp(35px,6vw,65px);letter-spacing:-3px;line-height:1.12;margin:18px 0}.hero h1 em{font-style:normal;color:#b6a8ff}.hero p{color:#b9bbca;line-height:1.9;max-width:600px}.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:23px}.pill{border:1px solid #424254;background:#ffffff0b;padding:9px 13px;border-radius:30px;color:#d7d5e8;font-size:12px}.profile{background:linear-gradient(145deg,#38305d,#1a1c2b);border:1px solid #514775;border-radius:24px;padding:30px;display:flex;flex-direction:column;justify-content:space-between;min-height:300px}.avatar{font-size:70px}.profile small{color:#bbb5db}.profile h2{margin:6px 0;font-size:24px}.profile p{margin:0;font-size:13px}section{margin-top:38px;scroll-margin-top:20px}.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:17px}.section-head h2{font-size:23px;letter-spacing:-.7px;margin:0}.section-head small{color:#85899d}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.card{border:1px solid #2d3141;background:#191d29;border-radius:18px;padding:22px;min-height:150px}.card .meta{color:#a59cf0;font-size:12px;font-weight:700}.card h3{font-size:17px;margin:12px 0 8px}.card p{color:#aeb1c2;font-size:13px;line-height:1.75;margin:0}.wide{grid-column:span 2}.interest{font-size:29px}.music{display:flex;align-items:center;gap:13px}.cover{display:grid;place-items:center;width:56px;height:56px;border-radius:13px;background:linear-gradient(130deg,#5c4c94,#c38ba5);font-size:25px;flex-shrink:0}.music h3{margin:0 0 5px}.music p{font-size:12px}.todo{display:flex;gap:11px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #313544;color:#d6d7e1;font-size:14px}.todo:last-child{border:0}.todo input{accent-color:#a999ff;margin-top:3px}.note{font-size:12px;color:#9396a9;margin-top:12px}footer{margin-top:60px;padding-top:22px;border-top:1px solid #2c3040;color:#777f95;font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}@media(max-width:720px){header{align-items:flex-start;flex-direction:column;padding-bottom:30px}.hero{grid-template-columns:1fr}.profile{min-height:210px}.grid{grid-template-columns:1fr}.wide{grid-column:span 1}.hero h1{letter-spacing:-2px}}
+:root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#252b45;background:#f7f8ff;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 8% 6%,#ffdfeb 0%,transparent 28%),radial-gradient(circle at 95% 12%,#d5efff 0%,transparent 30%),linear-gradient(160deg,#fffdfb 0%,#f1f5ff 55%,#fff9ed 100%);color:#252b45}
+a{color:inherit;text-decoration:none}.wrap{max-width:1120px;margin:auto;padding:28px 22px 80px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:10px 0 45px}.logo{font-weight:850;font-size:22px;letter-spacing:-1px;color:#2a2851}.logo span{color:#6952d9}
+nav{display:flex;gap:12px;flex-wrap:wrap;color:#47506c;font-size:13px;font-weight:700}nav a{background:#ffffffc5;padding:9px 12px;border:1px solid #e0e6f7;border-radius:999px;transition:background .2s,transform .2s}nav a:hover,nav a:focus-visible{color:#4b36b8;background:#edeaff;transform:translateY(-2px)}
+.hero{display:grid;grid-template-columns:1.5fr .8fr;gap:25px;align-items:stretch;margin-bottom:42px}.eyebrow{color:#6751d7;font-size:13px;font-weight:700;letter-spacing:2px}.hero h1{font-size:clamp(35px,6vw,65px);letter-spacing:-3px;line-height:1.12;margin:18px 0;color:#29244c}.hero h1 em{font-style:normal;color:#744be1;background:linear-gradient(110deg,#7252da,#e25497);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}.hero p{color:#4e5771;font-size:16px;line-height:1.9;max-width:600px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:23px}.pill{border:1px solid #ddd8ff;background:#fff;color:#5541ae;font-weight:750;box-shadow:0 4px 14px #5855ac10;padding:9px 13px;border-radius:30px;font-size:12px}
+.profile{background:linear-gradient(135deg,#7b65e5 0%,#b772d6 55%,#eb81a5 100%);border-radius:24px;padding:30px;display:flex;flex-direction:column;justify-content:space-between;min-height:300px;color:#fff;box-shadow:0 18px 34px #9b69b83d;position:relative;overflow:hidden}.profile:after{content:'✦';position:absolute;right:18px;top:3px;font-size:125px;color:#ffffff22;pointer-events:none}.avatar{font-size:70px}.profile small{color:#fff4fc}.profile h2{margin:6px 0;font-size:24px}.profile p{margin:0;font-size:13px;color:#fff}
+section{margin-top:38px;scroll-margin-top:20px}.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:17px}.section-head h2{font-size:23px;letter-spacing:-.7px;margin:0;color:#282847}.section-head small{color:#68728b}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.card{background:#fff;border:1px solid #e7e7f4;box-shadow:0 10px 25px #2229530c;transition:transform .2s,box-shadow .2s;border-radius:20px;padding:22px;min-height:150px;position:relative;overflow:hidden}.card:hover{transform:translateY(-3px);box-shadow:0 15px 30px #22295316}.card .meta{color:#6852c8;font-size:12px;font-weight:700}.card h3{color:#27304a;font-size:18px;margin:12px 0 8px}.card p{color:#546079;font-size:14px;line-height:1.75;margin:0}.wide{grid-column:span 2}.interest{font-size:29px}
+.media-card{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;margin-top:14px}.media-card img{width:110px;height:150px;object-fit:cover;border-radius:16px;border:1px solid #e6e5ef;background:#fff;box-shadow:0 8px 18px #262c4d12}
+.thumb-square img{width:110px;height:110px;object-fit:cover}.music-tile{display:grid;grid-template-columns:112px 1fr;gap:16px;align-items:center;margin-top:15px}.music-thumb{display:block;border-radius:18px;overflow:hidden;border:1px solid #d8d0fa;box-shadow:0 10px 22px #6f52cd20}.music-thumb img{width:100%;height:100%;display:block;object-fit:cover}.song-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.btn-link,.place-link{display:inline-flex;align-items:center;gap:7px;margin-top:16px;padding:10px 14px;border-radius:10px;background:#fff;color:#4130a3;border:1px solid #bcb2ec;box-shadow:0 3px 8px #5a4dad15;font-size:13px;font-weight:700}.btn-link:hover,.btn-link:focus-visible,.place-link:hover,.place-link:focus-visible{background:#e9e4ff;color:#34208d;outline:2px solid #8a79df;outline-offset:2px}
+.todo{display:flex;gap:11px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #e9eaf5;color:#37435e;font-size:14px}.todo:last-child{border:0}.todo input{accent-color:#7460d4;margin-top:3px}.note{font-size:12px;color:#68748b;margin-top:12px}footer{margin-top:60px;padding-top:22px;border-top:1px solid #dedfec;color:#646d86;font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
+#news .card:first-child{background:#fff0f5;border-color:#ffcada;border-top:5px solid #f36b9c}#news .card:last-child{background:#fff8e8;border-color:#f4dfac;border-top:5px solid #efad42}
+#activity .card:first-child{background:#edf8ff;border-color:#c3e6ff;border-top:5px solid #4caee7}#activity .card:last-child{background:#f2efff;border-color:#ddd4ff;border-top:5px solid #9471e4}
+#interests .card:nth-child(1){background:#f0fbf1;border-color:#cdecd1;border-top:5px solid #5ebd7b}#interests .card:nth-child(2){background:#fff7e7;border-color:#f4dfb5;border-top:5px solid #edb454}#interests .card:nth-child(3){background:#fff1f0;border-color:#f6d1ca;border-top:5px solid #f28a76}
+#music .card:first-child{background:#f6efff;border-color:#ded0fb;border-top:5px solid #9b72e7}#music .card:last-child{background:#fff0f9;border-color:#f3d0e8;border-top:5px solid #df70ad}
+#movies .card{background:#fef3ea;border-color:#f3d7be;border-top:5px solid #e88e45}
+#restaurants .card:first-child{background:#fff7ec;border-color:#f7dfbf;border-top:5px solid #ee9f4c}#restaurants .card:last-child{background:#f0fbfa;border-color:#bde9e4;border-top:5px solid #36b4a5}
+#backlog .card{background:#fff;border-top:5px solid #7e8ae9}
+@media(max-width:860px){.hero{grid-template-columns:1fr}.profile{min-height:210px}.grid{grid-template-columns:1fr}.wide{grid-column:span 1}}
+@media(max-width:620px){header{align-items:flex-start;flex-direction:column;padding-bottom:30px}.hero h1{letter-spacing:-2px}.media-card,.music-tile{grid-template-columns:1fr}.media-card img,.thumb-square img{width:100%;max-width:180px;height:auto;aspect-ratio:1/1}.music-thumb{max-width:220px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,nav a{transition:none}}
 </style>
 </head>
-<body><div class="wrap">
-<header><a class="logo" href="/">MY<span>SPACE.</span></a><nav><a href="#news">소식</a><a href="#activity">최근 활동</a><a href="#interests">관심사</a><a href="#music">음악</a><a href="#backlog">Backlog</a></nav></header>
+<body>
+<div class="wrap">
+<header>
+  <a class="logo" href="/">MY<span>SPACE.</span></a>
+  <nav>
+    <a href="#news">소식</a>
+    <a href="#activity">최근 활동</a>
+    <a href="#interests">관심사</a>
+    <a href="#music">음악</a>
+    <a href="#movies">인생영화</a>
+    <a href="#restaurants">추천 맛집</a>
+    <a href="#backlog">Backlog</a>
+  </nav>
+</header>
 <main>
-<div class="hero"><div><div class="eyebrow">WELCOME TO MY DIGITAL SPACE</div><h1>안녕하세요,<br><em>배수종</em>의 공간입니다.</h1><p>비즈니스 IT를 전공하고 미디어를 부전공하며, 책과 영화 그리고 음악을 좋아합니다. 저의 소식과 취향을 소개합니다.</p><div class="pills"><span class="pill">✦ 비즈니스 IT</span><span class="pill">✦ 미디어 부전공</span><span class="pill">✦ 독서와 영화</span></div></div><aside class="profile"><div class="avatar">👋</div><div><small>PROFILE / ABOUT ME</small><h2>배수종</h2><p>학번 20245244<br>전공 비즈니스 IT · 부전공 미디어</p></div></aside></div>
-<section id="news"><div class="section-head"><h2>📣 나의 소식</h2><small>What's new?</small></div><div class="grid"><article class="card wide"><div class="meta">요즘의 소식</div><h3>⚡ 해리포터 시리즈 정주행 중</h3><p>영화 《해리 포터》 시리즈를 차례대로 감상하고 있습니다.</p></article><article class="card"><div class="meta">MY SPACE</div><h3>개인 홈페이지 운영</h3><p>나의 소식과 취향을 한눈에 볼 수 있도록 기록하는 공간입니다.</p></article></div></section>
-<section id="activity"><div class="section-head"><h2>🗓️ 최근 활동</h2><small>Recent activity</small></div><div class="grid"><article class="card wide"><div class="meta">최근 기록</div><h3>🔖 민음사 책갈피 구매</h3><p>독서 생활을 함께할 민음사 책갈피를 구매했습니다.</p></article><article class="card"><div class="meta">앞으로의 기록</div><h3>📚 다음 활동</h3><p>새로운 활동이 생기면 이 공간에 추가할 예정입니다.</p></article></div></section>
-<section id="interests"><div class="section-head"><h2>💡 관심사와 취미</h2><small>Things I love</small></div><div class="grid"><article class="card"><div class="interest">📚</div><h3>관심사 · 독서</h3><p>책을 읽고 새로운 이야기와 생각을 만나는 시간을 좋아합니다.</p></article><article class="card"><div class="interest">📖</div><h3>취미 · 독서</h3><p>일상 속에서 꾸준히 즐기는 취미입니다.</p></article><article class="card"><div class="interest">🎬</div><h3>취미 · 영화 감상</h3><p>다양한 장르의 영화를 감상합니다. 요즘은 해리 포터 시리즈를 보고 있습니다.</p></article></div></section>
-<section id="music"><div class="section-head"><h2>🎵 좋아하는 음악</h2><small>My favorites</small></div><div class="grid"><article class="card wide"><div class="meta">FAVORITE ARTIST</div><h3>✨ 우주소녀 (WJSN)</h3><p>제가 좋아하는 아티스트입니다.</p></article><article class="card"><div class="meta">FAVORITE SONG</div><div class="music" style="margin-top:15px"><div class="cover">♫</div><div><h3>부탁해</h3><p>우주소녀 · 좋아하는 노래</p></div></div></article></div></section>
-<section id="backlog"><div class="section-head"><h2>🛠️ Next Sprint Backlog</h2><small>Version 1.0 → 2.0</small></div><div class="card"><label class="todo"><input type="checkbox" checked disabled> 첫 번째 홈페이지(index.html) 구현</label><label class="todo"><input type="checkbox" checked disabled> 모바일 반응형 디자인 적용</label><label class="todo"><input type="checkbox" checked disabled> 실제 이름과 학적 정보 입력</label><label class="todo"><input type="checkbox" checked disabled> 좋아하는 아티스트와 노래 업데이트</label><label class="todo"><input type="checkbox" checked disabled> 최근 활동을 실제 기록으로 교체</label><label class="todo"><input type="checkbox"> GitHub Pages 배포 및 루트 주소 접속 확인</label><label class="todo"><input type="checkbox"> 소식과 활동 데이터를 쉽게 관리하는 구조 추가</label><p class="note">체크박스는 진행 현황 표시용입니다. 다음 Sprint에서 index.html을 수정해 업데이트하세요.</p></div></section>
-</main><footer><span>© 2026 배수종. Made with curiosity.</span><span>Powered by GitHub Pages · v1.1</span></footer>
-</div></body></html>
+  <div class="hero">
+    <div>
+      <div class="eyebrow">WELCOME TO MY DIGITAL SPACE</div>
+      <h1>안녕하세요,<br><em>배수종</em>의 공간입니다.</h1>
+      <p>비즈니스 IT를 전공하고 미디어를 부전공하며, 책과 영화 그리고 음악을 좋아합니다. 저의 소식과 취향을 한눈에 볼 수 있도록 정리한 홈페이지입니다.</p>
+      <div class="pills">
+        <span class="pill">✦ 비즈니스 IT</span>
+        <span class="pill">✦ 미디어 부전공</span>
+        <span class="pill">✦ 독서와 영화</span>
+      </div>
+    </div>
+    <aside class="profile">
+      <div class="avatar">👋</div>
+      <div>
+        <small>PROFILE / ABOUT ME</small>
+        <h2>배수종</h2>
+        <p>학번 20245244<br>전공 비즈니스 IT · 부전공 미디어</p>
+      </div>
+    </aside>
+  </div>
+
+  <section id="news">
+    <div class="section-head"><h2>📣 나의 소식</h2><small>What's new?</small></div>
+    <div class="grid">
+      <article class="card wide">
+        <div class="meta">요즘의 소식</div>
+        <h3>⚡ 해리포터 시리즈 정주행 중</h3>
+        <p>영화 《해리 포터》 시리즈를 순서대로 다시 감상하고 있습니다.</p>
+      </article>
+      <article class="card">
+        <div class="meta">MY SPACE</div>
+        <h3>개인 홈페이지 운영</h3>
+        <p>나의 소식, 취향, 활동 기록을 한눈에 볼 수 있도록 계속 업데이트하는 공간입니다.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="activity">
+    <div class="section-head"><h2>🗓️ 최근 활동</h2><small>Recent activity</small></div>
+    <div class="grid">
+      <article class="card wide">
+        <div class="meta">최근 기록</div>
+        <h3>🔖 민음사 책갈피 구매</h3>
+        <div class="media-card thumb-square">
+          <img src="assets/animal-farm-bookmark.png" alt="민음사 동물농장 이미지">
+          <div>
+            <p>최근에 민음사 책갈피를 구매했습니다. 그중에서도 <strong>동물농장</strong> 디자인이 특히 마음에 들어서 함께 기록해 두었습니다.</p>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="meta">앞으로의 기록</div>
+        <h3>📚 다음 활동</h3>
+        <p>새로운 독서 기록이나 취향 기록이 생기면 이 공간에 계속 추가할 예정입니다.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="interests">
+    <div class="section-head"><h2>💡 관심사와 취미</h2><small>Things I love</small></div>
+    <div class="grid">
+      <article class="card"><div class="interest">📚</div><h3>관심사 · 독서</h3><p>책을 읽고 새로운 이야기와 생각을 만나는 시간을 좋아합니다.</p></article>
+      <article class="card"><div class="interest">📖</div><h3>취미 · 독서</h3><p>일상 속에서 꾸준히 즐기는 대표 취미입니다.</p></article>
+      <article class="card"><div class="interest">🎬</div><h3>취미 · 영화 감상</h3><p>다양한 장르의 영화를 감상합니다. 요즘은 해리 포터 시리즈를 보고 있습니다.</p></article>
+    </div>
+  </section>
+
+  <section id="music">
+    <div class="section-head"><h2>🎵 좋아하는 음악</h2><small>My favorites</small></div>
+    <div class="grid">
+      <article class="card wide">
+        <div class="meta">FAVORITE ARTIST</div>
+        <h3>✨ 우주소녀 (WJSN)</h3>
+        <p>제가 좋아하는 아티스트입니다. 몽환적인 분위기와 멤버들의 음색이 매력적이라고 생각합니다.</p>
+      </article>
+      <article class="card">
+        <div class="meta">FAVORITE SONG</div>
+        <div class="music-tile">
+          <a class="music-thumb" href="https://www.youtube.com/watch?v=2wOBbRu3OOc" target="_blank" rel="noopener noreferrer" aria-label="우주소녀 부탁해 뮤직비디오 유튜브로 이동">
+            <img src="https://img.youtube.com/vi/2wOBbRu3OOc/hqdefault.jpg" alt="우주소녀 부탁해 뮤직비디오 커버 이미지">
+          </a>
+          <div>
+            <div class="song-title"><h3 style="margin:0">부탁해</h3></div>
+            <p>우주소녀 · 좋아하는 노래</p>
+            <a class="btn-link" href="https://www.youtube.com/watch?v=2wOBbRu3OOc" target="_blank" rel="noopener noreferrer">▶ 유튜브에서 듣기 ↗</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="movies">
+    <div class="section-head"><h2>🎞️ 인생영화</h2><small>Favorite movie</small></div>
+    <div class="grid">
+      <article class="card wide">
+        <div class="meta">LIFE MOVIE</div>
+        <h3>마더 (봉준호 작)</h3>
+        <div class="media-card">
+          <img src="assets/mother-poster.png" alt="영화 마더 포스터">
+          <div>
+            <p>제가 인생영화로 꼽는 작품은 <strong>《마더》</strong>입니다. 봉준호 감독 특유의 분위기와 서사가 강하게 기억에 남는 영화입니다.</p>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="meta">WHY I LIKE IT</div>
+        <h3>오래 기억에 남는 영화</h3>
+        <p>감정선과 긴장감이 강하게 남아, 시간이 지나도 다시 떠올리게 되는 작품입니다.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="restaurants">
+    <div class="section-head"><h2>🍽️ 추천 맛집</h2><small>My favorite places</small></div>
+    <div class="grid">
+      <article class="card">
+        <div class="meta">RECOMMENDED RESTAURANT · 목동</div>
+        <h3>🍚 아재식당</h3>
+        <p>목동에서 추천하는 식당입니다.</p>
+        <a class="place-link" href="https://map.naver.com/p/search/%EB%AA%A9%EB%8F%99%20%EC%95%84%EC%9E%AC%EC%8B%9D%EB%8B%B9" target="_blank" rel="noopener noreferrer" aria-label="네이버 지도에서 목동 아재식당 검색하기">📍 지도에서 보기 ↗</a>
+      </article>
+      <article class="card">
+        <div class="meta">RECOMMENDED BAKERY · 인천 부평구</div>
+        <h3>🥐 실리제롬</h3>
+        <p>인천 부평구에서 추천하는 빵집입니다.</p>
+        <a class="place-link" href="https://map.naver.com/p/search/%EC%8B%A4%EB%A6%AC%EC%A0%9C%EB%A1%AC?c=15.00,0,0,0,dh&placePath=%2Fhome%3Ffrom%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202610121653%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%8B%A4%EB%A6%AC%EC%A0%9C%EB%A1%AC" target="_blank" rel="noopener noreferrer" aria-label="네이버 지도에서 실리제롬 보기">📍 지도에서 보기 ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="backlog">
+    <div class="section-head"><h2>🛠️ Next Sprint Backlog</h2><small>Version 1.5 → 2.0</small></div>
+    <div class="card">
+      <label class="todo"><input type="checkbox" checked disabled> 첫 번째 홈페이지(index.html) 구현</label>
+      <label class="todo"><input type="checkbox" checked disabled> 모바일 반응형 디자인 적용</label>
+      <label class="todo"><input type="checkbox" checked disabled> 실제 이름과 학적 정보 입력</label>
+      <label class="todo"><input type="checkbox" checked disabled> 좋아하는 아티스트와 노래 업데이트</label>
+      <label class="todo"><input type="checkbox" checked disabled> 추천 맛집 및 지도 링크 추가</label>
+      <label class="todo"><input type="checkbox" checked disabled> 인생영화 항목 추가</label>
+      <label class="todo"><input type="checkbox" checked disabled> 최근 활동에 이미지 첨부</label>
+      <label class="todo"><input type="checkbox" checked disabled> GitHub Pages 배포 및 루트 주소 접속 확인</label>
+      <label class="todo"><input type="checkbox" checked disabled> 밝은 컬러 테마 및 가독성 개선</label>
+      <label class="todo"><input type="checkbox"> 활동/취향을 더 쉽게 수정할 수 있는 데이터 구조 추가</label>
+      <p class="note">체크박스는 진행 현황 표시용입니다. 다음 Sprint에서 index.html과 assets를 함께 수정해 계속 발전시킬 수 있습니다.</p>
+    </div>
+  </section>
+</main>
+<footer><span>© 2026 배수종. Made with curiosity.</span><span>Powered by GitHub Pages · v1.5</span></footer>
+</div>
+</body>
+</html>
