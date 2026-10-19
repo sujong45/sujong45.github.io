@@ -61,6 +61,12 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
 .tarot-date{font-size:11px;color:#9098b0;margin-top:14px;text-align:center}
 .tarot-pending{color:#a090c0;font-size:15px;text-align:center;padding:20px 0}
 #tarot-section-card{border-top:5px solid #9b72e7;background:linear-gradient(160deg,#f8f4ff 0%,#fff9fe 100%)!important;border-color:#ddd0fa!important}
+#tarot-advice-card{border-top:5px solid #c47be0;background:linear-gradient(160deg,#fdf6ff 0%,#fff8fe 100%);border-color:#e8d0fa!important}
+.advice-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #ede6ff}
+.advice-item:last-child{border-bottom:none;padding-bottom:0}
+.advice-icon{font-size:22px;line-height:1;flex-shrink:0;margin-top:2px}
+.advice-item h4{font-size:13px;font-weight:800;color:#5a3dac;margin:0 0 3px}
+.advice-item p{font-size:13px;color:#4b5370;margin:0;line-height:1.6}
 @media(max-width:680px){#tarot .tarot-wrapper{grid-template-columns:1fr}.tarot-card-area{flex-direction:row;flex-wrap:wrap;justify-content:center}.tarot-card{width:130px;height:210px}}
 </style>
 </head>
@@ -129,10 +135,11 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
           </div>
         </div>
       </article>
-      <article class="card">
-        <div class="meta">ABOUT TAROT</div>
-        <h3>🃏 메이저 아르카나</h3>
-        <p>총 22장의 메이저 아르카나 카드 중 하루 한 장이 날짜 기반으로 선정됩니다. 오늘 하루의 방향과 에너지를 가볍게 참고해 보세요.</p>
+      <article class="card" id="tarot-advice-card">
+        <div class="meta">TODAY'S ADVICE</div>
+        <div id="tarotAdvice">
+          <div class="tarot-pending" style="font-size:13px;padding:10px 0">카드를 뽑으면<br>오늘의 조언이 나타납니다 ✨</div>
+        </div>
       </article>
     </div>
   </section>
@@ -278,70 +285,136 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
   var CARDS = [
     {num:"0",name:"광대 THE FOOL",emoji:"🤡",keywords:["새 출발","자유","모험"],
      desc:"새로운 여정의 시작을 알립니다. 두려움 없이 앞으로 나아갈 준비가 되어 있는 날입니다. 직관과 설렘을 믿고 첫걸음을 내디뎌 보세요.",
-     advice:"오늘은 지나친 계산보다 마음이 이끄는 방향을 따르세요."},
+     advice:"오늘은 지나친 계산보다 마음이 이끄는 방향을 따르세요.",
+     menu:{icon:"🌮",title:"처음 먹어보는 음식",desc:"새로운 식당이나 한 번도 안 먹어본 메뉴에 도전해 보세요. 타코, 에티오피아 음식 등 낯선 요리가 오늘과 잘 어울립니다."},
+     place:{icon:"🗺️",title:"처음 가보는 동네",desc:"자주 다니던 길 말고 처음 가보는 골목이나 동네를 걸어보세요. 새로운 발견이 기다리고 있습니다."},
+     activity:{icon:"✍️",title:"버킷리스트 작성",desc:"언젠가 해보고 싶었던 일들을 노트에 써보세요. 첫 번째 항목부터 실행 계획을 세워봐도 좋습니다."}},
     {num:"Ⅰ",name:"마법사 THE MAGICIAN",emoji:"🪄",keywords:["의지","능력","집중"],
      desc:"당신 안에 필요한 도구가 모두 갖춰져 있습니다. 아이디어를 현실로 옮길 수 있는 에너지가 충만한 하루입니다.",
-     advice:"머릿속에 있는 계획을 구체적인 행동으로 옮겨보세요."},
+     advice:"머릿속에 있는 계획을 구체적인 행동으로 옮겨보세요.",
+     menu:{icon:"☕",title:"아메리카노 + 에너지바",desc:"집중력을 높여줄 카페인과 간단한 에너지 보충이 오늘의 활동력을 극대화시켜 줍니다."},
+     place:{icon:"📚",title:"카페 또는 스터디룸",desc:"집중해서 무언가를 만들거나 공부하기 좋은 조용한 카페나 스터디 공간을 찾아가 보세요."},
+     activity:{icon:"🛠️",title:"미뤄둔 프로젝트 착수",desc:"오래 생각만 해왔던 일을 오늘 실제로 시작해 보세요. 작은 첫 단계가 큰 변화를 만듭니다."}},
     {num:"Ⅱ",name:"여사제 THE HIGH PRIESTESS",emoji:"🌙",keywords:["직관","내면","신비"],
      desc:"겉으로 드러나지 않는 진실에 주목하세요. 논리보다 직관이 더 정확한 답을 줄 수 있는 날입니다.",
-     advice:"조용히 내면의 목소리에 귀 기울이는 시간을 가져보세요."},
+     advice:"조용히 내면의 목소리에 귀 기울이는 시간을 가져보세요.",
+     menu:{icon:"🍵",title:"따뜻한 허브티",desc:"카모마일이나 페퍼민트 같은 허브티 한 잔이 내면을 고요하게 만들어 줍니다. 조용한 카페에서 천천히 즐겨보세요."},
+     place:{icon:"🌿",title:"조용한 공원 또는 정원",desc:"번잡한 곳을 피해 나무와 자연이 있는 조용한 공간에서 혼자 산책하며 생각을 정리해 보세요."},
+     activity:{icon:"📓",title:"일기 또는 저널 쓰기",desc:"오늘 느낀 감정과 생각을 글로 기록해 보세요. 무의식 속 진짜 원하는 것이 떠오를 수 있습니다."}},
     {num:"Ⅲ",name:"여황제 THE EMPRESS",emoji:"🌸",keywords:["풍요","창조","돌봄"],
      desc:"창의적인 에너지와 풍요로움이 가득한 날입니다. 나 자신과 주변을 따뜻하게 돌보는 것이 좋은 결과를 불러옵니다.",
-     advice:"오늘은 창작 활동이나 소중한 사람에게 마음을 표현해 보세요."},
+     advice:"오늘은 창작 활동이나 소중한 사람에게 마음을 표현해 보세요.",
+     menu:{icon:"🥗",title:"컬러풀한 샐러드 또는 브런치",desc:"아보카도, 딸기, 견과류가 들어간 풍성한 샐러드나 브런치 플레이트가 오늘의 에너지와 잘 맞습니다."},
+     place:{icon:"🌸",title:"꽃집 또는 플라워 카페",desc:"꽃향기가 가득한 플라워 카페나 꽃집에 들러보세요. 작은 화분을 하나 사서 집에 생기를 더해봐도 좋습니다."},
+     activity:{icon:"🎨",title:"그림 그리기 또는 공예",desc:"그림 그리기, 뜨개질, 꽃꽂이 등 손을 쓰는 창작 활동으로 오늘의 풍요로운 에너지를 표현해 보세요."}},
     {num:"Ⅳ",name:"황제 THE EMPEROR",emoji:"👑",keywords:["질서","리더십","안정"],
      desc:"체계적이고 안정된 기반을 다지는 날입니다. 책임감을 갖고 주도적으로 상황을 이끌 때 좋은 성과가 따릅니다.",
-     advice:"흐트러진 일상의 루틴을 점검하고 구조를 잡아보세요."},
+     advice:"흐트러진 일상의 루틴을 점검하고 구조를 잡아보세요.",
+     menu:{icon:"🍱",title:"든든한 정식 한 끼",desc:"백반, 한정식, 도시락 등 영양 균형이 잡힌 정식 메뉴로 하루를 든든하게 채워보세요."},
+     place:{icon:"🏛️",title:"도서관 또는 관공서 주변",desc:"질서 있고 체계적인 공간에서 할 일 목록을 정리하거나 중요한 업무를 처리해 보세요."},
+     activity:{icon:"📋",title:"할 일 목록 정리 및 계획 수립",desc:"오늘 해야 할 일과 이번 주 목표를 정리해 우선순위를 세워보세요. 계획이 잘 서면 실행이 쉬워집니다."}},
     {num:"Ⅴ",name:"교황 THE HIEROPHANT",emoji:"⛪",keywords:["전통","믿음","가르침"],
      desc:"검증된 방법과 지혜에서 배울 점을 찾는 날입니다. 신뢰할 수 있는 사람의 조언에 귀 기울여 보세요.",
-     advice:"혼자 판단하기 어렵다면 경험 많은 사람에게 조언을 구해보세요."},
+     advice:"혼자 판단하기 어렵다면 경험 많은 사람에게 조언을 구해보세요.",
+     menu:{icon:"🍜",title:"오래된 단골 음식점",desc:"새로운 곳보다 오래전부터 검증된 단골집이나 어머니의 손맛이 담긴 정통 음식을 찾아가 보세요."},
+     place:{icon:"🏯",title:"역사 유적지 또는 고궁",desc:"경복궁, 덕수궁, 지역 향교 등 역사와 전통이 깃든 곳을 방문해 보세요. 배움과 안정감을 얻을 수 있습니다."},
+     activity:{icon:"📖",title:"고전 또는 명작 읽기",desc:"오래전부터 읽고 싶었던 고전 문학이나 명작을 펼쳐보세요. 검증된 지혜가 오늘의 고민에 답을 줄 수 있습니다."}},
     {num:"Ⅵ",name:"연인 THE LOVERS",emoji:"💞",keywords:["선택","관계","조화"],
      desc:"중요한 선택이나 관계에서 진심에 기반한 결정이 필요한 날입니다. 마음이 이끄는 쪽을 믿어보세요.",
-     advice:"가치관에 따른 선택을 하되, 서로를 존중하는 것을 잊지 마세요."},
+     advice:"가치관에 따른 선택을 하되, 서로를 존중하는 것을 잊지 마세요.",
+     menu:{icon:"🍝",title:"둘이 나눠 먹는 파스타",desc:"좋아하는 사람과 함께 파스타나 피자 같이 나눠 먹는 메뉴가 잘 어울리는 날입니다."},
+     place:{icon:"🌅",title:"노을 명소 또는 야경 포인트",desc:"해질 무렵 함께 걸을 수 있는 한강, 남산타워, 동네 언덕 등 뷰 좋은 곳에 가보세요."},
+     activity:{icon:"💌",title:"소중한 사람에게 연락하기",desc:"오랫동안 연락 못 했던 친구나 가족에게 먼저 연락해 보세요. 짧은 메시지 하나가 관계를 다시 이어줍니다."}},
     {num:"Ⅶ",name:"전차 THE CHARIOT",emoji:"🏆",keywords:["의지","전진","승리"],
      desc:"강한 의지와 결단력이 빛을 발하는 날입니다. 방해물이 있더라도 앞으로 나아가면 반드시 길이 열립니다.",
-     advice:"집중력을 잃지 말고 목표를 향해 꾸준히 전진하세요."},
+     advice:"집중력을 잃지 말고 목표를 향해 꾸준히 전진하세요.",
+     menu:{icon:"🥩",title:"단백질 위주의 든든한 식사",desc:"스테이크, 닭가슴살 도시락, 삼겹살 등 에너지 충전에 좋은 단백질 위주 식사로 오늘의 추진력을 채워보세요."},
+     place:{icon:"🏃",title:"운동 시설 또는 트랙",desc:"헬스장, 러닝 트랙, 수영장 등 몸을 움직일 수 있는 곳에 가보세요. 땀을 흘리면 목표 의식이 더 강해집니다."},
+     activity:{icon:"🎯",title:"도전 과제 하나 완수",desc:"오늘만큼은 미루지 말고 가장 어려운 과제 하나를 끝내보세요. 완수한 성취감이 다음 행동을 이끕니다."}},
     {num:"Ⅷ",name:"힘 STRENGTH",emoji:"🦁",keywords:["용기","인내","내면의 힘"],
      desc:"외적인 힘보다 내면의 용기와 인내가 중요한 날입니다. 감정을 조절하며 부드럽게 상황을 이끌어 보세요.",
-     advice:"강압보다 이해와 공감으로 주변 상황을 다루어 보세요."},
+     advice:"강압보다 이해와 공감으로 주변 상황을 다루어 보세요.",
+     menu:{icon:"🍲",title:"따뜻한 국물 요리",desc:"설렁탕, 감자탕, 순두부찌개 등 속을 따뜻하게 채워주는 국물 요리가 오늘의 내면 에너지를 보충해 줍니다."},
+     place:{icon:"🌳",title:"숲길 또는 등산로",desc:"자연 속에서 천천히 걷는 것이 내면의 힘을 회복시켜 줍니다. 가까운 산 또는 숲길 산책을 추천합니다."},
+     activity:{icon:"🧘",title:"명상 또는 스트레칭",desc:"10분이라도 조용히 앉아 호흡에 집중해 보세요. 감정을 다스리는 연습이 오늘 특히 빛을 발합니다."}},
     {num:"Ⅸ",name:"은둔자 THE HERMIT",emoji:"🔦",keywords:["성찰","고독","지혜"],
      desc:"혼자만의 시간을 통해 내면을 들여다보는 것이 도움이 됩니다. 서두르지 말고 스스로를 돌아보는 하루를 보내세요.",
-     advice:"조용한 환경에서 자신의 방향과 가치를 점검해 보세요."},
+     advice:"조용한 환경에서 자신의 방향과 가치를 점검해 보세요.",
+     menu:{icon:"🍞",title:"혼밥 — 좋아하는 단골 메뉴",desc:"혼자 조용히 즐길 수 있는 단골 메뉴 한 그릇이 오늘과 잘 어울립니다. 음식에 온전히 집중해 보세요."},
+     place:{icon:"📚",title:"한적한 독립서점 또는 도서관",desc:"조용한 독립서점이나 도서관에서 혼자 책을 고르고 읽는 시간이 오늘 하루를 풍성하게 만들어 줍니다."},
+     activity:{icon:"🔍",title:"나만의 시간 — 자기 점검",desc:"커리어, 관계, 생활 패턴 중 하나를 골라 현재 만족하는지 솔직하게 적어보세요. 작은 통찰이 큰 변화를 만듭니다."}},
     {num:"Ⅹ",name:"운명의 수레바퀴 WHEEL OF FORTUNE",emoji:"🎡",keywords:["변화","순환","기회"],
      desc:"변화와 전환의 흐름 속에 있는 날입니다. 좋은 기회가 찾아오거나 상황이 호전될 징조가 보입니다.",
-     advice:"변화를 두려워하지 말고, 흐름을 자연스럽게 받아들이세요."},
+     advice:"변화를 두려워하지 말고, 흐름을 자연스럽게 받아들이세요.",
+     menu:{icon:"🎲",title:"오늘의 랜덤 메뉴 도전",desc:"메뉴판에서 눈을 감고 고르거나 음식 룰렛 앱을 써보세요. 예상치 못한 메뉴가 오늘의 전환점이 될 수도 있습니다."},
+     place:{icon:"🎡",title:"야외 축제 또는 마켓",desc:"주변에서 열리는 플리마켓, 야외 행사, 팝업 스토어에 가보세요. 우연한 만남이나 발견이 기다리고 있습니다."},
+     activity:{icon:"🔄",title:"루틴 바꿔보기",desc:"매일 하던 순서나 방법을 오늘만큼은 바꿔보세요. 사소한 변화가 새로운 시각을 열어줍니다."}},
     {num:"Ⅺ",name:"정의 JUSTICE",emoji:"⚖️",keywords:["공정","균형","진실"],
      desc:"공정하고 균형 잡힌 판단이 요구되는 날입니다. 감정보다는 사실과 원칙에 근거한 결정을 내리세요.",
-     advice:"어떤 결정이든 진실에 기반하면 후회하지 않을 수 있어요."},
+     advice:"어떤 결정이든 진실에 기반하면 후회하지 않을 수 있어요.",
+     menu:{icon:"🥗",title:"균형 잡힌 건강식",desc:"탄수화물·단백질·채소가 골고루 담긴 균형 잡힌 한 끼가 오늘의 올바른 판단력을 뒷받침해 줍니다."},
+     place:{icon:"⚖️",title:"시청 주변 또는 법원·행정구역",desc:"정돈되고 질서 있는 도심 행정 지역을 걸으며 해결해야 할 중요한 결정을 차분히 생각해 보세요."},
+     activity:{icon:"📝",title:"장단점 표 작성",desc:"오래 고민해온 문제의 장단점을 표로 정리해 보세요. 시각화하면 올바른 판단에 가까워집니다."}},
     {num:"Ⅻ",name:"매달린 남자 THE HANGED MAN",emoji:"🙃",keywords:["관점 전환","기다림","수용"],
      desc:"다른 각도에서 상황을 바라볼 때입니다. 억지로 서두르지 말고 잠시 멈추어 새로운 관점을 얻어보세요.",
-     advice:"모든 것을 내려놓고 기다리는 것이 최선일 수도 있습니다."},
+     advice:"모든 것을 내려놓고 기다리는 것이 최선일 수도 있습니다.",
+     menu:{icon:"🍡",title:"달달한 디저트 타임",desc:"서두르지 말고 카페에서 케이크나 빙수처럼 달달한 디저트를 천천히 즐기며 생각을 비워보세요."},
+     place:{icon:"🖼️",title:"미술관 또는 전시관",desc:"익숙한 것과 다른 관점을 보여주는 미술관이나 사진전을 방문해 보세요. 낯선 작품이 새로운 시각을 열어줍니다."},
+     activity:{icon:"🎬",title:"다큐멘터리 또는 TED 시청",desc:"평소와 다른 주제의 다큐나 강연을 보면서 세상을 보는 시각을 넓혀보세요."}},
     {num:"ⅩⅢ",name:"죽음 DEATH",emoji:"🌑",keywords:["끝과 시작","변화","해방"],
      desc:"낡은 것의 끝과 새로운 시작을 알리는 카드입니다. 지금의 변화를 받아들이면 더 나은 상황으로 나아갈 수 있습니다.",
-     advice:"놓아야 할 것을 붙잡고 있진 않은지 돌아보세요."},
+     advice:"놓아야 할 것을 붙잡고 있진 않은지 돌아보세요.",
+     menu:{icon:"🍛",title:"새로운 퓨전 요리",desc:"기존의 조합을 깨는 퓨전 레스토랑이나 창의적인 메뉴를 시도해 보세요. 변화는 맛에서도 시작됩니다."},
+     place:{icon:"🗑️",title:"중고 서점 또는 벼룩시장",desc:"오래된 물건을 팔거나 기부하고, 새로운 것을 저렴하게 찾아보세요. 비워야 채울 수 있습니다."},
+     activity:{icon:"🧹",title:"공간 정리 및 미니멀라이프",desc:"방이나 책상, 앱과 파일을 정리해 오래된 것을 비워보세요. 물리적 공간이 정리되면 마음도 가벼워집니다."}},
     {num:"ⅩⅣ",name:"절제 TEMPERANCE",emoji:"🌊",keywords:["균형","조화","인내"],
      desc:"조급함 없이 균형을 유지하는 것이 중요한 날입니다. 극단으로 치우치지 않고 차분하게 나아가면 좋은 결과가 옵니다.",
-     advice:"오늘은 무리하지 말고 페이스를 유지하며 꾸준히 나아가세요."},
+     advice:"오늘은 무리하지 말고 페이스를 유지하며 꾸준히 나아가세요.",
+     menu:{icon:"🥙",title:"가볍고 균형 잡힌 한 끼",desc:"과식보다 적당량의 균형 잡힌 식사가 오늘의 에너지를 안정적으로 유지시켜 줍니다. 샌드위치나 죽도 좋습니다."},
+     place:{icon:"🏞️",title:"강변 또는 호수 산책로",desc:"물 흐르는 강변이나 조용한 호수 둘레길을 천천히 걸어보세요. 자연의 흐름이 마음을 차분하게 만들어 줍니다."},
+     activity:{icon:"🧩",title:"퍼즐 또는 스도쿠",desc:"급하지 않게 차근차근 풀어가는 퍼즐이나 스도쿠가 오늘의 절제 에너지와 잘 맞습니다."}},
     {num:"ⅩⅤ",name:"악마 THE DEVIL",emoji:"⛓️",keywords:["집착","속박","욕망"],
      desc:"무언가에 지나치게 얽매여 있지 않은지 점검할 때입니다. 두려움이나 욕망이 합리적 판단을 가리고 있을 수 있습니다.",
-     advice:"내가 통제하는 것인지, 통제당하는 것인지 한 번 살펴보세요."},
+     advice:"내가 통제하는 것인지, 통제당하는 것인지 한 번 살펴보세요.",
+     menu:{icon:"🍔",title:"먹고 싶던 것 한 번쯤은",desc:"오늘만큼은 참아왔던 버거나 치킨 등 평소 자제하던 음식을 즐겨도 좋습니다. 욕망을 건강하게 해소하세요."},
+     place:{icon:"🚶",title:"스마트폰 없이 걷기",desc:"잠시 스마트폰을 주머니에 넣고 동네를 아무 방향 없이 걸어보세요. 디지털 속박에서 잠시 벗어나는 것만으로도 효과적입니다."},
+     activity:{icon:"📵",title:"SNS·앱 1시간 디톡스",desc:"오늘 한 시간만 SNS와 알림을 끄고 스스로 선택한 활동에 집중해 보세요. 작은 해방이 큰 차이를 만듭니다."}},
     {num:"ⅩⅥ",name:"탑 THE TOWER",emoji:"⚡",keywords:["급변","혼란","해방"],
      desc:"갑작스러운 변화나 충격이 있을 수 있는 날입니다. 하지만 무너지는 것은 사실 불필요한 것일 수 있습니다.",
-     advice:"예상치 못한 일이 생겨도 당황하지 말고 중심을 잡으세요."},
+     advice:"예상치 못한 일이 생겨도 당황하지 말고 중심을 잡으세요.",
+     menu:{icon:"⚡",title:"빠르고 간편한 식사",desc:"오늘은 식사에 시간을 쏟기보다 편의점 도시락이나 간편식으로 빠르게 해결하고 에너지를 중요한 곳에 아끼세요."},
+     place:{icon:"🌆",title:"높은 곳에서 전망 보기",desc:"건물 옥상, 전망대, 언덕 등 높은 곳에 올라 시야를 넓혀보세요. 큰 그림을 보면 지금의 혼란이 작아 보입니다."},
+     activity:{icon:"🆘",title:"비상 플랜 미리 세우기",desc:"걱정되는 상황의 플랜 B를 간단히 메모해 두세요. 대비책이 있으면 흔들려도 중심을 잡기 쉽습니다."}},
     {num:"ⅩⅦ",name:"별 THE STAR",emoji:"⭐",keywords:["희망","치유","영감"],
      desc:"어둠 뒤에 찾아오는 희망과 치유의 에너지가 충만합니다. 지치고 힘들었다면 서서히 회복되는 흐름이 시작됩니다.",
-     advice:"오늘은 스스로를 응원하고, 작은 기쁨도 소중히 여겨보세요."},
+     advice:"오늘은 스스로를 응원하고, 작은 기쁨도 소중히 여겨보세요.",
+     menu:{icon:"🌟",title:"좋아하는 음식으로 자기 보상",desc:"오늘은 스스로에게 보상하는 날입니다. 가장 좋아하는 음식을 맛있게 즐기며 자신을 위로해 주세요."},
+     place:{icon:"🌙",title:"야경 명소 또는 별 보는 곳",desc:"밤하늘을 볼 수 있는 곳이나 야경이 아름다운 장소에 가보세요. 빛나는 풍경이 희망을 떠올리게 합니다."},
+     activity:{icon:"💆",title:"나를 위한 힐링 타임",desc:"좋아하는 음악 틀기, 따뜻한 목욕, 향초 켜기 등 자신을 위한 작은 의식을 만들어 보세요."}},
     {num:"ⅩⅧ",name:"달 THE MOON",emoji:"🌕",keywords:["불안","환상","무의식"],
      desc:"혼란스럽거나 불명확한 감정이 올라올 수 있는 날입니다. 보이는 것만이 전부가 아닐 수 있으니 판단을 늦춰보세요.",
-     advice:"직관을 믿되, 섣부른 결론은 피하고 상황을 좀 더 지켜보세요."},
+     advice:"직관을 믿되, 섣부른 결론은 피하고 상황을 좀 더 지켜보세요.",
+     menu:{icon:"🥛",title:"따뜻한 우유 또는 라떼",desc:"불안한 마음을 달래주는 따뜻한 우유나 바닐라 라떼가 오늘의 기분을 부드럽게 감싸줍니다."},
+     place:{icon:"🌊",title:"야간 산책 — 달 아래 걷기",desc:"밤에 조용한 공원이나 한강변을 달빛 아래 천천히 걸어보세요. 혼자 있어도 외롭지 않은 시간이 됩니다."},
+     activity:{icon:"🌀",title:"꿈 일기 쓰기",desc:"어젯밤 꿈이나 요즘 자주 드는 감정을 기록해 보세요. 무의식 속 신호를 잡아내는 데 도움이 됩니다."}},
     {num:"ⅩⅨ",name:"태양 THE SUN",emoji:"☀️",keywords:["기쁨","활력","성공"],
      desc:"밝고 긍정적인 에너지로 가득한 날입니다. 자신감을 갖고 당당하게 나아가면 좋은 결과가 따라올 것입니다.",
-     advice:"오늘은 밖에 나가거나 좋아하는 사람과 시간을 보내보세요."},
+     advice:"오늘은 밖에 나가거나 좋아하는 사람과 시간을 보내보세요.",
+     menu:{icon:"🍦",title:"밝고 달콤한 디저트",desc:"선명한 색의 빙수, 아이스크림, 과일 타르트 등 보기만 해도 기분 좋아지는 디저트로 오늘을 더 빛내보세요."},
+     place:{icon:"☀️",title:"야외 테라스 카페 또는 공원",desc:"햇살이 잘 드는 야외에서 시간을 보내보세요. 태양 에너지를 직접 받는 것이 오늘의 긍정 에너지를 배가시킵니다."},
+     activity:{icon:"📸",title:"사진 찍기 또는 브이로그",desc:"오늘처럼 좋은 날은 기록해 두세요. 산책하며 마음에 드는 장면을 사진으로 남겨보세요."}},
     {num:"ⅩⅩ",name:"심판 JUDGEMENT",emoji:"🎺",keywords:["각성","변화","부활"],
      desc:"과거를 돌아보고 새로운 결단을 내리기에 좋은 날입니다. 과감한 결정이 삶에 새로운 전환점을 만들어 줄 것입니다.",
-     advice:"미루어 왔던 중요한 결정을 오늘 마주해 보세요."},
+     advice:"미루어 왔던 중요한 결정을 오늘 마주해 보세요.",
+     menu:{icon:"🍽️",title:"특별한 날을 위한 레스토랑",desc:"평소 가기 망설였던 분위기 좋은 레스토랑에 가보세요. 스스로를 위한 특별한 식사가 결단의 기운을 북돋습니다."},
+     place:{icon:"🎙️",title:"강연장 또는 세미나",desc:"관심 있는 분야의 강연이나 토크 행사에 참석해 보세요. 새로운 자극이 중요한 결정의 계기가 될 수 있습니다."},
+     activity:{icon:"📣",title:"오래 미뤄온 연락 또는 신청",desc:"망설여온 지원서 제출, 연락, 신청을 오늘 실행에 옮겨보세요. 완벽한 때는 없습니다, 지금이 바로 그때입니다."}},
     {num:"ⅩⅪ",name:"세계 THE WORLD",emoji:"🌍",keywords:["완성","성취","통합"],
      desc:"오랜 노력이 결실을 맺는 에너지가 흐르는 날입니다. 현재의 상황에 감사하며 다음 사이클을 준비할 때입니다.",
-     advice:"지금까지의 여정을 축하하고, 새로운 목표를 설정해 보세요."}
+     advice:"지금까지의 여정을 축하하고, 새로운 목표를 설정해 보세요.",
+     menu:{icon:"🌍",title:"세계 각국 음식 도전",desc:"오늘은 평소 잘 모르던 나라의 음식을 찾아 먹어보세요. 멕시코, 인도, 터키 음식 등 세계의 맛이 기다립니다."},
+     place:{icon:"✈️",title:"공항 또는 기차역 근처 산책",desc:"여행의 설렘을 느낄 수 있는 공항 주변이나 큰 역 근처를 걸어보세요. 다음 여행지를 구체적으로 계획해봐도 좋습니다."},
+     activity:{icon:"🗺️",title:"다음 목표 지도에 그리기",desc:"이루어진 것에 감사하며 다음 목표를 지도나 비전보드에 시각화해 보세요. 완성은 또 다른 시작입니다."}}
   ];
 
   // ── 날짜 포맷 ──
@@ -388,6 +461,28 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
       '<p class="result-advice">💡 '+card.advice+'</p>';
     btn.disabled = true;
     btn.textContent = '✅ 오늘의 카드가 공개되었습니다';
+
+    // ── 오른쪽 조언 패널 렌더링 ──
+    var adviceEl = document.getElementById('tarotAdvice');
+    if(adviceEl){
+      adviceEl.innerHTML =
+        '<h3 style="font-size:15px;font-weight:800;color:#28204a;margin:0 0 14px">'+card.emoji+' 오늘의 조언</h3>'+
+        '<div class="advice-item">'+
+          '<div class="advice-icon">'+card.menu.icon+'</div>'+
+          '<div><h4>🍽 오늘 추천 메뉴 — '+card.menu.title+'</h4>'+
+          '<p>'+card.menu.desc+'</p></div>'+
+        '</div>'+
+        '<div class="advice-item">'+
+          '<div class="advice-icon">'+card.place.icon+'</div>'+
+          '<div><h4>📍 방문하면 좋은 장소 — '+card.place.title+'</h4>'+
+          '<p>'+card.place.desc+'</p></div>'+
+        '</div>'+
+        '<div class="advice-item">'+
+          '<div class="advice-icon">'+card.activity.icon+'</div>'+
+          '<div><h4>✨ 오늘의 추천 활동 — '+card.activity.title+'</h4>'+
+          '<p>'+card.activity.desc+'</p></div>'+
+        '</div>';
+    }
   }
 
   // ── 뽑기: 클릭 시 Math.random()으로 결정 후 저장 ──
