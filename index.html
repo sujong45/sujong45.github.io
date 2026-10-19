@@ -48,7 +48,7 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
 .tarot-face .card-emoji{font-size:52px;line-height:1}
 .tarot-face .card-name{font-size:13px;font-weight:800;color:#4a2d8a;margin-top:8px;letter-spacing:.5px}
 .tarot-face .card-num{font-size:11px;color:#a080c8}
-.tarot-btn{background:linear-gradient(110deg,#7252da,#b76fd4);color:#fff;border:none;border-radius:999px;padding:10px 22px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px #7252da33;transition:opacity .2s,transform .2s}
+.tarot-btn{background:linear-gradient(110deg,#7252da,#b76fd4);color:#fff;border:none;border-radius:999px;padding:10px 18px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px #7252da33;transition:opacity .2s,transform .2s;white-space:nowrap}
 .tarot-btn:hover{opacity:.88;transform:translateY(-2px)}
 .tarot-btn:disabled{opacity:.5;cursor:default;transform:none}
 .tarot-result{background:#fff;border:1px solid #e2d9ff;border-radius:20px;padding:22px 24px;box-shadow:0 8px 22px #5a3dac10;min-height:160px;display:flex;flex-direction:column;justify-content:center}
@@ -65,9 +65,11 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
 .advice-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #ede6ff}
 .advice-item:last-child{border-bottom:none;padding-bottom:0}
 .advice-icon{font-size:22px;line-height:1;flex-shrink:0;margin-top:2px}
-.advice-item h4{font-size:13px;font-weight:800;color:#5a3dac;margin:0 0 3px}
+.advice-item h4{font-size:12px;font-weight:800;color:#5a3dac;margin:0 0 3px;line-height:1.4}
+.advice-item h4 .advice-sub{display:block;font-size:11px;font-weight:600;color:#7a60c0;margin-top:1px}
 .advice-item p{font-size:13px;color:#4b5370;margin:0;line-height:1.6}
 @media(max-width:680px){#tarot .tarot-wrapper{grid-template-columns:1fr}.tarot-card-area{flex-direction:row;flex-wrap:wrap;justify-content:center}.tarot-card{width:130px;height:210px}}
+@media(max-width:860px){.card{padding:18px}.advice-item p{font-size:12px}}
 </style>
 </head>
 <body>
@@ -466,17 +468,17 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
         '<h3 style="font-size:15px;font-weight:800;color:#28204a;margin:0 0 14px">'+card.emoji+' 오늘의 조언</h3>'+
         '<div class="advice-item">'+
           '<div class="advice-icon">'+card.menu.icon+'</div>'+
-          '<div><h4>🍽 오늘 추천 메뉴 — '+card.menu.title+'</h4>'+
+          '<div><h4>🍽 오늘 추천 메뉴<span class="advice-sub">'+card.menu.title+'</span></h4>'+
           '<p>'+card.menu.desc+'</p></div>'+
         '</div>'+
         '<div class="advice-item">'+
           '<div class="advice-icon">'+card.place.icon+'</div>'+
-          '<div><h4>📍 방문하면 좋은 장소 — '+card.place.title+'</h4>'+
+          '<div><h4>📍 방문하면 좋은 장소<span class="advice-sub">'+card.place.title+'</span></h4>'+
           '<p>'+card.place.desc+'</p></div>'+
         '</div>'+
         '<div class="advice-item">'+
           '<div class="advice-icon">'+card.activity.icon+'</div>'+
-          '<div><h4>✨ 오늘의 추천 활동 — '+card.activity.title+'</h4>'+
+          '<div><h4>✨ 오늘의 추천 활동<span class="advice-sub">'+card.activity.title+'</span></h4>'+
           '<p>'+card.activity.desc+'</p></div>'+
         '</div>';
     }
