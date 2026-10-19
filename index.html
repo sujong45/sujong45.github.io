@@ -33,6 +33,35 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
 @media(max-width:860px){.hero{grid-template-columns:1fr}.profile{min-height:210px}.grid{grid-template-columns:1fr}.wide{grid-column:span 1}}
 @media(max-width:620px){header{align-items:flex-start;flex-direction:column;padding-bottom:30px}.hero h1{letter-spacing:-2px}.media-card,.music-tile{grid-template-columns:1fr}.media-card img{width:100%;max-width:180px;height:auto;aspect-ratio:1/1}.media-card.bookmark-photo{grid-template-columns:1fr}.media-card.bookmark-photo img{width:100%;max-width:240px;aspect-ratio:3/4}.music-thumb{max-width:220px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,nav a{transition:none}}
+
+/* ── 타로 섹션 ── */
+#tarot .tarot-wrapper{display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:start}
+.tarot-card-area{display:flex;flex-direction:column;align-items:center;gap:14px}
+.tarot-card{width:160px;height:260px;border-radius:18px;cursor:pointer;perspective:800px;position:relative}
+.tarot-card-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.4,0,.2,1)}
+.tarot-card.flipped .tarot-card-inner{transform:rotateY(180deg)}
+.tarot-face,.tarot-back{position:absolute;inset:0;border-radius:18px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.tarot-back{background:linear-gradient(135deg,#2d1b69 0%,#6b3fa0 50%,#c45c8e 100%);border:3px solid #9b72e7;box-shadow:0 12px 32px #6b3fa040;color:#fff;font-size:42px}
+.tarot-back::after{content:'✦';position:absolute;font-size:110px;color:#ffffff10}
+.tarot-back-label{font-size:11px;font-weight:700;letter-spacing:2px;color:#e8c9ff;margin-top:4px}
+.tarot-face{background:linear-gradient(160deg,#fff8f0 0%,#fdedf5 100%);border:3px solid #ddd0fa;box-shadow:0 12px 32px #9b72e730;transform:rotateY(180deg);padding:16px;text-align:center}
+.tarot-face .card-emoji{font-size:52px;line-height:1}
+.tarot-face .card-name{font-size:13px;font-weight:800;color:#4a2d8a;margin-top:8px;letter-spacing:.5px}
+.tarot-face .card-num{font-size:11px;color:#a080c8}
+.tarot-btn{background:linear-gradient(110deg,#7252da,#b76fd4);color:#fff;border:none;border-radius:999px;padding:10px 22px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px #7252da33;transition:opacity .2s,transform .2s}
+.tarot-btn:hover{opacity:.88;transform:translateY(-2px)}
+.tarot-btn:disabled{opacity:.5;cursor:default;transform:none}
+.tarot-result{background:#fff;border:1px solid #e2d9ff;border-radius:20px;padding:22px 24px;box-shadow:0 8px 22px #5a3dac10;min-height:160px;display:flex;flex-direction:column;justify-content:center}
+.tarot-result .result-label{font-size:11px;font-weight:700;letter-spacing:2px;color:#8b6ad0;margin-bottom:10px}
+.tarot-result .result-title{font-size:20px;font-weight:800;color:#28204a;margin:0 0 8px}
+.tarot-result .result-keyword{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.tarot-result .result-keyword span{background:#ede7ff;color:#5a3dac;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}
+.tarot-result .result-desc{font-size:14px;line-height:1.8;color:#4b5370;margin:0}
+.tarot-result .result-advice{margin-top:12px;font-size:13px;color:#7a5bb5;font-style:italic;border-left:3px solid #c4b0f0;padding-left:10px}
+.tarot-date{font-size:11px;color:#9098b0;margin-top:14px;text-align:center}
+.tarot-pending{color:#a090c0;font-size:15px;text-align:center;padding:20px 0}
+#tarot-section-card{border-top:5px solid #9b72e7;background:linear-gradient(160deg,#f8f4ff 0%,#fff9fe 100%)!important;border-color:#ddd0fa!important}
+@media(max-width:680px){#tarot .tarot-wrapper{grid-template-columns:1fr}.tarot-card-area{flex-direction:row;flex-wrap:wrap;justify-content:center}.tarot-card{width:130px;height:210px}}
 </style>
 </head>
 <body>
@@ -40,6 +69,7 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
 <header>
   <a class="logo" href="/">MY<span>SPACE.</span></a>
   <nav>
+    <a href="#tarot">오늘의 운세</a>
     <a href="#news">소식</a>
     <a href="#activity">최근 활동</a>
     <a href="#interests">관심사</a>
@@ -70,6 +100,42 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
       </div>
     </aside>
   </div>
+
+  <section id="tarot">
+    <div class="section-head"><h2>🔮 타로로 보는 오늘의 운세</h2><small>Daily Tarot · <span id="tarot-today-date"></span></small></div>
+    <div class="grid">
+      <article class="card wide" id="tarot-section-card">
+        <div class="meta">TODAY'S TAROT READING</div>
+        <div class="tarot-wrapper">
+          <div class="tarot-card-area">
+            <div class="tarot-card" id="tarotCard" role="button" aria-label="타로 카드. 클릭하면 오늘의 카드가 공개됩니다." tabindex="0">
+              <div class="tarot-card-inner">
+                <div class="tarot-back">
+                  🌙
+                  <div class="tarot-back-label">TAROT</div>
+                </div>
+                <div class="tarot-face" id="tarotFace">
+                  <div class="card-emoji" id="tarotEmoji"></div>
+                  <div class="card-name" id="tarotName"></div>
+                  <div class="card-num" id="tarotNum"></div>
+                </div>
+              </div>
+            </div>
+            <button class="tarot-btn" id="tarotBtn" type="button">✨ 오늘의 카드 뽑기</button>
+            <div class="tarot-date" id="tarotDateLabel"></div>
+          </div>
+          <div class="tarot-result" id="tarotResult">
+            <div class="tarot-pending">버튼을 눌러 오늘의 타로 카드를 확인해 보세요 🌟</div>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="meta">ABOUT TAROT</div>
+        <h3>🃏 메이저 아르카나</h3>
+        <p>총 22장의 메이저 아르카나 카드 중 하루 한 장이 날짜 기반으로 선정됩니다. 오늘 하루의 방향과 에너지를 가볍게 참고해 보세요.</p>
+      </article>
+    </div>
+  </section>
 
   <section id="news">
     <div class="section-head"><h2>📣 나의 소식</h2><small>What's new?</small></div>
@@ -193,11 +259,135 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
       <label class="todo"><input type="checkbox" checked disabled> GitHub Pages 배포 및 루트 주소 접속 확인</label>
       <label class="todo"><input type="checkbox" checked disabled> 밝은 컬러 테마 및 가독성 개선</label>
       <label class="todo"><input type="checkbox"> 활동/취향을 더 쉽게 수정할 수 있는 데이터 구조 추가</label>
+      <label class="todo"><input type="checkbox" checked disabled> 타로 일일 운세 섹션 추가</label>
       <p class="note">체크박스는 진행 현황 표시용입니다. 다음 Sprint에서 index.html과 assets를 함께 수정해 계속 발전시킬 수 있습니다.</p>
     </div>
   </section>
 </main>
-<footer><span>© 2026 배수종. Made with curiosity.</span><span>Powered by GitHub Pages · v1.6</span></footer>
+<footer><span>© 2026 배수종. Made with curiosity.</span><span>Powered by GitHub Pages · v1.7</span></footer>
 </div>
+<script>
+(function(){
+  // ── 메이저 아르카나 22장 데이터 ──
+  var CARDS = [
+    {num:"0",name:"광대 THE FOOL",emoji:"🤡",keywords:["새 출발","자유","모험"],
+     desc:"새로운 여정의 시작을 알립니다. 두려움 없이 앞으로 나아갈 준비가 되어 있는 날입니다. 직관과 설렘을 믿고 첫걸음을 내디뎌 보세요.",
+     advice:"오늘은 지나친 계산보다 마음이 이끄는 방향을 따르세요."},
+    {num:"Ⅰ",name:"마법사 THE MAGICIAN",emoji:"🪄",keywords:["의지","능력","집중"],
+     desc:"당신 안에 필요한 도구가 모두 갖춰져 있습니다. 아이디어를 현실로 옮길 수 있는 에너지가 충만한 하루입니다.",
+     advice:"머릿속에 있는 계획을 구체적인 행동으로 옮겨보세요."},
+    {num:"Ⅱ",name:"여사제 THE HIGH PRIESTESS",emoji:"🌙",keywords:["직관","내면","신비"],
+     desc:"겉으로 드러나지 않는 진실에 주목하세요. 논리보다 직관이 더 정확한 답을 줄 수 있는 날입니다.",
+     advice:"조용히 내면의 목소리에 귀 기울이는 시간을 가져보세요."},
+    {num:"Ⅲ",name:"여황제 THE EMPRESS",emoji:"🌸",keywords:["풍요","창조","돌봄"],
+     desc:"창의적인 에너지와 풍요로움이 가득한 날입니다. 나 자신과 주변을 따뜻하게 돌보는 것이 좋은 결과를 불러옵니다.",
+     advice:"오늘은 창작 활동이나 소중한 사람에게 마음을 표현해 보세요."},
+    {num:"Ⅳ",name:"황제 THE EMPEROR",emoji:"👑",keywords:["질서","리더십","안정"],
+     desc:"체계적이고 안정된 기반을 다지는 날입니다. 책임감을 갖고 주도적으로 상황을 이끌 때 좋은 성과가 따릅니다.",
+     advice:"흐트러진 일상의 루틴을 점검하고 구조를 잡아보세요."},
+    {num:"Ⅴ",name:"교황 THE HIEROPHANT",emoji:"⛪",keywords:["전통","믿음","가르침"],
+     desc:"검증된 방법과 지혜에서 배울 점을 찾는 날입니다. 신뢰할 수 있는 사람의 조언에 귀 기울여 보세요.",
+     advice:"혼자 판단하기 어렵다면 경험 많은 사람에게 조언을 구해보세요."},
+    {num:"Ⅵ",name:"연인 THE LOVERS",emoji:"💞",keywords:["선택","관계","조화"],
+     desc:"중요한 선택이나 관계에서 진심에 기반한 결정이 필요한 날입니다. 마음이 이끄는 쪽을 믿어보세요.",
+     advice:"가치관에 따른 선택을 하되, 서로를 존중하는 것을 잊지 마세요."},
+    {num:"Ⅶ",name:"전차 THE CHARIOT",emoji:"🏆",keywords:["의지","전진","승리"],
+     desc:"강한 의지와 결단력이 빛을 발하는 날입니다. 방해물이 있더라도 앞으로 나아가면 반드시 길이 열립니다.",
+     advice:"집중력을 잃지 말고 목표를 향해 꾸준히 전진하세요."},
+    {num:"Ⅷ",name:"힘 STRENGTH",emoji:"🦁",keywords:["용기","인내","내면의 힘"],
+     desc:"외적인 힘보다 내면의 용기와 인내가 중요한 날입니다. 감정을 조절하며 부드럽게 상황을 이끌어 보세요.",
+     advice:"강압보다 이해와 공감으로 주변 상황을 다루어 보세요."},
+    {num:"Ⅸ",name:"은둔자 THE HERMIT",emoji:"🔦",keywords:["성찰","고독","지혜"],
+     desc:"혼자만의 시간을 통해 내면을 들여다보는 것이 도움이 됩니다. 서두르지 말고 스스로를 돌아보는 하루를 보내세요.",
+     advice:"조용한 환경에서 자신의 방향과 가치를 점검해 보세요."},
+    {num:"Ⅹ",name:"운명의 수레바퀴 WHEEL OF FORTUNE",emoji:"🎡",keywords:["변화","순환","기회"],
+     desc:"변화와 전환의 흐름 속에 있는 날입니다. 좋은 기회가 찾아오거나 상황이 호전될 징조가 보입니다.",
+     advice:"변화를 두려워하지 말고, 흐름을 자연스럽게 받아들이세요."},
+    {num:"Ⅺ",name:"정의 JUSTICE",emoji:"⚖️",keywords:["공정","균형","진실"],
+     desc:"공정하고 균형 잡힌 판단이 요구되는 날입니다. 감정보다는 사실과 원칙에 근거한 결정을 내리세요.",
+     advice:"어떤 결정이든 진실에 기반하면 후회하지 않을 수 있어요."},
+    {num:"Ⅻ",name:"매달린 남자 THE HANGED MAN",emoji:"🙃",keywords:["관점 전환","기다림","수용"],
+     desc:"다른 각도에서 상황을 바라볼 때입니다. 억지로 서두르지 말고 잠시 멈추어 새로운 관점을 얻어보세요.",
+     advice:"모든 것을 내려놓고 기다리는 것이 최선일 수도 있습니다."},
+    {num:"ⅩⅢ",name:"죽음 DEATH",emoji:"🌑",keywords:["끝과 시작","변화","해방"],
+     desc:"낡은 것의 끝과 새로운 시작을 알리는 카드입니다. 지금의 변화를 받아들이면 더 나은 상황으로 나아갈 수 있습니다.",
+     advice:"놓아야 할 것을 붙잡고 있진 않은지 돌아보세요."},
+    {num:"ⅩⅣ",name:"절제 TEMPERANCE",emoji:"🌊",keywords:["균형","조화","인내"],
+     desc:"조급함 없이 균형을 유지하는 것이 중요한 날입니다. 극단으로 치우치지 않고 차분하게 나아가면 좋은 결과가 옵니다.",
+     advice:"오늘은 무리하지 말고 페이스를 유지하며 꾸준히 나아가세요."},
+    {num:"ⅩⅤ",name:"악마 THE DEVIL",emoji:"⛓️",keywords:["집착","속박","욕망"],
+     desc:"무언가에 지나치게 얽매여 있지 않은지 점검할 때입니다. 두려움이나 욕망이 합리적 판단을 가리고 있을 수 있습니다.",
+     advice:"내가 통제하는 것인지, 통제당하는 것인지 한 번 살펴보세요."},
+    {num:"ⅩⅥ",name:"탑 THE TOWER",emoji:"⚡",keywords:["급변","혼란","해방"],
+     desc:"갑작스러운 변화나 충격이 있을 수 있는 날입니다. 하지만 무너지는 것은 사실 불필요한 것일 수 있습니다.",
+     advice:"예상치 못한 일이 생겨도 당황하지 말고 중심을 잡으세요."},
+    {num:"ⅩⅦ",name:"별 THE STAR",emoji:"⭐",keywords:["희망","치유","영감"],
+     desc:"어둠 뒤에 찾아오는 희망과 치유의 에너지가 충만합니다. 지치고 힘들었다면 서서히 회복되는 흐름이 시작됩니다.",
+     advice:"오늘은 스스로를 응원하고, 작은 기쁨도 소중히 여겨보세요."},
+    {num:"ⅩⅧ",name:"달 THE MOON",emoji:"🌕",keywords:["불안","환상","무의식"],
+     desc:"혼란스럽거나 불명확한 감정이 올라올 수 있는 날입니다. 보이는 것만이 전부가 아닐 수 있으니 판단을 늦춰보세요.",
+     advice:"직관을 믿되, 섣부른 결론은 피하고 상황을 좀 더 지켜보세요."},
+    {num:"ⅩⅨ",name:"태양 THE SUN",emoji:"☀️",keywords:["기쁨","활력","성공"],
+     desc:"밝고 긍정적인 에너지로 가득한 날입니다. 자신감을 갖고 당당하게 나아가면 좋은 결과가 따라올 것입니다.",
+     advice:"오늘은 밖에 나가거나 좋아하는 사람과 시간을 보내보세요."},
+    {num:"ⅩⅩ",name:"심판 JUDGEMENT",emoji:"🎺",keywords:["각성","변화","부활"],
+     desc:"과거를 돌아보고 새로운 결단을 내리기에 좋은 날입니다. 과감한 결정이 삶에 새로운 전환점을 만들어 줄 것입니다.",
+     advice:"미루어 왔던 중요한 결정을 오늘 마주해 보세요."},
+    {num:"ⅩⅪ",name:"세계 THE WORLD",emoji:"🌍",keywords:["완성","성취","통합"],
+     desc:"오랜 노력이 결실을 맺는 에너지가 흐르는 날입니다. 현재의 상황에 감사하며 다음 사이클을 준비할 때입니다.",
+     advice:"지금까지의 여정을 축하하고, 새로운 목표를 설정해 보세요."}
+  ];
+
+  // ── 날짜 기반 카드 선택 (같은 날은 같은 카드) ──
+  function getTodayCard(){
+    var d = new Date();
+    var seed = d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate();
+    return CARDS[seed % CARDS.length];
+  }
+
+  function formatDate(d){
+    return d.getFullYear()+'년 '+(d.getMonth()+1)+'월 '+d.getDate()+'일';
+  }
+
+  // ── DOM 조작 ──
+  var today = new Date();
+  var dateStr = formatDate(today);
+  document.getElementById('tarot-today-date').textContent = dateStr;
+  document.getElementById('tarotDateLabel').textContent = dateStr+' 기준';
+
+  var card = getTodayCard();
+  var btn = document.getElementById('tarotBtn');
+  var cardEl = document.getElementById('tarotCard');
+  var resultEl = document.getElementById('tarotResult');
+  var revealed = false;
+
+  function reveal(){
+    if(revealed) return;
+    revealed = true;
+    // 카드 채우기
+    document.getElementById('tarotEmoji').textContent = card.emoji;
+    document.getElementById('tarotName').textContent = card.name;
+    document.getElementById('tarotNum').textContent = card.num;
+    // 플립
+    cardEl.classList.add('flipped');
+    // 결과 표시
+    var kwHtml = card.keywords.map(function(k){return '<span>'+k+'</span>';}).join('');
+    resultEl.innerHTML =
+      '<div class="result-label">TODAY\'S CARD · '+dateStr+'</div>'+
+      '<div class="result-title">'+card.emoji+' '+card.name+'</div>'+
+      '<div class="result-keyword">'+kwHtml+'</div>'+
+      '<p class="result-desc">'+card.desc+'</p>'+
+      '<p class="result-advice">💡 '+card.advice+'</p>';
+    btn.disabled = true;
+    btn.textContent = '✅ 오늘의 카드가 공개되었습니다';
+  }
+
+  btn.addEventListener('click', reveal);
+  cardEl.addEventListener('click', reveal);
+  cardEl.addEventListener('keydown', function(e){
+    if(e.key==='Enter'||e.key===' '){ e.preventDefault(); reveal(); }
+  });
+})();
+</script>
 </body>
 </html>
