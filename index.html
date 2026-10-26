@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#1a1400">
+<meta name="theme-color" content="#2e2400">
 <title>배수종 | Personal Homepage</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,9 +14,9 @@
    Colors: Yellow #f0c040 / Black #1a1400 / Earth tones
 ══════════════════════════════════════ */
 :root{
-  --bg:       #1a1400;
-  --bg2:      #221b00;
-  --surface:  #2a2000;
+  --bg:       #2e2400;
+  --bg2:      #382d00;
+  --surface:  #443600;
   --yellow:   #f0c040;
   --yellow2:  #ffe082;
   --yellow3:  #ffd740;
@@ -40,10 +40,10 @@ html{scroll-behavior:smooth}
 body{
   margin:0;
   background:
-    radial-gradient(ellipse at 15% 0%,   #2e2000 0%,transparent 45%),
-    radial-gradient(ellipse at 85% 8%,   #1a1000 0%,transparent 40%),
-    radial-gradient(ellipse at 50% 100%, #2a1800 0%,transparent 50%),
-    linear-gradient(180deg,#1a1400 0%,#221a00 100%);
+    radial-gradient(ellipse at 15% 0%,   #4a3800 0%,transparent 45%),
+    radial-gradient(ellipse at 85% 8%,   #342800 0%,transparent 40%),
+    radial-gradient(ellipse at 50% 100%, #3e3000 0%,transparent 50%),
+    linear-gradient(180deg,#2e2400 0%,#382c00 100%);
   min-height:100vh;
 }
 
@@ -147,7 +147,7 @@ nav a:hover,nav a:focus-visible{
 
 /* 프로필 카드 */
 .profile{
-  background:linear-gradient(135deg,#2a1e00 0%,#1a1200 50%,#3d2b00 100%);
+  background:linear-gradient(135deg,#3e3000 0%,#2e2400 50%,#4a3800 100%);
   border:2px solid var(--yellow);
   border-radius:8px;padding:30px;
   display:flex;flex-direction:column;justify-content:space-between;
@@ -190,7 +190,7 @@ section{margin-top:42px;scroll-margin-top:20px}
 /* ── 카드 ── */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
 .card{
-  background:linear-gradient(160deg,#2a2000 0%,#1e1800 100%);
+  background:linear-gradient(160deg,#3a2e00 0%,#2e2400 100%);
   border:1px solid var(--border);
   box-shadow:0 8px 24px #00000066;
   transition:transform .2s,box-shadow .2s,border-color .2s;
@@ -265,13 +265,13 @@ footer{
 
 /* ── 섹션별 카드 테마 ── */
 #news .card:first-child{
-  background:linear-gradient(160deg,#2e2000 0%,#1e1600 100%);
+  background:linear-gradient(160deg,#402e00 0%,#342400 100%);
 }
 #news .card:first-child::before{
   background:linear-gradient(90deg,var(--amber),var(--yellow2),var(--amber));
 }
 #activity .card:first-child{
-  background:linear-gradient(160deg,#1e2200 0%,#181a00 100%);
+  background:linear-gradient(160deg,#303400 0%,#282c00 100%);
   border-color:#5a6000aa;
 }
 #activity .card:first-child::before{
@@ -279,7 +279,7 @@ footer{
 }
 #interests .card{border-color:#f0c04033}
 #music .card:first-child{
-  background:linear-gradient(160deg,#2a1a00 0%,#1e1200 100%);
+  background:linear-gradient(160deg,#3c2c00 0%,#302000 100%);
 }
 #music .card:first-child::before{background:linear-gradient(90deg,var(--amber),var(--yellow3),var(--amber))}
 
@@ -327,7 +327,7 @@ footer{
 .tarot-card.flipped .tarot-card-inner{transform:rotateY(180deg)}
 .tarot-face,.tarot-back{position:absolute;inset:0;border-radius:10px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
 .tarot-back{
-  background:linear-gradient(135deg,#2a1e00 0%,#1a1200 50%,#3d2b00 100%);
+  background:linear-gradient(135deg,#3e3000 0%,#2e2400 50%,#4a3800 100%);
   border:2px solid var(--yellow);
   box-shadow:0 12px 32px #00000077,0 0 28px #f0c04044;
   color:var(--yellow2);font-size:42px;
@@ -357,7 +357,7 @@ footer{
 }
 .tarot-btn:disabled{opacity:.4;cursor:default}
 .tarot-result{
-  background:linear-gradient(160deg,#2a2000 0%,#1e1800 100%);
+  background:linear-gradient(160deg,#3a2e00 0%,#2e2400 100%);
   border:1px solid var(--border2);border-radius:6px;
   padding:22px 24px;box-shadow:0 8px 22px #00000055;
   min-height:160px;display:flex;flex-direction:column;justify-content:center;
