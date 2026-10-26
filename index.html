@@ -27,7 +27,19 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
 #activity .card:first-child{background:#edf8ff;border-color:#c3e6ff;border-top:5px solid #4caee7}#activity .card:last-child{background:#f2efff;border-color:#ddd4ff;border-top:5px solid #9471e4}
 #interests .card:nth-child(1){background:#f0fbf1;border-color:#cdecd1;border-top:5px solid #5ebd7b}#interests .card:nth-child(2){background:#fff7e7;border-color:#f4dfb5;border-top:5px solid #edb454}#interests .card:nth-child(3){background:#fff1f0;border-color:#f6d1ca;border-top:5px solid #f28a76}
 #music .card:first-child{background:#f6efff;border-color:#ded0fb;border-top:5px solid #9b72e7}#music .card:last-child{background:#fff0f9;border-color:#f3d0e8;border-top:5px solid #df70ad}
-#movies .card{background:#fef3ea;border-color:#f3d7be;border-top:5px solid #e88e45}
+#movies .card:first-child{background:#fef3ea;border-color:#f3d7be;border-top:5px solid #e88e45}
+#house-quiz-card{background:linear-gradient(160deg,#f5f0ff 0%,#fff8fe 100%)!important;border-color:#d4c9f7!important;border-top:5px solid #7252da!important}
+.quiz-opt{background:#fff;border:1.5px solid #d4c9f7;color:#3d2d8a;font-size:13px;font-weight:700;border-radius:10px;padding:9px 13px;cursor:pointer;text-align:left;transition:background .15s,border-color .15s}
+.quiz-opt:hover{background:#ede7ff;border-color:#9b72e7}
+.house-result{border-radius:16px;padding:16px;text-align:center;margin-top:4px}
+.house-gryffindor{background:linear-gradient(135deg,#7b0000 0%,#ae0001 60%,#eeba30 100%);color:#fff}
+.house-slytherin{background:linear-gradient(135deg,#1a472a 0%,#2a623d 60%,#aaaaaa 100%);color:#fff}
+.house-ravenclaw{background:linear-gradient(135deg,#0e1a40 0%,#222f5b 60%,#946b2d 100%);color:#fff}
+.house-hufflepuff{background:linear-gradient(135deg,#ecb939 0%,#f0c75e 60%,#372e29 100%);color:#fff}
+.house-name{font-size:22px;font-weight:900;letter-spacing:.5px;margin:8px 0 4px}
+.house-desc{font-size:12px;line-height:1.7;opacity:.92}
+.quiz-restart{margin-top:12px;background:#fff3;border:1.5px solid #ffffff66;color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:7px 16px;cursor:pointer}
+.quiz-restart:hover{background:#ffffff33}
 #restaurants .card:first-child{background:#fff7ec;border-color:#f7dfbf;border-top:5px solid #ee9f4c}#restaurants .card:last-child{background:#f0fbfa;border-color:#bde9e4;border-top:5px solid #36b4a5}
 #backlog .card{background:#fff;border-top:5px solid #7e8ae9}
 @media(max-width:860px){.hero{grid-template-columns:1fr}.profile{min-height:210px}.grid{grid-template-columns:1fr}.wide{grid-column:span 1}}
@@ -219,19 +231,28 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
     <div class="section-head"><h2>🎞️ 인생영화</h2><small>Favorite movie</small></div>
     <div class="grid">
       <article class="card wide">
-        <div class="meta">LIFE MOVIE</div>
-        <h3>마더 (봉준호 작)</h3>
+        <div class="meta">LIFE MOVIE SERIES</div>
+        <h3>해리 포터 시리즈 (Harry Potter)</h3>
         <div class="media-card">
-          <img src="assets/mother-poster.png" alt="영화 마더 포스터">
+          <img src="https://image.tmdb.org/t/p/w500/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg" alt="해리 포터와 마법사의 돌 포스터">
           <div>
-            <p>제가 인생영화로 꼽는 작품은 <strong>《마더》</strong>입니다. 봉준호 감독 특유의 분위기와 서사가 강하게 기억에 남는 영화입니다.</p>
+            <p>제가 인생영화로 꼽는 시리즈는 <strong>《해리 포터》</strong>입니다. 어린 시절부터 함께해온 이야기로, 볼 때마다 새로운 감동을 줍니다.</p>
+            <p style="margin-top:10px;color:#6852c8;font-size:13px;font-weight:700">총 8편 · 2001–2011</p>
+            <p style="margin-top:12px;color:#4e5771;font-size:14px;line-height:1.85">마법사 세계를 배경으로, 평범한 소년 해리가 볼드모트에 맞서 성장해가는 이야기. 우정, 용기, 희생이라는 주제가 시리즈 전체를 관통합니다.</p>
           </div>
         </div>
       </article>
-      <article class="card">
-        <div class="meta">WHY I LIKE IT</div>
-        <h3>오래 기억에 남는 영화</h3>
-        <p>감정선과 긴장감이 강하게 남아, 시간이 지나도 다시 떠올리게 되는 작품입니다.</p>
+
+      <!-- 기숙사 배정 설문 카드 -->
+      <article class="card" id="house-quiz-card">
+        <div class="meta">HOGWARTS SORTING HAT</div>
+        <h3>🏰 내 기숙사는 어디일까?</h3>
+        <div id="quiz-body">
+          <div id="quiz-progress" style="font-size:11px;color:#9098b0;margin-bottom:12px"></div>
+          <div id="quiz-question"></div>
+          <div id="quiz-options" style="display:flex;flex-direction:column;gap:8px;margin-top:12px"></div>
+          <div id="quiz-result" style="display:none"></div>
+        </div>
       </article>
     </div>
   </section>
@@ -275,6 +296,131 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
 <footer><span>© 2026 배수종. Made with curiosity.</span><span>Powered by GitHub Pages · v1.7</span></footer>
 </div>
 <script>
+// ── 기숙사 배정 설문 ──
+(function(){
+  var QUESTIONS = [
+    {
+      q: "어떤 가치를 가장 중요하게 생각하나요?",
+      opts: [
+        {text:"용기와 담대함",scores:{G:3,S:0,R:0,H:0}},
+        {text:"야망과 목표 달성",scores:{G:0,S:3,R:0,H:0}},
+        {text:"지혜와 탐구심",scores:{G:0,S:0,R:3,H:0}},
+        {text:"성실함과 공정함",scores:{G:0,S:0,R:0,H:3}}
+      ]
+    },
+    {
+      q: "위험한 상황에서 나는?",
+      opts: [
+        {text:"앞장서서 해결한다",scores:{G:3,S:1,R:0,H:0}},
+        {text:"전략적으로 상황을 이용한다",scores:{G:0,S:3,R:1,H:0}},
+        {text:"정보를 모아 최선책을 찾는다",scores:{G:0,S:1,R:3,H:0}},
+        {text:"팀원 모두가 안전한지 챙긴다",scores:{G:1,S:0,R:0,H:3}}
+      ]
+    },
+    {
+      q: "친구들이 나를 어떻게 표현하나요?",
+      opts: [
+        {text:"열정적이고 씩씩하다",scores:{G:3,S:0,R:0,H:1}},
+        {text:"영리하고 계산적이다",scores:{G:0,S:3,R:1,H:0}},
+        {text:"호기심이 많고 창의적이다",scores:{G:0,S:0,R:3,H:1}},
+        {text:"따뜻하고 믿음직하다",scores:{G:1,S:0,R:0,H:3}}
+      ]
+    },
+    {
+      q: "방과 후 가장 하고 싶은 일은?",
+      opts: [
+        {text:"퀴디치 연습 또는 모험",scores:{G:3,S:0,R:0,H:1}},
+        {text:"인맥 관리와 목표 세우기",scores:{G:0,S:3,R:0,H:0}},
+        {text:"도서관에서 새로운 지식 탐구",scores:{G:0,S:1,R:3,H:0}},
+        {text:"친구들과 여유롭게 어울리기",scores:{G:1,S:0,R:0,H:3}}
+      ]
+    },
+    {
+      q: "나에게 성공이란?",
+      opts: [
+        {text:"두려움을 극복하고 해낸 것",scores:{G:3,S:0,R:0,H:1}},
+        {text:"원하는 목표를 반드시 이루는 것",scores:{G:0,S:3,R:1,H:0}},
+        {text:"끊임없이 배우고 성장하는 것",scores:{G:0,S:0,R:3,H:1}},
+        {text:"주변 사람들과 함께 행복한 것",scores:{G:1,S:0,R:0,H:3}}
+      ]
+    }
+  ];
+
+  var HOUSES = {
+    G: {
+      name:"그리핀도르 Gryffindor", emoji:"🦁",
+      cls:"house-gryffindor",
+      desc:"용기·담대함·기사도가 특징인 기숙사입니다. 하늘색 눈처럼 빛나는 진취적 정신의 소유자!"
+    },
+    S: {
+      name:"슬리데린 Slytherin", emoji:"🐍",
+      cls:"house-slytherin",
+      desc:"야망·영리함·결단력을 갖춘 기숙사입니다. 목표를 향해 어떤 수단도 마다하지 않는 전략가!"
+    },
+    R: {
+      name:"래번클로 Ravenclaw", emoji:"🦅",
+      cls:"house-ravenclaw",
+      desc:"지혜·창의력·배움을 사랑하는 기숙사입니다. 마법사 세계 최고의 지성인들이 모인 곳!"
+    },
+    H: {
+      name:"후플푸프 Hufflepuff", emoji:"🦡",
+      cls:"house-hufflepuff",
+      desc:"성실·충성·공정을 중요시하는 기숙사입니다. 가장 따뜻하고 믿을 수 있는 사람들의 집!"
+    }
+  };
+
+  var scores = {G:0, S:0, R:0, H:0};
+  var current = 0;
+
+  var progressEl = document.getElementById('quiz-progress');
+  var questionEl = document.getElementById('quiz-question');
+  var optionsEl  = document.getElementById('quiz-options');
+  var resultEl   = document.getElementById('quiz-result');
+
+  function render(){
+    if(current >= QUESTIONS.length){ showResult(); return; }
+    var q = QUESTIONS[current];
+    progressEl.textContent = (current+1) + ' / ' + QUESTIONS.length;
+    questionEl.innerHTML = '<p style="font-size:14px;font-weight:700;color:#28204a;margin:0 0 4px">' + q.q + '</p>';
+    optionsEl.innerHTML = '';
+    q.opts.forEach(function(o){
+      var btn = document.createElement('button');
+      btn.className = 'quiz-opt';
+      btn.textContent = o.text;
+      btn.addEventListener('click', function(){
+        Object.keys(o.scores).forEach(function(k){ scores[k] += o.scores[k]; });
+        current++;
+        render();
+      });
+      optionsEl.appendChild(btn);
+    });
+  }
+
+  function showResult(){
+    var winner = Object.keys(scores).reduce(function(a,b){ return scores[a]>=scores[b]?a:b });
+    var h = HOUSES[winner];
+    questionEl.innerHTML = '';
+    optionsEl.innerHTML = '';
+    progressEl.textContent = '';
+    resultEl.style.display = 'block';
+    resultEl.innerHTML =
+      '<div class="house-result ' + h.cls + '">' +
+        '<div style="font-size:40px">' + h.emoji + '</div>' +
+        '<div class="house-name">' + h.name + '</div>' +
+        '<div class="house-desc">' + h.desc + '</div>' +
+        '<button class="quiz-restart" id="quiz-restart-btn">↺ 다시 해보기</button>' +
+      '</div>';
+    document.getElementById('quiz-restart-btn').addEventListener('click', function(){
+      scores = {G:0,S:0,R:0,H:0};
+      current = 0;
+      resultEl.style.display = 'none';
+      render();
+    });
+  }
+
+  if(document.getElementById('quiz-question')) render();
+})();
+
 (function(){
   // ── 메이저 아르카나 22장 데이터 ──
   var CARDS = [
