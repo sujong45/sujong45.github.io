@@ -3,29 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0d1117">
+<meta name="theme-color" content="#1a1400">
 <title>배수종 | Personal Homepage</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Serif+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════
-   호그와트 테마 — 기본 설정
+   후플푸프 테마 — 기본 설정
+   Colors: Yellow #f0c040 / Black #1a1400 / Earth tones
 ══════════════════════════════════════ */
 :root{
-  --bg:       #0d1117;
-  --bg2:      #111827;
-  --surface:  #1a2236;
-  --gold:     #c9a84c;
-  --gold2:    #e8c96a;
-  --crimson:  #8b1a1a;
-  --maroon:   #6b0f0f;
-  --parchment:#f5ecd4;
-  --parch2:   #ede0bc;
-  --text:     #e8dcc8;
-  --text2:    #b0a080;
-  --border:   #2e3a50;
-  --border2:  #c9a84c55;
+  --bg:       #1a1400;
+  --bg2:      #221b00;
+  --surface:  #2a2000;
+  --yellow:   #f0c040;
+  --yellow2:  #ffe082;
+  --yellow3:  #ffd740;
+  --amber:    #ffab00;
+  --black:    #1a1400;
+  --earth:    #3d2b00;
+  --earth2:   #5a4000;
+  --parchment:#fdf3d0;
+  --parch2:   #f5e8b0;
+  --text:     #f5e8c0;
+  --text2:    #c8a84a;
+  --border:   #3a2e00;
+  --border2:  #f0c04055;
   font-family:'Noto Serif KR',Georgia,serif;
   color:var(--text);
   background:var(--bg);
@@ -36,48 +40,63 @@ html{scroll-behavior:smooth}
 body{
   margin:0;
   background:
-    radial-gradient(ellipse at 10% 0%,  #1a0a2e 0%,transparent 45%),
-    radial-gradient(ellipse at 90% 5%,  #1a0a0a 0%,transparent 40%),
-    radial-gradient(ellipse at 50% 100%,#0a1520 0%,transparent 50%),
-    linear-gradient(180deg,#0d1117 0%,#111827 100%);
+    radial-gradient(ellipse at 15% 0%,   #2e2000 0%,transparent 45%),
+    radial-gradient(ellipse at 85% 8%,   #1a1000 0%,transparent 40%),
+    radial-gradient(ellipse at 50% 100%, #2a1800 0%,transparent 50%),
+    linear-gradient(180deg,#1a1400 0%,#221a00 100%);
   min-height:100vh;
 }
-/* 별 반짝이 배경 */
+
+/* 밀밭 · 반짝이 배경 */
 body::before{
   content:'';
   position:fixed;inset:0;
   background-image:
-    radial-gradient(1px 1px at 10% 15%, #ffffff55, transparent),
-    radial-gradient(1px 1px at 30% 40%, #c9a84c44, transparent),
-    radial-gradient(1px 1px at 60% 10%, #ffffff44, transparent),
-    radial-gradient(1px 1px at 80% 60%, #ffffff33, transparent),
-    radial-gradient(1px 1px at 45% 80%, #c9a84c33, transparent),
-    radial-gradient(1px 1px at 70% 30%, #ffffff22, transparent),
-    radial-gradient(1px 1px at 20% 70%, #ffffff33, transparent),
-    radial-gradient(1px 1px at 90% 85%, #c9a84c22, transparent);
+    radial-gradient(1.5px 1.5px at  8% 12%, #f0c04066, transparent),
+    radial-gradient(1px   1px   at 25% 35%, #ffe08244, transparent),
+    radial-gradient(1.5px 1.5px at 55%  8%, #f0c04055, transparent),
+    radial-gradient(1px   1px   at 78% 55%, #ffd74033, transparent),
+    radial-gradient(1.5px 1.5px at 40% 78%, #f0c04044, transparent),
+    radial-gradient(1px   1px   at 68% 25%, #ffe08233, transparent),
+    radial-gradient(1.5px 1.5px at 18% 65%, #f0c04033, transparent),
+    radial-gradient(1px   1px   at 92% 80%, #ffd74022, transparent),
+    radial-gradient(2px   2px   at 50% 50%, #f0c04011, transparent);
   pointer-events:none;z-index:0;
 }
+
+/* 오소리 인장 워터마크 */
+body::after{
+  content:'🦡';
+  position:fixed;
+  right:-2%;bottom:-2%;
+  font-size:340px;
+  opacity:.04;
+  pointer-events:none;
+  z-index:0;
+  filter:sepia(1) hue-rotate(15deg);
+}
+
 .wrap{position:relative;z-index:1;max-width:1120px;margin:auto;padding:28px 22px 80px}
-a{color:var(--gold);text-decoration:none}
-a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+a{color:var(--yellow);text-decoration:none}
+a:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
 
 /* ── 헤더 ── */
 header{
   display:flex;align-items:center;justify-content:space-between;
   gap:20px;padding:10px 0 45px;
-  border-bottom:1px solid var(--border2);
+  border-bottom:2px solid var(--border2);
   margin-bottom:10px;
 }
 .logo{
   font-family:'Cinzel',serif;
   font-weight:900;font-size:22px;letter-spacing:2px;
-  color:var(--gold2);
-  text-shadow:0 0 20px #c9a84c88;
+  color:var(--yellow2);
+  text-shadow:0 0 24px #f0c04099;
 }
-.logo span{color:#fff;opacity:.7}
+.logo span{color:#fff;opacity:.5}
 nav{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;font-weight:600;font-family:'Cinzel',serif;letter-spacing:.8px}
 nav a{
-  background:#ffffff08;
+  background:#f0c04010;
   padding:8px 13px;
   border:1px solid var(--border2);
   border-radius:4px;
@@ -85,20 +104,19 @@ nav a{
   transition:all .2s;
 }
 nav a:hover,nav a:focus-visible{
-  color:var(--gold2);
-  background:#c9a84c18;
-  border-color:var(--gold);
-  text-shadow:0 0 8px #c9a84c88;
+  color:var(--black);
+  background:var(--yellow);
+  border-color:var(--yellow2);
+  text-shadow:none;
   transform:translateY(-1px);
+  box-shadow:0 4px 14px #f0c04055;
 }
 
 /* ── 히어로 ── */
 .hero{display:grid;grid-template-columns:1.5fr .8fr;gap:25px;align-items:stretch;margin-bottom:42px}
 .eyebrow{
-  color:var(--gold);font-size:11px;font-weight:700;letter-spacing:4px;
-  font-family:'Cinzel',serif;
-  text-transform:uppercase;
-  opacity:.85;
+  color:var(--yellow);font-size:11px;font-weight:700;letter-spacing:4px;
+  font-family:'Cinzel',serif;text-transform:uppercase;opacity:.9;
 }
 .hero h1{
   font-family:'Cinzel',serif;
@@ -109,8 +127,7 @@ nav a:hover,nav a:focus-visible{
 }
 .hero h1 em{
   font-style:normal;
-  color:var(--gold2);
-  background:linear-gradient(110deg,var(--gold),#ffe084,var(--gold));
+  background:linear-gradient(110deg,var(--amber),var(--yellow2),var(--yellow3),var(--amber));
   background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
   text-shadow:none;
 }
@@ -119,39 +136,39 @@ nav a:hover,nav a:focus-visible{
 /* pills */
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:23px}
 .pill{
-  border:1px solid var(--gold);
-  background:#c9a84c18;
-  color:var(--gold2);
+  border:1px solid var(--yellow);
+  background:#f0c04022;
+  color:var(--yellow2);
   font-weight:700;font-size:11px;
   font-family:'Cinzel',serif;letter-spacing:1px;
   padding:7px 14px;border-radius:3px;
-  box-shadow:0 0 12px #c9a84c22;
+  box-shadow:0 0 14px #f0c04022;
 }
 
 /* 프로필 카드 */
 .profile{
-  background:linear-gradient(135deg,#1a0a2e 0%,#2d1a0e 50%,#0a1a2e 100%);
-  border:1px solid var(--gold);
+  background:linear-gradient(135deg,#2a1e00 0%,#1a1200 50%,#3d2b00 100%);
+  border:2px solid var(--yellow);
   border-radius:8px;padding:30px;
   display:flex;flex-direction:column;justify-content:space-between;
   min-height:300px;color:var(--parchment);
-  box-shadow:0 0 40px #c9a84c22,inset 0 0 40px #00000044;
+  box-shadow:0 0 50px #f0c04033,inset 0 0 40px #00000055;
   position:relative;overflow:hidden;
 }
 .profile::before{
-  content:'⚡';position:absolute;right:16px;top:8px;
-  font-size:90px;opacity:.06;pointer-events:none;
+  content:'🦡';position:absolute;right:10px;top:10px;
+  font-size:80px;opacity:.10;pointer-events:none;
 }
 .profile::after{
   content:'';position:absolute;inset:0;
   background:repeating-linear-gradient(
-    45deg,transparent,transparent 20px,
-    #c9a84c08 20px,#c9a84c08 21px
+    -45deg,transparent,transparent 22px,
+    #f0c04008 22px,#f0c04008 23px
   );pointer-events:none;
 }
 .avatar{font-size:60px;position:relative;z-index:1}
-.profile small{color:var(--gold);font-size:10px;font-family:'Cinzel',serif;letter-spacing:2px;position:relative;z-index:1}
-.profile h2{margin:6px 0;font-size:22px;font-family:'Cinzel',serif;color:var(--gold2);position:relative;z-index:1}
+.profile small{color:var(--yellow);font-size:10px;font-family:'Cinzel',serif;letter-spacing:2px;position:relative;z-index:1}
+.profile h2{margin:6px 0;font-size:22px;font-family:'Cinzel',serif;color:var(--yellow2);position:relative;z-index:1;text-shadow:0 0 16px #f0c04066}
 .profile p{margin:0;font-size:13px;color:var(--text2);position:relative;z-index:1}
 
 /* ── 섹션 공통 ── */
@@ -159,38 +176,38 @@ section{margin-top:42px;scroll-margin-top:20px}
 .section-head{
   display:flex;align-items:center;justify-content:space-between;
   gap:12px;margin-bottom:18px;
-  border-bottom:1px solid var(--border2);
+  border-bottom:2px solid var(--border2);
   padding-bottom:12px;
 }
 .section-head h2{
   font-family:'Cinzel',serif;
   font-size:20px;letter-spacing:.5px;margin:0;
-  color:var(--gold2);
-  text-shadow:0 0 12px #c9a84c55;
+  color:var(--yellow2);
+  text-shadow:0 0 16px #f0c04066;
 }
 .section-head small{color:var(--text2);font-size:11px;letter-spacing:1px;font-family:'Cinzel',serif}
 
 /* ── 카드 ── */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
 .card{
-  background:linear-gradient(160deg,#1a2236 0%,#141c2e 100%);
+  background:linear-gradient(160deg,#2a2000 0%,#1e1800 100%);
   border:1px solid var(--border);
-  box-shadow:0 8px 24px #00000044;
+  box-shadow:0 8px 24px #00000066;
   transition:transform .2s,box-shadow .2s,border-color .2s;
   border-radius:6px;padding:22px;min-height:150px;
   position:relative;overflow:hidden;
 }
 .card::before{
   content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));
+  background:linear-gradient(90deg,var(--amber),var(--yellow2),var(--yellow3),var(--yellow2),var(--amber));
 }
 .card:hover{
   transform:translateY(-3px);
-  box-shadow:0 14px 32px #00000066,0 0 20px #c9a84c22;
-  border-color:var(--gold);
+  box-shadow:0 14px 32px #00000077,0 0 24px #f0c04033;
+  border-color:var(--yellow);
 }
 .card .meta{
-  color:var(--gold);font-size:10px;font-weight:700;
+  color:var(--yellow);font-size:10px;font-weight:700;
   font-family:'Cinzel',serif;letter-spacing:2px;
 }
 .card h3{color:var(--parchment);font-size:17px;margin:12px 0 8px;font-family:'Cinzel',serif}
@@ -203,13 +220,13 @@ section{margin-top:42px;scroll-margin-top:20px}
 .media-card img{
   width:110px;height:150px;object-fit:cover;
   border-radius:6px;
-  border:1px solid var(--gold);
-  box-shadow:0 8px 20px #00000066,0 0 16px #c9a84c33;
+  border:2px solid var(--yellow);
+  box-shadow:0 8px 20px #00000077,0 0 20px #f0c04033;
 }
 .bookmark-photo{grid-template-columns:220px 1fr;align-items:center}
-.bookmark-photo img{width:220px;height:auto;aspect-ratio:3/4;object-fit:contain;border-radius:6px;border:1px solid var(--gold)}
+.bookmark-photo img{width:220px;height:auto;aspect-ratio:3/4;object-fit:contain;border-radius:6px;border:2px solid var(--yellow)}
 .music-tile{display:grid;grid-template-columns:112px 1fr;gap:16px;align-items:center;margin-top:15px}
-.music-thumb{display:block;border-radius:6px;overflow:hidden;border:1px solid var(--gold);box-shadow:0 8px 20px #00000066}
+.music-thumb{display:block;border-radius:6px;overflow:hidden;border:2px solid var(--yellow);box-shadow:0 8px 20px #00000066}
 .music-thumb img{width:100%;height:100%;display:block;object-fit:cover}
 .song-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 
@@ -217,14 +234,14 @@ section{margin-top:42px;scroll-margin-top:20px}
 .btn-link,.place-link{
   display:inline-flex;align-items:center;gap:7px;
   margin-top:16px;padding:9px 14px;border-radius:4px;
-  background:#c9a84c18;
-  color:var(--gold2);
-  border:1px solid var(--gold);
+  background:#f0c04022;
+  color:var(--yellow2);
+  border:1px solid var(--yellow);
   font-size:12px;font-weight:700;font-family:'Cinzel',serif;letter-spacing:.8px;
 }
 .btn-link:hover,.btn-link:focus-visible,.place-link:hover,.place-link:focus-visible{
-  background:var(--gold);color:#0d1117;
-  outline:none;
+  background:var(--yellow);color:var(--black);
+  outline:none;box-shadow:0 0 16px #f0c04066;
 }
 
 /* ── 체크리스트 ── */
@@ -234,54 +251,65 @@ section{margin-top:42px;scroll-margin-top:20px}
   color:var(--text2);font-size:14px;
 }
 .todo:last-child{border:0}
-.todo input{accent-color:var(--gold);margin-top:3px}
+.todo input{accent-color:var(--yellow);margin-top:3px}
 .note{font-size:12px;color:var(--text2);margin-top:12px;opacity:.7}
 
 /* ── 푸터 ── */
 footer{
   margin-top:60px;padding-top:22px;
-  border-top:1px solid var(--border2);
+  border-top:2px solid var(--border2);
   color:var(--text2);font-size:11px;
   display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   font-family:'Cinzel',serif;letter-spacing:.5px;
 }
 
-/* ── 섹션별 카드 테마 (호그와트 하우스 컬러) ── */
-#news .card:first-child{border-color:#8b1a1a88;background:linear-gradient(160deg,#1f0e0e 0%,#1a1a2e 100%)}
-#news .card:first-child::before{background:linear-gradient(90deg,#ae0001,#eeba30,#ae0001)}
-#activity .card:first-child{border-color:#0e1a3a88;background:linear-gradient(160deg,#0e1020 0%,#141c2e 100%)}
-#activity .card:first-child::before{background:linear-gradient(90deg,#222f5b,#946b2d,#222f5b)}
-#interests .card:nth-child(1){border-color:#1a3a1a88}
-#interests .card:nth-child(2){border-color:#3a2a0a88}
-#interests .card:nth-child(3){border-color:#1a1a3a88}
-#music .card:first-child{border-color:#2a1a4a88;background:linear-gradient(160deg,#1a1030 0%,#1a1a2e 100%)}
-#music .card:first-child::before{background:linear-gradient(90deg,#6b3fa0,#c45c8e,#6b3fa0)}
-#movies .card:first-child{border-color:#3a2a0a88;background:linear-gradient(160deg,#1e1608 0%,#141c2e 100%)}
-#movies .card:first-child::before{background:linear-gradient(90deg,var(--gold),#ffe084,var(--gold))}
-#restaurants .card:first-child{border-color:#3a2a0a88}
-#restaurants .card:last-child{border-color:#0a2a2a88}
-#backlog .card::before{background:linear-gradient(90deg,#7e8ae9,#a9b2f5,#7e8ae9)}
+/* ── 섹션별 카드 테마 ── */
+#news .card:first-child{
+  background:linear-gradient(160deg,#2e2000 0%,#1e1600 100%);
+}
+#news .card:first-child::before{
+  background:linear-gradient(90deg,var(--amber),var(--yellow2),var(--amber));
+}
+#activity .card:first-child{
+  background:linear-gradient(160deg,#1e2200 0%,#181a00 100%);
+  border-color:#5a6000aa;
+}
+#activity .card:first-child::before{
+  background:linear-gradient(90deg,#8a9400,#c8d400,#8a9400);
+}
+#interests .card{border-color:#f0c04033}
+#music .card:first-child{
+  background:linear-gradient(160deg,#2a1a00 0%,#1e1200 100%);
+}
+#music .card:first-child::before{background:linear-gradient(90deg,var(--amber),var(--yellow3),var(--amber))}
 
 /* ── 기숙사 배정 카드 ── */
 #house-quiz-card{
-  background:linear-gradient(160deg,#1a0a2e 0%,#0d1a10 100%)!important;
-  border-color:var(--gold)!important;
+  background:linear-gradient(160deg,#ecb93922 0%,#f0c75e11 100%)!important;
+  border-color:var(--yellow)!important;
 }
-#house-quiz-card::before{background:linear-gradient(90deg,#ae0001,var(--gold),#222f5b,#1a472a)!important}
+#house-quiz-card::before{
+  background:linear-gradient(90deg,#ecb939,#f0c75e,#372e29,#f0c75e,#ecb939)!important;
+}
 .quiz-opt{
-  background:#ffffff08;
+  background:#f0c04010;
   border:1px solid var(--border2);
   color:var(--parchment);font-size:13px;font-weight:600;
   font-family:'Noto Serif KR',serif;
   border-radius:4px;padding:9px 13px;cursor:pointer;text-align:left;
   transition:all .15s;
 }
-.quiz-opt:hover{background:#c9a84c22;border-color:var(--gold);color:var(--gold2)}
+.quiz-opt:hover{background:var(--yellow);border-color:var(--yellow2);color:var(--black);font-weight:700}
 .house-result{border-radius:6px;padding:16px;text-align:center;margin-top:4px}
 .house-gryffindor{background:linear-gradient(135deg,#7b0000 0%,#ae0001 60%,#eeba30 100%);color:#fff}
 .house-slytherin{background:linear-gradient(135deg,#1a472a 0%,#2a623d 60%,#aaaaaa 100%);color:#fff}
 .house-ravenclaw{background:linear-gradient(135deg,#0e1a40 0%,#222f5b 60%,#946b2d 100%);color:#fff}
-.house-hufflepuff{background:linear-gradient(135deg,#ecb939 0%,#f0c75e 60%,#372e29 100%);color:#fff}
+.house-hufflepuff{
+  background:linear-gradient(135deg,#ecb939 0%,#f0c75e 40%,#372e29 75%,#1a1200 100%);
+  color:#fff;
+  box-shadow:0 0 30px #f0c04066;
+  border:2px solid #f0c040;
+}
 .house-name{font-size:20px;font-weight:900;font-family:'Cinzel',serif;letter-spacing:1px;margin:8px 0 4px}
 .house-desc{font-size:12px;line-height:1.7;opacity:.92}
 .quiz-restart{
@@ -299,53 +327,56 @@ footer{
 .tarot-card.flipped .tarot-card-inner{transform:rotateY(180deg)}
 .tarot-face,.tarot-back{position:absolute;inset:0;border-radius:10px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
 .tarot-back{
-  background:linear-gradient(135deg,#1a0a2e 0%,#2d1a0e 50%,#0a1a2e 100%);
-  border:2px solid var(--gold);
-  box-shadow:0 12px 32px #00000066,0 0 24px #c9a84c44;
-  color:var(--gold2);font-size:42px;
+  background:linear-gradient(135deg,#2a1e00 0%,#1a1200 50%,#3d2b00 100%);
+  border:2px solid var(--yellow);
+  box-shadow:0 12px 32px #00000077,0 0 28px #f0c04044;
+  color:var(--yellow2);font-size:42px;
 }
-.tarot-back::after{content:'⚡';position:absolute;font-size:100px;color:#c9a84c11}
-.tarot-back-label{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--gold);font-family:'Cinzel',serif;margin-top:4px}
+.tarot-back::after{content:'🦡';position:absolute;font-size:90px;opacity:.08}
+.tarot-back-label{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--yellow);font-family:'Cinzel',serif;margin-top:4px}
 .tarot-face{
   background:linear-gradient(160deg,var(--parchment) 0%,var(--parch2) 100%);
-  border:2px solid var(--gold);
-  box-shadow:0 12px 32px #00000066;
+  border:2px solid var(--yellow);
+  box-shadow:0 12px 32px #00000077,0 0 20px #f0c04033;
   transform:rotateY(180deg);padding:16px;text-align:center;
 }
 .tarot-face .card-emoji{font-size:52px;line-height:1}
-.tarot-face .card-name{font-size:12px;font-weight:700;color:#3a2010;margin-top:8px;font-family:'Cinzel',serif;letter-spacing:.5px}
-.tarot-face .card-num{font-size:11px;color:#7a5030}
+.tarot-face .card-name{font-size:12px;font-weight:700;color:#3a2000;margin-top:8px;font-family:'Cinzel',serif;letter-spacing:.5px}
+.tarot-face .card-num{font-size:11px;color:#7a5020}
 .tarot-btn{
-  background:linear-gradient(110deg,var(--maroon),#5a2a00);
-  color:var(--gold2);border:1px solid var(--gold);border-radius:4px;
+  background:linear-gradient(110deg,var(--earth),var(--earth2));
+  color:var(--yellow2);border:1px solid var(--yellow);border-radius:4px;
   padding:10px 18px;font-size:11px;font-weight:700;cursor:pointer;
   font-family:'Cinzel',serif;letter-spacing:1px;
-  box-shadow:0 4px 14px #00000044;
+  box-shadow:0 4px 14px #00000055;
   transition:all .2s;white-space:nowrap;
 }
-.tarot-btn:hover{background:linear-gradient(110deg,#ae0001,#8b4500);box-shadow:0 4px 20px #c9a84c44}
+.tarot-btn:hover{
+  background:var(--yellow);color:var(--black);
+  box-shadow:0 4px 22px #f0c04066;
+}
 .tarot-btn:disabled{opacity:.4;cursor:default}
 .tarot-result{
-  background:linear-gradient(160deg,#1a2236 0%,#141c2e 100%);
+  background:linear-gradient(160deg,#2a2000 0%,#1e1800 100%);
   border:1px solid var(--border2);border-radius:6px;
-  padding:22px 24px;box-shadow:0 8px 22px #00000044;
+  padding:22px 24px;box-shadow:0 8px 22px #00000055;
   min-height:160px;display:flex;flex-direction:column;justify-content:center;
 }
-.tarot-result .result-label{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gold);font-family:'Cinzel',serif;margin-bottom:10px}
+.tarot-result .result-label{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--yellow);font-family:'Cinzel',serif;margin-bottom:10px}
 .tarot-result .result-title{font-size:18px;font-weight:700;color:var(--parchment);margin:0 0 8px;font-family:'Cinzel',serif}
 .tarot-result .result-keyword{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
-.tarot-result .result-keyword span{background:#c9a84c22;color:var(--gold2);font-size:11px;font-weight:700;padding:4px 10px;border-radius:3px;border:1px solid var(--border2)}
+.tarot-result .result-keyword span{background:#f0c04022;color:var(--yellow2);font-size:11px;font-weight:700;padding:4px 10px;border-radius:3px;border:1px solid var(--border2)}
 .tarot-result .result-desc{font-size:13px;line-height:1.85;color:var(--text2);margin:0}
-.tarot-result .result-advice{margin-top:12px;font-size:12px;color:var(--gold);font-style:italic;border-left:2px solid var(--gold);padding-left:10px}
+.tarot-result .result-advice{margin-top:12px;font-size:12px;color:var(--yellow);font-style:italic;border-left:2px solid var(--yellow);padding-left:10px}
 .tarot-date{font-size:10px;color:var(--text2);margin-top:14px;text-align:center;font-family:'Cinzel',serif;letter-spacing:1px}
 .tarot-pending{color:var(--text2);font-size:14px;text-align:center;padding:20px 0;opacity:.7}
-#tarot-section-card{border-color:var(--gold)!important}
-#tarot-section-card::before{background:linear-gradient(90deg,#6b3fa0,var(--gold),#6b3fa0)!important}
-#tarot-advice-card::before{background:linear-gradient(90deg,#c47be0,var(--gold),#c47be0)!important}
+#tarot-section-card{border-color:var(--yellow)!important}
+#tarot-section-card::before{background:linear-gradient(90deg,var(--amber),var(--yellow2),var(--yellow3),var(--yellow2),var(--amber))!important}
+#tarot-advice-card::before{background:linear-gradient(90deg,var(--earth2),var(--yellow),var(--earth2))!important}
 .advice-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)}
 .advice-item:last-child{border-bottom:none;padding-bottom:0}
 .advice-icon{font-size:22px;line-height:1;flex-shrink:0;margin-top:2px}
-.advice-item h4{font-size:11px;font-weight:700;color:var(--gold);margin:0 0 3px;font-family:'Cinzel',serif;letter-spacing:.5px}
+.advice-item h4{font-size:11px;font-weight:700;color:var(--yellow);margin:0 0 3px;font-family:'Cinzel',serif;letter-spacing:.5px}
 .advice-item h4 .advice-sub{display:block;font-size:11px;font-weight:600;color:var(--text2);margin-top:1px;font-family:'Noto Serif KR',serif;letter-spacing:0}
 .advice-item p{font-size:13px;color:var(--text2);margin:0;line-height:1.6}
 
@@ -375,7 +406,7 @@ footer{
 <body>
 <div class="wrap">
 <header>
-  <a class="logo" href="/">HOG<span>WARTS.</span></a>
+  <a class="logo" href="/">HUFFLE<span>PUFF.</span></a>
   <nav>
     <a href="#tarot">오늘의 운세</a>
     <a href="#news">소식</a>
@@ -390,7 +421,7 @@ footer{
 <main>
   <div class="hero">
     <div>
-      <div class="eyebrow">✦ WELCOME TO MY DIGITAL SPACE ✦</div>
+      <div class="eyebrow">🦡 HUFFLEPUFF · WELCOME TO MY DIGITAL SPACE 🦡</div>
       <h1>안녕하세요,<br><em>배수종</em>의 공간입니다.</h1>
       <p>비즈니스 IT를 전공하고 미디어를 부전공하며, 책과 영화 그리고 음악을 좋아합니다. 저의 소식과 취향을 한눈에 볼 수 있도록 정리한 홈페이지입니다.</p>
       <div class="pills">
@@ -400,7 +431,7 @@ footer{
       </div>
     </div>
     <aside class="profile">
-      <div class="avatar">🧙</div>
+      <div class="avatar">�</div>
       <div>
         <small>PROFILE / ABOUT ME</small>
         <h2>배수종</h2>
@@ -581,7 +612,7 @@ footer{
     </div>
   </section>
 </main>
-<footer><span>© 2026 배수종. Made with curiosity.</span><span>Powered by GitHub Pages · v1.8 Hogwarts Edition</span></footer>
+<footer><span>© 2026 배수종. Made with curiosity.</span><span>Powered by GitHub Pages · v1.9 Hufflepuff Edition 🦡</span></footer>
 </div>
 <script>
 // ── 기숙사 배정 설문 ──
