@@ -3,91 +3,379 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f7f8ff">
+<meta name="theme-color" content="#0d1117">
 <title>배수종 | Personal Homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Serif+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#252b45;background:#f7f8ff;color-scheme:light}
+/* ══════════════════════════════════════
+   호그와트 테마 — 기본 설정
+══════════════════════════════════════ */
+:root{
+  --bg:       #0d1117;
+  --bg2:      #111827;
+  --surface:  #1a2236;
+  --gold:     #c9a84c;
+  --gold2:    #e8c96a;
+  --crimson:  #8b1a1a;
+  --maroon:   #6b0f0f;
+  --parchment:#f5ecd4;
+  --parch2:   #ede0bc;
+  --text:     #e8dcc8;
+  --text2:    #b0a080;
+  --border:   #2e3a50;
+  --border2:  #c9a84c55;
+  font-family:'Noto Serif KR',Georgia,serif;
+  color:var(--text);
+  background:var(--bg);
+  color-scheme:dark;
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(circle at 8% 6%,#ffdfeb 0%,transparent 28%),radial-gradient(circle at 95% 12%,#d5efff 0%,transparent 30%),linear-gradient(160deg,#fffdfb 0%,#f1f5ff 55%,#fff9ed 100%);color:#252b45}
-a{color:inherit;text-decoration:none}.wrap{max-width:1120px;margin:auto;padding:28px 22px 80px}
-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:10px 0 45px}.logo{font-weight:850;font-size:22px;letter-spacing:-1px;color:#2a2851}.logo span{color:#6952d9}
-nav{display:flex;gap:12px;flex-wrap:wrap;color:#47506c;font-size:13px;font-weight:700}nav a{background:#ffffffc5;padding:9px 12px;border:1px solid #e0e6f7;border-radius:999px;transition:background .2s,transform .2s}nav a:hover,nav a:focus-visible{color:#4b36b8;background:#edeaff;transform:translateY(-2px)}
-.hero{display:grid;grid-template-columns:1.5fr .8fr;gap:25px;align-items:stretch;margin-bottom:42px}.eyebrow{color:#6751d7;font-size:13px;font-weight:700;letter-spacing:2px}.hero h1{font-size:clamp(35px,6vw,65px);letter-spacing:-3px;line-height:1.12;margin:18px 0;color:#29244c}.hero h1 em{font-style:normal;color:#744be1;background:linear-gradient(110deg,#7252da,#e25497);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}.hero p{color:#4e5771;font-size:16px;line-height:1.9;max-width:600px}
-.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:23px}.pill{border:1px solid #ddd8ff;background:#fff;color:#5541ae;font-weight:750;box-shadow:0 4px 14px #5855ac10;padding:9px 13px;border-radius:30px;font-size:12px}
-.profile{background:linear-gradient(135deg,#7b65e5 0%,#b772d6 55%,#eb81a5 100%);border-radius:24px;padding:30px;display:flex;flex-direction:column;justify-content:space-between;min-height:300px;color:#fff;box-shadow:0 18px 34px #9b69b83d;position:relative;overflow:hidden}.profile:after{content:'✦';position:absolute;right:18px;top:3px;font-size:125px;color:#ffffff22;pointer-events:none}.avatar{font-size:70px}.profile small{color:#fff4fc}.profile h2{margin:6px 0;font-size:24px}.profile p{margin:0;font-size:13px;color:#fff}
-section{margin-top:38px;scroll-margin-top:20px}.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:17px}.section-head h2{font-size:23px;letter-spacing:-.7px;margin:0;color:#282847}.section-head small{color:#68728b}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.card{background:#fff;border:1px solid #e7e7f4;box-shadow:0 10px 25px #2229530c;transition:transform .2s,box-shadow .2s;border-radius:20px;padding:22px;min-height:150px;position:relative;overflow:hidden}.card:hover{transform:translateY(-3px);box-shadow:0 15px 30px #22295316}.card .meta{color:#6852c8;font-size:12px;font-weight:700}.card h3{color:#27304a;font-size:18px;margin:12px 0 8px}.card p{color:#546079;font-size:14px;line-height:1.75;margin:0}.wide{grid-column:span 2}.interest{font-size:29px}
-.media-card{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;margin-top:14px}.media-card img{width:110px;height:150px;object-fit:cover;border-radius:16px;border:1px solid #e6e5ef;background:#fff;box-shadow:0 8px 18px #262c4d12}
-.bookmark-photo{grid-template-columns:220px 1fr;align-items:center}.bookmark-photo img{width:220px;height:auto;aspect-ratio:3/4;object-fit:contain;border-radius:16px;background:#fff}.music-tile{display:grid;grid-template-columns:112px 1fr;gap:16px;align-items:center;margin-top:15px}.music-thumb{display:block;border-radius:18px;overflow:hidden;border:1px solid #d8d0fa;box-shadow:0 10px 22px #6f52cd20}.music-thumb img{width:100%;height:100%;display:block;object-fit:cover}.song-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.btn-link,.place-link{display:inline-flex;align-items:center;gap:7px;margin-top:16px;padding:10px 14px;border-radius:10px;background:#fff;color:#4130a3;border:1px solid #bcb2ec;box-shadow:0 3px 8px #5a4dad15;font-size:13px;font-weight:700}.btn-link:hover,.btn-link:focus-visible,.place-link:hover,.place-link:focus-visible{background:#e9e4ff;color:#34208d;outline:2px solid #8a79df;outline-offset:2px}
-.todo{display:flex;gap:11px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #e9eaf5;color:#37435e;font-size:14px}.todo:last-child{border:0}.todo input{accent-color:#7460d4;margin-top:3px}.note{font-size:12px;color:#68748b;margin-top:12px}footer{margin-top:60px;padding-top:22px;border-top:1px solid #dedfec;color:#646d86;font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
-#news .card:first-child{background:#fff0f5;border-color:#ffcada;border-top:5px solid #f36b9c}#news .card:last-child{background:#fff8e8;border-color:#f4dfac;border-top:5px solid #efad42}
-#activity .card:first-child{background:#edf8ff;border-color:#c3e6ff;border-top:5px solid #4caee7}#activity .card:last-child{background:#f2efff;border-color:#ddd4ff;border-top:5px solid #9471e4}
-#interests .card:nth-child(1){background:#f0fbf1;border-color:#cdecd1;border-top:5px solid #5ebd7b}#interests .card:nth-child(2){background:#fff7e7;border-color:#f4dfb5;border-top:5px solid #edb454}#interests .card:nth-child(3){background:#fff1f0;border-color:#f6d1ca;border-top:5px solid #f28a76}
-#music .card:first-child{background:#f6efff;border-color:#ded0fb;border-top:5px solid #9b72e7}#music .card:last-child{background:#fff0f9;border-color:#f3d0e8;border-top:5px solid #df70ad}
-#movies .card:first-child{background:#fef3ea;border-color:#f3d7be;border-top:5px solid #e88e45}
-#house-quiz-card{background:linear-gradient(160deg,#f5f0ff 0%,#fff8fe 100%)!important;border-color:#d4c9f7!important;border-top:5px solid #7252da!important}
-.quiz-opt{background:#fff;border:1.5px solid #d4c9f7;color:#3d2d8a;font-size:13px;font-weight:700;border-radius:10px;padding:9px 13px;cursor:pointer;text-align:left;transition:background .15s,border-color .15s}
-.quiz-opt:hover{background:#ede7ff;border-color:#9b72e7}
-.house-result{border-radius:16px;padding:16px;text-align:center;margin-top:4px}
+body{
+  margin:0;
+  background:
+    radial-gradient(ellipse at 10% 0%,  #1a0a2e 0%,transparent 45%),
+    radial-gradient(ellipse at 90% 5%,  #1a0a0a 0%,transparent 40%),
+    radial-gradient(ellipse at 50% 100%,#0a1520 0%,transparent 50%),
+    linear-gradient(180deg,#0d1117 0%,#111827 100%);
+  min-height:100vh;
+}
+/* 별 반짝이 배경 */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, #ffffff55, transparent),
+    radial-gradient(1px 1px at 30% 40%, #c9a84c44, transparent),
+    radial-gradient(1px 1px at 60% 10%, #ffffff44, transparent),
+    radial-gradient(1px 1px at 80% 60%, #ffffff33, transparent),
+    radial-gradient(1px 1px at 45% 80%, #c9a84c33, transparent),
+    radial-gradient(1px 1px at 70% 30%, #ffffff22, transparent),
+    radial-gradient(1px 1px at 20% 70%, #ffffff33, transparent),
+    radial-gradient(1px 1px at 90% 85%, #c9a84c22, transparent);
+  pointer-events:none;z-index:0;
+}
+.wrap{position:relative;z-index:1;max-width:1120px;margin:auto;padding:28px 22px 80px}
+a{color:var(--gold);text-decoration:none}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ── 헤더 ── */
+header{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:10px 0 45px;
+  border-bottom:1px solid var(--border2);
+  margin-bottom:10px;
+}
+.logo{
+  font-family:'Cinzel',serif;
+  font-weight:900;font-size:22px;letter-spacing:2px;
+  color:var(--gold2);
+  text-shadow:0 0 20px #c9a84c88;
+}
+.logo span{color:#fff;opacity:.7}
+nav{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;font-weight:600;font-family:'Cinzel',serif;letter-spacing:.8px}
+nav a{
+  background:#ffffff08;
+  padding:8px 13px;
+  border:1px solid var(--border2);
+  border-radius:4px;
+  color:var(--text2);
+  transition:all .2s;
+}
+nav a:hover,nav a:focus-visible{
+  color:var(--gold2);
+  background:#c9a84c18;
+  border-color:var(--gold);
+  text-shadow:0 0 8px #c9a84c88;
+  transform:translateY(-1px);
+}
+
+/* ── 히어로 ── */
+.hero{display:grid;grid-template-columns:1.5fr .8fr;gap:25px;align-items:stretch;margin-bottom:42px}
+.eyebrow{
+  color:var(--gold);font-size:11px;font-weight:700;letter-spacing:4px;
+  font-family:'Cinzel',serif;
+  text-transform:uppercase;
+  opacity:.85;
+}
+.hero h1{
+  font-family:'Cinzel',serif;
+  font-size:clamp(30px,5vw,58px);
+  letter-spacing:-1px;line-height:1.15;margin:18px 0;
+  color:var(--parchment);
+  text-shadow:0 2px 20px #00000088;
+}
+.hero h1 em{
+  font-style:normal;
+  color:var(--gold2);
+  background:linear-gradient(110deg,var(--gold),#ffe084,var(--gold));
+  background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  text-shadow:none;
+}
+.hero p{color:var(--text2);font-size:15px;line-height:1.9;max-width:600px}
+
+/* pills */
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:23px}
+.pill{
+  border:1px solid var(--gold);
+  background:#c9a84c18;
+  color:var(--gold2);
+  font-weight:700;font-size:11px;
+  font-family:'Cinzel',serif;letter-spacing:1px;
+  padding:7px 14px;border-radius:3px;
+  box-shadow:0 0 12px #c9a84c22;
+}
+
+/* 프로필 카드 */
+.profile{
+  background:linear-gradient(135deg,#1a0a2e 0%,#2d1a0e 50%,#0a1a2e 100%);
+  border:1px solid var(--gold);
+  border-radius:8px;padding:30px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  min-height:300px;color:var(--parchment);
+  box-shadow:0 0 40px #c9a84c22,inset 0 0 40px #00000044;
+  position:relative;overflow:hidden;
+}
+.profile::before{
+  content:'⚡';position:absolute;right:16px;top:8px;
+  font-size:90px;opacity:.06;pointer-events:none;
+}
+.profile::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    45deg,transparent,transparent 20px,
+    #c9a84c08 20px,#c9a84c08 21px
+  );pointer-events:none;
+}
+.avatar{font-size:60px;position:relative;z-index:1}
+.profile small{color:var(--gold);font-size:10px;font-family:'Cinzel',serif;letter-spacing:2px;position:relative;z-index:1}
+.profile h2{margin:6px 0;font-size:22px;font-family:'Cinzel',serif;color:var(--gold2);position:relative;z-index:1}
+.profile p{margin:0;font-size:13px;color:var(--text2);position:relative;z-index:1}
+
+/* ── 섹션 공통 ── */
+section{margin-top:42px;scroll-margin-top:20px}
+.section-head{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;margin-bottom:18px;
+  border-bottom:1px solid var(--border2);
+  padding-bottom:12px;
+}
+.section-head h2{
+  font-family:'Cinzel',serif;
+  font-size:20px;letter-spacing:.5px;margin:0;
+  color:var(--gold2);
+  text-shadow:0 0 12px #c9a84c55;
+}
+.section-head small{color:var(--text2);font-size:11px;letter-spacing:1px;font-family:'Cinzel',serif}
+
+/* ── 카드 ── */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.card{
+  background:linear-gradient(160deg,#1a2236 0%,#141c2e 100%);
+  border:1px solid var(--border);
+  box-shadow:0 8px 24px #00000044;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+  border-radius:6px;padding:22px;min-height:150px;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));
+}
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 32px #00000066,0 0 20px #c9a84c22;
+  border-color:var(--gold);
+}
+.card .meta{
+  color:var(--gold);font-size:10px;font-weight:700;
+  font-family:'Cinzel',serif;letter-spacing:2px;
+}
+.card h3{color:var(--parchment);font-size:17px;margin:12px 0 8px;font-family:'Cinzel',serif}
+.card p{color:var(--text2);font-size:14px;line-height:1.75;margin:0}
+.wide{grid-column:span 2}
+.interest{font-size:29px}
+
+/* ── 미디어·북마크·뮤직 ── */
+.media-card{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;margin-top:14px}
+.media-card img{
+  width:110px;height:150px;object-fit:cover;
+  border-radius:6px;
+  border:1px solid var(--gold);
+  box-shadow:0 8px 20px #00000066,0 0 16px #c9a84c33;
+}
+.bookmark-photo{grid-template-columns:220px 1fr;align-items:center}
+.bookmark-photo img{width:220px;height:auto;aspect-ratio:3/4;object-fit:contain;border-radius:6px;border:1px solid var(--gold)}
+.music-tile{display:grid;grid-template-columns:112px 1fr;gap:16px;align-items:center;margin-top:15px}
+.music-thumb{display:block;border-radius:6px;overflow:hidden;border:1px solid var(--gold);box-shadow:0 8px 20px #00000066}
+.music-thumb img{width:100%;height:100%;display:block;object-fit:cover}
+.song-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
+/* ── 버튼 ── */
+.btn-link,.place-link{
+  display:inline-flex;align-items:center;gap:7px;
+  margin-top:16px;padding:9px 14px;border-radius:4px;
+  background:#c9a84c18;
+  color:var(--gold2);
+  border:1px solid var(--gold);
+  font-size:12px;font-weight:700;font-family:'Cinzel',serif;letter-spacing:.8px;
+}
+.btn-link:hover,.btn-link:focus-visible,.place-link:hover,.place-link:focus-visible{
+  background:var(--gold);color:#0d1117;
+  outline:none;
+}
+
+/* ── 체크리스트 ── */
+.todo{
+  display:flex;gap:11px;align-items:flex-start;
+  padding:11px 0;border-bottom:1px solid var(--border);
+  color:var(--text2);font-size:14px;
+}
+.todo:last-child{border:0}
+.todo input{accent-color:var(--gold);margin-top:3px}
+.note{font-size:12px;color:var(--text2);margin-top:12px;opacity:.7}
+
+/* ── 푸터 ── */
+footer{
+  margin-top:60px;padding-top:22px;
+  border-top:1px solid var(--border2);
+  color:var(--text2);font-size:11px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  font-family:'Cinzel',serif;letter-spacing:.5px;
+}
+
+/* ── 섹션별 카드 테마 (호그와트 하우스 컬러) ── */
+#news .card:first-child{border-color:#8b1a1a88;background:linear-gradient(160deg,#1f0e0e 0%,#1a1a2e 100%)}
+#news .card:first-child::before{background:linear-gradient(90deg,#ae0001,#eeba30,#ae0001)}
+#activity .card:first-child{border-color:#0e1a3a88;background:linear-gradient(160deg,#0e1020 0%,#141c2e 100%)}
+#activity .card:first-child::before{background:linear-gradient(90deg,#222f5b,#946b2d,#222f5b)}
+#interests .card:nth-child(1){border-color:#1a3a1a88}
+#interests .card:nth-child(2){border-color:#3a2a0a88}
+#interests .card:nth-child(3){border-color:#1a1a3a88}
+#music .card:first-child{border-color:#2a1a4a88;background:linear-gradient(160deg,#1a1030 0%,#1a1a2e 100%)}
+#music .card:first-child::before{background:linear-gradient(90deg,#6b3fa0,#c45c8e,#6b3fa0)}
+#movies .card:first-child{border-color:#3a2a0a88;background:linear-gradient(160deg,#1e1608 0%,#141c2e 100%)}
+#movies .card:first-child::before{background:linear-gradient(90deg,var(--gold),#ffe084,var(--gold))}
+#restaurants .card:first-child{border-color:#3a2a0a88}
+#restaurants .card:last-child{border-color:#0a2a2a88}
+#backlog .card::before{background:linear-gradient(90deg,#7e8ae9,#a9b2f5,#7e8ae9)}
+
+/* ── 기숙사 배정 카드 ── */
+#house-quiz-card{
+  background:linear-gradient(160deg,#1a0a2e 0%,#0d1a10 100%)!important;
+  border-color:var(--gold)!important;
+}
+#house-quiz-card::before{background:linear-gradient(90deg,#ae0001,var(--gold),#222f5b,#1a472a)!important}
+.quiz-opt{
+  background:#ffffff08;
+  border:1px solid var(--border2);
+  color:var(--parchment);font-size:13px;font-weight:600;
+  font-family:'Noto Serif KR',serif;
+  border-radius:4px;padding:9px 13px;cursor:pointer;text-align:left;
+  transition:all .15s;
+}
+.quiz-opt:hover{background:#c9a84c22;border-color:var(--gold);color:var(--gold2)}
+.house-result{border-radius:6px;padding:16px;text-align:center;margin-top:4px}
 .house-gryffindor{background:linear-gradient(135deg,#7b0000 0%,#ae0001 60%,#eeba30 100%);color:#fff}
 .house-slytherin{background:linear-gradient(135deg,#1a472a 0%,#2a623d 60%,#aaaaaa 100%);color:#fff}
 .house-ravenclaw{background:linear-gradient(135deg,#0e1a40 0%,#222f5b 60%,#946b2d 100%);color:#fff}
 .house-hufflepuff{background:linear-gradient(135deg,#ecb939 0%,#f0c75e 60%,#372e29 100%);color:#fff}
-.house-name{font-size:22px;font-weight:900;letter-spacing:.5px;margin:8px 0 4px}
+.house-name{font-size:20px;font-weight:900;font-family:'Cinzel',serif;letter-spacing:1px;margin:8px 0 4px}
 .house-desc{font-size:12px;line-height:1.7;opacity:.92}
-.quiz-restart{margin-top:12px;background:#fff3;border:1.5px solid #ffffff66;color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:7px 16px;cursor:pointer}
+.quiz-restart{
+  margin-top:12px;background:#fff2;border:1px solid #ffffff66;
+  color:#fff;font-size:11px;font-weight:700;font-family:'Cinzel',serif;
+  border-radius:3px;padding:7px 16px;cursor:pointer;letter-spacing:1px;
+}
 .quiz-restart:hover{background:#ffffff33}
-#restaurants .card:first-child{background:#fff7ec;border-color:#f7dfbf;border-top:5px solid #ee9f4c}#restaurants .card:last-child{background:#f0fbfa;border-color:#bde9e4;border-top:5px solid #36b4a5}
-#backlog .card{background:#fff;border-top:5px solid #7e8ae9}
-@media(max-width:860px){.hero{grid-template-columns:1fr}.profile{min-height:210px}.grid{grid-template-columns:1fr}.wide{grid-column:span 1}}
-@media(max-width:620px){header{align-items:flex-start;flex-direction:column;padding-bottom:30px}.hero h1{letter-spacing:-2px}.media-card,.music-tile{grid-template-columns:1fr}.media-card img{width:100%;max-width:180px;height:auto;aspect-ratio:1/1}.media-card.bookmark-photo{grid-template-columns:1fr}.media-card.bookmark-photo img{width:100%;max-width:240px;aspect-ratio:3/4}.music-thumb{max-width:220px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,nav a{transition:none}}
 
 /* ── 타로 섹션 ── */
 #tarot .tarot-wrapper{display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:start}
 .tarot-card-area{display:flex;flex-direction:column;align-items:center;gap:14px}
-.tarot-card{width:160px;height:260px;border-radius:18px;cursor:pointer;perspective:800px;position:relative}
+.tarot-card{width:160px;height:260px;border-radius:10px;cursor:pointer;perspective:800px;position:relative}
 .tarot-card-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.4,0,.2,1)}
 .tarot-card.flipped .tarot-card-inner{transform:rotateY(180deg)}
-.tarot-face,.tarot-back{position:absolute;inset:0;border-radius:18px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
-.tarot-back{background:linear-gradient(135deg,#2d1b69 0%,#6b3fa0 50%,#c45c8e 100%);border:3px solid #9b72e7;box-shadow:0 12px 32px #6b3fa040;color:#fff;font-size:42px}
-.tarot-back::after{content:'✦';position:absolute;font-size:110px;color:#ffffff10}
-.tarot-back-label{font-size:11px;font-weight:700;letter-spacing:2px;color:#e8c9ff;margin-top:4px}
-.tarot-face{background:linear-gradient(160deg,#fff8f0 0%,#fdedf5 100%);border:3px solid #ddd0fa;box-shadow:0 12px 32px #9b72e730;transform:rotateY(180deg);padding:16px;text-align:center}
+.tarot-face,.tarot-back{position:absolute;inset:0;border-radius:10px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.tarot-back{
+  background:linear-gradient(135deg,#1a0a2e 0%,#2d1a0e 50%,#0a1a2e 100%);
+  border:2px solid var(--gold);
+  box-shadow:0 12px 32px #00000066,0 0 24px #c9a84c44;
+  color:var(--gold2);font-size:42px;
+}
+.tarot-back::after{content:'⚡';position:absolute;font-size:100px;color:#c9a84c11}
+.tarot-back-label{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--gold);font-family:'Cinzel',serif;margin-top:4px}
+.tarot-face{
+  background:linear-gradient(160deg,var(--parchment) 0%,var(--parch2) 100%);
+  border:2px solid var(--gold);
+  box-shadow:0 12px 32px #00000066;
+  transform:rotateY(180deg);padding:16px;text-align:center;
+}
 .tarot-face .card-emoji{font-size:52px;line-height:1}
-.tarot-face .card-name{font-size:13px;font-weight:800;color:#4a2d8a;margin-top:8px;letter-spacing:.5px}
-.tarot-face .card-num{font-size:11px;color:#a080c8}
-.tarot-btn{background:linear-gradient(110deg,#7252da,#b76fd4);color:#fff;border:none;border-radius:999px;padding:10px 18px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px #7252da33;transition:opacity .2s,transform .2s;white-space:nowrap}
-.tarot-btn:hover{opacity:.88;transform:translateY(-2px)}
-.tarot-btn:disabled{opacity:.5;cursor:default;transform:none}
-.tarot-result{background:#fff;border:1px solid #e2d9ff;border-radius:20px;padding:22px 24px;box-shadow:0 8px 22px #5a3dac10;min-height:160px;display:flex;flex-direction:column;justify-content:center}
-.tarot-result .result-label{font-size:11px;font-weight:700;letter-spacing:2px;color:#8b6ad0;margin-bottom:10px}
-.tarot-result .result-title{font-size:20px;font-weight:800;color:#28204a;margin:0 0 8px}
+.tarot-face .card-name{font-size:12px;font-weight:700;color:#3a2010;margin-top:8px;font-family:'Cinzel',serif;letter-spacing:.5px}
+.tarot-face .card-num{font-size:11px;color:#7a5030}
+.tarot-btn{
+  background:linear-gradient(110deg,var(--maroon),#5a2a00);
+  color:var(--gold2);border:1px solid var(--gold);border-radius:4px;
+  padding:10px 18px;font-size:11px;font-weight:700;cursor:pointer;
+  font-family:'Cinzel',serif;letter-spacing:1px;
+  box-shadow:0 4px 14px #00000044;
+  transition:all .2s;white-space:nowrap;
+}
+.tarot-btn:hover{background:linear-gradient(110deg,#ae0001,#8b4500);box-shadow:0 4px 20px #c9a84c44}
+.tarot-btn:disabled{opacity:.4;cursor:default}
+.tarot-result{
+  background:linear-gradient(160deg,#1a2236 0%,#141c2e 100%);
+  border:1px solid var(--border2);border-radius:6px;
+  padding:22px 24px;box-shadow:0 8px 22px #00000044;
+  min-height:160px;display:flex;flex-direction:column;justify-content:center;
+}
+.tarot-result .result-label{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gold);font-family:'Cinzel',serif;margin-bottom:10px}
+.tarot-result .result-title{font-size:18px;font-weight:700;color:var(--parchment);margin:0 0 8px;font-family:'Cinzel',serif}
 .tarot-result .result-keyword{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
-.tarot-result .result-keyword span{background:#ede7ff;color:#5a3dac;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}
-.tarot-result .result-desc{font-size:14px;line-height:1.8;color:#4b5370;margin:0}
-.tarot-result .result-advice{margin-top:12px;font-size:13px;color:#7a5bb5;font-style:italic;border-left:3px solid #c4b0f0;padding-left:10px}
-.tarot-date{font-size:11px;color:#9098b0;margin-top:14px;text-align:center}
-.tarot-pending{color:#a090c0;font-size:15px;text-align:center;padding:20px 0}
-#tarot-section-card{border-top:5px solid #9b72e7;background:linear-gradient(160deg,#f8f4ff 0%,#fff9fe 100%)!important;border-color:#ddd0fa!important}
-#tarot-advice-card{border-top:5px solid #c47be0;background:linear-gradient(160deg,#fdf6ff 0%,#fff8fe 100%);border-color:#e8d0fa!important}
-.advice-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #ede6ff}
+.tarot-result .result-keyword span{background:#c9a84c22;color:var(--gold2);font-size:11px;font-weight:700;padding:4px 10px;border-radius:3px;border:1px solid var(--border2)}
+.tarot-result .result-desc{font-size:13px;line-height:1.85;color:var(--text2);margin:0}
+.tarot-result .result-advice{margin-top:12px;font-size:12px;color:var(--gold);font-style:italic;border-left:2px solid var(--gold);padding-left:10px}
+.tarot-date{font-size:10px;color:var(--text2);margin-top:14px;text-align:center;font-family:'Cinzel',serif;letter-spacing:1px}
+.tarot-pending{color:var(--text2);font-size:14px;text-align:center;padding:20px 0;opacity:.7}
+#tarot-section-card{border-color:var(--gold)!important}
+#tarot-section-card::before{background:linear-gradient(90deg,#6b3fa0,var(--gold),#6b3fa0)!important}
+#tarot-advice-card::before{background:linear-gradient(90deg,#c47be0,var(--gold),#c47be0)!important}
+.advice-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)}
 .advice-item:last-child{border-bottom:none;padding-bottom:0}
 .advice-icon{font-size:22px;line-height:1;flex-shrink:0;margin-top:2px}
-.advice-item h4{font-size:12px;font-weight:800;color:#5a3dac;margin:0 0 3px;line-height:1.4}
-.advice-item h4 .advice-sub{display:block;font-size:11px;font-weight:600;color:#7a60c0;margin-top:1px}
-.advice-item p{font-size:13px;color:#4b5370;margin:0;line-height:1.6}
-@media(max-width:680px){#tarot .tarot-wrapper{grid-template-columns:1fr}.tarot-card-area{flex-direction:row;flex-wrap:wrap;justify-content:center}.tarot-card{width:130px;height:210px}}
-@media(max-width:860px){.card{padding:18px}.advice-item p{font-size:12px}}
+.advice-item h4{font-size:11px;font-weight:700;color:var(--gold);margin:0 0 3px;font-family:'Cinzel',serif;letter-spacing:.5px}
+.advice-item h4 .advice-sub{display:block;font-size:11px;font-weight:600;color:var(--text2);margin-top:1px;font-family:'Noto Serif KR',serif;letter-spacing:0}
+.advice-item p{font-size:13px;color:var(--text2);margin:0;line-height:1.6}
+
+/* ── 반응형 ── */
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr}.profile{min-height:210px}
+  .grid{grid-template-columns:1fr}.wide{grid-column:span 1}
+  .card{padding:18px}.advice-item p{font-size:12px}
+}
+@media(max-width:680px){
+  #tarot .tarot-wrapper{grid-template-columns:1fr}
+  .tarot-card-area{flex-direction:row;flex-wrap:wrap;justify-content:center}
+  .tarot-card{width:130px;height:210px}
+}
+@media(max-width:620px){
+  header{align-items:flex-start;flex-direction:column;padding-bottom:30px}
+  .hero h1{letter-spacing:-.5px}
+  .media-card,.music-tile{grid-template-columns:1fr}
+  .media-card img{width:100%;max-width:180px;height:auto;aspect-ratio:1/1}
+  .media-card.bookmark-photo{grid-template-columns:1fr}
+  .media-card.bookmark-photo img{width:100%;max-width:240px;aspect-ratio:3/4}
+  .music-thumb{max-width:220px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,nav a{transition:none}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
-  <a class="logo" href="/">MY<span>SPACE.</span></a>
+  <a class="logo" href="/">HOG<span>WARTS.</span></a>
   <nav>
     <a href="#tarot">오늘의 운세</a>
     <a href="#news">소식</a>
@@ -102,7 +390,7 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
 <main>
   <div class="hero">
     <div>
-      <div class="eyebrow">WELCOME TO MY DIGITAL SPACE</div>
+      <div class="eyebrow">✦ WELCOME TO MY DIGITAL SPACE ✦</div>
       <h1>안녕하세요,<br><em>배수종</em>의 공간입니다.</h1>
       <p>비즈니스 IT를 전공하고 미디어를 부전공하며, 책과 영화 그리고 음악을 좋아합니다. 저의 소식과 취향을 한눈에 볼 수 있도록 정리한 홈페이지입니다.</p>
       <div class="pills">
@@ -112,7 +400,7 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
       </div>
     </div>
     <aside class="profile">
-      <div class="avatar">👋</div>
+      <div class="avatar">🧙</div>
       <div>
         <small>PROFILE / ABOUT ME</small>
         <h2>배수종</h2>
@@ -168,8 +456,8 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
           <img src="https://image.tmdb.org/t/p/w500/bo8FuQPWKLqbg3WgAXYISkwrbZ9.jpg" alt="해리 포터와 비밀의 방 영화 포스터">
           <div>
             <p>영화 《해리 포터》 시리즈를 순서대로 다시 감상하고 있습니다.</p>
-            <p style="margin-top:10px;color:#6852c8;font-size:13px;font-weight:700">현재 시청 중 · 2편 《비밀의 방》</p>
-            <p style="margin-top:12px;color:#4e5771;font-size:14px;line-height:1.85">학생들이 하나둘 돌처럼 굳어가는 사건이 벌어지고, 전설 속 <strong>비밀의 방</strong>이 열렸다는 소문이 퍼집니다. 해리·론·헤르미온느는 그 실체와 슬리데린의 후계자를 쫓기 시작하는데…</p>
+            <p style="margin-top:10px;color:var(--gold);font-size:13px;font-weight:700">현재 시청 중 · 2편 《비밀의 방》</p>
+            <p style="margin-top:12px;color:var(--text2);font-size:14px;line-height:1.85">학생들이 하나둘 돌처럼 굳어가는 사건이 벌어지고, 전설 속 <strong>비밀의 방</strong>이 열렸다는 소문이 퍼집니다. 해리·론·헤르미온느는 그 실체와 슬리데린의 후계자를 쫓기 시작하는데…</p>
           </div>
         </div>
       </article>
@@ -237,8 +525,8 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
           <img src="https://image.tmdb.org/t/p/w500/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg" alt="해리 포터와 마법사의 돌 포스터">
           <div>
             <p>제가 인생영화로 꼽는 시리즈는 <strong>《해리 포터》</strong>입니다. 어린 시절부터 함께해온 이야기로, 볼 때마다 새로운 감동을 줍니다.</p>
-            <p style="margin-top:10px;color:#6852c8;font-size:13px;font-weight:700">총 8편 · 2001–2011</p>
-            <p style="margin-top:12px;color:#4e5771;font-size:14px;line-height:1.85">마법사 세계를 배경으로, 평범한 소년 해리가 볼드모트에 맞서 성장해가는 이야기. 우정, 용기, 희생이라는 주제가 시리즈 전체를 관통합니다.</p>
+            <p style="margin-top:10px;color:var(--gold);font-size:13px;font-weight:700">총 8편 · 2001–2011</p>
+            <p style="margin-top:12px;color:var(--text2);font-size:14px;line-height:1.85">마법사 세계를 배경으로, 평범한 소년 해리가 볼드모트에 맞서 성장해가는 이야기. 우정, 용기, 희생이라는 주제가 시리즈 전체를 관통합니다.</p>
           </div>
         </div>
       </article>
@@ -293,7 +581,7 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
     </div>
   </section>
 </main>
-<footer><span>© 2026 배수종. Made with curiosity.</span><span>Powered by GitHub Pages · v1.7</span></footer>
+<footer><span>© 2026 배수종. Made with curiosity.</span><span>Powered by GitHub Pages · v1.8 Hogwarts Edition</span></footer>
 </div>
 <script>
 // ── 기숙사 배정 설문 ──
@@ -381,7 +669,7 @@ a:focus-visible{outline:3px solid #8067ef;outline-offset:3px}
     if(current >= QUESTIONS.length){ showResult(); return; }
     var q = QUESTIONS[current];
     progressEl.textContent = (current+1) + ' / ' + QUESTIONS.length;
-    questionEl.innerHTML = '<p style="font-size:14px;font-weight:700;color:#28204a;margin:0 0 4px">' + q.q + '</p>';
+    questionEl.innerHTML = '<p style="font-size:14px;font-weight:700;color:var(--parchment,#f5ecd4);margin:0 0 4px">' + q.q + '</p>';
     optionsEl.innerHTML = '';
     q.opts.forEach(function(o){
       var btn = document.createElement('button');
