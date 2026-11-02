@@ -1,12 +1,1270 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=https://silly-macaron-1340d4.netlify.app/">
-<title>배수종 | 이동 중...</title>
-<script>window.location.replace("https://silly-macaron-1340d4.netlify.app/");</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#2e2400">
+<title>諛곗닔醫?| Personal Homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Serif+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+   ?꾪뵆?명봽 ?뚮쭏 ??湲곕낯 ?ㅼ젙
+   Colors: Yellow #f0c040 / Black #1a1400 / Earth tones
+?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧 */
+:root{
+  --bg:       #2e2400;
+  --bg2:      #382d00;
+  --surface:  #443600;
+  --yellow:   #f0c040;
+  --yellow2:  #ffe082;
+  --yellow3:  #ffd740;
+  --amber:    #ffab00;
+  --black:    #1a1400;
+  --earth:    #3d2b00;
+  --earth2:   #5a4000;
+  --parchment:#fdf3d0;
+  --parch2:   #f5e8b0;
+  --text:     #f5e8c0;
+  --text2:    #c8a84a;
+  --border:   #3a2e00;
+  --border2:  #f0c04055;
+  font-family:'Noto Serif KR',Georgia,serif;
+  color:var(--text);
+  background:var(--bg);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(ellipse at 15% 0%,   #4a3800 0%,transparent 45%),
+    radial-gradient(ellipse at 85% 8%,   #342800 0%,transparent 40%),
+    radial-gradient(ellipse at 50% 100%, #3e3000 0%,transparent 50%),
+    linear-gradient(180deg,#2e2400 0%,#382c00 100%);
+  min-height:100vh;
+}
+
+/* 諛諛?쨌 諛섏쭩??諛곌꼍 */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:
+    radial-gradient(1.5px 1.5px at  8% 12%, #f0c04066, transparent),
+    radial-gradient(1px   1px   at 25% 35%, #ffe08244, transparent),
+    radial-gradient(1.5px 1.5px at 55%  8%, #f0c04055, transparent),
+    radial-gradient(1px   1px   at 78% 55%, #ffd74033, transparent),
+    radial-gradient(1.5px 1.5px at 40% 78%, #f0c04044, transparent),
+    radial-gradient(1px   1px   at 68% 25%, #ffe08233, transparent),
+    radial-gradient(1.5px 1.5px at 18% 65%, #f0c04033, transparent),
+    radial-gradient(1px   1px   at 92% 80%, #ffd74022, transparent),
+    radial-gradient(2px   2px   at 50% 50%, #f0c04011, transparent);
+  pointer-events:none;z-index:0;
+}
+
+/* ?ㅼ냼由??몄옣 ?뚰꽣留덊겕 */
+body::after{
+  content:'?─';
+  position:fixed;
+  right:-2%;bottom:-2%;
+  font-size:340px;
+  opacity:.04;
+  pointer-events:none;
+  z-index:0;
+  filter:sepia(1) hue-rotate(15deg);
+}
+
+.wrap{position:relative;z-index:1;max-width:1120px;margin:auto;padding:28px 22px 80px}
+a{color:var(--yellow);text-decoration:none}
+a:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+
+/* ?? ?ㅻ뜑 ?? */
+header{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:10px 0 45px;
+  border-bottom:2px solid var(--border2);
+  margin-bottom:10px;
+}
+.logo{
+  font-family:'Cinzel',serif;
+  font-weight:900;font-size:22px;letter-spacing:2px;
+  color:var(--yellow2);
+  text-shadow:0 0 24px #f0c04099;
+}
+.logo span{color:#fff;opacity:.5}
+nav{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;font-weight:600;font-family:'Cinzel',serif;letter-spacing:.8px}
+nav a{
+  background:#f0c04010;
+  padding:8px 13px;
+  border:1px solid var(--border2);
+  border-radius:4px;
+  color:var(--text2);
+  transition:all .2s;
+}
+nav a:hover,nav a:focus-visible{
+  color:var(--black);
+  background:var(--yellow);
+  border-color:var(--yellow2);
+  text-shadow:none;
+  transform:translateY(-1px);
+  box-shadow:0 4px 14px #f0c04055;
+}
+
+/* ?? ?덉뼱濡??? */
+.hero{display:grid;grid-template-columns:1.5fr .8fr;gap:25px;align-items:stretch;margin-bottom:42px}
+.eyebrow{
+  color:var(--yellow);font-size:11px;font-weight:700;letter-spacing:4px;
+  font-family:'Cinzel',serif;text-transform:uppercase;opacity:.9;
+}
+.hero h1{
+  font-family:'Cinzel',serif;
+  font-size:clamp(30px,5vw,58px);
+  letter-spacing:-1px;line-height:1.15;margin:18px 0;
+  color:var(--parchment);
+  text-shadow:0 2px 20px #00000088;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(110deg,var(--amber),var(--yellow2),var(--yellow3),var(--amber));
+  background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  text-shadow:none;
+}
+.hero p{color:var(--text2);font-size:15px;line-height:1.9;max-width:600px}
+
+/* pills */
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:23px}
+.pill{
+  border:1px solid var(--yellow);
+  background:#f0c04022;
+  color:var(--yellow2);
+  font-weight:700;font-size:11px;
+  font-family:'Cinzel',serif;letter-spacing:1px;
+  padding:7px 14px;border-radius:3px;
+  box-shadow:0 0 14px #f0c04022;
+}
+
+/* ?꾨줈??移대뱶 */
+.profile{
+  background:linear-gradient(135deg,#3e3000 0%,#2e2400 50%,#4a3800 100%);
+  border:2px solid var(--yellow);
+  border-radius:8px;padding:30px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  min-height:300px;color:var(--parchment);
+  box-shadow:0 0 50px #f0c04033,inset 0 0 40px #00000055;
+  position:relative;overflow:hidden;
+}
+.profile::before{
+  content:'?─';position:absolute;right:10px;top:10px;
+  font-size:80px;opacity:.10;pointer-events:none;
+}
+.profile::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    -45deg,transparent,transparent 22px,
+    #f0c04008 22px,#f0c04008 23px
+  );pointer-events:none;
+}
+.avatar{font-size:60px;position:relative;z-index:1}
+.profile small{color:var(--yellow);font-size:10px;font-family:'Cinzel',serif;letter-spacing:2px;position:relative;z-index:1}
+.profile h2{margin:6px 0;font-size:22px;font-family:'Cinzel',serif;color:var(--yellow2);position:relative;z-index:1;text-shadow:0 0 16px #f0c04066}
+.profile p{margin:0;font-size:13px;color:var(--text2);position:relative;z-index:1}
+
+/* ?? ?뱀뀡 怨듯넻 ?? */
+section{margin-top:42px;scroll-margin-top:20px}
+.section-head{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;margin-bottom:18px;
+  border-bottom:2px solid var(--border2);
+  padding-bottom:12px;
+}
+.section-head h2{
+  font-family:'Cinzel',serif;
+  font-size:20px;letter-spacing:.5px;margin:0;
+  color:var(--yellow2);
+  text-shadow:0 0 16px #f0c04066;
+}
+.section-head small{color:var(--text2);font-size:11px;letter-spacing:1px;font-family:'Cinzel',serif}
+
+/* ?? 移대뱶 ?? */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.card{
+  background:linear-gradient(160deg,#3a2e00 0%,#2e2400 100%);
+  border:1px solid var(--border);
+  box-shadow:0 8px 24px #00000066;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+  border-radius:6px;padding:22px;min-height:150px;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--amber),var(--yellow2),var(--yellow3),var(--yellow2),var(--amber));
+}
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 32px #00000077,0 0 24px #f0c04033;
+  border-color:var(--yellow);
+}
+.card .meta{
+  color:var(--yellow);font-size:10px;font-weight:700;
+  font-family:'Cinzel',serif;letter-spacing:2px;
+}
+.card h3{color:var(--parchment);font-size:17px;margin:12px 0 8px;font-family:'Cinzel',serif}
+.card p{color:var(--text2);font-size:14px;line-height:1.75;margin:0}
+.wide{grid-column:span 2}
+.interest{font-size:29px}
+
+/* ?? 誘몃뵒?는룸턿留덊겕쨌裕ㅼ쭅 ?? */
+.media-card{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;margin-top:14px}
+.media-card img{
+  width:110px;height:150px;object-fit:cover;
+  border-radius:6px;
+  border:2px solid var(--yellow);
+  box-shadow:0 8px 20px #00000077,0 0 20px #f0c04033;
+}
+.bookmark-photo{grid-template-columns:220px 1fr;align-items:center}
+.bookmark-photo img{width:220px;height:auto;aspect-ratio:3/4;object-fit:contain;border-radius:6px;border:2px solid var(--yellow)}
+.music-tile{display:grid;grid-template-columns:112px 1fr;gap:16px;align-items:center;margin-top:15px}
+.music-thumb{display:block;border-radius:6px;overflow:hidden;border:2px solid var(--yellow);box-shadow:0 8px 20px #00000066}
+.music-thumb img{width:100%;height:100%;display:block;object-fit:cover}
+.song-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
+/* ?? 踰꾪듉 ?? */
+.btn-link,.place-link{
+  display:inline-flex;align-items:center;gap:7px;
+  margin-top:16px;padding:9px 14px;border-radius:4px;
+  background:#f0c04022;
+  color:var(--yellow2);
+  border:1px solid var(--yellow);
+  font-size:12px;font-weight:700;font-family:'Cinzel',serif;letter-spacing:.8px;
+}
+.btn-link:hover,.btn-link:focus-visible,.place-link:hover,.place-link:focus-visible{
+  background:var(--yellow);color:var(--black);
+  outline:none;box-shadow:0 0 16px #f0c04066;
+}
+
+/* ?? 泥댄겕由ъ뒪???? */
+.todo{
+  display:flex;gap:11px;align-items:flex-start;
+  padding:11px 0;border-bottom:1px solid var(--border);
+  color:var(--text2);font-size:14px;
+}
+.todo:last-child{border:0}
+.todo input{accent-color:var(--yellow);margin-top:3px}
+.note{font-size:12px;color:var(--text2);margin-top:12px;opacity:.7}
+
+/* ?? ?명꽣 ?? */
+footer{
+  margin-top:60px;padding-top:22px;
+  border-top:2px solid var(--border2);
+  color:var(--text2);font-size:11px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  font-family:'Cinzel',serif;letter-spacing:.5px;
+}
+
+/* ?? ?뱀뀡蹂?移대뱶 ?뚮쭏 ?? */
+#news .card:first-child{
+  background:linear-gradient(160deg,#402e00 0%,#342400 100%);
+}
+#news .card:first-child::before{
+  background:linear-gradient(90deg,var(--amber),var(--yellow2),var(--amber));
+}
+#activity .card:first-child{
+  background:linear-gradient(160deg,#303400 0%,#282c00 100%);
+  border-color:#5a6000aa;
+}
+#activity .card:first-child::before{
+  background:linear-gradient(90deg,#8a9400,#c8d400,#8a9400);
+}
+#interests .card{border-color:#f0c04033}
+#music .card:first-child{
+  background:linear-gradient(160deg,#3c2c00 0%,#302000 100%);
+}
+#music .card:first-child::before{background:linear-gradient(90deg,var(--amber),var(--yellow3),var(--amber))}
+
+/* ?? 湲곗닕??諛곗젙 移대뱶 ?? */
+#house-quiz-card{
+  background:linear-gradient(160deg,#ecb93922 0%,#f0c75e11 100%)!important;
+  border-color:var(--yellow)!important;
+}
+#house-quiz-card::before{
+  background:linear-gradient(90deg,#ecb939,#f0c75e,#372e29,#f0c75e,#ecb939)!important;
+}
+.quiz-opt{
+  background:#f0c04010;
+  border:1px solid var(--border2);
+  color:var(--parchment);font-size:13px;font-weight:600;
+  font-family:'Noto Serif KR',serif;
+  border-radius:4px;padding:9px 13px;cursor:pointer;text-align:left;
+  transition:all .15s;
+}
+.quiz-opt:hover{background:var(--yellow);border-color:var(--yellow2);color:var(--black);font-weight:700}
+.house-result{border-radius:6px;padding:16px;text-align:center;margin-top:4px}
+.house-gryffindor{background:linear-gradient(135deg,#7b0000 0%,#ae0001 60%,#eeba30 100%);color:#fff}
+.house-slytherin{background:linear-gradient(135deg,#1a472a 0%,#2a623d 60%,#aaaaaa 100%);color:#fff}
+.house-ravenclaw{background:linear-gradient(135deg,#0e1a40 0%,#222f5b 60%,#946b2d 100%);color:#fff}
+.house-hufflepuff{
+  background:linear-gradient(135deg,#ecb939 0%,#f0c75e 40%,#372e29 75%,#1a1200 100%);
+  color:#fff;
+  box-shadow:0 0 30px #f0c04066;
+  border:2px solid #f0c040;
+}
+.house-name{font-size:20px;font-weight:900;font-family:'Cinzel',serif;letter-spacing:1px;margin:8px 0 4px}
+.house-desc{font-size:12px;line-height:1.7;opacity:.92}
+.quiz-restart{
+  margin-top:12px;background:#fff2;border:1px solid #ffffff66;
+  color:#fff;font-size:11px;font-weight:700;font-family:'Cinzel',serif;
+  border-radius:3px;padding:7px 16px;cursor:pointer;letter-spacing:1px;
+}
+.quiz-restart:hover{background:#ffffff33}
+
+/* ?? ?濡??뱀뀡 ?? */
+#tarot .tarot-wrapper{display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:start}
+.tarot-card-area{display:flex;flex-direction:column;align-items:center;gap:14px}
+.tarot-card{width:160px;height:260px;border-radius:10px;cursor:pointer;perspective:800px;position:relative}
+.tarot-card-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.4,0,.2,1)}
+.tarot-card.flipped .tarot-card-inner{transform:rotateY(180deg)}
+.tarot-face,.tarot-back{position:absolute;inset:0;border-radius:10px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.tarot-back{
+  background:linear-gradient(135deg,#3e3000 0%,#2e2400 50%,#4a3800 100%);
+  border:2px solid var(--yellow);
+  box-shadow:0 12px 32px #00000077,0 0 28px #f0c04044;
+  color:var(--yellow2);font-size:42px;
+}
+.tarot-back::after{content:'?─';position:absolute;font-size:90px;opacity:.08}
+.tarot-back-label{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--yellow);font-family:'Cinzel',serif;margin-top:4px}
+.tarot-face{
+  background:linear-gradient(160deg,var(--parchment) 0%,var(--parch2) 100%);
+  border:2px solid var(--yellow);
+  box-shadow:0 12px 32px #00000077,0 0 20px #f0c04033;
+  transform:rotateY(180deg);padding:16px;text-align:center;
+}
+.tarot-face .card-emoji{font-size:52px;line-height:1}
+.tarot-face .card-name{font-size:12px;font-weight:700;color:#3a2000;margin-top:8px;font-family:'Cinzel',serif;letter-spacing:.5px}
+.tarot-face .card-num{font-size:11px;color:#7a5020}
+.tarot-btn{
+  background:linear-gradient(110deg,var(--earth),var(--earth2));
+  color:var(--yellow2);border:1px solid var(--yellow);border-radius:4px;
+  padding:10px 18px;font-size:11px;font-weight:700;cursor:pointer;
+  font-family:'Cinzel',serif;letter-spacing:1px;
+  box-shadow:0 4px 14px #00000055;
+  transition:all .2s;white-space:nowrap;
+}
+.tarot-btn:hover{
+  background:var(--yellow);color:var(--black);
+  box-shadow:0 4px 22px #f0c04066;
+}
+.tarot-btn:disabled{opacity:.4;cursor:default}
+.tarot-result{
+  background:linear-gradient(160deg,#3a2e00 0%,#2e2400 100%);
+  border:1px solid var(--border2);border-radius:6px;
+  padding:22px 24px;box-shadow:0 8px 22px #00000055;
+  min-height:160px;display:flex;flex-direction:column;justify-content:center;
+}
+.tarot-result .result-label{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--yellow);font-family:'Cinzel',serif;margin-bottom:10px}
+.tarot-result .result-title{font-size:18px;font-weight:700;color:var(--parchment);margin:0 0 8px;font-family:'Cinzel',serif}
+.tarot-result .result-keyword{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.tarot-result .result-keyword span{background:#f0c04022;color:var(--yellow2);font-size:11px;font-weight:700;padding:4px 10px;border-radius:3px;border:1px solid var(--border2)}
+.tarot-result .result-desc{font-size:13px;line-height:1.85;color:var(--text2);margin:0}
+.tarot-result .result-advice{margin-top:12px;font-size:12px;color:var(--yellow);font-style:italic;border-left:2px solid var(--yellow);padding-left:10px}
+.tarot-date{font-size:10px;color:var(--text2);margin-top:14px;text-align:center;font-family:'Cinzel',serif;letter-spacing:1px}
+.tarot-pending{color:var(--text2);font-size:14px;text-align:center;padding:20px 0;opacity:.7}
+#tarot-section-card{border-color:var(--yellow)!important}
+#tarot-section-card::before{background:linear-gradient(90deg,var(--amber),var(--yellow2),var(--yellow3),var(--yellow2),var(--amber))!important}
+#tarot-advice-card::before{background:linear-gradient(90deg,var(--earth2),var(--yellow),var(--earth2))!important}
+.advice-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)}
+.advice-item:last-child{border-bottom:none;padding-bottom:0}
+.advice-icon{font-size:22px;line-height:1;flex-shrink:0;margin-top:2px}
+.advice-item h4{font-size:11px;font-weight:700;color:var(--yellow);margin:0 0 3px;font-family:'Cinzel',serif;letter-spacing:.5px}
+.advice-item h4 .advice-sub{display:block;font-size:11px;font-weight:600;color:var(--text2);margin-top:1px;font-family:'Noto Serif KR',serif;letter-spacing:0}
+.advice-item p{font-size:13px;color:var(--text2);margin:0;line-height:1.6}
+
+/* ?? 諛섏쓳???? */
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr}.profile{min-height:210px}
+  .grid{grid-template-columns:1fr}.wide{grid-column:span 1}
+  .card{padding:18px}.advice-item p{font-size:12px}
+}
+@media(max-width:680px){
+  #tarot .tarot-wrapper{grid-template-columns:1fr}
+  .tarot-card-area{flex-direction:row;flex-wrap:wrap;justify-content:center}
+  .tarot-card{width:130px;height:210px}
+}
+@media(max-width:620px){
+  header{align-items:flex-start;flex-direction:column;padding-bottom:30px}
+  .hero h1{letter-spacing:-.5px}
+  .media-card,.music-tile{grid-template-columns:1fr}
+  .media-card img{width:100%;max-width:180px;height:auto;aspect-ratio:1/1}
+  .media-card.bookmark-photo{grid-template-columns:1fr}
+  .media-card.bookmark-photo img{width:100%;max-width:240px;aspect-ratio:3/4}
+  .music-thumb{max-width:220px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,nav a{transition:none}}
+</style>
 </head>
 <body>
-<p>페이지를 이동 중입니다... <a href="https://silly-macaron-1340d4.netlify.app/">클릭해서 이동</a></p>
+<div class="wrap">
+<header>
+  <a class="logo" href="/">HUFFLE<span>PUFF.</span></a>
+  <nav>
+    <a href="#tarot">?ㅻ뒛???댁꽭</a>
+    <a href="#news">?뚯떇</a>
+    <a href="#activity">理쒓렐 ?쒕룞</a>
+    <a href="#interests">愿?ъ궗</a>
+    <a href="#music">?뚯븙</a>
+    <a href="#movies">?몄깮?곹솕</a>
+    <a href="#cheers">?묒썝 蹂대뱶</a>
+    <a href="#restaurants">異붿쿇 留쏆쭛</a>
+    <a href="#backlog">Backlog</a>
+  </nav>
+</header>
+<main>
+  <div class="hero">
+    <div>
+      <div class="eyebrow">?─ HUFFLEPUFF 쨌 WELCOME TO MY DIGITAL SPACE ?─</div>
+      <h1>?덈뀞?섏꽭??<br><em>諛곗닔醫?/em>??怨듦컙?낅땲??</h1>
+      <p>鍮꾩쫰?덉뒪 IT瑜??꾧났?섍퀬 誘몃뵒?대? 遺?꾧났?섎ŉ, 梨낃낵 ?곹솕 洹몃━怨??뚯븙??醫뗭븘?⑸땲?? ????뚯떇怨?痍⑦뼢???쒕늿??蹂????덈룄濡??뺣━???덊럹?댁??낅땲??</p>
+      <div class="pills">
+        <span class="pill">鍮꾩쫰?덉뒪 IT</span>
+        <span class="pill">誘몃뵒??遺?꾧났</span>
+        <span class="pill">?낆꽌? ?곹솕</span>
+      </div>
+    </div>
+    <aside class="profile">
+      <div class="avatar">占?/div>
+      <div>
+        <small>PROFILE / ABOUT ME</small>
+        <h2>諛곗닔醫?/h2>
+        <p>?숇쾲 20245244<br>?꾧났 鍮꾩쫰?덉뒪 IT 쨌 遺?꾧났 誘몃뵒??/p>
+      </div>
+    </aside>
+  </div>
+
+  <section id="tarot">
+    <div class="section-head"><h2>?뵰 ?濡쒕줈 蹂대뒗 ?ㅻ뒛???댁꽭</h2><small>Daily Tarot 쨌 <span id="tarot-today-date"></span></small></div>
+    <div class="grid">
+      <article class="card wide" id="tarot-section-card">
+        <div class="meta">TODAY'S TAROT READING</div>
+        <div class="tarot-wrapper">
+          <div class="tarot-card-area">
+            <div class="tarot-card" id="tarotCard" role="button" aria-label="?濡?移대뱶. ?대┃?섎㈃ ?ㅻ뒛??移대뱶媛 怨듦컻?⑸땲??" tabindex="0">
+              <div class="tarot-card-inner">
+                <div class="tarot-back">
+                  ?뙔
+                  <div class="tarot-back-label">TAROT</div>
+                </div>
+                <div class="tarot-face" id="tarotFace">
+                  <div class="card-emoji" id="tarotEmoji"></div>
+                  <div class="card-name" id="tarotName"></div>
+                  <div class="card-num" id="tarotNum"></div>
+                </div>
+              </div>
+            </div>
+            <button class="tarot-btn" id="tarotBtn" type="button">???ㅻ뒛??移대뱶 戮묎린</button>
+            <div class="tarot-date" id="tarotDateLabel"></div>
+          </div>
+          <div class="tarot-result" id="tarotResult">
+            <div class="tarot-pending">踰꾪듉???뚮윭 ?ㅻ뒛???濡?移대뱶瑜??뺤씤??蹂댁꽭???뙚</div>
+          </div>
+        </div>
+      </article>
+      <article class="card" id="tarot-advice-card">
+        <div class="meta">TODAY'S ADVICE</div>
+        <div id="tarotAdvice">
+          <div class="tarot-pending" style="font-size:13px;padding:10px 0">移대뱶瑜?戮묒쑝硫?br>?ㅻ뒛??議곗뼵???섑??⑸땲????/div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="news">
+    <div class="section-head"><h2>?뱽 ?섏쓽 ?뚯떇</h2><small>What's new?</small></div>
+    <div class="grid">
+      <article class="card wide">
+        <div class="meta">?붿쬁???뚯떇</div>
+        <h3>???대━?ы꽣 ?쒕━利??뺤＜??以?/h3>
+        <div class="media-card">
+          <img src="https://image.tmdb.org/t/p/w500/bo8FuQPWKLqbg3WgAXYISkwrbZ9.jpg" alt="?대━ ?ы꽣? 鍮꾨???諛??곹솕 ?ъ뒪??>
+          <div>
+            <p>?곹솕 ?딇빐由??ы꽣???쒕━利덈? ?쒖꽌?濡??ㅼ떆 媛먯긽?섍퀬 ?덉뒿?덈떎.</p>
+            <p style="margin-top:10px;color:var(--gold);font-size:13px;font-weight:700">?꾩옱 ?쒖껌 以?쨌 2???딅퉬諛??諛⒲?/p>
+            <p style="margin-top:12px;color:var(--text2);font-size:14px;line-height:1.85">?숈깮?ㅼ씠 ?섎굹???뚯쿂??援녹뼱媛???ш굔??踰뚯뼱吏怨? ?꾩꽕 ??<strong>鍮꾨???諛?/strong>???대졇?ㅻ뒗 ?뚮Ц???쇱쭛?덈떎. ?대━쨌濡졖룻뿤瑜대??⑤뒓??洹??ㅼ껜? ?щ━?곕┛???꾧퀎?먮? 已볤린 ?쒖옉?섎뒗?겸?/p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="activity">
+    <div class="section-head"><h2>?뿎截?理쒓렐 ?쒕룞</h2><small>Recent activity</small></div>
+    <div class="grid">
+      <article class="card wide">
+        <div class="meta">理쒓렐 湲곕줉</div>
+        <h3>?뵔 誘쇱쓬??梨낃컝??援щℓ</h3>
+        <div class="media-card bookmark-photo">
+          <img src="assets/animal-farm-bookmark.png" alt="吏곸젒 珥ъ쁺??誘쇱쓬???멸퀎臾명븰?꾩쭛 梨낃컝???ъ쭊. ?숇Ъ?띿옣 ???щ윭 ?붿옄?몄씠 蹂댁엯?덈떎.">
+          <div>
+            <p>理쒓렐 援щℓ??誘쇱쓬??梨낃컝?쇰? 吏곸젒 珥ъ쁺??湲곕줉?덉뒿?덈떎. ?ъ쭊?먮뒗 <strong>?딅룞臾쇰냽?γ?/strong> ???щ윭 ?멸퀎臾명븰?꾩쭛 ?붿옄?몄씠 ?닿꺼 ?덉뒿?덈떎.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="interests">
+    <div class="section-head"><h2>?뮕 愿?ъ궗? 痍⑤?</h2><small>Things I love</small></div>
+    <div class="grid">
+      <article class="card"><div class="interest">?뱴</div><h3>愿?ъ궗 쨌 ?낆꽌</h3><p>梨낆쓣 ?쎄퀬 ?덈줈???댁빞湲곗? ?앷컖??留뚮굹???쒓컙??醫뗭븘?⑸땲??</p></article>
+      <article class="card"><div class="interest">?뱰</div><h3>痍⑤? 쨌 ?낆꽌</h3><p>?쇱긽 ?띿뿉??袁몄???利먭린?????痍⑤??낅땲??</p></article>
+      <article class="card"><div class="interest">?렗</div><h3>痍⑤? 쨌 ?곹솕 媛먯긽</h3><p>?ㅼ뼇???λⅤ???곹솕瑜?媛먯긽?⑸땲?? ?붿쬁? ?대━ ?ы꽣 ?쒕━利덈? 蹂닿퀬 ?덉뒿?덈떎.</p></article>
+    </div>
+  </section>
+
+  <section id="music">
+    <div class="section-head"><h2>?렦 醫뗭븘?섎뒗 ?뚯븙</h2><small>My favorites</small></div>
+    <div class="grid">
+      <article class="card wide">
+        <div class="meta">FAVORITE ARTIST</div>
+        <h3>???곗＜?뚮? (WJSN)</h3>
+        <p>?쒓? 醫뗭븘?섎뒗 ?꾪떚?ㅽ듃?낅땲?? 紐쏀솚?곸씤 遺꾩쐞湲곗? 硫ㅻ쾭?ㅼ쓽 ?뚯깋??留ㅻ젰?곸씠?쇨퀬 ?앷컖?⑸땲??</p>
+      </article>
+      <article class="card">
+        <div class="meta">FAVORITE SONG</div>
+        <div class="music-tile">
+          <a class="music-thumb" href="https://www.youtube.com/watch?v=2wOBbRu3OOc" target="_blank" rel="noopener noreferrer" aria-label="?곗＜?뚮? 遺?곹빐 裕ㅼ쭅鍮꾨뵒???좏뒠釉뚮줈 ?대룞">
+            <img src="https://img.youtube.com/vi/2wOBbRu3OOc/hqdefault.jpg" alt="?곗＜?뚮? 遺?곹빐 裕ㅼ쭅鍮꾨뵒??而ㅻ쾭 ?대?吏">
+          </a>
+          <div>
+            <div class="song-title"><h3 style="margin:0">遺?곹빐</h3></div>
+            <p>?곗＜?뚮? 쨌 醫뗭븘?섎뒗 ?몃옒</p>
+            <a class="btn-link" href="https://www.youtube.com/watch?v=2wOBbRu3OOc" target="_blank" rel="noopener noreferrer">???좏뒠釉뚯뿉???ｊ린 ??/a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="movies">
+    <div class="section-head"><h2>?렄截??몄깮?곹솕</h2><small>Favorite movie</small></div>
+    <div class="grid">
+      <article class="card wide">
+        <div class="meta">LIFE MOVIE SERIES</div>
+        <h3>?대━ ?ы꽣 ?쒕━利?(Harry Potter)</h3>
+        <div class="media-card">
+          <img src="https://image.tmdb.org/t/p/w500/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg" alt="?대━ ?ы꽣? 留덈쾿?ъ쓽 ???ъ뒪??>
+          <div>
+            <p>?쒓? ?몄깮?곹솕濡?瑗쎈뒗 ?쒕━利덈뒗 <strong>?딇빐由??ы꽣??/strong>?낅땲?? ?대┛ ?쒖젅遺???④퍡?댁삩 ?댁빞湲곕줈, 蹂??뚮쭏???덈줈??媛먮룞??以띾땲??</p>
+            <p style="margin-top:10px;color:var(--gold);font-size:13px;font-weight:700">珥?8??쨌 2001??011</p>
+            <p style="margin-top:12px;color:var(--text2);font-size:14px;line-height:1.85">留덈쾿???멸퀎瑜?諛곌꼍?쇰줈, ?됰쾾???뚮뀈 ?대━媛 蹂쇰뱶紐⑦듃??留욎꽌 ?깆옣?닿????댁빞湲? ?곗젙, ?⑷린, ?ъ깮?대씪??二쇱젣媛 ?쒕━利??꾩껜瑜?愿?듯빀?덈떎.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 湲곗닕??諛곗젙 ?ㅻЦ 移대뱶 -->
+      <article class="card" id="house-quiz-card">
+        <div class="meta">HOGWARTS SORTING HAT</div>
+        <h3>?룿 ??湲곗닕?щ뒗 ?대뵒?쇨퉴?</h3>
+        <div id="quiz-body">
+          <div id="quiz-progress" style="font-size:11px;color:#9098b0;margin-bottom:12px"></div>
+          <div id="quiz-question"></div>
+          <div id="quiz-options" style="display:flex;flex-direction:column;gap:8px;margin-top:12px"></div>
+          <div id="quiz-result" style="display:none"></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="restaurants">
+    <div class="section-head"><h2>?띂截?異붿쿇 留쏆쭛</h2><small>My favorite places</small></div>
+    <div class="grid">
+      <article class="card">
+        <div class="meta">RECOMMENDED RESTAURANT 쨌 紐⑸룞</div>
+        <h3>?뜗 ?꾩옱?앸떦</h3>
+        <p>紐⑸룞?먯꽌 異붿쿇?섎뒗 ?앸떦?낅땲??</p>
+        <a class="place-link" href="https://map.naver.com/p/search/%EB%AA%A9%EB%8F%99%20%EC%95%84%EC%9E%AC%EC%8B%9D%EB%8B%B9" target="_blank" rel="noopener noreferrer" aria-label="?ㅼ씠踰?吏?꾩뿉??紐⑸룞 ?꾩옱?앸떦 寃?됲븯湲?>?뱧 吏?꾩뿉??蹂닿린 ??/a>
+      </article>
+      <article class="card">
+        <div class="meta">RECOMMENDED BAKERY 쨌 ?몄쿇 遺?됯뎄</div>
+        <h3>?쪖 ?ㅻ━?쒕＼</h3>
+        <p>?몄쿇 遺?됯뎄?먯꽌 異붿쿇?섎뒗 鍮듭쭛?낅땲??</p>
+        <a class="place-link" href="https://map.naver.com/p/search/%EC%8B%A4%EB%A6%AC%EC%A0%9C%EB%A1%AC?c=15.00,0,0,0,dh&placePath=%2Fhome%3Ffrom%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202610121653%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%8B%A4%EB%A6%AC%EC%A0%9C%EB%A1%AC" target="_blank" rel="noopener noreferrer" aria-label="?ㅼ씠踰?吏?꾩뿉???ㅻ━?쒕＼ 蹂닿린">?뱧 吏?꾩뿉??蹂닿린 ??/a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ?묒썝 蹂대뱶 ?뱀뀡 -->
+  <section id="cheers">
+    <div class="section-head">
+      <h2>?챷 ?대━?ы꽣 ?묒썝 蹂대뱶</h2>
+      <small>?대뼡 ?몄씠 媛??醫뗭븯?섏슂? ?묒썝???④꺼二쇱꽭??</small>
+    </div>
+    <div id="cheers-status"></div>
+    <div class="hp-grid" id="hp-grid"></div>
+  </section>
+
+  <section id="backlog">
+    <div class="section-head"><h2>?썱截?Next Sprint Backlog</h2><small>Version 1.6 ??2.0</small></div>
+    <div class="card">
+      <label class="todo"><input type="checkbox" checked disabled> 泥?踰덉㎏ ?덊럹?댁?(index.html) 援ы쁽</label>
+      <label class="todo"><input type="checkbox" checked disabled> 紐⑤컮??諛섏쓳???붿옄???곸슜</label>
+      <label class="todo"><input type="checkbox" checked disabled> ?ㅼ젣 ?대쫫怨??숈쟻 ?뺣낫 ?낅젰</label>
+      <label class="todo"><input type="checkbox" checked disabled> 醫뗭븘?섎뒗 ?꾪떚?ㅽ듃? ?몃옒 ?낅뜲?댄듃</label>
+      <label class="todo"><input type="checkbox" checked disabled> 異붿쿇 留쏆쭛 諛?吏??留곹겕 異붽?</label>
+      <label class="todo"><input type="checkbox" checked disabled> ?몄깮?곹솕 ??ぉ 異붽?</label>
+      <label class="todo"><input type="checkbox" checked disabled> 理쒓렐 ?쒕룞???대?吏 泥⑤?</label>
+      <label class="todo"><input type="checkbox" checked disabled> GitHub Pages 諛고룷 諛?猷⑦듃 二쇱냼 ?묒냽 ?뺤씤</label>
+      <label class="todo"><input type="checkbox" checked disabled> 諛앹? 而щ윭 ?뚮쭏 諛?媛?낆꽦 媛쒖꽑</label>
+      <label class="todo"><input type="checkbox"> ?쒕룞/痍⑦뼢?????쎄쾶 ?섏젙?????덈뒗 ?곗씠??援ъ“ 異붽?</label>
+      <label class="todo"><input type="checkbox" checked disabled> ?濡??쇱씪 ?댁꽭 ?뱀뀡 異붽?</label>
+      <p class="note">泥댄겕諛뺤뒪??吏꾪뻾 ?꾪솴 ?쒖떆?⑹엯?덈떎. ?ㅼ쓬 Sprint?먯꽌 index.html怨?assets瑜??④퍡 ?섏젙??怨꾩냽 諛쒖쟾?쒗궗 ???덉뒿?덈떎.</p>
+    </div>
+  </section>
+</main>
+<footer><span>짤 2026 諛곗닔醫? Made with curiosity.</span><span>Powered by GitHub Pages 쨌 v1.9 Hufflepuff Edition ?─</span></footer>
+</div>
+<script>
+// ?? 湲곗닕??諛곗젙 ?ㅻЦ ??
+(function(){
+  var QUESTIONS = [
+    {
+      q: "?대뼡 媛移섎? 媛??以묒슂?섍쾶 ?앷컖?섎굹??",
+      opts: [
+        {text:"?⑷린? ?대???,scores:{G:3,S:0,R:0,H:0}},
+        {text:"?쇰쭩怨?紐⑺몴 ?ъ꽦",scores:{G:0,S:3,R:0,H:0}},
+        {text:"吏?쒖? ?먭뎄??,scores:{G:0,S:0,R:3,H:0}},
+        {text:"?깆떎?④낵 怨듭젙??,scores:{G:0,S:0,R:0,H:3}}
+      ]
+    },
+    {
+      q: "?꾪뿕???곹솴?먯꽌 ?섎뒗?",
+      opts: [
+        {text:"?욎옣?쒖꽌 ?닿껐?쒕떎",scores:{G:3,S:1,R:0,H:0}},
+        {text:"?꾨왂?곸쑝濡??곹솴???댁슜?쒕떎",scores:{G:0,S:3,R:1,H:0}},
+        {text:"?뺣낫瑜?紐⑥븘 理쒖꽑梨낆쓣 李얜뒗??,scores:{G:0,S:1,R:3,H:0}},
+        {text:"???紐⑤몢媛 ?덉쟾?쒖? 梨숆릿??,scores:{G:1,S:0,R:0,H:3}}
+      ]
+    },
+    {
+      q: "移쒓뎄?ㅼ씠 ?섎? ?대뼸寃??쒗쁽?섎굹??",
+      opts: [
+        {text:"?댁젙?곸씠怨??⑹뵫?섎떎",scores:{G:3,S:0,R:0,H:1}},
+        {text:"?곷━?섍퀬 怨꾩궛?곸씠??,scores:{G:0,S:3,R:1,H:0}},
+        {text:"?멸린?ъ씠 留롪퀬 李쎌쓽?곸씠??,scores:{G:0,S:0,R:3,H:1}},
+        {text:"?곕쑜?섍퀬 誘우쓬吏곹븯??,scores:{G:1,S:0,R:0,H:3}}
+      ]
+    },
+    {
+      q: "諛⑷낵 ??媛???섍퀬 ?띠? ?쇱??",
+      opts: [
+        {text:"?대뵒移??곗뒿 ?먮뒗 紐⑦뿕",scores:{G:3,S:0,R:0,H:1}},
+        {text:"?몃㎘ 愿由ъ? 紐⑺몴 ?몄슦湲?,scores:{G:0,S:3,R:0,H:0}},
+        {text:"?꾩꽌愿?먯꽌 ?덈줈??吏???먭뎄",scores:{G:0,S:1,R:3,H:0}},
+        {text:"移쒓뎄?ㅺ낵 ?ъ쑀濡?쾶 ?댁슱由ш린",scores:{G:1,S:0,R:0,H:3}}
+      ]
+    },
+    {
+      q: "?섏뿉寃??깃났?대??",
+      opts: [
+        {text:"?먮젮???洹밸났?섍퀬 ?대궦 寃?,scores:{G:3,S:0,R:0,H:1}},
+        {text:"?먰븯??紐⑺몴瑜?諛섎뱶???대（??寃?,scores:{G:0,S:3,R:1,H:0}},
+        {text:"?딆엫?놁씠 諛곗슦怨??깆옣?섎뒗 寃?,scores:{G:0,S:0,R:3,H:1}},
+        {text:"二쇰? ?щ엺?ㅺ낵 ?④퍡 ?됰났??寃?,scores:{G:1,S:0,R:0,H:3}}
+      ]
+    }
+  ];
+
+  var HOUSES = {
+    G: {
+      name:"洹몃━??꾨Ⅴ Gryffindor", emoji:"?쫨",
+      cls:"house-gryffindor",
+      desc:"?⑷린쨌?대??㉱룰린?щ룄媛 ?뱀쭠??湲곗닕?ъ엯?덈떎. ?섎뒛???덉쿂??鍮쏅굹??吏꾩랬???뺤떊???뚯쑀??"
+    },
+    S: {
+      name:"?щ━?곕┛ Slytherin", emoji:"?릫",
+      cls:"house-slytherin",
+      desc:"?쇰쭩쨌?곷━?㉱룰껐?⑤젰??媛뽰텣 湲곗닕?ъ엯?덈떎. 紐⑺몴瑜??ν빐 ?대뼡 ?섎떒??留덈떎?섏? ?딅뒗 ?꾨왂媛!"
+    },
+    R: {
+      name:"?섎쾲?대줈 Ravenclaw", emoji:"?쫭",
+      cls:"house-ravenclaw",
+      desc:"吏?쑣룹갹?섎젰쨌諛곗????щ옉?섎뒗 湲곗닕?ъ엯?덈떎. 留덈쾿???멸퀎 理쒓퀬??吏?깆씤?ㅼ씠 紐⑥씤 怨?"
+    },
+    H: {
+      name:"?꾪뵆?명봽 Hufflepuff", emoji:"?─",
+      cls:"house-hufflepuff",
+      desc:"?깆떎쨌異⑹꽦쨌怨듭젙??以묒슂?쒗븯??湲곗닕?ъ엯?덈떎. 媛???곕쑜?섍퀬 誘우쓣 ???덈뒗 ?щ엺?ㅼ쓽 吏?"
+    }
+  };
+
+  var scores = {G:0, S:0, R:0, H:0};
+  var current = 0;
+
+  var progressEl = document.getElementById('quiz-progress');
+  var questionEl = document.getElementById('quiz-question');
+  var optionsEl  = document.getElementById('quiz-options');
+  var resultEl   = document.getElementById('quiz-result');
+
+  function render(){
+    if(current >= QUESTIONS.length){ showResult(); return; }
+    var q = QUESTIONS[current];
+    progressEl.textContent = (current+1) + ' / ' + QUESTIONS.length;
+    questionEl.innerHTML = '<p style="font-size:14px;font-weight:700;color:var(--parchment,#f5ecd4);margin:0 0 4px">' + q.q + '</p>';
+    optionsEl.innerHTML = '';
+    q.opts.forEach(function(o){
+      var btn = document.createElement('button');
+      btn.className = 'quiz-opt';
+      btn.textContent = o.text;
+      btn.addEventListener('click', function(){
+        Object.keys(o.scores).forEach(function(k){ scores[k] += o.scores[k]; });
+        current++;
+        render();
+      });
+      optionsEl.appendChild(btn);
+    });
+  }
+
+  function showResult(){
+    var winner = Object.keys(scores).reduce(function(a,b){ return scores[a]>=scores[b]?a:b });
+    var h = HOUSES[winner];
+    questionEl.innerHTML = '';
+    optionsEl.innerHTML = '';
+    progressEl.textContent = '';
+    resultEl.style.display = 'block';
+    resultEl.innerHTML =
+      '<div class="house-result ' + h.cls + '">' +
+        '<div style="font-size:40px">' + h.emoji + '</div>' +
+        '<div class="house-name">' + h.name + '</div>' +
+        '<div class="house-desc">' + h.desc + '</div>' +
+        '<button class="quiz-restart" id="quiz-restart-btn">???ㅼ떆 ?대낫湲?/button>' +
+      '</div>';
+    document.getElementById('quiz-restart-btn').addEventListener('click', function(){
+      scores = {G:0,S:0,R:0,H:0};
+      current = 0;
+      resultEl.style.display = 'none';
+      render();
+    });
+  }
+
+  if(document.getElementById('quiz-question')) render();
+})();
+
+(function(){
+  // ?? 硫붿씠? ?꾨Ⅴ移대굹 22???곗씠????
+  var CARDS = [
+    {num:"0",name:"愿묐? THE FOOL",emoji:"?ㄱ",keywords:["??異쒕컻","?먯쑀","紐⑦뿕"],
+     desc:"?덈줈???ъ젙???쒖옉???뚮┰?덈떎. ?먮젮? ?놁씠 ?욎쑝濡??섏븘媛?以鍮꾧? ?섏뼱 ?덈뒗 ?좎엯?덈떎. 吏곴?怨??ㅻ젞??誘욧퀬 泥リ구?뚯쓣 ?대뵒??蹂댁꽭??",
+     advice:"?ㅻ뒛? 吏?섏튇 怨꾩궛蹂대떎 留덉쓬???대걚??諛⑺뼢???곕Ⅴ?몄슂.",
+     menu:{icon:"?뙫",title:"泥섏쓬 癒뱀뼱蹂대뒗 ?뚯떇",desc:"?덈줈???앸떦?대굹 ??踰덈룄 ??癒뱀뼱蹂?硫붾돱???꾩쟾??蹂댁꽭?? ?肄? ?먰떚?ㅽ뵾???뚯떇 ????꽑 ?붾━媛 ?ㅻ뒛怨????댁슱由쎈땲??"},
+     place:{icon:"?뿺截?,title:"泥섏쓬 媛蹂대뒗 ?숇꽕",desc:"?먯＜ ?ㅻ땲??湲?留먭퀬 泥섏쓬 媛蹂대뒗 怨⑤ぉ?대굹 ?숇꽕瑜?嫄몄뼱蹂댁꽭?? ?덈줈??諛쒓껄??湲곕떎由ш퀬 ?덉뒿?덈떎."},
+     activity:{icon:"?랃툘",title:"踰꾪궥由ъ뒪???묒꽦",desc:"?몄젨媛 ?대낫怨??띠뿀???쇰뱾???명듃???⑤낫?몄슂. 泥?踰덉㎏ ??ぉ遺???ㅽ뻾 怨꾪쉷???몄썙遊먮룄 醫뗭뒿?덈떎."}},
+    {num:"??,name:"留덈쾿??THE MAGICIAN",emoji:"?챷",keywords:["?섏?","?λ젰","吏묒쨷"],
+     desc:"?뱀떊 ?덉뿉 ?꾩슂???꾧뎄媛 紐⑤몢 媛뽰떠???덉뒿?덈떎. ?꾩씠?붿뼱瑜??꾩떎濡???만 ???덈뒗 ?먮꼫吏媛 異⑸쭔???섎（?낅땲??",
+     advice:"癒몃┸?띿뿉 ?덈뒗 怨꾪쉷??援ъ껜?곸씤 ?됰룞?쇰줈 ??꺼蹂댁꽭??",
+     menu:{icon:"??,title:"?꾨찓由ъ뭅??+ ?먮꼫吏諛?,desc:"吏묒쨷?μ쓣 ?믪뿬以?移댄럹?멸낵 媛꾨떒???먮꼫吏 蹂댁땐???ㅻ뒛???쒕룞?μ쓣 洹밸??붿떆耳?以띾땲??"},
+     place:{icon:"?뱴",title:"移댄럹 ?먮뒗 ?ㅽ꽣?붾８",desc:"吏묒쨷?댁꽌 臾댁뼵媛瑜?留뚮뱾嫄곕굹 怨듬??섍린 醫뗭? 議곗슜??移댄럹???ㅽ꽣??怨듦컙??李얠븘媛 蹂댁꽭??"},
+     activity:{icon:"?썱截?,title:"誘몃쨪???꾨줈?앺듃 李⑹닔",desc:"?ㅻ옒 ?앷컖留??댁솕???쇱쓣 ?ㅻ뒛 ?ㅼ젣濡??쒖옉??蹂댁꽭?? ?묒? 泥??④퀎媛 ??蹂?붾? 留뚮벊?덈떎."}},
+    {num:"??,name:"?ъ궗??THE HIGH PRIESTESS",emoji:"?뙔",keywords:["吏곴?","?대㈃","?좊퉬"],
+     desc:"寃됱쑝濡??쒕윭?섏? ?딅뒗 吏꾩떎??二쇰ぉ?섏꽭?? ?쇰━蹂대떎 吏곴??????뺥솗???듭쓣 以????덈뒗 ?좎엯?덈떎.",
+     advice:"議곗슜???대㈃??紐⑹냼由ъ뿉 洹 湲곗슱?대뒗 ?쒓컙??媛?몃낫?몄슂.",
+     menu:{icon:"?뜷",title:"?곕쑜???덈툕??,desc:"移대え留덉씪?대굹 ?섑띁誘쇳듃 媛숈? ?덈툕?????붿씠 ?대㈃??怨좎슂?섍쾶 留뚮뱾??以띾땲?? 議곗슜??移댄럹?먯꽌 泥쒖쿇??利먭꺼蹂댁꽭??"},
+     place:{icon:"?뙼",title:"議곗슜??怨듭썝 ?먮뒗 ?뺤썝",desc:"踰덉옟??怨녹쓣 ?쇳빐 ?섎Т? ?먯뿰???덈뒗 議곗슜??怨듦컙?먯꽌 ?쇱옄 ?곗콉?섎ŉ ?앷컖???뺣━??蹂댁꽭??"},
+     activity:{icon:"?뱭",title:"?쇨린 ?먮뒗 ????곌린",desc:"?ㅻ뒛 ?먮? 媛먯젙怨??앷컖??湲濡?湲곕줉??蹂댁꽭?? 臾댁쓽????吏꾩쭨 ?먰븯??寃껋씠 ?좎삤瑜????덉뒿?덈떎."}},
+    {num:"??,name:"?ы솴??THE EMPRESS",emoji:"?뙵",keywords:["?띿슂","李쎌“","?뚮큵"],
+     desc:"李쎌쓽?곸씤 ?먮꼫吏? ?띿슂濡쒖???媛?앺븳 ?좎엯?덈떎. ???먯떊怨?二쇰????곕쑜?섍쾶 ?뚮낫??寃껋씠 醫뗭? 寃곌낵瑜?遺덈윭?듬땲??",
+     advice:"?ㅻ뒛? 李쎌옉 ?쒕룞?대굹 ?뚯쨷???щ엺?먭쾶 留덉쓬???쒗쁽??蹂댁꽭??",
+     menu:{icon:"?쪞",title:"而щ윭????먮윭???먮뒗 釉뚮윴移?,desc:"?꾨낫移대룄, ?멸린, 寃ш낵瑜섍? ?ㅼ뼱媛??띿꽦???먮윭?쒕굹 釉뚮윴移??뚮젅?댄듃媛 ?ㅻ뒛???먮꼫吏? ??留욎뒿?덈떎."},
+     place:{icon:"?뙵",title:"苑껋쭛 ?먮뒗 ?뚮씪??移댄럹",desc:"苑껎뼢湲곌? 媛?앺븳 ?뚮씪??移댄럹??苑껋쭛???ㅻ윭蹂댁꽭?? ?묒? ?붾텇???섎굹 ?ъ꽌 吏묒뿉 ?앷린瑜??뷀빐遊먮룄 醫뗭뒿?덈떎."},
+     activity:{icon:"?렓",title:"洹몃┝ 洹몃━湲??먮뒗 怨듭삁",desc:"洹몃┝ 洹몃━湲? ?④컻吏? 苑껉퐘?????먯쓣 ?곕뒗 李쎌옉 ?쒕룞?쇰줈 ?ㅻ뒛???띿슂濡쒖슫 ?먮꼫吏瑜??쒗쁽??蹂댁꽭??"}},
+    {num:"??,name:"?⑹젣 THE EMPEROR",emoji:"?몣",keywords:["吏덉꽌","由щ뜑??,"?덉젙"],
+     desc:"泥닿퀎?곸씠怨??덉젙??湲곕컲???ㅼ????좎엯?덈떎. 梨낆엫媛먯쓣 媛뽮퀬 二쇰룄?곸쑝濡??곹솴???대걣 ??醫뗭? ?깃낵媛 ?곕쫭?덈떎.",
+     advice:"?먰듃?ъ쭊 ?쇱긽??猷⑦떞???먭??섍퀬 援ъ“瑜??≪븘蹂댁꽭??",
+     menu:{icon:"?뜳",title:"?좊뱺???뺤떇 ????,desc:"諛깅컲, ?쒖젙?? ?꾩떆?????곸뼇 洹좏삎???≫엺 ?뺤떇 硫붾돱濡??섎（瑜??좊뱺?섍쾶 梨꾩썙蹂댁꽭??"},
+     place:{icon:"?룢截?,title:"?꾩꽌愿 ?먮뒗 愿怨듭꽌 二쇰?",desc:"吏덉꽌 ?덇퀬 泥닿퀎?곸씤 怨듦컙?먯꽌 ????紐⑸줉???뺣━?섍굅??以묒슂???낅Т瑜?泥섎━??蹂댁꽭??"},
+     activity:{icon:"?뱥",title:"????紐⑸줉 ?뺣━ 諛?怨꾪쉷 ?섎┰",desc:"?ㅻ뒛 ?댁빞 ???쇨낵 ?대쾲 二?紐⑺몴瑜??뺣━???곗꽑?쒖쐞瑜??몄썙蹂댁꽭?? 怨꾪쉷?????쒕㈃ ?ㅽ뻾???ъ썙吏묐땲??"}},
+    {num:"??,name:"援먰솴 THE HIEROPHANT",emoji:"??,keywords:["?꾪넻","誘우쓬","媛瑜댁묠"],
+     desc:"寃利앸맂 諛⑸쾿怨?吏?쒖뿉??諛곗슱 ?먯쓣 李얜뒗 ?좎엯?덈떎. ?좊ː?????덈뒗 ?щ엺??議곗뼵??洹 湲곗슱??蹂댁꽭??",
+     advice:"?쇱옄 ?먮떒?섍린 ?대졄?ㅻ㈃ 寃쏀뿕 留롮? ?щ엺?먭쾶 議곗뼵??援ы빐蹂댁꽭??",
+     menu:{icon:"?뜙",title:"?ㅻ옒???④낏 ?뚯떇??,desc:"?덈줈??怨노낫???ㅻ옒?꾨???寃利앸맂 ?④낏吏묒씠???대㉧?덉쓽 ?먮쭧???닿릿 ?뺥넻 ?뚯떇??李얠븘媛 蹂댁꽭??"},
+     place:{icon:"?룾",title:"??궗 ?좎쟻吏 ?먮뒗 怨좉턿",desc:"寃쎈났沅? ?뺤닔沅? 吏???κ탳 ????궗? ?꾪넻??源껊뱺 怨녹쓣 諛⑸Ц??蹂댁꽭?? 諛곗?怨??덉젙媛먯쓣 ?살쓣 ???덉뒿?덈떎."},
+     activity:{icon:"?뱰",title:"怨좎쟾 ?먮뒗 紐낆옉 ?쎄린",desc:"?ㅻ옒?꾨????쎄퀬 ?띠뿀??怨좎쟾 臾명븰?대굹 紐낆옉???쇱퀜蹂댁꽭?? 寃利앸맂 吏?쒓? ?ㅻ뒛??怨좊????듭쓣 以????덉뒿?덈떎."}},
+    {num:"??,name:"?곗씤 THE LOVERS",emoji:"?뮒",keywords:["?좏깮","愿怨?,"議고솕"],
+     desc:"以묒슂???좏깮?대굹 愿怨꾩뿉??吏꾩떖??湲곕컲??寃곗젙???꾩슂???좎엯?덈떎. 留덉쓬???대걚??履쎌쓣 誘우뼱蹂댁꽭??",
+     advice:"媛移섍????곕Ⅸ ?좏깮???섎릺, ?쒕줈瑜?議댁쨷?섎뒗 寃껋쓣 ?딆? 留덉꽭??",
+     menu:{icon:"?뜚",title:"?섏씠 ?섎닠 癒밸뒗 ?뚯뒪?",desc:"醫뗭븘?섎뒗 ?щ엺怨??④퍡 ?뚯뒪????쇱옄 媛숈씠 ?섎닠 癒밸뒗 硫붾돱媛 ???댁슱由щ뒗 ?좎엯?덈떎."},
+     place:{icon:"?똿",title:"?몄쓣 紐낆냼 ?먮뒗 ?쇨꼍 ?ъ씤??,desc:"?댁쭏 臾대졄 ?④퍡 嫄몄쓣 ???덈뒗 ?쒓컯, ?⑥궛??? ?숇꽕 ?몃뜒 ??酉?醫뗭? 怨녹뿉 媛蹂댁꽭??"},
+     activity:{icon:"?뭽",title:"?뚯쨷???щ엺?먭쾶 ?곕씫?섍린",desc:"?ㅻ옯?숈븞 ?곕씫 紐??덈뜕 移쒓뎄??媛議깆뿉寃?癒쇱? ?곕씫??蹂댁꽭?? 吏㏃? 硫붿떆吏 ?섎굹媛 愿怨꾨? ?ㅼ떆 ?댁뼱以띾땲??"}},
+    {num:"??,name:"?꾩감 THE CHARIOT",emoji:"?룇",keywords:["?섏?","?꾩쭊","?밸━"],
+     desc:"媛뺥븳 ?섏?? 寃곕떒?μ씠 鍮쏆쓣 諛쒗븯???좎엯?덈떎. 諛⑺빐臾쇱씠 ?덈뜑?쇰룄 ?욎쑝濡??섏븘媛硫?諛섎뱶??湲몄씠 ?대┰?덈떎.",
+     advice:"吏묒쨷?μ쓣 ?껋? 留먭퀬 紐⑺몴瑜??ν빐 袁몄????꾩쭊?섏꽭??",
+     menu:{icon:"?ⅸ",title:"?⑤갚吏??꾩＜???좊뱺???앹궗",desc:"?ㅽ뀒?댄겕, ????댁궡 ?꾩떆?? ?쇨껸?????먮꼫吏 異⑹쟾??醫뗭? ?⑤갚吏??꾩＜ ?앹궗濡??ㅻ뒛??異붿쭊?μ쓣 梨꾩썙蹂댁꽭??"},
+     place:{icon:"?룂",title:"?대룞 ?쒖꽕 ?먮뒗 ?몃옓",desc:"?ъ뒪?? ?щ떇 ?몃옓, ?섏쁺????紐몄쓣 ?吏곸씪 ???덈뒗 怨녹뿉 媛蹂댁꽭?? ????섎━硫?紐⑺몴 ?섏떇????媛뺥빐吏묐땲??"},
+     activity:{icon:"?렞",title:"?꾩쟾 怨쇱젣 ?섎굹 ?꾩닔",desc:"?ㅻ뒛留뚰겮? 誘몃（吏 留먭퀬 媛???대젮??怨쇱젣 ?섎굹瑜??앸궡蹂댁꽭?? ?꾩닔???깆랬媛먯씠 ?ㅼ쓬 ?됰룞???대걬?덈떎."}},
+    {num:"??,name:"??STRENGTH",emoji:"?쫨",keywords:["?⑷린","?몃궡","?대㈃????],
+     desc:"?몄쟻???섎낫???대㈃???⑷린? ?몃궡媛 以묒슂???좎엯?덈떎. 媛먯젙??議곗젅?섎ŉ 遺?쒕읇寃??곹솴???대걣??蹂댁꽭??",
+     advice:"媛뺤븬蹂대떎 ?댄빐? 怨듦컧?쇰줈 二쇰? ?곹솴???ㅻ（??蹂댁꽭??",
+     menu:{icon:"?뜴",title:"?곕쑜??援?Ъ ?붾━",desc:"?ㅻ쟻?? 媛먯옄?? ?쒕몢遺李뚭컻 ???띿쓣 ?곕쑜?섍쾶 梨꾩썙二쇰뒗 援?Ъ ?붾━媛 ?ㅻ뒛???대㈃ ?먮꼫吏瑜?蹂댁땐??以띾땲??"},
+     place:{icon:"?뙰",title:"?꿸만 ?먮뒗 ?깆궛濡?,desc:"?먯뿰 ?띿뿉??泥쒖쿇??嫄룸뒗 寃껋씠 ?대㈃???섏쓣 ?뚮났?쒖폒 以띾땲?? 媛源뚯슫 ???먮뒗 ?꿸만 ?곗콉??異붿쿇?⑸땲??"},
+     activity:{icon:"?쭣",title:"紐낆긽 ?먮뒗 ?ㅽ듃?덉묶",desc:"10遺꾩씠?쇰룄 議곗슜???됱븘 ?명씉??吏묒쨷??蹂댁꽭?? 媛먯젙???ㅼ뒪由щ뒗 ?곗뒿???ㅻ뒛 ?뱁엳 鍮쏆쓣 諛쒗빀?덈떎."}},
+    {num:"??,name:"??붿옄 THE HERMIT",emoji:"?뵧",keywords:["?깆같","怨좊룆","吏??],
+     desc:"?쇱옄留뚯쓽 ?쒓컙???듯빐 ?대㈃???ㅼ뿬?ㅻ낫??寃껋씠 ?꾩????⑸땲?? ?쒕몢瑜댁? 留먭퀬 ?ㅼ뒪濡쒕? ?뚯븘蹂대뒗 ?섎（瑜?蹂대궡?몄슂.",
+     advice:"議곗슜???섍꼍?먯꽌 ?먯떊??諛⑺뼢怨?媛移섎? ?먭???蹂댁꽭??",
+     menu:{icon:"?뜛",title:"?쇰갈 ??醫뗭븘?섎뒗 ?④낏 硫붾돱",desc:"?쇱옄 議곗슜??利먭만 ???덈뒗 ?④낏 硫붾돱 ??洹몃쫯???ㅻ뒛怨????댁슱由쎈땲?? ?뚯떇???⑥쟾??吏묒쨷??蹂댁꽭??"},
+     place:{icon:"?뱴",title:"?쒖쟻???낅┰?쒖젏 ?먮뒗 ?꾩꽌愿",desc:"議곗슜???낅┰?쒖젏?대굹 ?꾩꽌愿?먯꽌 ?쇱옄 梨낆쓣 怨좊Ⅴ怨??쎈뒗 ?쒓컙???ㅻ뒛 ?섎（瑜??띿꽦?섍쾶 留뚮뱾??以띾땲??"},
+     activity:{icon:"?뵇",title:"?섎쭔???쒓컙 ???먭린 ?먭?",desc:"而ㅻ━?? 愿怨? ?앺솢 ?⑦꽩 以??섎굹瑜?怨⑤씪 ?꾩옱 留뚯”?섎뒗吏 ?붿쭅?섍쾶 ?곸뼱蹂댁꽭?? ?묒? ?듭같????蹂?붾? 留뚮벊?덈떎."}},
+    {num:"??,name:"?대챸???섎젅諛뷀?WHEEL OF FORTUNE",emoji:"?렊",keywords:["蹂??,"?쒗솚","湲고쉶"],
+     desc:"蹂?붿? ?꾪솚???먮쫫 ?띿뿉 ?덈뒗 ?좎엯?덈떎. 醫뗭? 湲고쉶媛 李얠븘?ㅺ굅???곹솴???몄쟾??吏뺤“媛 蹂댁엯?덈떎.",
+     advice:"蹂?붾? ?먮젮?뚰븯吏 留먭퀬, ?먮쫫???먯뿰?ㅻ읇寃?諛쏆븘?ㅼ씠?몄슂.",
+     menu:{icon:"?렡",title:"?ㅻ뒛???쒕뜡 硫붾돱 ?꾩쟾",desc:"硫붾돱?먯뿉???덉쓣 媛먭퀬 怨좊Ⅴ嫄곕굹 ?뚯떇 猷곕젢 ?깆쓣 ?⑤낫?몄슂. ?덉긽移?紐삵븳 硫붾돱媛 ?ㅻ뒛???꾪솚?먯씠 ???섎룄 ?덉뒿?덈떎."},
+     place:{icon:"?렊",title:"?쇱쇅 異뺤젣 ?먮뒗 留덉폆",desc:"二쇰??먯꽌 ?대━???뚮━留덉폆, ?쇱쇅 ?됱궗, ?앹뾽 ?ㅽ넗?댁뿉 媛蹂댁꽭?? ?곗뿰??留뚮궓?대굹 諛쒓껄??湲곕떎由ш퀬 ?덉뒿?덈떎."},
+     activity:{icon:"?봽",title:"猷⑦떞 諛붽퓭蹂닿린",desc:"留ㅼ씪 ?섎뜕 ?쒖꽌??諛⑸쾿???ㅻ뒛留뚰겮? 諛붽퓭蹂댁꽭?? ?ъ냼??蹂?붽? ?덈줈???쒓컖???댁뼱以띾땲??"}},
+    {num:"??,name:"?뺤쓽 JUSTICE",emoji:"?뽳툘",keywords:["怨듭젙","洹좏삎","吏꾩떎"],
+     desc:"怨듭젙?섍퀬 洹좏삎 ?≫엺 ?먮떒???붽뎄?섎뒗 ?좎엯?덈떎. 媛먯젙蹂대떎???ъ떎怨??먯튃??洹쇨굅??寃곗젙???대━?몄슂.",
+     advice:"?대뼡 寃곗젙?대뱺 吏꾩떎??湲곕컲?섎㈃ ?꾪쉶?섏? ?딆쓣 ???덉뼱??",
+     menu:{icon:"?쪞",title:"洹좏삎 ?≫엺 嫄닿컯??,desc:"?꾩닔?붾Ъ쨌?⑤갚吏댟룹콈?뚭? 怨④퀬猷??닿릿 洹좏삎 ?≫엺 ???쇨? ?ㅻ뒛???щ컮瑜??먮떒?μ쓣 ?룸컺移⑦빐 以띾땲??"},
+     place:{icon:"?뽳툘",title:"?쒖껌 二쇰? ?먮뒗 踰뺤썝쨌?됱젙援ъ뿭",desc:"?뺣룉?섍퀬 吏덉꽌 ?덈뒗 ?꾩떖 ?됱젙 吏??쓣 嫄몄쑝硫??닿껐?댁빞 ??以묒슂??寃곗젙??李⑤텇???앷컖??蹂댁꽭??"},
+     activity:{icon:"?뱷",title:"?λ떒?????묒꽦",desc:"?ㅻ옒 怨좊??댁삩 臾몄젣???λ떒?먯쓣 ?쒕줈 ?뺣━??蹂댁꽭?? ?쒓컖?뷀븯硫??щ컮瑜??먮떒??媛源뚯썙吏묐땲??"}},
+    {num:"??,name:"留ㅻ떖由??⑥옄 THE HANGED MAN",emoji:"?셾",keywords:["愿???꾪솚","湲곕떎由?,"?섏슜"],
+     desc:"?ㅻⅨ 媛곷룄?먯꽌 ?곹솴??諛붾씪蹂??뚯엯?덈떎. ?듭?濡??쒕몢瑜댁? 留먭퀬 ?좎떆 硫덉텛???덈줈??愿?먯쓣 ?살뼱蹂댁꽭??",
+     advice:"紐⑤뱺 寃껋쓣 ?대젮?볤퀬 湲곕떎由щ뒗 寃껋씠 理쒖꽑???섎룄 ?덉뒿?덈떎.",
+     menu:{icon:"?뜞",title:"?щ떖???붿??????,desc:"?쒕몢瑜댁? 留먭퀬 移댄럹?먯꽌 耳?댄겕??鍮숈닔泥섎읆 ?щ떖???붿??몃? 泥쒖쿇??利먭린硫??앷컖??鍮꾩썙蹂댁꽭??"},
+     place:{icon:"?뼹截?,title:"誘몄닠愿 ?먮뒗 ?꾩떆愿",desc:"?듭닕??寃껉낵 ?ㅻⅨ 愿?먯쓣 蹂댁뿬二쇰뒗 誘몄닠愿?대굹 ?ъ쭊?꾩쓣 諛⑸Ц??蹂댁꽭?? ??꽑 ?묓뭹???덈줈???쒓컖???댁뼱以띾땲??"},
+     activity:{icon:"?렗",title:"?ㅽ걧硫섑꽣由??먮뒗 TED ?쒖껌",desc:"?됱냼? ?ㅻⅨ 二쇱젣???ㅽ걧??媛뺤뿰??蹂대㈃???몄긽??蹂대뒗 ?쒓컖???볧?蹂댁꽭??"}},
+    {num:"?⒱뀬",name:"二쎌쓬 DEATH",emoji:"?뙌",keywords:["?앷낵 ?쒖옉","蹂??,"?대갑"],
+     desc:"?≪? 寃껋쓽 ?앷낵 ?덈줈???쒖옉???뚮━??移대뱶?낅땲?? 吏湲덉쓽 蹂?붾? 諛쏆븘?ㅼ씠硫????섏? ?곹솴?쇰줈 ?섏븘媛????덉뒿?덈떎.",
+     advice:"?볦븘????寃껋쓣 遺숈옟怨??덉쭊 ?딆?吏 ?뚯븘蹂댁꽭??",
+     menu:{icon:"?뜘",title:"?덈줈???⑥쟾 ?붾━",desc:"湲곗〈??議고빀??源⑤뒗 ?⑥쟾 ?덉뒪?좊옉?대굹 李쎌쓽?곸씤 硫붾돱瑜??쒕룄??蹂댁꽭?? 蹂?붾뒗 留쏆뿉?쒕룄 ?쒖옉?⑸땲??"},
+     place:{icon:"?뿊截?,title:"以묎퀬 ?쒖젏 ?먮뒗 踰쇰）?쒖옣",desc:"?ㅻ옒??臾쇨굔???붽굅??湲곕??섍퀬, ?덈줈??寃껋쓣 ??댄븯寃?李얠븘蹂댁꽭?? 鍮꾩썙??梨꾩슱 ???덉뒿?덈떎."},
+     activity:{icon:"?㏏",title:"怨듦컙 ?뺣━ 諛?誘몃땲硫?쇱씠??,desc:"諛⑹씠??梨낆긽, ?깃낵 ?뚯씪???뺣━???ㅻ옒??寃껋쓣 鍮꾩썙蹂댁꽭?? 臾쇰━??怨듦컙???뺣━?섎㈃ 留덉쓬??媛踰쇱썙吏묐땲??"}},
+    {num:"?⒱뀭",name:"?덉젣 TEMPERANCE",emoji:"?뙄",keywords:["洹좏삎","議고솕","?몃궡"],
+     desc:"議곌툒???놁씠 洹좏삎???좎??섎뒗 寃껋씠 以묒슂???좎엯?덈떎. 洹밸떒?쇰줈 移섏슦移섏? ?딄퀬 李⑤텇?섍쾶 ?섏븘媛硫?醫뗭? 寃곌낵媛 ?듬땲??",
+     advice:"?ㅻ뒛? 臾대━?섏? 留먭퀬 ?섏씠?ㅻ? ?좎??섎ŉ 袁몄????섏븘媛?몄슂.",
+     menu:{icon:"?쪠",title:"媛蹂띻퀬 洹좏삎 ?≫엺 ????,desc:"怨쇱떇蹂대떎 ?곷떦?됱쓽 洹좏삎 ?≫엺 ?앹궗媛 ?ㅻ뒛???먮꼫吏瑜??덉젙?곸쑝濡??좎??쒖폒 以띾땲?? ?뚮뱶?꾩튂??二쎈룄 醫뗭뒿?덈떎."},
+     place:{icon:"?룥截?,title:"媛뺣? ?먮뒗 ?몄닔 ?곗콉濡?,desc:"臾??먮Ⅴ??媛뺣??대굹 議곗슜???몄닔 ?섎젅湲몄쓣 泥쒖쿇??嫄몄뼱蹂댁꽭?? ?먯뿰???먮쫫??留덉쓬??李⑤텇?섍쾶 留뚮뱾??以띾땲??"},
+     activity:{icon:"?㎥",title:"?쇱쫹 ?먮뒗 ?ㅻ룄荑?,desc:"湲됲븯吏 ?딄쾶 李④렐李④렐 ??닿????쇱쫹?대굹 ?ㅻ룄荑좉? ?ㅻ뒛???덉젣 ?먮꼫吏? ??留욎뒿?덈떎."}},
+    {num:"?⒱뀮",name:"?낅쭏 THE DEVIL",emoji:"?볩툘",keywords:["吏묒갑","?띾컯","?뺣쭩"],
+     desc:"臾댁뼵媛??吏?섏튂寃??쎈ℓ???덉? ?딆?吏 ?먭????뚯엯?덈떎. ?먮젮??대굹 ?뺣쭩???⑸━???먮떒??媛由ш퀬 ?덉쓣 ???덉뒿?덈떎.",
+     advice:"?닿? ?듭젣?섎뒗 寃껋씤吏, ?듭젣?뱁븯??寃껋씤吏 ??踰??댄렣蹂댁꽭??",
+     menu:{icon:"?뜑",title:"癒밴퀬 ?띕뜕 寃???踰덉??",desc:"?ㅻ뒛留뚰겮? 李몄븘?붾뜕 踰꾧굅??移섑궓 ???됱냼 ?먯젣?섎뜕 ?뚯떇??利먭꺼??醫뗭뒿?덈떎. ?뺣쭩??嫄닿컯?섍쾶 ?댁냼?섏꽭??"},
+     place:{icon:"?슯",title:"?ㅻ쭏?명룿 ?놁씠 嫄룰린",desc:"?좎떆 ?ㅻ쭏?명룿??二쇰㉧?덉뿉 ?ｊ퀬 ?숇꽕瑜??꾨Т 諛⑺뼢 ?놁씠 嫄몄뼱蹂댁꽭?? ?붿????띾컯?먯꽌 ?좎떆 踰쀬뼱?섎뒗 寃껊쭔?쇰줈???④낵?곸엯?덈떎."},
+     activity:{icon:"?벘",title:"SNS쨌??1?쒓컙 ?뷀넚??,desc:"?ㅻ뒛 ???쒓컙留?SNS? ?뚮┝???꾧퀬 ?ㅼ뒪濡??좏깮???쒕룞??吏묒쨷??蹂댁꽭?? ?묒? ?대갑????李⑥씠瑜?留뚮벊?덈떎."}},
+    {num:"?⒱뀯",name:"??THE TOWER",emoji:"??,keywords:["湲됰?","?쇰?","?대갑"],
+     desc:"媛묒옉?ㅻ윭??蹂?붾굹 異⑷꺽???덉쓣 ???덈뒗 ?좎엯?덈떎. ?섏?留?臾대꼫吏??寃껋? ?ъ떎 遺덊븘?뷀븳 寃껋씪 ???덉뒿?덈떎.",
+     advice:"?덉긽移?紐삵븳 ?쇱씠 ?앷꺼???뱁솴?섏? 留먭퀬 以묒떖???≪쑝?몄슂.",
+     menu:{icon:"??,title:"鍮좊Ⅴ怨?媛꾪렪???앹궗",desc:"?ㅻ뒛? ?앹궗???쒓컙???잕린蹂대떎 ?몄쓽???꾩떆?쎌씠??媛꾪렪?앹쑝濡?鍮좊Ⅴ寃??닿껐?섍퀬 ?먮꼫吏瑜?以묒슂??怨녹뿉 ?꾨겮?몄슂."},
+     place:{icon:"?뙀",title:"?믪? 怨녹뿉???꾨쭩 蹂닿린",desc:"嫄대Ъ ?μ긽, ?꾨쭩?, ?몃뜒 ???믪? 怨녹뿉 ?щ씪 ?쒖빞瑜??볧?蹂댁꽭?? ??洹몃┝??蹂대㈃ 吏湲덉쓽 ?쇰????묒븘 蹂댁엯?덈떎."},
+     activity:{icon:"?넊",title:"鍮꾩긽 ?뚮옖 誘몃━ ?몄슦湲?,desc:"嫄깆젙?섎뒗 ?곹솴???뚮옖 B瑜?媛꾨떒??硫붾え???먯꽭?? ?鍮꾩콉???덉쑝硫??붾뱾?ㅻ룄 以묒떖???↔린 ?쎌뒿?덈떎."}},
+    {num:"?⒱뀰",name:"蹂?THE STAR",emoji:"狩?,keywords:["?щ쭩","移섏쑀","?곴컧"],
+     desc:"?대몺 ?ㅼ뿉 李얠븘?ㅻ뒗 ?щ쭩怨?移섏쑀???먮꼫吏媛 異⑸쭔?⑸땲?? 吏移섍퀬 ?섎뱾?덈떎硫??쒖꽌???뚮났?섎뒗 ?먮쫫???쒖옉?⑸땲??",
+     advice:"?ㅻ뒛? ?ㅼ뒪濡쒕? ?묒썝?섍퀬, ?묒? 湲곗겏???뚯쨷???ш꺼蹂댁꽭??",
+     menu:{icon:"?뙚",title:"醫뗭븘?섎뒗 ?뚯떇?쇰줈 ?먭린 蹂댁긽",desc:"?ㅻ뒛? ?ㅼ뒪濡쒖뿉寃?蹂댁긽?섎뒗 ?좎엯?덈떎. 媛??醫뗭븘?섎뒗 ?뚯떇??留쏆엳寃?利먭린硫??먯떊???꾨줈??二쇱꽭??"},
+     place:{icon:"?뙔",title:"?쇨꼍 紐낆냼 ?먮뒗 蹂?蹂대뒗 怨?,desc:"諛ㅽ븯?섏쓣 蹂????덈뒗 怨녹씠???쇨꼍???꾨쫫?ㅼ슫 ?μ냼??媛蹂댁꽭?? 鍮쏅굹???띻꼍???щ쭩???좎삱由ш쾶 ?⑸땲??"},
+     activity:{icon:"?뭷",title:"?섎? ?꾪븳 ?먮쭅 ???,desc:"醫뗭븘?섎뒗 ?뚯븙 ?湲? ?곕쑜??紐⑹슃, ?μ큹 耳쒓린 ???먯떊???꾪븳 ?묒? ?섏떇??留뚮뱾??蹂댁꽭??"}},
+    {num:"?⒱뀱",name:"??THE MOON",emoji:"?뙐",keywords:["遺덉븞","?섏긽","臾댁쓽??],
+     desc:"?쇰??ㅻ읇嫄곕굹 遺덈챸?뺥븳 媛먯젙???щ씪?????덈뒗 ?좎엯?덈떎. 蹂댁씠??寃껊쭔???꾨?媛 ?꾨땺 ???덉쑝???먮떒????떠蹂댁꽭??",
+     advice:"吏곴???誘용릺, ?ｋ?瑜?寃곕줎? ?쇳븯怨??곹솴??醫 ??吏耳쒕낫?몄슂.",
+     menu:{icon:"?쪢",title:"?곕쑜???곗쑀 ?먮뒗 ?쇰뼹",desc:"遺덉븞??留덉쓬???щ옒二쇰뒗 ?곕쑜???곗쑀??諛붾땺???쇰뼹媛 ?ㅻ뒛??湲곕텇??遺?쒕읇寃?媛먯떥以띾땲??"},
+     place:{icon:"?뙄",title:"?쇨컙 ?곗콉 ?????꾨옒 嫄룰린",desc:"諛ㅼ뿉 議곗슜??怨듭썝?대굹 ?쒓컯蹂???щ튆 ?꾨옒 泥쒖쿇??嫄몄뼱蹂댁꽭?? ?쇱옄 ?덉뼱???몃∼吏 ?딆? ?쒓컙???⑸땲??"},
+     activity:{icon:"??",title:"轅??쇨린 ?곌린",desc:"?댁젽諛?轅덉씠???붿쬁 ?먯＜ ?쒕뒗 媛먯젙??湲곕줉??蹂댁꽭?? 臾댁쓽?????좏샇瑜??≪븘?대뒗 ???꾩????⑸땲??"}},
+    {num:"?⒱뀲",name:"?쒖뼇 THE SUN",emoji:"?截?,keywords:["湲곗겏","?쒕젰","?깃났"],
+     desc:"諛앷퀬 湲띿젙?곸씤 ?먮꼫吏濡?媛?앺븳 ?좎엯?덈떎. ?먯떊媛먯쓣 媛뽮퀬 ?밸떦?섍쾶 ?섏븘媛硫?醫뗭? 寃곌낵媛 ?곕씪??寃껋엯?덈떎.",
+     advice:"?ㅻ뒛? 諛뽰뿉 ?섍?嫄곕굹 醫뗭븘?섎뒗 ?щ엺怨??쒓컙??蹂대궡蹂댁꽭??",
+     menu:{icon:"?뜣",title:"諛앷퀬 ?ъ숴???붿???,desc:"?좊챸???됱쓽 鍮숈닔, ?꾩씠?ㅽ겕由? 怨쇱씪 ?瑜댄듃 ??蹂닿린留??대룄 湲곕텇 醫뗭븘吏???붿??몃줈 ?ㅻ뒛????鍮쏅궡蹂댁꽭??"},
+     place:{icon:"?截?,title:"?쇱쇅 ?뚮씪??移댄럹 ?먮뒗 怨듭썝",desc:"?뉗궡?????쒕뒗 ?쇱쇅?먯꽌 ?쒓컙??蹂대궡蹂댁꽭?? ?쒖뼇 ?먮꼫吏瑜?吏곸젒 諛쏅뒗 寃껋씠 ?ㅻ뒛??湲띿젙 ?먮꼫吏瑜?諛곌??쒗궢?덈떎."},
+     activity:{icon:"?벝",title:"?ъ쭊 李띻린 ?먮뒗 釉뚯씠濡쒓렇",desc:"?ㅻ뒛泥섎읆 醫뗭? ?좎? 湲곕줉???먯꽭?? ?곗콉?섎ŉ 留덉쓬???쒕뒗 ?λ㈃???ъ쭊?쇰줈 ?④꺼蹂댁꽭??"}},
+    {num:"?⒱뀳",name:"?ы뙋 JUDGEMENT",emoji:"?렭",keywords:["媛곸꽦","蹂??,"遺??],
+     desc:"怨쇨굅瑜??뚯븘蹂닿퀬 ?덈줈??寃곕떒???대━湲곗뿉 醫뗭? ?좎엯?덈떎. 怨쇨컧??寃곗젙???띠뿉 ?덈줈???꾪솚?먯쓣 留뚮뱾??以?寃껋엯?덈떎.",
+     advice:"誘몃（???붾뜕 以묒슂??寃곗젙???ㅻ뒛 留덉＜??蹂댁꽭??",
+     menu:{icon:"?띂截?,title:"?밸퀎???좎쓣 ?꾪븳 ?덉뒪?좊옉",desc:"?됱냼 媛湲?留앹꽕???遺꾩쐞湲?醫뗭? ?덉뒪?좊옉??媛蹂댁꽭?? ?ㅼ뒪濡쒕? ?꾪븳 ?밸퀎???앹궗媛 寃곕떒??湲곗슫??遺곷룍?듬땲??"},
+     place:{icon:"?럺截?,title:"媛뺤뿰???먮뒗 ?몃???,desc:"愿???덈뒗 遺꾩빞??媛뺤뿰?대굹 ?좏겕 ?됱궗??李몄꽍??蹂댁꽭?? ?덈줈???먭레??以묒슂??寃곗젙??怨꾧린媛 ?????덉뒿?덈떎."},
+     activity:{icon:"?뱽",title:"?ㅻ옒 誘몃쨪???곕씫 ?먮뒗 ?좎껌",desc:"留앹꽕?ъ삩 吏?먯꽌 ?쒖텧, ?곕씫, ?좎껌???ㅻ뒛 ?ㅽ뻾????꺼蹂댁꽭?? ?꾨꼍???뚮뒗 ?놁뒿?덈떎, 吏湲덉씠 諛붾줈 洹몃븣?낅땲??"}},
+    {num:"?⒱뀴",name:"?멸퀎 THE WORLD",emoji:"?뙇",keywords:["?꾩꽦","?깆랬","?듯빀"],
+     desc:"?ㅻ옖 ?몃젰??寃곗떎??留븍뒗 ?먮꼫吏媛 ?먮Ⅴ???좎엯?덈떎. ?꾩옱???곹솴??媛먯궗?섎ŉ ?ㅼ쓬 ?ъ씠?댁쓣 以鍮꾪븷 ?뚯엯?덈떎.",
+     advice:"吏湲덇퉴吏???ъ젙??異뺥븯?섍퀬, ?덈줈??紐⑺몴瑜??ㅼ젙??蹂댁꽭??",
+     menu:{icon:"?뙇",title:"?멸퀎 媛곴뎅 ?뚯떇 ?꾩쟾",desc:"?ㅻ뒛? ?됱냼 ??紐⑤Ⅴ???섎씪???뚯떇??李얠븘 癒뱀뼱蹂댁꽭?? 硫뺤떆肄? ?몃룄, ?고궎 ?뚯떇 ???멸퀎??留쏆씠 湲곕떎由쎈땲??"},
+     place:{icon:"?덌툘",title:"怨듯빆 ?먮뒗 湲곗감??洹쇱쿂 ?곗콉",desc:"?ы뻾???ㅻ젞???먮굜 ???덈뒗 怨듯빆 二쇰??대굹 ????洹쇱쿂瑜?嫄몄뼱蹂댁꽭?? ?ㅼ쓬 ?ы뻾吏瑜?援ъ껜?곸쑝濡?怨꾪쉷?대킄??醫뗭뒿?덈떎."},
+     activity:{icon:"?뿺截?,title:"?ㅼ쓬 紐⑺몴 吏?꾩뿉 洹몃━湲?,desc:"?대（?댁쭊 寃껋뿉 媛먯궗?섎ŉ ?ㅼ쓬 紐⑺몴瑜?吏?꾨굹 鍮꾩쟾蹂대뱶???쒓컖?뷀빐 蹂댁꽭?? ?꾩꽦? ???ㅻⅨ ?쒖옉?낅땲??"}}
+  ];
+
+  // ?? ?좎쭨 ?щ㎎ ??
+  function formatDate(d){
+    return d.getFullYear()+'??'+(d.getMonth()+1)+'??'+d.getDate()+'??;
+  }
+
+  // ?? ?ㅻ뒛 ?좎쭨 ??(YYYYMMDD_v2) ??v2 suffix濡??댁쟾 localStorage 媛?臾댄슚????
+  function todayKey(){
+    var d = new Date();
+    return 'tarot_v2_'+d.getFullYear()+('0'+(d.getMonth()+1)).slice(-2)+('0'+d.getDate()).slice(-2);
+  }
+
+  // ?? DOM 以鍮???
+  var today = new Date();
+  var dateStr = formatDate(today);
+  document.getElementById('tarot-today-date').textContent = dateStr;
+  document.getElementById('tarotDateLabel').textContent = dateStr+' 湲곗?';
+
+  var btn = document.getElementById('tarotBtn');
+  var cardEl = document.getElementById('tarotCard');
+  var resultEl = document.getElementById('tarotResult');
+  var revealed = false;
+
+  // ?? 移대뱶 寃곌낵 ?쒖떆 (諛섎뱶??reveal/initFromStorage 蹂대떎 癒쇱? ?좎뼵) ??
+  function showCard(card, instant){
+    revealed = true;
+    document.getElementById('tarotEmoji').textContent = card.emoji;
+    document.getElementById('tarotName').textContent = card.name;
+    document.getElementById('tarotNum').textContent = card.num;
+    if(instant){
+      var inner = cardEl.querySelector('.tarot-card-inner');
+      if(inner) inner.style.transition = 'none';
+      cardEl.classList.add('flipped');
+    } else {
+      cardEl.classList.add('flipped');
+    }
+    var kwHtml = card.keywords.map(function(k){ return '<span>'+k+'</span>'; }).join('');
+    resultEl.innerHTML =
+      '<div class="result-label">TODAY\'S CARD 쨌 '+dateStr+'</div>'+
+      '<div class="result-title">'+card.emoji+' '+card.name+'</div>'+
+      '<div class="result-keyword">'+kwHtml+'</div>'+
+      '<p class="result-desc">'+card.desc+'</p>'+
+      '<p class="result-advice">?뮕 '+card.advice+'</p>';
+    btn.disabled = true;
+    btn.textContent = '???ㅻ뒛??移대뱶媛 怨듦컻?섏뿀?듬땲??;
+
+    // ?? ?ㅻⅨ履?議곗뼵 ?⑤꼸 ?뚮뜑留???
+    var adviceEl = document.getElementById('tarotAdvice');
+    if(adviceEl){
+      adviceEl.innerHTML =
+        '<h3 style="font-size:15px;font-weight:800;color:#28204a;margin:0 0 14px">'+card.emoji+' ?ㅻ뒛??議곗뼵</h3>'+
+        '<div class="advice-item">'+
+          '<div class="advice-icon">'+card.menu.icon+'</div>'+
+          '<div><h4>?띂 ?ㅻ뒛 異붿쿇 硫붾돱<span class="advice-sub">'+card.menu.title+'</span></h4>'+
+          '<p>'+card.menu.desc+'</p></div>'+
+        '</div>'+
+        '<div class="advice-item">'+
+          '<div class="advice-icon">'+card.place.icon+'</div>'+
+          '<div><h4>?뱧 諛⑸Ц?섎㈃ 醫뗭? ?μ냼<span class="advice-sub">'+card.place.title+'</span></h4>'+
+          '<p>'+card.place.desc+'</p></div>'+
+        '</div>'+
+        '<div class="advice-item">'+
+          '<div class="advice-icon">'+card.activity.icon+'</div>'+
+          '<div><h4>???ㅻ뒛??異붿쿇 ?쒕룞<span class="advice-sub">'+card.activity.title+'</span></h4>'+
+          '<p>'+card.activity.desc+'</p></div>'+
+        '</div>';
+    }
+  }
+
+  // ?? 戮묎린: ?대┃ ??Math.random()?쇰줈 寃곗젙 ???????
+  function reveal(){
+    if(revealed) return;
+    var idx = Math.floor(Math.random() * CARDS.length);
+    try { localStorage.setItem(todayKey(), String(idx)); } catch(e){}
+    showCard(CARDS[idx], false);
+  }
+
+  // ?? 珥덇린?? 援щ쾭?????뺣━ + ?ㅻ뒛 ?대? 戮묒? 移대뱶 蹂듭썝 ??
+  (function init(){
+    var key = todayKey();
+    try {
+      // tarot_ 濡??쒖옉?섎뒗 紐⑤뱺 援щ쾭???댁젣 ?곗씠????젣
+      var toDelete = [];
+      for(var i = 0; i < localStorage.length; i++){
+        var k = localStorage.key(i);
+        if(k && k.startsWith('tarot_') && k !== key) toDelete.push(k);
+      }
+      toDelete.forEach(function(k){ localStorage.removeItem(k); });
+
+      // ?ㅻ뒛 ??λ맂 移대뱶媛 ?덉쑝硫?蹂듭썝
+      var saved = localStorage.getItem(key);
+      if(saved !== null){
+        var idx = parseInt(saved, 10);
+        if(!isNaN(idx) && idx >= 0 && idx < CARDS.length){
+          showCard(CARDS[idx], true);
+          return;
+        }
+        // ?섎せ??媛믪씠硫?吏?
+        localStorage.removeItem(key);
+      }
+    } catch(e){}
+    // ????놁쓬 ??踰꾪듉 ?湲??곹깭 ?좎?
+  })();
+
+  btn.addEventListener('click', reveal);
+  cardEl.addEventListener('click', reveal);
+  cardEl.addEventListener('keydown', function(e){
+    if(e.key==='Enter'||e.key===' '){ e.preventDefault(); reveal(); }
+  });
+})();
+</script>
+
+<!-- ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+     ?묒썝 蹂대뱶 ?ㅽ????먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧 -->
+<style>
+/* ?묒썝 蹂대뱶 ?뱀뀡 */
+#cheers .hp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.hp-card {
+  background: linear-gradient(160deg, #3a2e00 0%, #2e2400 100%);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px #00000066;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  display: flex;
+  flex-direction: column;
+}
+.hp-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px #00000077, 0 0 24px #f0c04033;
+  border-color: var(--yellow);
+}
+.hp-card::before {
+  content: '';
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, var(--amber), var(--yellow2), var(--yellow3), var(--yellow2), var(--amber));
+}
+.hp-poster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+}
+.hp-info {
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.hp-meta {
+  color: var(--yellow);
+  font-size: 10px;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2px;
+}
+.hp-title {
+  color: var(--parchment);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  line-height: 1.4;
+  margin: 0;
+}
+.hp-year {
+  color: var(--text2);
+  font-size: 11px;
+}
+.hp-cheer-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+.hp-cheer-btn {
+  background: #f0c04018;
+  border: 1px solid var(--yellow);
+  color: var(--yellow2);
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  letter-spacing: .5px;
+  padding: 7px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.hp-cheer-btn:hover:not(:disabled) {
+  background: var(--yellow);
+  color: var(--black);
+  box-shadow: 0 0 12px #f0c04055;
+}
+.hp-cheer-btn:disabled {
+  opacity: .5;
+  cursor: default;
+}
+.hp-count {
+  color: var(--yellow2);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  min-width: 24px;
+}
+.hp-count-label {
+  color: var(--text2);
+  font-size: 11px;
+}
+.hp-cheer-msg {
+  font-size: 11px;
+  min-height: 16px;
+  color: var(--text2);
+}
+.hp-cheer-msg.success { color: #6fcf97; }
+.hp-cheer-msg.error   { color: #eb5757; }
+#cheers-status {
+  font-size: 12px;
+  color: var(--text2);
+  margin-top: 6px;
+  min-height: 18px;
+}
+@media(max-width: 900px) {
+  #cheers .hp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width: 500px) {
+  #cheers .hp-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .hp-title { font-size: 11px; }
+}
+</style>
+
+<!-- ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+     ?묒썝 蹂대뱶 HTML (Backlog ?욎뿉 ?쎌엯)
+?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧 -->
+<script>
+// ?묒썝 蹂대뱶
+(function () {
+  var MOVIES = [
+    { id: 'hp1', title: 'Sorcerer\'s Stone', ko: '留덈쾿?ъ쓽 ??, year: 2001,
+      poster: 'assets/posters/hp1.jpg' },
+    { id: 'hp2', title: 'Chamber of Secrets', ko: '鍮꾨???諛?, year: 2002,
+      poster: 'assets/posters/hp2.jpg' },
+    { id: 'hp3', title: 'Prisoner of Azkaban', ko: '?꾩쫰移대컲??二꾩닔', year: 2004,
+      poster: 'assets/posters/hp3.jpg' },
+    { id: 'hp4', title: 'Goblet of Fire', ko: '遺덉쓽 ??, year: 2005,
+      poster: 'assets/posters/hp4.jpg' },
+    { id: 'hp5', title: 'Order of the Phoenix', ko: '遺덉궗議?湲곗궗??, year: 2007,
+      poster: 'assets/posters/hp5.jpg' },
+    { id: 'hp6', title: 'Half-Blood Prince', ko: '?쇳삁 ?뺤옄', year: 2009,
+      poster: 'assets/posters/hp6.jpg' },
+    { id: 'hp7', title: 'Deathly Hallows Pt.1', ko: '二쎌쓬???깅Ъ 1遺', year: 2010,
+      poster: 'assets/posters/hp7.jpg' },
+    { id: 'hp8', title: 'Deathly Hallows Pt.2', ko: '二쎌쓬???깅Ъ 2遺', year: 2011,
+      poster: 'assets/posters/hp8.jpg' },
+  ];
+
+  var API = '/api/reactions';
+  var counts = {};
+  MOVIES.forEach(function (m) { counts[m.id] = 0; });
+
+  // DOM??移대뱶 ?뚮뜑留?  function renderCards() {
+    var grid = document.getElementById('hp-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    MOVIES.forEach(function (m) {
+      var card = document.createElement('article');
+      card.className = 'hp-card';
+      card.innerHTML =
+        '<img class="hp-poster" src="' + m.poster + '" alt="?대━?ы꽣 ' + m.ko + ' ?ъ뒪?? loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">' +
+        '<div class="hp-poster-fallback" style="display:none;align-items:center;justify-content:center;aspect-ratio:2/3;background:linear-gradient(160deg,#3a2e00,#2e2400);font-size:40px;">?렗</div>' +
+        '<div class="hp-info">' +
+          '<div class="hp-meta">HARRY POTTER 쨌 ' + m.year + '</div>' +
+          '<h3 class="hp-title">' + m.ko + '</h3>' +
+          '<div class="hp-cheer-row">' +
+            '<button class="hp-cheer-btn" data-id="' + m.id + '" type="button" aria-label="' + m.ko + ' ?묒썝?섍린">?챷 ?묒썝?섍린</button>' +
+            '<div>' +
+              '<span class="hp-count" id="count-' + m.id + '">-</span>' +
+              '<span class="hp-count-label"> ??/span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="hp-cheer-msg" id="msg-' + m.id + '"></div>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+
+    // 踰꾪듉 ?대깽??諛붿씤??    grid.querySelectorAll('.hp-cheer-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        handleCheer(btn.dataset.id, btn);
+      });
+    });
+  }
+
+  // 吏묎퀎 濡쒕뱶
+  function loadCounts() {
+    setStatus('?묒썝 ?섎? 遺덈윭?ㅻ뒗 以묅?);
+    fetch(API)
+      .then(function (res) {
+        if (!res.ok) throw new Error('?쒕쾭 ?ㅻ쪟 ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (data.counts) {
+          Object.assign(counts, data.counts);
+          updateCountDisplay();
+        }
+        setStatus('');
+      })
+      .catch(function (err) {
+        console.error(err);
+        setStatus('?묒썝 ?섎? 遺덈윭?ㅼ? 紐삵뻽?듬땲?? ?좎떆 ???덈줈怨좎묠??二쇱꽭??');
+      });
+  }
+
+  // 移댁슫???붾㈃ 媛깆떊
+  function updateCountDisplay() {
+    MOVIES.forEach(function (m) {
+      var el = document.getElementById('count-' + m.id);
+      if (el) el.textContent = counts[m.id] !== undefined ? counts[m.id] : '-';
+    });
+  }
+
+  // ?묒썝 ?꾩넚
+  function handleCheer(itemId, btn) {
+    btn.disabled = true;
+    setMsg(itemId, '', '');
+    setStatus('???以묅?);
+
+    fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ item_id: itemId }),
+    })
+      .then(function (res) {
+        return res.json().then(function (data) {
+          return { ok: res.ok, status: res.status, data: data };
+        });
+      })
+      .then(function (result) {
+        if (!result.ok) {
+          throw new Error(result.data.error || '??μ뿉 ?ㅽ뙣?덉뒿?덈떎.');
+        }
+        counts[itemId] = (counts[itemId] || 0) + 1;
+        updateCountDisplay();
+        setMsg(itemId, '?묒썝????λ릺?덉뒿?덈떎 ?챷', 'success');
+        setStatus('');
+      })
+      .catch(function (err) {
+        setMsg(itemId, err.message || '??μ뿉 ?ㅽ뙣?덉뒿?덈떎.', 'error');
+        setStatus('');
+      })
+      .finally(function () {
+        // 1.5珥???踰꾪듉 ?ㅼ떆 ?쒖꽦??        setTimeout(function () { btn.disabled = false; }, 1500);
+      });
+  }
+
+  function setMsg(itemId, text, type) {
+    var el = document.getElementById('msg-' + itemId);
+    if (!el) return;
+    el.textContent = text;
+    el.className = 'hp-cheer-msg' + (type ? ' ' + type : '');
+  }
+
+  function setStatus(text) {
+    var el = document.getElementById('cheers-status');
+    if (el) el.textContent = text;
+  }
+
+  // 珥덇린??  document.addEventListener('DOMContentLoaded', function () {
+    renderCards();
+    loadCounts();
+  });
+})();
+</script>
 </body>
 </html>
