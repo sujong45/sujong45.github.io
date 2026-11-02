@@ -1,0 +1,15 @@
+# Local MCP connection settings
+/.kiro/settings/mcp.json
+# Private Notion hub registration
+/.kiro/steering/project-notes.md
+
+# 환경 변수 (Supabase 키 등 비밀 정보)
+.env
+.env.local
+.env*.local
+
+# 의존성
+node_modules/
+
+# Local Netlify folder
+.netlify

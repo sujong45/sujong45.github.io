@@ -414,6 +414,7 @@ footer{
     <a href="#interests">관심사</a>
     <a href="#music">음악</a>
     <a href="#movies">인생영화</a>
+    <a href="#cheers">응원 보드</a>
     <a href="#restaurants">추천 맛집</a>
     <a href="#backlog">Backlog</a>
   </nav>
@@ -592,6 +593,16 @@ footer{
         <a class="place-link" href="https://map.naver.com/p/search/%EC%8B%A4%EB%A6%AC%EC%A0%9C%EB%A1%AC?c=15.00,0,0,0,dh&placePath=%2Fhome%3Ffrom%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202610121653%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%8B%A4%EB%A6%AC%EC%A0%9C%EB%A1%AC" target="_blank" rel="noopener noreferrer" aria-label="네이버 지도에서 실리제롬 보기">📍 지도에서 보기 ↗</a>
       </article>
     </div>
+  </section>
+
+  <!-- 응원 보드 섹션 -->
+  <section id="cheers">
+    <div class="section-head">
+      <h2>🪄 해리포터 응원 보드</h2>
+      <small>어떤 편이 가장 좋았나요? 응원을 남겨주세요!</small>
+    </div>
+    <div id="cheers-status"></div>
+    <div class="hp-grid" id="hp-grid"></div>
   </section>
 
   <section id="backlog">
@@ -984,6 +995,279 @@ footer{
   cardEl.addEventListener('click', reveal);
   cardEl.addEventListener('keydown', function(e){
     if(e.key==='Enter'||e.key===' '){ e.preventDefault(); reveal(); }
+  });
+})();
+</script>
+
+<!-- ══════════════════════════════════════
+     응원 보드 스타일
+══════════════════════════════════════ -->
+<style>
+/* 응원 보드 섹션 */
+#cheers .hp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.hp-card {
+  background: linear-gradient(160deg, #3a2e00 0%, #2e2400 100%);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px #00000066;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  display: flex;
+  flex-direction: column;
+}
+.hp-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px #00000077, 0 0 24px #f0c04033;
+  border-color: var(--yellow);
+}
+.hp-card::before {
+  content: '';
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, var(--amber), var(--yellow2), var(--yellow3), var(--yellow2), var(--amber));
+}
+.hp-poster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+}
+.hp-info {
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.hp-meta {
+  color: var(--yellow);
+  font-size: 10px;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2px;
+}
+.hp-title {
+  color: var(--parchment);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  line-height: 1.4;
+  margin: 0;
+}
+.hp-year {
+  color: var(--text2);
+  font-size: 11px;
+}
+.hp-cheer-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+.hp-cheer-btn {
+  background: #f0c04018;
+  border: 1px solid var(--yellow);
+  color: var(--yellow2);
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  letter-spacing: .5px;
+  padding: 7px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.hp-cheer-btn:hover:not(:disabled) {
+  background: var(--yellow);
+  color: var(--black);
+  box-shadow: 0 0 12px #f0c04055;
+}
+.hp-cheer-btn:disabled {
+  opacity: .5;
+  cursor: default;
+}
+.hp-count {
+  color: var(--yellow2);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  min-width: 24px;
+}
+.hp-count-label {
+  color: var(--text2);
+  font-size: 11px;
+}
+.hp-cheer-msg {
+  font-size: 11px;
+  min-height: 16px;
+  color: var(--text2);
+}
+.hp-cheer-msg.success { color: #6fcf97; }
+.hp-cheer-msg.error   { color: #eb5757; }
+#cheers-status {
+  font-size: 12px;
+  color: var(--text2);
+  margin-top: 6px;
+  min-height: 18px;
+}
+@media(max-width: 900px) {
+  #cheers .hp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width: 500px) {
+  #cheers .hp-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .hp-title { font-size: 11px; }
+}
+</style>
+
+<!-- ══════════════════════════════════════
+     응원 보드 HTML (Backlog 앞에 삽입)
+══════════════════════════════════════ -->
+<script>
+// 응원 보드
+(function () {
+  var MOVIES = [
+    { id: 'hp1', title: 'Sorcerer\'s Stone', ko: '마법사의 돌', year: 2001,
+      poster: 'https://image.tmdb.org/t/p/w500/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg' },
+    { id: 'hp2', title: 'Chamber of Secrets', ko: '비밀의 방', year: 2002,
+      poster: 'https://image.tmdb.org/t/p/w500/bo8FuQPWKLqbg3WgAXYISkwrbZ9.jpg' },
+    { id: 'hp3', title: 'Prisoner of Azkaban', ko: '아즈카반의 죄수', year: 2004,
+      poster: 'https://image.tmdb.org/t/p/w500/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg' },
+    { id: 'hp4', title: 'Goblet of Fire', ko: '불의 잔', year: 2005,
+      poster: 'https://image.tmdb.org/t/p/w500/fECBqgcmKRkS1T5fMrGBjMzDxb7.jpg' },
+    { id: 'hp5', title: 'Order of the Phoenix', ko: '불사조 기사단', year: 2007,
+      poster: 'https://image.tmdb.org/t/p/w500/5aOyriDFr8KRMFBd3zFbwmIpEVv.jpg' },
+    { id: 'hp6', title: 'Half-Blood Prince', ko: '혼혈 왕자', year: 2009,
+      poster: 'https://image.tmdb.org/t/p/w500/oHFkPHxXpFNSioFEFSJkrXTVJUf.jpg' },
+    { id: 'hp7', title: 'Deathly Hallows Pt.1', ko: '죽음의 성물 1부', year: 2010,
+      poster: 'https://image.tmdb.org/t/p/w500/maP4MTfPCeVD2FZnKaGBnKfLn3j.jpg' },
+    { id: 'hp8', title: 'Deathly Hallows Pt.2', ko: '죽음의 성물 2부', year: 2011,
+      poster: 'https://image.tmdb.org/t/p/w500/349iGJoHHWKjALMW3YFVtBuHh7U.jpg' },
+  ];
+
+  var API = '/api/reactions';
+  var counts = {};
+  MOVIES.forEach(function (m) { counts[m.id] = 0; });
+
+  // DOM에 카드 렌더링
+  function renderCards() {
+    var grid = document.getElementById('hp-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    MOVIES.forEach(function (m) {
+      var card = document.createElement('article');
+      card.className = 'hp-card';
+      card.innerHTML =
+        '<img class="hp-poster" src="' + m.poster + '" alt="해리포터 ' + m.ko + ' 포스터" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">' +
+        '<div class="hp-poster-fallback" style="display:none;align-items:center;justify-content:center;aspect-ratio:2/3;background:linear-gradient(160deg,#3a2e00,#2e2400);font-size:40px;">🎬</div>' +
+        '<div class="hp-info">' +
+          '<div class="hp-meta">HARRY POTTER · ' + m.year + '</div>' +
+          '<h3 class="hp-title">' + m.ko + '</h3>' +
+          '<div class="hp-cheer-row">' +
+            '<button class="hp-cheer-btn" data-id="' + m.id + '" type="button" aria-label="' + m.ko + ' 응원하기">🪄 응원하기</button>' +
+            '<div>' +
+              '<span class="hp-count" id="count-' + m.id + '">-</span>' +
+              '<span class="hp-count-label"> 회</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="hp-cheer-msg" id="msg-' + m.id + '"></div>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+
+    // 버튼 이벤트 바인딩
+    grid.querySelectorAll('.hp-cheer-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        handleCheer(btn.dataset.id, btn);
+      });
+    });
+  }
+
+  // 집계 로드
+  function loadCounts() {
+    setStatus('응원 수를 불러오는 중…');
+    fetch(API)
+      .then(function (res) {
+        if (!res.ok) throw new Error('서버 오류 ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (data.counts) {
+          Object.assign(counts, data.counts);
+          updateCountDisplay();
+        }
+        setStatus('');
+      })
+      .catch(function (err) {
+        console.error(err);
+        setStatus('응원 수를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.');
+      });
+  }
+
+  // 카운트 화면 갱신
+  function updateCountDisplay() {
+    MOVIES.forEach(function (m) {
+      var el = document.getElementById('count-' + m.id);
+      if (el) el.textContent = counts[m.id] !== undefined ? counts[m.id] : '-';
+    });
+  }
+
+  // 응원 전송
+  function handleCheer(itemId, btn) {
+    btn.disabled = true;
+    setMsg(itemId, '', '');
+    setStatus('저장 중…');
+
+    fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ item_id: itemId }),
+    })
+      .then(function (res) {
+        return res.json().then(function (data) {
+          return { ok: res.ok, status: res.status, data: data };
+        });
+      })
+      .then(function (result) {
+        if (!result.ok) {
+          throw new Error(result.data.error || '저장에 실패했습니다.');
+        }
+        counts[itemId] = (counts[itemId] || 0) + 1;
+        updateCountDisplay();
+        setMsg(itemId, '응원이 저장되었습니다 🪄', 'success');
+        setStatus('');
+      })
+      .catch(function (err) {
+        setMsg(itemId, err.message || '저장에 실패했습니다.', 'error');
+        setStatus('');
+      })
+      .finally(function () {
+        // 1.5초 뒤 버튼 다시 활성화
+        setTimeout(function () { btn.disabled = false; }, 1500);
+      });
+  }
+
+  function setMsg(itemId, text, type) {
+    var el = document.getElementById('msg-' + itemId);
+    if (!el) return;
+    el.textContent = text;
+    el.className = 'hp-cheer-msg' + (type ? ' ' + type : '');
+  }
+
+  function setStatus(text) {
+    var el = document.getElementById('cheers-status');
+    if (el) el.textContent = text;
+  }
+
+  // 초기화
+  document.addEventListener('DOMContentLoaded', function () {
+    renderCards();
+    loadCounts();
   });
 })();
 </script>
