@@ -1,18 +1,18 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#2e2400">
-<title>諛곗닔醫?| Personal Homepage</title>
+<title>배수종 | Personal Homepage</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Serif+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
-   ?꾪뵆?명봽 ?뚮쭏 ??湲곕낯 ?ㅼ젙
+/* ══════════════════════════════════════
+   후플푸프 테마 — 기본 설정
    Colors: Yellow #f0c040 / Black #1a1400 / Earth tones
-?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧 */
+══════════════════════════════════════ */
 :root{
   --bg:       #2e2400;
   --bg2:      #382d00;
@@ -47,7 +47,7 @@ body{
   min-height:100vh;
 }
 
-/* 諛諛?쨌 諛섏쭩??諛곌꼍 */
+/* 밀밭 · 반짝이 배경 */
 body::before{
   content:'';
   position:fixed;inset:0;
@@ -64,9 +64,9 @@ body::before{
   pointer-events:none;z-index:0;
 }
 
-/* ?ㅼ냼由??몄옣 ?뚰꽣留덊겕 */
+/* 오소리 인장 워터마크 */
 body::after{
-  content:'?─';
+  content:'🦡';
   position:fixed;
   right:-2%;bottom:-2%;
   font-size:340px;
@@ -80,7 +80,7 @@ body::after{
 a{color:var(--yellow);text-decoration:none}
 a:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
 
-/* ?? ?ㅻ뜑 ?? */
+/* ── 헤더 ── */
 header{
   display:flex;align-items:center;justify-content:space-between;
   gap:20px;padding:10px 0 45px;
@@ -112,7 +112,7 @@ nav a:hover,nav a:focus-visible{
   box-shadow:0 4px 14px #f0c04055;
 }
 
-/* ?? ?덉뼱濡??? */
+/* ── 히어로 ── */
 .hero{display:grid;grid-template-columns:1.5fr .8fr;gap:25px;align-items:stretch;margin-bottom:42px}
 .eyebrow{
   color:var(--yellow);font-size:11px;font-weight:700;letter-spacing:4px;
@@ -145,7 +145,7 @@ nav a:hover,nav a:focus-visible{
   box-shadow:0 0 14px #f0c04022;
 }
 
-/* ?꾨줈??移대뱶 */
+/* 프로필 카드 */
 .profile{
   background:linear-gradient(135deg,#3e3000 0%,#2e2400 50%,#4a3800 100%);
   border:2px solid var(--yellow);
@@ -156,7 +156,7 @@ nav a:hover,nav a:focus-visible{
   position:relative;overflow:hidden;
 }
 .profile::before{
-  content:'?─';position:absolute;right:10px;top:10px;
+  content:'🦡';position:absolute;right:10px;top:10px;
   font-size:80px;opacity:.10;pointer-events:none;
 }
 .profile::after{
@@ -171,7 +171,7 @@ nav a:hover,nav a:focus-visible{
 .profile h2{margin:6px 0;font-size:22px;font-family:'Cinzel',serif;color:var(--yellow2);position:relative;z-index:1;text-shadow:0 0 16px #f0c04066}
 .profile p{margin:0;font-size:13px;color:var(--text2);position:relative;z-index:1}
 
-/* ?? ?뱀뀡 怨듯넻 ?? */
+/* ── 섹션 공통 ── */
 section{margin-top:42px;scroll-margin-top:20px}
 .section-head{
   display:flex;align-items:center;justify-content:space-between;
@@ -187,7 +187,7 @@ section{margin-top:42px;scroll-margin-top:20px}
 }
 .section-head small{color:var(--text2);font-size:11px;letter-spacing:1px;font-family:'Cinzel',serif}
 
-/* ?? 移대뱶 ?? */
+/* ── 카드 ── */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
 .card{
   background:linear-gradient(160deg,#3a2e00 0%,#2e2400 100%);
@@ -215,7 +215,7 @@ section{margin-top:42px;scroll-margin-top:20px}
 .wide{grid-column:span 2}
 .interest{font-size:29px}
 
-/* ?? 誘몃뵒?는룸턿留덊겕쨌裕ㅼ쭅 ?? */
+/* ── 미디어·북마크·뮤직 ── */
 .media-card{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;margin-top:14px}
 .media-card img{
   width:110px;height:150px;object-fit:cover;
@@ -230,7 +230,7 @@ section{margin-top:42px;scroll-margin-top:20px}
 .music-thumb img{width:100%;height:100%;display:block;object-fit:cover}
 .song-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 
-/* ?? 踰꾪듉 ?? */
+/* ── 버튼 ── */
 .btn-link,.place-link{
   display:inline-flex;align-items:center;gap:7px;
   margin-top:16px;padding:9px 14px;border-radius:4px;
@@ -244,7 +244,7 @@ section{margin-top:42px;scroll-margin-top:20px}
   outline:none;box-shadow:0 0 16px #f0c04066;
 }
 
-/* ?? 泥댄겕由ъ뒪???? */
+/* ── 체크리스트 ── */
 .todo{
   display:flex;gap:11px;align-items:flex-start;
   padding:11px 0;border-bottom:1px solid var(--border);
@@ -254,7 +254,7 @@ section{margin-top:42px;scroll-margin-top:20px}
 .todo input{accent-color:var(--yellow);margin-top:3px}
 .note{font-size:12px;color:var(--text2);margin-top:12px;opacity:.7}
 
-/* ?? ?명꽣 ?? */
+/* ── 푸터 ── */
 footer{
   margin-top:60px;padding-top:22px;
   border-top:2px solid var(--border2);
@@ -263,7 +263,7 @@ footer{
   font-family:'Cinzel',serif;letter-spacing:.5px;
 }
 
-/* ?? ?뱀뀡蹂?移대뱶 ?뚮쭏 ?? */
+/* ── 섹션별 카드 테마 ── */
 #news .card:first-child{
   background:linear-gradient(160deg,#402e00 0%,#342400 100%);
 }
@@ -283,7 +283,7 @@ footer{
 }
 #music .card:first-child::before{background:linear-gradient(90deg,var(--amber),var(--yellow3),var(--amber))}
 
-/* ?? 湲곗닕??諛곗젙 移대뱶 ?? */
+/* ── 기숙사 배정 카드 ── */
 #house-quiz-card{
   background:linear-gradient(160deg,#ecb93922 0%,#f0c75e11 100%)!important;
   border-color:var(--yellow)!important;
@@ -319,7 +319,7 @@ footer{
 }
 .quiz-restart:hover{background:#ffffff33}
 
-/* ?? ?濡??뱀뀡 ?? */
+/* ── 타로 섹션 ── */
 #tarot .tarot-wrapper{display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:start}
 .tarot-card-area{display:flex;flex-direction:column;align-items:center;gap:14px}
 .tarot-card{width:160px;height:260px;border-radius:10px;cursor:pointer;perspective:800px;position:relative}
@@ -332,7 +332,7 @@ footer{
   box-shadow:0 12px 32px #00000077,0 0 28px #f0c04044;
   color:var(--yellow2);font-size:42px;
 }
-.tarot-back::after{content:'?─';position:absolute;font-size:90px;opacity:.08}
+.tarot-back::after{content:'🦡';position:absolute;font-size:90px;opacity:.08}
 .tarot-back-label{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--yellow);font-family:'Cinzel',serif;margin-top:4px}
 .tarot-face{
   background:linear-gradient(160deg,var(--parchment) 0%,var(--parch2) 100%);
@@ -380,7 +380,7 @@ footer{
 .advice-item h4 .advice-sub{display:block;font-size:11px;font-weight:600;color:var(--text2);margin-top:1px;font-family:'Noto Serif KR',serif;letter-spacing:0}
 .advice-item p{font-size:13px;color:var(--text2);margin:0;line-height:1.6}
 
-/* ?? 諛섏쓳???? */
+/* ── 반응형 ── */
 @media(max-width:860px){
   .hero{grid-template-columns:1fr}.profile{min-height:210px}
   .grid{grid-template-columns:1fr}.wide{grid-column:span 1}
@@ -408,50 +408,50 @@ footer{
 <header>
   <a class="logo" href="/">HUFFLE<span>PUFF.</span></a>
   <nav>
-    <a href="#tarot">?ㅻ뒛???댁꽭</a>
-    <a href="#news">?뚯떇</a>
-    <a href="#activity">理쒓렐 ?쒕룞</a>
-    <a href="#interests">愿?ъ궗</a>
-    <a href="#music">?뚯븙</a>
-    <a href="#movies">?몄깮?곹솕</a>
-    <a href="#cheers">?묒썝 蹂대뱶</a>
-    <a href="#restaurants">異붿쿇 留쏆쭛</a>
+    <a href="#tarot">오늘의 운세</a>
+    <a href="#news">소식</a>
+    <a href="#activity">최근 활동</a>
+    <a href="#interests">관심사</a>
+    <a href="#music">음악</a>
+    <a href="#movies">인생영화</a>
+    <a href="#cheers">응원 보드</a>
+    <a href="#restaurants">추천 맛집</a>
     <a href="#backlog">Backlog</a>
   </nav>
 </header>
 <main>
   <div class="hero">
     <div>
-      <div class="eyebrow">?─ HUFFLEPUFF 쨌 WELCOME TO MY DIGITAL SPACE ?─</div>
-      <h1>?덈뀞?섏꽭??<br><em>諛곗닔醫?/em>??怨듦컙?낅땲??</h1>
-      <p>鍮꾩쫰?덉뒪 IT瑜??꾧났?섍퀬 誘몃뵒?대? 遺?꾧났?섎ŉ, 梨낃낵 ?곹솕 洹몃━怨??뚯븙??醫뗭븘?⑸땲?? ????뚯떇怨?痍⑦뼢???쒕늿??蹂????덈룄濡??뺣━???덊럹?댁??낅땲??</p>
+      <div class="eyebrow">🦡 HUFFLEPUFF · WELCOME TO MY DIGITAL SPACE 🦡</div>
+      <h1>안녕하세요,<br><em>배수종</em>의 공간입니다.</h1>
+      <p>비즈니스 IT를 전공하고 미디어를 부전공하며, 책과 영화 그리고 음악을 좋아합니다. 저의 소식과 취향을 한눈에 볼 수 있도록 정리한 홈페이지입니다.</p>
       <div class="pills">
-        <span class="pill">鍮꾩쫰?덉뒪 IT</span>
-        <span class="pill">誘몃뵒??遺?꾧났</span>
-        <span class="pill">?낆꽌? ?곹솕</span>
+        <span class="pill">비즈니스 IT</span>
+        <span class="pill">미디어 부전공</span>
+        <span class="pill">독서와 영화</span>
       </div>
     </div>
     <aside class="profile">
-      <div class="avatar">占?/div>
+      <div class="avatar">�</div>
       <div>
         <small>PROFILE / ABOUT ME</small>
-        <h2>諛곗닔醫?/h2>
-        <p>?숇쾲 20245244<br>?꾧났 鍮꾩쫰?덉뒪 IT 쨌 遺?꾧났 誘몃뵒??/p>
+        <h2>배수종</h2>
+        <p>학번 20245244<br>전공 비즈니스 IT · 부전공 미디어</p>
       </div>
     </aside>
   </div>
 
   <section id="tarot">
-    <div class="section-head"><h2>?뵰 ?濡쒕줈 蹂대뒗 ?ㅻ뒛???댁꽭</h2><small>Daily Tarot 쨌 <span id="tarot-today-date"></span></small></div>
+    <div class="section-head"><h2>🔮 타로로 보는 오늘의 운세</h2><small>Daily Tarot · <span id="tarot-today-date"></span></small></div>
     <div class="grid">
       <article class="card wide" id="tarot-section-card">
         <div class="meta">TODAY'S TAROT READING</div>
         <div class="tarot-wrapper">
           <div class="tarot-card-area">
-            <div class="tarot-card" id="tarotCard" role="button" aria-label="?濡?移대뱶. ?대┃?섎㈃ ?ㅻ뒛??移대뱶媛 怨듦컻?⑸땲??" tabindex="0">
+            <div class="tarot-card" id="tarotCard" role="button" aria-label="타로 카드. 클릭하면 오늘의 카드가 공개됩니다." tabindex="0">
               <div class="tarot-card-inner">
                 <div class="tarot-back">
-                  ?뙔
+                  🌙
                   <div class="tarot-back-label">TAROT</div>
                 </div>
                 <div class="tarot-face" id="tarotFace">
@@ -461,35 +461,35 @@ footer{
                 </div>
               </div>
             </div>
-            <button class="tarot-btn" id="tarotBtn" type="button">???ㅻ뒛??移대뱶 戮묎린</button>
+            <button class="tarot-btn" id="tarotBtn" type="button">✨ 오늘의 카드 뽑기</button>
             <div class="tarot-date" id="tarotDateLabel"></div>
           </div>
           <div class="tarot-result" id="tarotResult">
-            <div class="tarot-pending">踰꾪듉???뚮윭 ?ㅻ뒛???濡?移대뱶瑜??뺤씤??蹂댁꽭???뙚</div>
+            <div class="tarot-pending">버튼을 눌러 오늘의 타로 카드를 확인해 보세요 🌟</div>
           </div>
         </div>
       </article>
       <article class="card" id="tarot-advice-card">
         <div class="meta">TODAY'S ADVICE</div>
         <div id="tarotAdvice">
-          <div class="tarot-pending" style="font-size:13px;padding:10px 0">移대뱶瑜?戮묒쑝硫?br>?ㅻ뒛??議곗뼵???섑??⑸땲????/div>
+          <div class="tarot-pending" style="font-size:13px;padding:10px 0">카드를 뽑으면<br>오늘의 조언이 나타납니다 ✨</div>
         </div>
       </article>
     </div>
   </section>
 
   <section id="news">
-    <div class="section-head"><h2>?뱽 ?섏쓽 ?뚯떇</h2><small>What's new?</small></div>
+    <div class="section-head"><h2>📣 나의 소식</h2><small>What's new?</small></div>
     <div class="grid">
       <article class="card wide">
-        <div class="meta">?붿쬁???뚯떇</div>
-        <h3>???대━?ы꽣 ?쒕━利??뺤＜??以?/h3>
+        <div class="meta">요즘의 소식</div>
+        <h3>⚡ 해리포터 시리즈 정주행 중</h3>
         <div class="media-card">
-          <img src="https://image.tmdb.org/t/p/w500/bo8FuQPWKLqbg3WgAXYISkwrbZ9.jpg" alt="?대━ ?ы꽣? 鍮꾨???諛??곹솕 ?ъ뒪??>
+          <img src="https://image.tmdb.org/t/p/w500/bo8FuQPWKLqbg3WgAXYISkwrbZ9.jpg" alt="해리 포터와 비밀의 방 영화 포스터">
           <div>
-            <p>?곹솕 ?딇빐由??ы꽣???쒕━利덈? ?쒖꽌?濡??ㅼ떆 媛먯긽?섍퀬 ?덉뒿?덈떎.</p>
-            <p style="margin-top:10px;color:var(--gold);font-size:13px;font-weight:700">?꾩옱 ?쒖껌 以?쨌 2???딅퉬諛??諛⒲?/p>
-            <p style="margin-top:12px;color:var(--text2);font-size:14px;line-height:1.85">?숈깮?ㅼ씠 ?섎굹???뚯쿂??援녹뼱媛???ш굔??踰뚯뼱吏怨? ?꾩꽕 ??<strong>鍮꾨???諛?/strong>???대졇?ㅻ뒗 ?뚮Ц???쇱쭛?덈떎. ?대━쨌濡졖룻뿤瑜대??⑤뒓??洹??ㅼ껜? ?щ━?곕┛???꾧퀎?먮? 已볤린 ?쒖옉?섎뒗?겸?/p>
+            <p>영화 《해리 포터》 시리즈를 순서대로 다시 감상하고 있습니다.</p>
+            <p style="margin-top:10px;color:var(--gold);font-size:13px;font-weight:700">현재 시청 중 · 2편 《비밀의 방》</p>
+            <p style="margin-top:12px;color:var(--text2);font-size:14px;line-height:1.85">학생들이 하나둘 돌처럼 굳어가는 사건이 벌어지고, 전설 속 <strong>비밀의 방</strong>이 열렸다는 소문이 퍼집니다. 해리·론·헤르미온느는 그 실체와 슬리데린의 후계자를 쫓기 시작하는데…</p>
           </div>
         </div>
       </article>
@@ -498,15 +498,15 @@ footer{
   </section>
 
   <section id="activity">
-    <div class="section-head"><h2>?뿎截?理쒓렐 ?쒕룞</h2><small>Recent activity</small></div>
+    <div class="section-head"><h2>🗓️ 최근 활동</h2><small>Recent activity</small></div>
     <div class="grid">
       <article class="card wide">
-        <div class="meta">理쒓렐 湲곕줉</div>
-        <h3>?뵔 誘쇱쓬??梨낃컝??援щℓ</h3>
+        <div class="meta">최근 기록</div>
+        <h3>🔖 민음사 책갈피 구매</h3>
         <div class="media-card bookmark-photo">
-          <img src="assets/animal-farm-bookmark.png" alt="吏곸젒 珥ъ쁺??誘쇱쓬???멸퀎臾명븰?꾩쭛 梨낃컝???ъ쭊. ?숇Ъ?띿옣 ???щ윭 ?붿옄?몄씠 蹂댁엯?덈떎.">
+          <img src="assets/animal-farm-bookmark.png" alt="직접 촬영한 민음사 세계문학전집 책갈피 사진. 동물농장 등 여러 디자인이 보입니다.">
           <div>
-            <p>理쒓렐 援щℓ??誘쇱쓬??梨낃컝?쇰? 吏곸젒 珥ъ쁺??湲곕줉?덉뒿?덈떎. ?ъ쭊?먮뒗 <strong>?딅룞臾쇰냽?γ?/strong> ???щ윭 ?멸퀎臾명븰?꾩쭛 ?붿옄?몄씠 ?닿꺼 ?덉뒿?덈떎.</p>
+            <p>최근 구매한 민음사 책갈피를 직접 촬영해 기록했습니다. 사진에는 <strong>《동물농장》</strong> 등 여러 세계문학전집 디자인이 담겨 있습니다.</p>
           </div>
         </div>
       </article>
@@ -515,32 +515,32 @@ footer{
   </section>
 
   <section id="interests">
-    <div class="section-head"><h2>?뮕 愿?ъ궗? 痍⑤?</h2><small>Things I love</small></div>
+    <div class="section-head"><h2>💡 관심사와 취미</h2><small>Things I love</small></div>
     <div class="grid">
-      <article class="card"><div class="interest">?뱴</div><h3>愿?ъ궗 쨌 ?낆꽌</h3><p>梨낆쓣 ?쎄퀬 ?덈줈???댁빞湲곗? ?앷컖??留뚮굹???쒓컙??醫뗭븘?⑸땲??</p></article>
-      <article class="card"><div class="interest">?뱰</div><h3>痍⑤? 쨌 ?낆꽌</h3><p>?쇱긽 ?띿뿉??袁몄???利먭린?????痍⑤??낅땲??</p></article>
-      <article class="card"><div class="interest">?렗</div><h3>痍⑤? 쨌 ?곹솕 媛먯긽</h3><p>?ㅼ뼇???λⅤ???곹솕瑜?媛먯긽?⑸땲?? ?붿쬁? ?대━ ?ы꽣 ?쒕━利덈? 蹂닿퀬 ?덉뒿?덈떎.</p></article>
+      <article class="card"><div class="interest">📚</div><h3>관심사 · 독서</h3><p>책을 읽고 새로운 이야기와 생각을 만나는 시간을 좋아합니다.</p></article>
+      <article class="card"><div class="interest">📖</div><h3>취미 · 독서</h3><p>일상 속에서 꾸준히 즐기는 대표 취미입니다.</p></article>
+      <article class="card"><div class="interest">🎬</div><h3>취미 · 영화 감상</h3><p>다양한 장르의 영화를 감상합니다. 요즘은 해리 포터 시리즈를 보고 있습니다.</p></article>
     </div>
   </section>
 
   <section id="music">
-    <div class="section-head"><h2>?렦 醫뗭븘?섎뒗 ?뚯븙</h2><small>My favorites</small></div>
+    <div class="section-head"><h2>🎵 좋아하는 음악</h2><small>My favorites</small></div>
     <div class="grid">
       <article class="card wide">
         <div class="meta">FAVORITE ARTIST</div>
-        <h3>???곗＜?뚮? (WJSN)</h3>
-        <p>?쒓? 醫뗭븘?섎뒗 ?꾪떚?ㅽ듃?낅땲?? 紐쏀솚?곸씤 遺꾩쐞湲곗? 硫ㅻ쾭?ㅼ쓽 ?뚯깋??留ㅻ젰?곸씠?쇨퀬 ?앷컖?⑸땲??</p>
+        <h3>✨ 우주소녀 (WJSN)</h3>
+        <p>제가 좋아하는 아티스트입니다. 몽환적인 분위기와 멤버들의 음색이 매력적이라고 생각합니다.</p>
       </article>
       <article class="card">
         <div class="meta">FAVORITE SONG</div>
         <div class="music-tile">
-          <a class="music-thumb" href="https://www.youtube.com/watch?v=2wOBbRu3OOc" target="_blank" rel="noopener noreferrer" aria-label="?곗＜?뚮? 遺?곹빐 裕ㅼ쭅鍮꾨뵒???좏뒠釉뚮줈 ?대룞">
-            <img src="https://img.youtube.com/vi/2wOBbRu3OOc/hqdefault.jpg" alt="?곗＜?뚮? 遺?곹빐 裕ㅼ쭅鍮꾨뵒??而ㅻ쾭 ?대?吏">
+          <a class="music-thumb" href="https://www.youtube.com/watch?v=2wOBbRu3OOc" target="_blank" rel="noopener noreferrer" aria-label="우주소녀 부탁해 뮤직비디오 유튜브로 이동">
+            <img src="https://img.youtube.com/vi/2wOBbRu3OOc/hqdefault.jpg" alt="우주소녀 부탁해 뮤직비디오 커버 이미지">
           </a>
           <div>
-            <div class="song-title"><h3 style="margin:0">遺?곹빐</h3></div>
-            <p>?곗＜?뚮? 쨌 醫뗭븘?섎뒗 ?몃옒</p>
-            <a class="btn-link" href="https://www.youtube.com/watch?v=2wOBbRu3OOc" target="_blank" rel="noopener noreferrer">???좏뒠釉뚯뿉???ｊ린 ??/a>
+            <div class="song-title"><h3 style="margin:0">부탁해</h3></div>
+            <p>우주소녀 · 좋아하는 노래</p>
+            <a class="btn-link" href="https://www.youtube.com/watch?v=2wOBbRu3OOc" target="_blank" rel="noopener noreferrer">▶ 유튜브에서 듣기 ↗</a>
           </div>
         </div>
       </article>
@@ -548,25 +548,25 @@ footer{
   </section>
 
   <section id="movies">
-    <div class="section-head"><h2>?렄截??몄깮?곹솕</h2><small>Favorite movie</small></div>
+    <div class="section-head"><h2>🎞️ 인생영화</h2><small>Favorite movie</small></div>
     <div class="grid">
       <article class="card wide">
         <div class="meta">LIFE MOVIE SERIES</div>
-        <h3>?대━ ?ы꽣 ?쒕━利?(Harry Potter)</h3>
+        <h3>해리 포터 시리즈 (Harry Potter)</h3>
         <div class="media-card">
-          <img src="https://image.tmdb.org/t/p/w500/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg" alt="?대━ ?ы꽣? 留덈쾿?ъ쓽 ???ъ뒪??>
+          <img src="https://image.tmdb.org/t/p/w500/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg" alt="해리 포터와 마법사의 돌 포스터">
           <div>
-            <p>?쒓? ?몄깮?곹솕濡?瑗쎈뒗 ?쒕━利덈뒗 <strong>?딇빐由??ы꽣??/strong>?낅땲?? ?대┛ ?쒖젅遺???④퍡?댁삩 ?댁빞湲곕줈, 蹂??뚮쭏???덈줈??媛먮룞??以띾땲??</p>
-            <p style="margin-top:10px;color:var(--gold);font-size:13px;font-weight:700">珥?8??쨌 2001??011</p>
-            <p style="margin-top:12px;color:var(--text2);font-size:14px;line-height:1.85">留덈쾿???멸퀎瑜?諛곌꼍?쇰줈, ?됰쾾???뚮뀈 ?대━媛 蹂쇰뱶紐⑦듃??留욎꽌 ?깆옣?닿????댁빞湲? ?곗젙, ?⑷린, ?ъ깮?대씪??二쇱젣媛 ?쒕━利??꾩껜瑜?愿?듯빀?덈떎.</p>
+            <p>제가 인생영화로 꼽는 시리즈는 <strong>《해리 포터》</strong>입니다. 어린 시절부터 함께해온 이야기로, 볼 때마다 새로운 감동을 줍니다.</p>
+            <p style="margin-top:10px;color:var(--gold);font-size:13px;font-weight:700">총 8편 · 2001–2011</p>
+            <p style="margin-top:12px;color:var(--text2);font-size:14px;line-height:1.85">마법사 세계를 배경으로, 평범한 소년 해리가 볼드모트에 맞서 성장해가는 이야기. 우정, 용기, 희생이라는 주제가 시리즈 전체를 관통합니다.</p>
           </div>
         </div>
       </article>
 
-      <!-- 湲곗닕??諛곗젙 ?ㅻЦ 移대뱶 -->
+      <!-- 기숙사 배정 설문 카드 -->
       <article class="card" id="house-quiz-card">
         <div class="meta">HOGWARTS SORTING HAT</div>
-        <h3>?룿 ??湲곗닕?щ뒗 ?대뵒?쇨퉴?</h3>
+        <h3>🏰 내 기숙사는 어디일까?</h3>
         <div id="quiz-body">
           <div id="quiz-progress" style="font-size:11px;color:#9098b0;margin-bottom:12px"></div>
           <div id="quiz-question"></div>
@@ -578,124 +578,124 @@ footer{
   </section>
 
   <section id="restaurants">
-    <div class="section-head"><h2>?띂截?異붿쿇 留쏆쭛</h2><small>My favorite places</small></div>
+    <div class="section-head"><h2>🍽️ 추천 맛집</h2><small>My favorite places</small></div>
     <div class="grid">
       <article class="card">
-        <div class="meta">RECOMMENDED RESTAURANT 쨌 紐⑸룞</div>
-        <h3>?뜗 ?꾩옱?앸떦</h3>
-        <p>紐⑸룞?먯꽌 異붿쿇?섎뒗 ?앸떦?낅땲??</p>
-        <a class="place-link" href="https://map.naver.com/p/search/%EB%AA%A9%EB%8F%99%20%EC%95%84%EC%9E%AC%EC%8B%9D%EB%8B%B9" target="_blank" rel="noopener noreferrer" aria-label="?ㅼ씠踰?吏?꾩뿉??紐⑸룞 ?꾩옱?앸떦 寃?됲븯湲?>?뱧 吏?꾩뿉??蹂닿린 ??/a>
+        <div class="meta">RECOMMENDED RESTAURANT · 목동</div>
+        <h3>🍚 아재식당</h3>
+        <p>목동에서 추천하는 식당입니다.</p>
+        <a class="place-link" href="https://map.naver.com/p/search/%EB%AA%A9%EB%8F%99%20%EC%95%84%EC%9E%AC%EC%8B%9D%EB%8B%B9" target="_blank" rel="noopener noreferrer" aria-label="네이버 지도에서 목동 아재식당 검색하기">📍 지도에서 보기 ↗</a>
       </article>
       <article class="card">
-        <div class="meta">RECOMMENDED BAKERY 쨌 ?몄쿇 遺?됯뎄</div>
-        <h3>?쪖 ?ㅻ━?쒕＼</h3>
-        <p>?몄쿇 遺?됯뎄?먯꽌 異붿쿇?섎뒗 鍮듭쭛?낅땲??</p>
-        <a class="place-link" href="https://map.naver.com/p/search/%EC%8B%A4%EB%A6%AC%EC%A0%9C%EB%A1%AC?c=15.00,0,0,0,dh&placePath=%2Fhome%3Ffrom%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202610121653%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%8B%A4%EB%A6%AC%EC%A0%9C%EB%A1%AC" target="_blank" rel="noopener noreferrer" aria-label="?ㅼ씠踰?吏?꾩뿉???ㅻ━?쒕＼ 蹂닿린">?뱧 吏?꾩뿉??蹂닿린 ??/a>
+        <div class="meta">RECOMMENDED BAKERY · 인천 부평구</div>
+        <h3>🥐 실리제롬</h3>
+        <p>인천 부평구에서 추천하는 빵집입니다.</p>
+        <a class="place-link" href="https://map.naver.com/p/search/%EC%8B%A4%EB%A6%AC%EC%A0%9C%EB%A1%AC?c=15.00,0,0,0,dh&placePath=%2Fhome%3Ffrom%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202610121653%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%8B%A4%EB%A6%AC%EC%A0%9C%EB%A1%AC" target="_blank" rel="noopener noreferrer" aria-label="네이버 지도에서 실리제롬 보기">📍 지도에서 보기 ↗</a>
       </article>
     </div>
   </section>
 
-  <!-- ?묒썝 蹂대뱶 ?뱀뀡 -->
+  <!-- 응원 보드 섹션 -->
   <section id="cheers">
     <div class="section-head">
-      <h2>?챷 ?대━?ы꽣 ?묒썝 蹂대뱶</h2>
-      <small>?대뼡 ?몄씠 媛??醫뗭븯?섏슂? ?묒썝???④꺼二쇱꽭??</small>
+      <h2>🪄 해리포터 응원 보드</h2>
+      <small>어떤 편이 가장 좋았나요? 응원을 남겨주세요!</small>
     </div>
     <div id="cheers-status"></div>
     <div class="hp-grid" id="hp-grid"></div>
   </section>
 
   <section id="backlog">
-    <div class="section-head"><h2>?썱截?Next Sprint Backlog</h2><small>Version 1.6 ??2.0</small></div>
+    <div class="section-head"><h2>🛠️ Next Sprint Backlog</h2><small>Version 1.6 → 2.0</small></div>
     <div class="card">
-      <label class="todo"><input type="checkbox" checked disabled> 泥?踰덉㎏ ?덊럹?댁?(index.html) 援ы쁽</label>
-      <label class="todo"><input type="checkbox" checked disabled> 紐⑤컮??諛섏쓳???붿옄???곸슜</label>
-      <label class="todo"><input type="checkbox" checked disabled> ?ㅼ젣 ?대쫫怨??숈쟻 ?뺣낫 ?낅젰</label>
-      <label class="todo"><input type="checkbox" checked disabled> 醫뗭븘?섎뒗 ?꾪떚?ㅽ듃? ?몃옒 ?낅뜲?댄듃</label>
-      <label class="todo"><input type="checkbox" checked disabled> 異붿쿇 留쏆쭛 諛?吏??留곹겕 異붽?</label>
-      <label class="todo"><input type="checkbox" checked disabled> ?몄깮?곹솕 ??ぉ 異붽?</label>
-      <label class="todo"><input type="checkbox" checked disabled> 理쒓렐 ?쒕룞???대?吏 泥⑤?</label>
-      <label class="todo"><input type="checkbox" checked disabled> GitHub Pages 諛고룷 諛?猷⑦듃 二쇱냼 ?묒냽 ?뺤씤</label>
-      <label class="todo"><input type="checkbox" checked disabled> 諛앹? 而щ윭 ?뚮쭏 諛?媛?낆꽦 媛쒖꽑</label>
-      <label class="todo"><input type="checkbox"> ?쒕룞/痍⑦뼢?????쎄쾶 ?섏젙?????덈뒗 ?곗씠??援ъ“ 異붽?</label>
-      <label class="todo"><input type="checkbox" checked disabled> ?濡??쇱씪 ?댁꽭 ?뱀뀡 異붽?</label>
-      <p class="note">泥댄겕諛뺤뒪??吏꾪뻾 ?꾪솴 ?쒖떆?⑹엯?덈떎. ?ㅼ쓬 Sprint?먯꽌 index.html怨?assets瑜??④퍡 ?섏젙??怨꾩냽 諛쒖쟾?쒗궗 ???덉뒿?덈떎.</p>
+      <label class="todo"><input type="checkbox" checked disabled> 첫 번째 홈페이지(index.html) 구현</label>
+      <label class="todo"><input type="checkbox" checked disabled> 모바일 반응형 디자인 적용</label>
+      <label class="todo"><input type="checkbox" checked disabled> 실제 이름과 학적 정보 입력</label>
+      <label class="todo"><input type="checkbox" checked disabled> 좋아하는 아티스트와 노래 업데이트</label>
+      <label class="todo"><input type="checkbox" checked disabled> 추천 맛집 및 지도 링크 추가</label>
+      <label class="todo"><input type="checkbox" checked disabled> 인생영화 항목 추가</label>
+      <label class="todo"><input type="checkbox" checked disabled> 최근 활동에 이미지 첨부</label>
+      <label class="todo"><input type="checkbox" checked disabled> GitHub Pages 배포 및 루트 주소 접속 확인</label>
+      <label class="todo"><input type="checkbox" checked disabled> 밝은 컬러 테마 및 가독성 개선</label>
+      <label class="todo"><input type="checkbox"> 활동/취향을 더 쉽게 수정할 수 있는 데이터 구조 추가</label>
+      <label class="todo"><input type="checkbox" checked disabled> 타로 일일 운세 섹션 추가</label>
+      <p class="note">체크박스는 진행 현황 표시용입니다. 다음 Sprint에서 index.html과 assets를 함께 수정해 계속 발전시킬 수 있습니다.</p>
     </div>
   </section>
 </main>
-<footer><span>짤 2026 諛곗닔醫? Made with curiosity.</span><span>Powered by GitHub Pages 쨌 v1.9 Hufflepuff Edition ?─</span></footer>
+<footer><span>© 2026 배수종. Made with curiosity.</span><span>Powered by GitHub Pages · v1.9 Hufflepuff Edition 🦡</span></footer>
 </div>
 <script>
-// ?? 湲곗닕??諛곗젙 ?ㅻЦ ??
+// ── 기숙사 배정 설문 ──
 (function(){
   var QUESTIONS = [
     {
-      q: "?대뼡 媛移섎? 媛??以묒슂?섍쾶 ?앷컖?섎굹??",
+      q: "어떤 가치를 가장 중요하게 생각하나요?",
       opts: [
-        {text:"?⑷린? ?대???,scores:{G:3,S:0,R:0,H:0}},
-        {text:"?쇰쭩怨?紐⑺몴 ?ъ꽦",scores:{G:0,S:3,R:0,H:0}},
-        {text:"吏?쒖? ?먭뎄??,scores:{G:0,S:0,R:3,H:0}},
-        {text:"?깆떎?④낵 怨듭젙??,scores:{G:0,S:0,R:0,H:3}}
+        {text:"용기와 담대함",scores:{G:3,S:0,R:0,H:0}},
+        {text:"야망과 목표 달성",scores:{G:0,S:3,R:0,H:0}},
+        {text:"지혜와 탐구심",scores:{G:0,S:0,R:3,H:0}},
+        {text:"성실함과 공정함",scores:{G:0,S:0,R:0,H:3}}
       ]
     },
     {
-      q: "?꾪뿕???곹솴?먯꽌 ?섎뒗?",
+      q: "위험한 상황에서 나는?",
       opts: [
-        {text:"?욎옣?쒖꽌 ?닿껐?쒕떎",scores:{G:3,S:1,R:0,H:0}},
-        {text:"?꾨왂?곸쑝濡??곹솴???댁슜?쒕떎",scores:{G:0,S:3,R:1,H:0}},
-        {text:"?뺣낫瑜?紐⑥븘 理쒖꽑梨낆쓣 李얜뒗??,scores:{G:0,S:1,R:3,H:0}},
-        {text:"???紐⑤몢媛 ?덉쟾?쒖? 梨숆릿??,scores:{G:1,S:0,R:0,H:3}}
+        {text:"앞장서서 해결한다",scores:{G:3,S:1,R:0,H:0}},
+        {text:"전략적으로 상황을 이용한다",scores:{G:0,S:3,R:1,H:0}},
+        {text:"정보를 모아 최선책을 찾는다",scores:{G:0,S:1,R:3,H:0}},
+        {text:"팀원 모두가 안전한지 챙긴다",scores:{G:1,S:0,R:0,H:3}}
       ]
     },
     {
-      q: "移쒓뎄?ㅼ씠 ?섎? ?대뼸寃??쒗쁽?섎굹??",
+      q: "친구들이 나를 어떻게 표현하나요?",
       opts: [
-        {text:"?댁젙?곸씠怨??⑹뵫?섎떎",scores:{G:3,S:0,R:0,H:1}},
-        {text:"?곷━?섍퀬 怨꾩궛?곸씠??,scores:{G:0,S:3,R:1,H:0}},
-        {text:"?멸린?ъ씠 留롪퀬 李쎌쓽?곸씠??,scores:{G:0,S:0,R:3,H:1}},
-        {text:"?곕쑜?섍퀬 誘우쓬吏곹븯??,scores:{G:1,S:0,R:0,H:3}}
+        {text:"열정적이고 씩씩하다",scores:{G:3,S:0,R:0,H:1}},
+        {text:"영리하고 계산적이다",scores:{G:0,S:3,R:1,H:0}},
+        {text:"호기심이 많고 창의적이다",scores:{G:0,S:0,R:3,H:1}},
+        {text:"따뜻하고 믿음직하다",scores:{G:1,S:0,R:0,H:3}}
       ]
     },
     {
-      q: "諛⑷낵 ??媛???섍퀬 ?띠? ?쇱??",
+      q: "방과 후 가장 하고 싶은 일은?",
       opts: [
-        {text:"?대뵒移??곗뒿 ?먮뒗 紐⑦뿕",scores:{G:3,S:0,R:0,H:1}},
-        {text:"?몃㎘ 愿由ъ? 紐⑺몴 ?몄슦湲?,scores:{G:0,S:3,R:0,H:0}},
-        {text:"?꾩꽌愿?먯꽌 ?덈줈??吏???먭뎄",scores:{G:0,S:1,R:3,H:0}},
-        {text:"移쒓뎄?ㅺ낵 ?ъ쑀濡?쾶 ?댁슱由ш린",scores:{G:1,S:0,R:0,H:3}}
+        {text:"퀴디치 연습 또는 모험",scores:{G:3,S:0,R:0,H:1}},
+        {text:"인맥 관리와 목표 세우기",scores:{G:0,S:3,R:0,H:0}},
+        {text:"도서관에서 새로운 지식 탐구",scores:{G:0,S:1,R:3,H:0}},
+        {text:"친구들과 여유롭게 어울리기",scores:{G:1,S:0,R:0,H:3}}
       ]
     },
     {
-      q: "?섏뿉寃??깃났?대??",
+      q: "나에게 성공이란?",
       opts: [
-        {text:"?먮젮???洹밸났?섍퀬 ?대궦 寃?,scores:{G:3,S:0,R:0,H:1}},
-        {text:"?먰븯??紐⑺몴瑜?諛섎뱶???대（??寃?,scores:{G:0,S:3,R:1,H:0}},
-        {text:"?딆엫?놁씠 諛곗슦怨??깆옣?섎뒗 寃?,scores:{G:0,S:0,R:3,H:1}},
-        {text:"二쇰? ?щ엺?ㅺ낵 ?④퍡 ?됰났??寃?,scores:{G:1,S:0,R:0,H:3}}
+        {text:"두려움을 극복하고 해낸 것",scores:{G:3,S:0,R:0,H:1}},
+        {text:"원하는 목표를 반드시 이루는 것",scores:{G:0,S:3,R:1,H:0}},
+        {text:"끊임없이 배우고 성장하는 것",scores:{G:0,S:0,R:3,H:1}},
+        {text:"주변 사람들과 함께 행복한 것",scores:{G:1,S:0,R:0,H:3}}
       ]
     }
   ];
 
   var HOUSES = {
     G: {
-      name:"洹몃━??꾨Ⅴ Gryffindor", emoji:"?쫨",
+      name:"그리핀도르 Gryffindor", emoji:"🦁",
       cls:"house-gryffindor",
-      desc:"?⑷린쨌?대??㉱룰린?щ룄媛 ?뱀쭠??湲곗닕?ъ엯?덈떎. ?섎뒛???덉쿂??鍮쏅굹??吏꾩랬???뺤떊???뚯쑀??"
+      desc:"용기·담대함·기사도가 특징인 기숙사입니다. 하늘색 눈처럼 빛나는 진취적 정신의 소유자!"
     },
     S: {
-      name:"?щ━?곕┛ Slytherin", emoji:"?릫",
+      name:"슬리데린 Slytherin", emoji:"🐍",
       cls:"house-slytherin",
-      desc:"?쇰쭩쨌?곷━?㉱룰껐?⑤젰??媛뽰텣 湲곗닕?ъ엯?덈떎. 紐⑺몴瑜??ν빐 ?대뼡 ?섎떒??留덈떎?섏? ?딅뒗 ?꾨왂媛!"
+      desc:"야망·영리함·결단력을 갖춘 기숙사입니다. 목표를 향해 어떤 수단도 마다하지 않는 전략가!"
     },
     R: {
-      name:"?섎쾲?대줈 Ravenclaw", emoji:"?쫭",
+      name:"래번클로 Ravenclaw", emoji:"🦅",
       cls:"house-ravenclaw",
-      desc:"吏?쑣룹갹?섎젰쨌諛곗????щ옉?섎뒗 湲곗닕?ъ엯?덈떎. 留덈쾿???멸퀎 理쒓퀬??吏?깆씤?ㅼ씠 紐⑥씤 怨?"
+      desc:"지혜·창의력·배움을 사랑하는 기숙사입니다. 마법사 세계 최고의 지성인들이 모인 곳!"
     },
     H: {
-      name:"?꾪뵆?명봽 Hufflepuff", emoji:"?─",
+      name:"후플푸프 Hufflepuff", emoji:"🦡",
       cls:"house-hufflepuff",
-      desc:"?깆떎쨌異⑹꽦쨌怨듭젙??以묒슂?쒗븯??湲곗닕?ъ엯?덈떎. 媛???곕쑜?섍퀬 誘우쓣 ???덈뒗 ?щ엺?ㅼ쓽 吏?"
+      desc:"성실·충성·공정을 중요시하는 기숙사입니다. 가장 따뜻하고 믿을 수 있는 사람들의 집!"
     }
   };
 
@@ -738,7 +738,7 @@ footer{
         '<div style="font-size:40px">' + h.emoji + '</div>' +
         '<div class="house-name">' + h.name + '</div>' +
         '<div class="house-desc">' + h.desc + '</div>' +
-        '<button class="quiz-restart" id="quiz-restart-btn">???ㅼ떆 ?대낫湲?/button>' +
+        '<button class="quiz-restart" id="quiz-restart-btn">↺ 다시 해보기</button>' +
       '</div>';
     document.getElementById('quiz-restart-btn').addEventListener('click', function(){
       scores = {G:0,S:0,R:0,H:0};
@@ -752,165 +752,165 @@ footer{
 })();
 
 (function(){
-  // ?? 硫붿씠? ?꾨Ⅴ移대굹 22???곗씠????
+  // ── 메이저 아르카나 22장 데이터 ──
   var CARDS = [
-    {num:"0",name:"愿묐? THE FOOL",emoji:"?ㄱ",keywords:["??異쒕컻","?먯쑀","紐⑦뿕"],
-     desc:"?덈줈???ъ젙???쒖옉???뚮┰?덈떎. ?먮젮? ?놁씠 ?욎쑝濡??섏븘媛?以鍮꾧? ?섏뼱 ?덈뒗 ?좎엯?덈떎. 吏곴?怨??ㅻ젞??誘욧퀬 泥リ구?뚯쓣 ?대뵒??蹂댁꽭??",
-     advice:"?ㅻ뒛? 吏?섏튇 怨꾩궛蹂대떎 留덉쓬???대걚??諛⑺뼢???곕Ⅴ?몄슂.",
-     menu:{icon:"?뙫",title:"泥섏쓬 癒뱀뼱蹂대뒗 ?뚯떇",desc:"?덈줈???앸떦?대굹 ??踰덈룄 ??癒뱀뼱蹂?硫붾돱???꾩쟾??蹂댁꽭?? ?肄? ?먰떚?ㅽ뵾???뚯떇 ????꽑 ?붾━媛 ?ㅻ뒛怨????댁슱由쎈땲??"},
-     place:{icon:"?뿺截?,title:"泥섏쓬 媛蹂대뒗 ?숇꽕",desc:"?먯＜ ?ㅻ땲??湲?留먭퀬 泥섏쓬 媛蹂대뒗 怨⑤ぉ?대굹 ?숇꽕瑜?嫄몄뼱蹂댁꽭?? ?덈줈??諛쒓껄??湲곕떎由ш퀬 ?덉뒿?덈떎."},
-     activity:{icon:"?랃툘",title:"踰꾪궥由ъ뒪???묒꽦",desc:"?몄젨媛 ?대낫怨??띠뿀???쇰뱾???명듃???⑤낫?몄슂. 泥?踰덉㎏ ??ぉ遺???ㅽ뻾 怨꾪쉷???몄썙遊먮룄 醫뗭뒿?덈떎."}},
-    {num:"??,name:"留덈쾿??THE MAGICIAN",emoji:"?챷",keywords:["?섏?","?λ젰","吏묒쨷"],
-     desc:"?뱀떊 ?덉뿉 ?꾩슂???꾧뎄媛 紐⑤몢 媛뽰떠???덉뒿?덈떎. ?꾩씠?붿뼱瑜??꾩떎濡???만 ???덈뒗 ?먮꼫吏媛 異⑸쭔???섎（?낅땲??",
-     advice:"癒몃┸?띿뿉 ?덈뒗 怨꾪쉷??援ъ껜?곸씤 ?됰룞?쇰줈 ??꺼蹂댁꽭??",
-     menu:{icon:"??,title:"?꾨찓由ъ뭅??+ ?먮꼫吏諛?,desc:"吏묒쨷?μ쓣 ?믪뿬以?移댄럹?멸낵 媛꾨떒???먮꼫吏 蹂댁땐???ㅻ뒛???쒕룞?μ쓣 洹밸??붿떆耳?以띾땲??"},
-     place:{icon:"?뱴",title:"移댄럹 ?먮뒗 ?ㅽ꽣?붾８",desc:"吏묒쨷?댁꽌 臾댁뼵媛瑜?留뚮뱾嫄곕굹 怨듬??섍린 醫뗭? 議곗슜??移댄럹???ㅽ꽣??怨듦컙??李얠븘媛 蹂댁꽭??"},
-     activity:{icon:"?썱截?,title:"誘몃쨪???꾨줈?앺듃 李⑹닔",desc:"?ㅻ옒 ?앷컖留??댁솕???쇱쓣 ?ㅻ뒛 ?ㅼ젣濡??쒖옉??蹂댁꽭?? ?묒? 泥??④퀎媛 ??蹂?붾? 留뚮벊?덈떎."}},
-    {num:"??,name:"?ъ궗??THE HIGH PRIESTESS",emoji:"?뙔",keywords:["吏곴?","?대㈃","?좊퉬"],
-     desc:"寃됱쑝濡??쒕윭?섏? ?딅뒗 吏꾩떎??二쇰ぉ?섏꽭?? ?쇰━蹂대떎 吏곴??????뺥솗???듭쓣 以????덈뒗 ?좎엯?덈떎.",
-     advice:"議곗슜???대㈃??紐⑹냼由ъ뿉 洹 湲곗슱?대뒗 ?쒓컙??媛?몃낫?몄슂.",
-     menu:{icon:"?뜷",title:"?곕쑜???덈툕??,desc:"移대え留덉씪?대굹 ?섑띁誘쇳듃 媛숈? ?덈툕?????붿씠 ?대㈃??怨좎슂?섍쾶 留뚮뱾??以띾땲?? 議곗슜??移댄럹?먯꽌 泥쒖쿇??利먭꺼蹂댁꽭??"},
-     place:{icon:"?뙼",title:"議곗슜??怨듭썝 ?먮뒗 ?뺤썝",desc:"踰덉옟??怨녹쓣 ?쇳빐 ?섎Т? ?먯뿰???덈뒗 議곗슜??怨듦컙?먯꽌 ?쇱옄 ?곗콉?섎ŉ ?앷컖???뺣━??蹂댁꽭??"},
-     activity:{icon:"?뱭",title:"?쇨린 ?먮뒗 ????곌린",desc:"?ㅻ뒛 ?먮? 媛먯젙怨??앷컖??湲濡?湲곕줉??蹂댁꽭?? 臾댁쓽????吏꾩쭨 ?먰븯??寃껋씠 ?좎삤瑜????덉뒿?덈떎."}},
-    {num:"??,name:"?ы솴??THE EMPRESS",emoji:"?뙵",keywords:["?띿슂","李쎌“","?뚮큵"],
-     desc:"李쎌쓽?곸씤 ?먮꼫吏? ?띿슂濡쒖???媛?앺븳 ?좎엯?덈떎. ???먯떊怨?二쇰????곕쑜?섍쾶 ?뚮낫??寃껋씠 醫뗭? 寃곌낵瑜?遺덈윭?듬땲??",
-     advice:"?ㅻ뒛? 李쎌옉 ?쒕룞?대굹 ?뚯쨷???щ엺?먭쾶 留덉쓬???쒗쁽??蹂댁꽭??",
-     menu:{icon:"?쪞",title:"而щ윭????먮윭???먮뒗 釉뚮윴移?,desc:"?꾨낫移대룄, ?멸린, 寃ш낵瑜섍? ?ㅼ뼱媛??띿꽦???먮윭?쒕굹 釉뚮윴移??뚮젅?댄듃媛 ?ㅻ뒛???먮꼫吏? ??留욎뒿?덈떎."},
-     place:{icon:"?뙵",title:"苑껋쭛 ?먮뒗 ?뚮씪??移댄럹",desc:"苑껎뼢湲곌? 媛?앺븳 ?뚮씪??移댄럹??苑껋쭛???ㅻ윭蹂댁꽭?? ?묒? ?붾텇???섎굹 ?ъ꽌 吏묒뿉 ?앷린瑜??뷀빐遊먮룄 醫뗭뒿?덈떎."},
-     activity:{icon:"?렓",title:"洹몃┝ 洹몃━湲??먮뒗 怨듭삁",desc:"洹몃┝ 洹몃━湲? ?④컻吏? 苑껉퐘?????먯쓣 ?곕뒗 李쎌옉 ?쒕룞?쇰줈 ?ㅻ뒛???띿슂濡쒖슫 ?먮꼫吏瑜??쒗쁽??蹂댁꽭??"}},
-    {num:"??,name:"?⑹젣 THE EMPEROR",emoji:"?몣",keywords:["吏덉꽌","由щ뜑??,"?덉젙"],
-     desc:"泥닿퀎?곸씠怨??덉젙??湲곕컲???ㅼ????좎엯?덈떎. 梨낆엫媛먯쓣 媛뽮퀬 二쇰룄?곸쑝濡??곹솴???대걣 ??醫뗭? ?깃낵媛 ?곕쫭?덈떎.",
-     advice:"?먰듃?ъ쭊 ?쇱긽??猷⑦떞???먭??섍퀬 援ъ“瑜??≪븘蹂댁꽭??",
-     menu:{icon:"?뜳",title:"?좊뱺???뺤떇 ????,desc:"諛깅컲, ?쒖젙?? ?꾩떆?????곸뼇 洹좏삎???≫엺 ?뺤떇 硫붾돱濡??섎（瑜??좊뱺?섍쾶 梨꾩썙蹂댁꽭??"},
-     place:{icon:"?룢截?,title:"?꾩꽌愿 ?먮뒗 愿怨듭꽌 二쇰?",desc:"吏덉꽌 ?덇퀬 泥닿퀎?곸씤 怨듦컙?먯꽌 ????紐⑸줉???뺣━?섍굅??以묒슂???낅Т瑜?泥섎━??蹂댁꽭??"},
-     activity:{icon:"?뱥",title:"????紐⑸줉 ?뺣━ 諛?怨꾪쉷 ?섎┰",desc:"?ㅻ뒛 ?댁빞 ???쇨낵 ?대쾲 二?紐⑺몴瑜??뺣━???곗꽑?쒖쐞瑜??몄썙蹂댁꽭?? 怨꾪쉷?????쒕㈃ ?ㅽ뻾???ъ썙吏묐땲??"}},
-    {num:"??,name:"援먰솴 THE HIEROPHANT",emoji:"??,keywords:["?꾪넻","誘우쓬","媛瑜댁묠"],
-     desc:"寃利앸맂 諛⑸쾿怨?吏?쒖뿉??諛곗슱 ?먯쓣 李얜뒗 ?좎엯?덈떎. ?좊ː?????덈뒗 ?щ엺??議곗뼵??洹 湲곗슱??蹂댁꽭??",
-     advice:"?쇱옄 ?먮떒?섍린 ?대졄?ㅻ㈃ 寃쏀뿕 留롮? ?щ엺?먭쾶 議곗뼵??援ы빐蹂댁꽭??",
-     menu:{icon:"?뜙",title:"?ㅻ옒???④낏 ?뚯떇??,desc:"?덈줈??怨노낫???ㅻ옒?꾨???寃利앸맂 ?④낏吏묒씠???대㉧?덉쓽 ?먮쭧???닿릿 ?뺥넻 ?뚯떇??李얠븘媛 蹂댁꽭??"},
-     place:{icon:"?룾",title:"??궗 ?좎쟻吏 ?먮뒗 怨좉턿",desc:"寃쎈났沅? ?뺤닔沅? 吏???κ탳 ????궗? ?꾪넻??源껊뱺 怨녹쓣 諛⑸Ц??蹂댁꽭?? 諛곗?怨??덉젙媛먯쓣 ?살쓣 ???덉뒿?덈떎."},
-     activity:{icon:"?뱰",title:"怨좎쟾 ?먮뒗 紐낆옉 ?쎄린",desc:"?ㅻ옒?꾨????쎄퀬 ?띠뿀??怨좎쟾 臾명븰?대굹 紐낆옉???쇱퀜蹂댁꽭?? 寃利앸맂 吏?쒓? ?ㅻ뒛??怨좊????듭쓣 以????덉뒿?덈떎."}},
-    {num:"??,name:"?곗씤 THE LOVERS",emoji:"?뮒",keywords:["?좏깮","愿怨?,"議고솕"],
-     desc:"以묒슂???좏깮?대굹 愿怨꾩뿉??吏꾩떖??湲곕컲??寃곗젙???꾩슂???좎엯?덈떎. 留덉쓬???대걚??履쎌쓣 誘우뼱蹂댁꽭??",
-     advice:"媛移섍????곕Ⅸ ?좏깮???섎릺, ?쒕줈瑜?議댁쨷?섎뒗 寃껋쓣 ?딆? 留덉꽭??",
-     menu:{icon:"?뜚",title:"?섏씠 ?섎닠 癒밸뒗 ?뚯뒪?",desc:"醫뗭븘?섎뒗 ?щ엺怨??④퍡 ?뚯뒪????쇱옄 媛숈씠 ?섎닠 癒밸뒗 硫붾돱媛 ???댁슱由щ뒗 ?좎엯?덈떎."},
-     place:{icon:"?똿",title:"?몄쓣 紐낆냼 ?먮뒗 ?쇨꼍 ?ъ씤??,desc:"?댁쭏 臾대졄 ?④퍡 嫄몄쓣 ???덈뒗 ?쒓컯, ?⑥궛??? ?숇꽕 ?몃뜒 ??酉?醫뗭? 怨녹뿉 媛蹂댁꽭??"},
-     activity:{icon:"?뭽",title:"?뚯쨷???щ엺?먭쾶 ?곕씫?섍린",desc:"?ㅻ옯?숈븞 ?곕씫 紐??덈뜕 移쒓뎄??媛議깆뿉寃?癒쇱? ?곕씫??蹂댁꽭?? 吏㏃? 硫붿떆吏 ?섎굹媛 愿怨꾨? ?ㅼ떆 ?댁뼱以띾땲??"}},
-    {num:"??,name:"?꾩감 THE CHARIOT",emoji:"?룇",keywords:["?섏?","?꾩쭊","?밸━"],
-     desc:"媛뺥븳 ?섏?? 寃곕떒?μ씠 鍮쏆쓣 諛쒗븯???좎엯?덈떎. 諛⑺빐臾쇱씠 ?덈뜑?쇰룄 ?욎쑝濡??섏븘媛硫?諛섎뱶??湲몄씠 ?대┰?덈떎.",
-     advice:"吏묒쨷?μ쓣 ?껋? 留먭퀬 紐⑺몴瑜??ν빐 袁몄????꾩쭊?섏꽭??",
-     menu:{icon:"?ⅸ",title:"?⑤갚吏??꾩＜???좊뱺???앹궗",desc:"?ㅽ뀒?댄겕, ????댁궡 ?꾩떆?? ?쇨껸?????먮꼫吏 異⑹쟾??醫뗭? ?⑤갚吏??꾩＜ ?앹궗濡??ㅻ뒛??異붿쭊?μ쓣 梨꾩썙蹂댁꽭??"},
-     place:{icon:"?룂",title:"?대룞 ?쒖꽕 ?먮뒗 ?몃옓",desc:"?ъ뒪?? ?щ떇 ?몃옓, ?섏쁺????紐몄쓣 ?吏곸씪 ???덈뒗 怨녹뿉 媛蹂댁꽭?? ????섎━硫?紐⑺몴 ?섏떇????媛뺥빐吏묐땲??"},
-     activity:{icon:"?렞",title:"?꾩쟾 怨쇱젣 ?섎굹 ?꾩닔",desc:"?ㅻ뒛留뚰겮? 誘몃（吏 留먭퀬 媛???대젮??怨쇱젣 ?섎굹瑜??앸궡蹂댁꽭?? ?꾩닔???깆랬媛먯씠 ?ㅼ쓬 ?됰룞???대걬?덈떎."}},
-    {num:"??,name:"??STRENGTH",emoji:"?쫨",keywords:["?⑷린","?몃궡","?대㈃????],
-     desc:"?몄쟻???섎낫???대㈃???⑷린? ?몃궡媛 以묒슂???좎엯?덈떎. 媛먯젙??議곗젅?섎ŉ 遺?쒕읇寃??곹솴???대걣??蹂댁꽭??",
-     advice:"媛뺤븬蹂대떎 ?댄빐? 怨듦컧?쇰줈 二쇰? ?곹솴???ㅻ（??蹂댁꽭??",
-     menu:{icon:"?뜴",title:"?곕쑜??援?Ъ ?붾━",desc:"?ㅻ쟻?? 媛먯옄?? ?쒕몢遺李뚭컻 ???띿쓣 ?곕쑜?섍쾶 梨꾩썙二쇰뒗 援?Ъ ?붾━媛 ?ㅻ뒛???대㈃ ?먮꼫吏瑜?蹂댁땐??以띾땲??"},
-     place:{icon:"?뙰",title:"?꿸만 ?먮뒗 ?깆궛濡?,desc:"?먯뿰 ?띿뿉??泥쒖쿇??嫄룸뒗 寃껋씠 ?대㈃???섏쓣 ?뚮났?쒖폒 以띾땲?? 媛源뚯슫 ???먮뒗 ?꿸만 ?곗콉??異붿쿇?⑸땲??"},
-     activity:{icon:"?쭣",title:"紐낆긽 ?먮뒗 ?ㅽ듃?덉묶",desc:"10遺꾩씠?쇰룄 議곗슜???됱븘 ?명씉??吏묒쨷??蹂댁꽭?? 媛먯젙???ㅼ뒪由щ뒗 ?곗뒿???ㅻ뒛 ?뱁엳 鍮쏆쓣 諛쒗빀?덈떎."}},
-    {num:"??,name:"??붿옄 THE HERMIT",emoji:"?뵧",keywords:["?깆같","怨좊룆","吏??],
-     desc:"?쇱옄留뚯쓽 ?쒓컙???듯빐 ?대㈃???ㅼ뿬?ㅻ낫??寃껋씠 ?꾩????⑸땲?? ?쒕몢瑜댁? 留먭퀬 ?ㅼ뒪濡쒕? ?뚯븘蹂대뒗 ?섎（瑜?蹂대궡?몄슂.",
-     advice:"議곗슜???섍꼍?먯꽌 ?먯떊??諛⑺뼢怨?媛移섎? ?먭???蹂댁꽭??",
-     menu:{icon:"?뜛",title:"?쇰갈 ??醫뗭븘?섎뒗 ?④낏 硫붾돱",desc:"?쇱옄 議곗슜??利먭만 ???덈뒗 ?④낏 硫붾돱 ??洹몃쫯???ㅻ뒛怨????댁슱由쎈땲?? ?뚯떇???⑥쟾??吏묒쨷??蹂댁꽭??"},
-     place:{icon:"?뱴",title:"?쒖쟻???낅┰?쒖젏 ?먮뒗 ?꾩꽌愿",desc:"議곗슜???낅┰?쒖젏?대굹 ?꾩꽌愿?먯꽌 ?쇱옄 梨낆쓣 怨좊Ⅴ怨??쎈뒗 ?쒓컙???ㅻ뒛 ?섎（瑜??띿꽦?섍쾶 留뚮뱾??以띾땲??"},
-     activity:{icon:"?뵇",title:"?섎쭔???쒓컙 ???먭린 ?먭?",desc:"而ㅻ━?? 愿怨? ?앺솢 ?⑦꽩 以??섎굹瑜?怨⑤씪 ?꾩옱 留뚯”?섎뒗吏 ?붿쭅?섍쾶 ?곸뼱蹂댁꽭?? ?묒? ?듭같????蹂?붾? 留뚮벊?덈떎."}},
-    {num:"??,name:"?대챸???섎젅諛뷀?WHEEL OF FORTUNE",emoji:"?렊",keywords:["蹂??,"?쒗솚","湲고쉶"],
-     desc:"蹂?붿? ?꾪솚???먮쫫 ?띿뿉 ?덈뒗 ?좎엯?덈떎. 醫뗭? 湲고쉶媛 李얠븘?ㅺ굅???곹솴???몄쟾??吏뺤“媛 蹂댁엯?덈떎.",
-     advice:"蹂?붾? ?먮젮?뚰븯吏 留먭퀬, ?먮쫫???먯뿰?ㅻ읇寃?諛쏆븘?ㅼ씠?몄슂.",
-     menu:{icon:"?렡",title:"?ㅻ뒛???쒕뜡 硫붾돱 ?꾩쟾",desc:"硫붾돱?먯뿉???덉쓣 媛먭퀬 怨좊Ⅴ嫄곕굹 ?뚯떇 猷곕젢 ?깆쓣 ?⑤낫?몄슂. ?덉긽移?紐삵븳 硫붾돱媛 ?ㅻ뒛???꾪솚?먯씠 ???섎룄 ?덉뒿?덈떎."},
-     place:{icon:"?렊",title:"?쇱쇅 異뺤젣 ?먮뒗 留덉폆",desc:"二쇰??먯꽌 ?대━???뚮━留덉폆, ?쇱쇅 ?됱궗, ?앹뾽 ?ㅽ넗?댁뿉 媛蹂댁꽭?? ?곗뿰??留뚮궓?대굹 諛쒓껄??湲곕떎由ш퀬 ?덉뒿?덈떎."},
-     activity:{icon:"?봽",title:"猷⑦떞 諛붽퓭蹂닿린",desc:"留ㅼ씪 ?섎뜕 ?쒖꽌??諛⑸쾿???ㅻ뒛留뚰겮? 諛붽퓭蹂댁꽭?? ?ъ냼??蹂?붽? ?덈줈???쒓컖???댁뼱以띾땲??"}},
-    {num:"??,name:"?뺤쓽 JUSTICE",emoji:"?뽳툘",keywords:["怨듭젙","洹좏삎","吏꾩떎"],
-     desc:"怨듭젙?섍퀬 洹좏삎 ?≫엺 ?먮떒???붽뎄?섎뒗 ?좎엯?덈떎. 媛먯젙蹂대떎???ъ떎怨??먯튃??洹쇨굅??寃곗젙???대━?몄슂.",
-     advice:"?대뼡 寃곗젙?대뱺 吏꾩떎??湲곕컲?섎㈃ ?꾪쉶?섏? ?딆쓣 ???덉뼱??",
-     menu:{icon:"?쪞",title:"洹좏삎 ?≫엺 嫄닿컯??,desc:"?꾩닔?붾Ъ쨌?⑤갚吏댟룹콈?뚭? 怨④퀬猷??닿릿 洹좏삎 ?≫엺 ???쇨? ?ㅻ뒛???щ컮瑜??먮떒?μ쓣 ?룸컺移⑦빐 以띾땲??"},
-     place:{icon:"?뽳툘",title:"?쒖껌 二쇰? ?먮뒗 踰뺤썝쨌?됱젙援ъ뿭",desc:"?뺣룉?섍퀬 吏덉꽌 ?덈뒗 ?꾩떖 ?됱젙 吏??쓣 嫄몄쑝硫??닿껐?댁빞 ??以묒슂??寃곗젙??李⑤텇???앷컖??蹂댁꽭??"},
-     activity:{icon:"?뱷",title:"?λ떒?????묒꽦",desc:"?ㅻ옒 怨좊??댁삩 臾몄젣???λ떒?먯쓣 ?쒕줈 ?뺣━??蹂댁꽭?? ?쒓컖?뷀븯硫??щ컮瑜??먮떒??媛源뚯썙吏묐땲??"}},
-    {num:"??,name:"留ㅻ떖由??⑥옄 THE HANGED MAN",emoji:"?셾",keywords:["愿???꾪솚","湲곕떎由?,"?섏슜"],
-     desc:"?ㅻⅨ 媛곷룄?먯꽌 ?곹솴??諛붾씪蹂??뚯엯?덈떎. ?듭?濡??쒕몢瑜댁? 留먭퀬 ?좎떆 硫덉텛???덈줈??愿?먯쓣 ?살뼱蹂댁꽭??",
-     advice:"紐⑤뱺 寃껋쓣 ?대젮?볤퀬 湲곕떎由щ뒗 寃껋씠 理쒖꽑???섎룄 ?덉뒿?덈떎.",
-     menu:{icon:"?뜞",title:"?щ떖???붿??????,desc:"?쒕몢瑜댁? 留먭퀬 移댄럹?먯꽌 耳?댄겕??鍮숈닔泥섎읆 ?щ떖???붿??몃? 泥쒖쿇??利먭린硫??앷컖??鍮꾩썙蹂댁꽭??"},
-     place:{icon:"?뼹截?,title:"誘몄닠愿 ?먮뒗 ?꾩떆愿",desc:"?듭닕??寃껉낵 ?ㅻⅨ 愿?먯쓣 蹂댁뿬二쇰뒗 誘몄닠愿?대굹 ?ъ쭊?꾩쓣 諛⑸Ц??蹂댁꽭?? ??꽑 ?묓뭹???덈줈???쒓컖???댁뼱以띾땲??"},
-     activity:{icon:"?렗",title:"?ㅽ걧硫섑꽣由??먮뒗 TED ?쒖껌",desc:"?됱냼? ?ㅻⅨ 二쇱젣???ㅽ걧??媛뺤뿰??蹂대㈃???몄긽??蹂대뒗 ?쒓컖???볧?蹂댁꽭??"}},
-    {num:"?⒱뀬",name:"二쎌쓬 DEATH",emoji:"?뙌",keywords:["?앷낵 ?쒖옉","蹂??,"?대갑"],
-     desc:"?≪? 寃껋쓽 ?앷낵 ?덈줈???쒖옉???뚮━??移대뱶?낅땲?? 吏湲덉쓽 蹂?붾? 諛쏆븘?ㅼ씠硫????섏? ?곹솴?쇰줈 ?섏븘媛????덉뒿?덈떎.",
-     advice:"?볦븘????寃껋쓣 遺숈옟怨??덉쭊 ?딆?吏 ?뚯븘蹂댁꽭??",
-     menu:{icon:"?뜘",title:"?덈줈???⑥쟾 ?붾━",desc:"湲곗〈??議고빀??源⑤뒗 ?⑥쟾 ?덉뒪?좊옉?대굹 李쎌쓽?곸씤 硫붾돱瑜??쒕룄??蹂댁꽭?? 蹂?붾뒗 留쏆뿉?쒕룄 ?쒖옉?⑸땲??"},
-     place:{icon:"?뿊截?,title:"以묎퀬 ?쒖젏 ?먮뒗 踰쇰）?쒖옣",desc:"?ㅻ옒??臾쇨굔???붽굅??湲곕??섍퀬, ?덈줈??寃껋쓣 ??댄븯寃?李얠븘蹂댁꽭?? 鍮꾩썙??梨꾩슱 ???덉뒿?덈떎."},
-     activity:{icon:"?㏏",title:"怨듦컙 ?뺣━ 諛?誘몃땲硫?쇱씠??,desc:"諛⑹씠??梨낆긽, ?깃낵 ?뚯씪???뺣━???ㅻ옒??寃껋쓣 鍮꾩썙蹂댁꽭?? 臾쇰━??怨듦컙???뺣━?섎㈃ 留덉쓬??媛踰쇱썙吏묐땲??"}},
-    {num:"?⒱뀭",name:"?덉젣 TEMPERANCE",emoji:"?뙄",keywords:["洹좏삎","議고솕","?몃궡"],
-     desc:"議곌툒???놁씠 洹좏삎???좎??섎뒗 寃껋씠 以묒슂???좎엯?덈떎. 洹밸떒?쇰줈 移섏슦移섏? ?딄퀬 李⑤텇?섍쾶 ?섏븘媛硫?醫뗭? 寃곌낵媛 ?듬땲??",
-     advice:"?ㅻ뒛? 臾대━?섏? 留먭퀬 ?섏씠?ㅻ? ?좎??섎ŉ 袁몄????섏븘媛?몄슂.",
-     menu:{icon:"?쪠",title:"媛蹂띻퀬 洹좏삎 ?≫엺 ????,desc:"怨쇱떇蹂대떎 ?곷떦?됱쓽 洹좏삎 ?≫엺 ?앹궗媛 ?ㅻ뒛???먮꼫吏瑜??덉젙?곸쑝濡??좎??쒖폒 以띾땲?? ?뚮뱶?꾩튂??二쎈룄 醫뗭뒿?덈떎."},
-     place:{icon:"?룥截?,title:"媛뺣? ?먮뒗 ?몄닔 ?곗콉濡?,desc:"臾??먮Ⅴ??媛뺣??대굹 議곗슜???몄닔 ?섎젅湲몄쓣 泥쒖쿇??嫄몄뼱蹂댁꽭?? ?먯뿰???먮쫫??留덉쓬??李⑤텇?섍쾶 留뚮뱾??以띾땲??"},
-     activity:{icon:"?㎥",title:"?쇱쫹 ?먮뒗 ?ㅻ룄荑?,desc:"湲됲븯吏 ?딄쾶 李④렐李④렐 ??닿????쇱쫹?대굹 ?ㅻ룄荑좉? ?ㅻ뒛???덉젣 ?먮꼫吏? ??留욎뒿?덈떎."}},
-    {num:"?⒱뀮",name:"?낅쭏 THE DEVIL",emoji:"?볩툘",keywords:["吏묒갑","?띾컯","?뺣쭩"],
-     desc:"臾댁뼵媛??吏?섏튂寃??쎈ℓ???덉? ?딆?吏 ?먭????뚯엯?덈떎. ?먮젮??대굹 ?뺣쭩???⑸━???먮떒??媛由ш퀬 ?덉쓣 ???덉뒿?덈떎.",
-     advice:"?닿? ?듭젣?섎뒗 寃껋씤吏, ?듭젣?뱁븯??寃껋씤吏 ??踰??댄렣蹂댁꽭??",
-     menu:{icon:"?뜑",title:"癒밴퀬 ?띕뜕 寃???踰덉??",desc:"?ㅻ뒛留뚰겮? 李몄븘?붾뜕 踰꾧굅??移섑궓 ???됱냼 ?먯젣?섎뜕 ?뚯떇??利먭꺼??醫뗭뒿?덈떎. ?뺣쭩??嫄닿컯?섍쾶 ?댁냼?섏꽭??"},
-     place:{icon:"?슯",title:"?ㅻ쭏?명룿 ?놁씠 嫄룰린",desc:"?좎떆 ?ㅻ쭏?명룿??二쇰㉧?덉뿉 ?ｊ퀬 ?숇꽕瑜??꾨Т 諛⑺뼢 ?놁씠 嫄몄뼱蹂댁꽭?? ?붿????띾컯?먯꽌 ?좎떆 踰쀬뼱?섎뒗 寃껊쭔?쇰줈???④낵?곸엯?덈떎."},
-     activity:{icon:"?벘",title:"SNS쨌??1?쒓컙 ?뷀넚??,desc:"?ㅻ뒛 ???쒓컙留?SNS? ?뚮┝???꾧퀬 ?ㅼ뒪濡??좏깮???쒕룞??吏묒쨷??蹂댁꽭?? ?묒? ?대갑????李⑥씠瑜?留뚮벊?덈떎."}},
-    {num:"?⒱뀯",name:"??THE TOWER",emoji:"??,keywords:["湲됰?","?쇰?","?대갑"],
-     desc:"媛묒옉?ㅻ윭??蹂?붾굹 異⑷꺽???덉쓣 ???덈뒗 ?좎엯?덈떎. ?섏?留?臾대꼫吏??寃껋? ?ъ떎 遺덊븘?뷀븳 寃껋씪 ???덉뒿?덈떎.",
-     advice:"?덉긽移?紐삵븳 ?쇱씠 ?앷꺼???뱁솴?섏? 留먭퀬 以묒떖???≪쑝?몄슂.",
-     menu:{icon:"??,title:"鍮좊Ⅴ怨?媛꾪렪???앹궗",desc:"?ㅻ뒛? ?앹궗???쒓컙???잕린蹂대떎 ?몄쓽???꾩떆?쎌씠??媛꾪렪?앹쑝濡?鍮좊Ⅴ寃??닿껐?섍퀬 ?먮꼫吏瑜?以묒슂??怨녹뿉 ?꾨겮?몄슂."},
-     place:{icon:"?뙀",title:"?믪? 怨녹뿉???꾨쭩 蹂닿린",desc:"嫄대Ъ ?μ긽, ?꾨쭩?, ?몃뜒 ???믪? 怨녹뿉 ?щ씪 ?쒖빞瑜??볧?蹂댁꽭?? ??洹몃┝??蹂대㈃ 吏湲덉쓽 ?쇰????묒븘 蹂댁엯?덈떎."},
-     activity:{icon:"?넊",title:"鍮꾩긽 ?뚮옖 誘몃━ ?몄슦湲?,desc:"嫄깆젙?섎뒗 ?곹솴???뚮옖 B瑜?媛꾨떒??硫붾え???먯꽭?? ?鍮꾩콉???덉쑝硫??붾뱾?ㅻ룄 以묒떖???↔린 ?쎌뒿?덈떎."}},
-    {num:"?⒱뀰",name:"蹂?THE STAR",emoji:"狩?,keywords:["?щ쭩","移섏쑀","?곴컧"],
-     desc:"?대몺 ?ㅼ뿉 李얠븘?ㅻ뒗 ?щ쭩怨?移섏쑀???먮꼫吏媛 異⑸쭔?⑸땲?? 吏移섍퀬 ?섎뱾?덈떎硫??쒖꽌???뚮났?섎뒗 ?먮쫫???쒖옉?⑸땲??",
-     advice:"?ㅻ뒛? ?ㅼ뒪濡쒕? ?묒썝?섍퀬, ?묒? 湲곗겏???뚯쨷???ш꺼蹂댁꽭??",
-     menu:{icon:"?뙚",title:"醫뗭븘?섎뒗 ?뚯떇?쇰줈 ?먭린 蹂댁긽",desc:"?ㅻ뒛? ?ㅼ뒪濡쒖뿉寃?蹂댁긽?섎뒗 ?좎엯?덈떎. 媛??醫뗭븘?섎뒗 ?뚯떇??留쏆엳寃?利먭린硫??먯떊???꾨줈??二쇱꽭??"},
-     place:{icon:"?뙔",title:"?쇨꼍 紐낆냼 ?먮뒗 蹂?蹂대뒗 怨?,desc:"諛ㅽ븯?섏쓣 蹂????덈뒗 怨녹씠???쇨꼍???꾨쫫?ㅼ슫 ?μ냼??媛蹂댁꽭?? 鍮쏅굹???띻꼍???щ쭩???좎삱由ш쾶 ?⑸땲??"},
-     activity:{icon:"?뭷",title:"?섎? ?꾪븳 ?먮쭅 ???,desc:"醫뗭븘?섎뒗 ?뚯븙 ?湲? ?곕쑜??紐⑹슃, ?μ큹 耳쒓린 ???먯떊???꾪븳 ?묒? ?섏떇??留뚮뱾??蹂댁꽭??"}},
-    {num:"?⒱뀱",name:"??THE MOON",emoji:"?뙐",keywords:["遺덉븞","?섏긽","臾댁쓽??],
-     desc:"?쇰??ㅻ읇嫄곕굹 遺덈챸?뺥븳 媛먯젙???щ씪?????덈뒗 ?좎엯?덈떎. 蹂댁씠??寃껊쭔???꾨?媛 ?꾨땺 ???덉쑝???먮떒????떠蹂댁꽭??",
-     advice:"吏곴???誘용릺, ?ｋ?瑜?寃곕줎? ?쇳븯怨??곹솴??醫 ??吏耳쒕낫?몄슂.",
-     menu:{icon:"?쪢",title:"?곕쑜???곗쑀 ?먮뒗 ?쇰뼹",desc:"遺덉븞??留덉쓬???щ옒二쇰뒗 ?곕쑜???곗쑀??諛붾땺???쇰뼹媛 ?ㅻ뒛??湲곕텇??遺?쒕읇寃?媛먯떥以띾땲??"},
-     place:{icon:"?뙄",title:"?쇨컙 ?곗콉 ?????꾨옒 嫄룰린",desc:"諛ㅼ뿉 議곗슜??怨듭썝?대굹 ?쒓컯蹂???щ튆 ?꾨옒 泥쒖쿇??嫄몄뼱蹂댁꽭?? ?쇱옄 ?덉뼱???몃∼吏 ?딆? ?쒓컙???⑸땲??"},
-     activity:{icon:"??",title:"轅??쇨린 ?곌린",desc:"?댁젽諛?轅덉씠???붿쬁 ?먯＜ ?쒕뒗 媛먯젙??湲곕줉??蹂댁꽭?? 臾댁쓽?????좏샇瑜??≪븘?대뒗 ???꾩????⑸땲??"}},
-    {num:"?⒱뀲",name:"?쒖뼇 THE SUN",emoji:"?截?,keywords:["湲곗겏","?쒕젰","?깃났"],
-     desc:"諛앷퀬 湲띿젙?곸씤 ?먮꼫吏濡?媛?앺븳 ?좎엯?덈떎. ?먯떊媛먯쓣 媛뽮퀬 ?밸떦?섍쾶 ?섏븘媛硫?醫뗭? 寃곌낵媛 ?곕씪??寃껋엯?덈떎.",
-     advice:"?ㅻ뒛? 諛뽰뿉 ?섍?嫄곕굹 醫뗭븘?섎뒗 ?щ엺怨??쒓컙??蹂대궡蹂댁꽭??",
-     menu:{icon:"?뜣",title:"諛앷퀬 ?ъ숴???붿???,desc:"?좊챸???됱쓽 鍮숈닔, ?꾩씠?ㅽ겕由? 怨쇱씪 ?瑜댄듃 ??蹂닿린留??대룄 湲곕텇 醫뗭븘吏???붿??몃줈 ?ㅻ뒛????鍮쏅궡蹂댁꽭??"},
-     place:{icon:"?截?,title:"?쇱쇅 ?뚮씪??移댄럹 ?먮뒗 怨듭썝",desc:"?뉗궡?????쒕뒗 ?쇱쇅?먯꽌 ?쒓컙??蹂대궡蹂댁꽭?? ?쒖뼇 ?먮꼫吏瑜?吏곸젒 諛쏅뒗 寃껋씠 ?ㅻ뒛??湲띿젙 ?먮꼫吏瑜?諛곌??쒗궢?덈떎."},
-     activity:{icon:"?벝",title:"?ъ쭊 李띻린 ?먮뒗 釉뚯씠濡쒓렇",desc:"?ㅻ뒛泥섎읆 醫뗭? ?좎? 湲곕줉???먯꽭?? ?곗콉?섎ŉ 留덉쓬???쒕뒗 ?λ㈃???ъ쭊?쇰줈 ?④꺼蹂댁꽭??"}},
-    {num:"?⒱뀳",name:"?ы뙋 JUDGEMENT",emoji:"?렭",keywords:["媛곸꽦","蹂??,"遺??],
-     desc:"怨쇨굅瑜??뚯븘蹂닿퀬 ?덈줈??寃곕떒???대━湲곗뿉 醫뗭? ?좎엯?덈떎. 怨쇨컧??寃곗젙???띠뿉 ?덈줈???꾪솚?먯쓣 留뚮뱾??以?寃껋엯?덈떎.",
-     advice:"誘몃（???붾뜕 以묒슂??寃곗젙???ㅻ뒛 留덉＜??蹂댁꽭??",
-     menu:{icon:"?띂截?,title:"?밸퀎???좎쓣 ?꾪븳 ?덉뒪?좊옉",desc:"?됱냼 媛湲?留앹꽕???遺꾩쐞湲?醫뗭? ?덉뒪?좊옉??媛蹂댁꽭?? ?ㅼ뒪濡쒕? ?꾪븳 ?밸퀎???앹궗媛 寃곕떒??湲곗슫??遺곷룍?듬땲??"},
-     place:{icon:"?럺截?,title:"媛뺤뿰???먮뒗 ?몃???,desc:"愿???덈뒗 遺꾩빞??媛뺤뿰?대굹 ?좏겕 ?됱궗??李몄꽍??蹂댁꽭?? ?덈줈???먭레??以묒슂??寃곗젙??怨꾧린媛 ?????덉뒿?덈떎."},
-     activity:{icon:"?뱽",title:"?ㅻ옒 誘몃쨪???곕씫 ?먮뒗 ?좎껌",desc:"留앹꽕?ъ삩 吏?먯꽌 ?쒖텧, ?곕씫, ?좎껌???ㅻ뒛 ?ㅽ뻾????꺼蹂댁꽭?? ?꾨꼍???뚮뒗 ?놁뒿?덈떎, 吏湲덉씠 諛붾줈 洹몃븣?낅땲??"}},
-    {num:"?⒱뀴",name:"?멸퀎 THE WORLD",emoji:"?뙇",keywords:["?꾩꽦","?깆랬","?듯빀"],
-     desc:"?ㅻ옖 ?몃젰??寃곗떎??留븍뒗 ?먮꼫吏媛 ?먮Ⅴ???좎엯?덈떎. ?꾩옱???곹솴??媛먯궗?섎ŉ ?ㅼ쓬 ?ъ씠?댁쓣 以鍮꾪븷 ?뚯엯?덈떎.",
-     advice:"吏湲덇퉴吏???ъ젙??異뺥븯?섍퀬, ?덈줈??紐⑺몴瑜??ㅼ젙??蹂댁꽭??",
-     menu:{icon:"?뙇",title:"?멸퀎 媛곴뎅 ?뚯떇 ?꾩쟾",desc:"?ㅻ뒛? ?됱냼 ??紐⑤Ⅴ???섎씪???뚯떇??李얠븘 癒뱀뼱蹂댁꽭?? 硫뺤떆肄? ?몃룄, ?고궎 ?뚯떇 ???멸퀎??留쏆씠 湲곕떎由쎈땲??"},
-     place:{icon:"?덌툘",title:"怨듯빆 ?먮뒗 湲곗감??洹쇱쿂 ?곗콉",desc:"?ы뻾???ㅻ젞???먮굜 ???덈뒗 怨듯빆 二쇰??대굹 ????洹쇱쿂瑜?嫄몄뼱蹂댁꽭?? ?ㅼ쓬 ?ы뻾吏瑜?援ъ껜?곸쑝濡?怨꾪쉷?대킄??醫뗭뒿?덈떎."},
-     activity:{icon:"?뿺截?,title:"?ㅼ쓬 紐⑺몴 吏?꾩뿉 洹몃━湲?,desc:"?대（?댁쭊 寃껋뿉 媛먯궗?섎ŉ ?ㅼ쓬 紐⑺몴瑜?吏?꾨굹 鍮꾩쟾蹂대뱶???쒓컖?뷀빐 蹂댁꽭?? ?꾩꽦? ???ㅻⅨ ?쒖옉?낅땲??"}}
+    {num:"0",name:"광대 THE FOOL",emoji:"🤡",keywords:["새 출발","자유","모험"],
+     desc:"새로운 여정의 시작을 알립니다. 두려움 없이 앞으로 나아갈 준비가 되어 있는 날입니다. 직관과 설렘을 믿고 첫걸음을 내디뎌 보세요.",
+     advice:"오늘은 지나친 계산보다 마음이 이끄는 방향을 따르세요.",
+     menu:{icon:"🌮",title:"처음 먹어보는 음식",desc:"새로운 식당이나 한 번도 안 먹어본 메뉴에 도전해 보세요. 타코, 에티오피아 음식 등 낯선 요리가 오늘과 잘 어울립니다."},
+     place:{icon:"🗺️",title:"처음 가보는 동네",desc:"자주 다니던 길 말고 처음 가보는 골목이나 동네를 걸어보세요. 새로운 발견이 기다리고 있습니다."},
+     activity:{icon:"✍️",title:"버킷리스트 작성",desc:"언젠가 해보고 싶었던 일들을 노트에 써보세요. 첫 번째 항목부터 실행 계획을 세워봐도 좋습니다."}},
+    {num:"Ⅰ",name:"마법사 THE MAGICIAN",emoji:"🪄",keywords:["의지","능력","집중"],
+     desc:"당신 안에 필요한 도구가 모두 갖춰져 있습니다. 아이디어를 현실로 옮길 수 있는 에너지가 충만한 하루입니다.",
+     advice:"머릿속에 있는 계획을 구체적인 행동으로 옮겨보세요.",
+     menu:{icon:"☕",title:"아메리카노 + 에너지바",desc:"집중력을 높여줄 카페인과 간단한 에너지 보충이 오늘의 활동력을 극대화시켜 줍니다."},
+     place:{icon:"📚",title:"카페 또는 스터디룸",desc:"집중해서 무언가를 만들거나 공부하기 좋은 조용한 카페나 스터디 공간을 찾아가 보세요."},
+     activity:{icon:"🛠️",title:"미뤄둔 프로젝트 착수",desc:"오래 생각만 해왔던 일을 오늘 실제로 시작해 보세요. 작은 첫 단계가 큰 변화를 만듭니다."}},
+    {num:"Ⅱ",name:"여사제 THE HIGH PRIESTESS",emoji:"🌙",keywords:["직관","내면","신비"],
+     desc:"겉으로 드러나지 않는 진실에 주목하세요. 논리보다 직관이 더 정확한 답을 줄 수 있는 날입니다.",
+     advice:"조용히 내면의 목소리에 귀 기울이는 시간을 가져보세요.",
+     menu:{icon:"🍵",title:"따뜻한 허브티",desc:"카모마일이나 페퍼민트 같은 허브티 한 잔이 내면을 고요하게 만들어 줍니다. 조용한 카페에서 천천히 즐겨보세요."},
+     place:{icon:"🌿",title:"조용한 공원 또는 정원",desc:"번잡한 곳을 피해 나무와 자연이 있는 조용한 공간에서 혼자 산책하며 생각을 정리해 보세요."},
+     activity:{icon:"📓",title:"일기 또는 저널 쓰기",desc:"오늘 느낀 감정과 생각을 글로 기록해 보세요. 무의식 속 진짜 원하는 것이 떠오를 수 있습니다."}},
+    {num:"Ⅲ",name:"여황제 THE EMPRESS",emoji:"🌸",keywords:["풍요","창조","돌봄"],
+     desc:"창의적인 에너지와 풍요로움이 가득한 날입니다. 나 자신과 주변을 따뜻하게 돌보는 것이 좋은 결과를 불러옵니다.",
+     advice:"오늘은 창작 활동이나 소중한 사람에게 마음을 표현해 보세요.",
+     menu:{icon:"🥗",title:"컬러풀한 샐러드 또는 브런치",desc:"아보카도, 딸기, 견과류가 들어간 풍성한 샐러드나 브런치 플레이트가 오늘의 에너지와 잘 맞습니다."},
+     place:{icon:"🌸",title:"꽃집 또는 플라워 카페",desc:"꽃향기가 가득한 플라워 카페나 꽃집에 들러보세요. 작은 화분을 하나 사서 집에 생기를 더해봐도 좋습니다."},
+     activity:{icon:"🎨",title:"그림 그리기 또는 공예",desc:"그림 그리기, 뜨개질, 꽃꽂이 등 손을 쓰는 창작 활동으로 오늘의 풍요로운 에너지를 표현해 보세요."}},
+    {num:"Ⅳ",name:"황제 THE EMPEROR",emoji:"👑",keywords:["질서","리더십","안정"],
+     desc:"체계적이고 안정된 기반을 다지는 날입니다. 책임감을 갖고 주도적으로 상황을 이끌 때 좋은 성과가 따릅니다.",
+     advice:"흐트러진 일상의 루틴을 점검하고 구조를 잡아보세요.",
+     menu:{icon:"🍱",title:"든든한 정식 한 끼",desc:"백반, 한정식, 도시락 등 영양 균형이 잡힌 정식 메뉴로 하루를 든든하게 채워보세요."},
+     place:{icon:"🏛️",title:"도서관 또는 관공서 주변",desc:"질서 있고 체계적인 공간에서 할 일 목록을 정리하거나 중요한 업무를 처리해 보세요."},
+     activity:{icon:"📋",title:"할 일 목록 정리 및 계획 수립",desc:"오늘 해야 할 일과 이번 주 목표를 정리해 우선순위를 세워보세요. 계획이 잘 서면 실행이 쉬워집니다."}},
+    {num:"Ⅴ",name:"교황 THE HIEROPHANT",emoji:"⛪",keywords:["전통","믿음","가르침"],
+     desc:"검증된 방법과 지혜에서 배울 점을 찾는 날입니다. 신뢰할 수 있는 사람의 조언에 귀 기울여 보세요.",
+     advice:"혼자 판단하기 어렵다면 경험 많은 사람에게 조언을 구해보세요.",
+     menu:{icon:"🍜",title:"오래된 단골 음식점",desc:"새로운 곳보다 오래전부터 검증된 단골집이나 어머니의 손맛이 담긴 정통 음식을 찾아가 보세요."},
+     place:{icon:"🏯",title:"역사 유적지 또는 고궁",desc:"경복궁, 덕수궁, 지역 향교 등 역사와 전통이 깃든 곳을 방문해 보세요. 배움과 안정감을 얻을 수 있습니다."},
+     activity:{icon:"📖",title:"고전 또는 명작 읽기",desc:"오래전부터 읽고 싶었던 고전 문학이나 명작을 펼쳐보세요. 검증된 지혜가 오늘의 고민에 답을 줄 수 있습니다."}},
+    {num:"Ⅵ",name:"연인 THE LOVERS",emoji:"💞",keywords:["선택","관계","조화"],
+     desc:"중요한 선택이나 관계에서 진심에 기반한 결정이 필요한 날입니다. 마음이 이끄는 쪽을 믿어보세요.",
+     advice:"가치관에 따른 선택을 하되, 서로를 존중하는 것을 잊지 마세요.",
+     menu:{icon:"🍝",title:"둘이 나눠 먹는 파스타",desc:"좋아하는 사람과 함께 파스타나 피자 같이 나눠 먹는 메뉴가 잘 어울리는 날입니다."},
+     place:{icon:"🌅",title:"노을 명소 또는 야경 포인트",desc:"해질 무렵 함께 걸을 수 있는 한강, 남산타워, 동네 언덕 등 뷰 좋은 곳에 가보세요."},
+     activity:{icon:"💌",title:"소중한 사람에게 연락하기",desc:"오랫동안 연락 못 했던 친구나 가족에게 먼저 연락해 보세요. 짧은 메시지 하나가 관계를 다시 이어줍니다."}},
+    {num:"Ⅶ",name:"전차 THE CHARIOT",emoji:"🏆",keywords:["의지","전진","승리"],
+     desc:"강한 의지와 결단력이 빛을 발하는 날입니다. 방해물이 있더라도 앞으로 나아가면 반드시 길이 열립니다.",
+     advice:"집중력을 잃지 말고 목표를 향해 꾸준히 전진하세요.",
+     menu:{icon:"🥩",title:"단백질 위주의 든든한 식사",desc:"스테이크, 닭가슴살 도시락, 삼겹살 등 에너지 충전에 좋은 단백질 위주 식사로 오늘의 추진력을 채워보세요."},
+     place:{icon:"🏃",title:"운동 시설 또는 트랙",desc:"헬스장, 러닝 트랙, 수영장 등 몸을 움직일 수 있는 곳에 가보세요. 땀을 흘리면 목표 의식이 더 강해집니다."},
+     activity:{icon:"🎯",title:"도전 과제 하나 완수",desc:"오늘만큼은 미루지 말고 가장 어려운 과제 하나를 끝내보세요. 완수한 성취감이 다음 행동을 이끕니다."}},
+    {num:"Ⅷ",name:"힘 STRENGTH",emoji:"🦁",keywords:["용기","인내","내면의 힘"],
+     desc:"외적인 힘보다 내면의 용기와 인내가 중요한 날입니다. 감정을 조절하며 부드럽게 상황을 이끌어 보세요.",
+     advice:"강압보다 이해와 공감으로 주변 상황을 다루어 보세요.",
+     menu:{icon:"🍲",title:"따뜻한 국물 요리",desc:"설렁탕, 감자탕, 순두부찌개 등 속을 따뜻하게 채워주는 국물 요리가 오늘의 내면 에너지를 보충해 줍니다."},
+     place:{icon:"🌳",title:"숲길 또는 등산로",desc:"자연 속에서 천천히 걷는 것이 내면의 힘을 회복시켜 줍니다. 가까운 산 또는 숲길 산책을 추천합니다."},
+     activity:{icon:"🧘",title:"명상 또는 스트레칭",desc:"10분이라도 조용히 앉아 호흡에 집중해 보세요. 감정을 다스리는 연습이 오늘 특히 빛을 발합니다."}},
+    {num:"Ⅸ",name:"은둔자 THE HERMIT",emoji:"🔦",keywords:["성찰","고독","지혜"],
+     desc:"혼자만의 시간을 통해 내면을 들여다보는 것이 도움이 됩니다. 서두르지 말고 스스로를 돌아보는 하루를 보내세요.",
+     advice:"조용한 환경에서 자신의 방향과 가치를 점검해 보세요.",
+     menu:{icon:"🍞",title:"혼밥 — 좋아하는 단골 메뉴",desc:"혼자 조용히 즐길 수 있는 단골 메뉴 한 그릇이 오늘과 잘 어울립니다. 음식에 온전히 집중해 보세요."},
+     place:{icon:"📚",title:"한적한 독립서점 또는 도서관",desc:"조용한 독립서점이나 도서관에서 혼자 책을 고르고 읽는 시간이 오늘 하루를 풍성하게 만들어 줍니다."},
+     activity:{icon:"🔍",title:"나만의 시간 — 자기 점검",desc:"커리어, 관계, 생활 패턴 중 하나를 골라 현재 만족하는지 솔직하게 적어보세요. 작은 통찰이 큰 변화를 만듭니다."}},
+    {num:"Ⅹ",name:"운명의 수레바퀴 WHEEL OF FORTUNE",emoji:"🎡",keywords:["변화","순환","기회"],
+     desc:"변화와 전환의 흐름 속에 있는 날입니다. 좋은 기회가 찾아오거나 상황이 호전될 징조가 보입니다.",
+     advice:"변화를 두려워하지 말고, 흐름을 자연스럽게 받아들이세요.",
+     menu:{icon:"🎲",title:"오늘의 랜덤 메뉴 도전",desc:"메뉴판에서 눈을 감고 고르거나 음식 룰렛 앱을 써보세요. 예상치 못한 메뉴가 오늘의 전환점이 될 수도 있습니다."},
+     place:{icon:"🎡",title:"야외 축제 또는 마켓",desc:"주변에서 열리는 플리마켓, 야외 행사, 팝업 스토어에 가보세요. 우연한 만남이나 발견이 기다리고 있습니다."},
+     activity:{icon:"🔄",title:"루틴 바꿔보기",desc:"매일 하던 순서나 방법을 오늘만큼은 바꿔보세요. 사소한 변화가 새로운 시각을 열어줍니다."}},
+    {num:"Ⅺ",name:"정의 JUSTICE",emoji:"⚖️",keywords:["공정","균형","진실"],
+     desc:"공정하고 균형 잡힌 판단이 요구되는 날입니다. 감정보다는 사실과 원칙에 근거한 결정을 내리세요.",
+     advice:"어떤 결정이든 진실에 기반하면 후회하지 않을 수 있어요.",
+     menu:{icon:"🥗",title:"균형 잡힌 건강식",desc:"탄수화물·단백질·채소가 골고루 담긴 균형 잡힌 한 끼가 오늘의 올바른 판단력을 뒷받침해 줍니다."},
+     place:{icon:"⚖️",title:"시청 주변 또는 법원·행정구역",desc:"정돈되고 질서 있는 도심 행정 지역을 걸으며 해결해야 할 중요한 결정을 차분히 생각해 보세요."},
+     activity:{icon:"📝",title:"장단점 표 작성",desc:"오래 고민해온 문제의 장단점을 표로 정리해 보세요. 시각화하면 올바른 판단에 가까워집니다."}},
+    {num:"Ⅻ",name:"매달린 남자 THE HANGED MAN",emoji:"🙃",keywords:["관점 전환","기다림","수용"],
+     desc:"다른 각도에서 상황을 바라볼 때입니다. 억지로 서두르지 말고 잠시 멈추어 새로운 관점을 얻어보세요.",
+     advice:"모든 것을 내려놓고 기다리는 것이 최선일 수도 있습니다.",
+     menu:{icon:"🍡",title:"달달한 디저트 타임",desc:"서두르지 말고 카페에서 케이크나 빙수처럼 달달한 디저트를 천천히 즐기며 생각을 비워보세요."},
+     place:{icon:"🖼️",title:"미술관 또는 전시관",desc:"익숙한 것과 다른 관점을 보여주는 미술관이나 사진전을 방문해 보세요. 낯선 작품이 새로운 시각을 열어줍니다."},
+     activity:{icon:"🎬",title:"다큐멘터리 또는 TED 시청",desc:"평소와 다른 주제의 다큐나 강연을 보면서 세상을 보는 시각을 넓혀보세요."}},
+    {num:"ⅩⅢ",name:"죽음 DEATH",emoji:"🌑",keywords:["끝과 시작","변화","해방"],
+     desc:"낡은 것의 끝과 새로운 시작을 알리는 카드입니다. 지금의 변화를 받아들이면 더 나은 상황으로 나아갈 수 있습니다.",
+     advice:"놓아야 할 것을 붙잡고 있진 않은지 돌아보세요.",
+     menu:{icon:"🍛",title:"새로운 퓨전 요리",desc:"기존의 조합을 깨는 퓨전 레스토랑이나 창의적인 메뉴를 시도해 보세요. 변화는 맛에서도 시작됩니다."},
+     place:{icon:"🗑️",title:"중고 서점 또는 벼룩시장",desc:"오래된 물건을 팔거나 기부하고, 새로운 것을 저렴하게 찾아보세요. 비워야 채울 수 있습니다."},
+     activity:{icon:"🧹",title:"공간 정리 및 미니멀라이프",desc:"방이나 책상, 앱과 파일을 정리해 오래된 것을 비워보세요. 물리적 공간이 정리되면 마음도 가벼워집니다."}},
+    {num:"ⅩⅣ",name:"절제 TEMPERANCE",emoji:"🌊",keywords:["균형","조화","인내"],
+     desc:"조급함 없이 균형을 유지하는 것이 중요한 날입니다. 극단으로 치우치지 않고 차분하게 나아가면 좋은 결과가 옵니다.",
+     advice:"오늘은 무리하지 말고 페이스를 유지하며 꾸준히 나아가세요.",
+     menu:{icon:"🥙",title:"가볍고 균형 잡힌 한 끼",desc:"과식보다 적당량의 균형 잡힌 식사가 오늘의 에너지를 안정적으로 유지시켜 줍니다. 샌드위치나 죽도 좋습니다."},
+     place:{icon:"🏞️",title:"강변 또는 호수 산책로",desc:"물 흐르는 강변이나 조용한 호수 둘레길을 천천히 걸어보세요. 자연의 흐름이 마음을 차분하게 만들어 줍니다."},
+     activity:{icon:"🧩",title:"퍼즐 또는 스도쿠",desc:"급하지 않게 차근차근 풀어가는 퍼즐이나 스도쿠가 오늘의 절제 에너지와 잘 맞습니다."}},
+    {num:"ⅩⅤ",name:"악마 THE DEVIL",emoji:"⛓️",keywords:["집착","속박","욕망"],
+     desc:"무언가에 지나치게 얽매여 있지 않은지 점검할 때입니다. 두려움이나 욕망이 합리적 판단을 가리고 있을 수 있습니다.",
+     advice:"내가 통제하는 것인지, 통제당하는 것인지 한 번 살펴보세요.",
+     menu:{icon:"🍔",title:"먹고 싶던 것 한 번쯤은",desc:"오늘만큼은 참아왔던 버거나 치킨 등 평소 자제하던 음식을 즐겨도 좋습니다. 욕망을 건강하게 해소하세요."},
+     place:{icon:"🚶",title:"스마트폰 없이 걷기",desc:"잠시 스마트폰을 주머니에 넣고 동네를 아무 방향 없이 걸어보세요. 디지털 속박에서 잠시 벗어나는 것만으로도 효과적입니다."},
+     activity:{icon:"📵",title:"SNS·앱 1시간 디톡스",desc:"오늘 한 시간만 SNS와 알림을 끄고 스스로 선택한 활동에 집중해 보세요. 작은 해방이 큰 차이를 만듭니다."}},
+    {num:"ⅩⅥ",name:"탑 THE TOWER",emoji:"⚡",keywords:["급변","혼란","해방"],
+     desc:"갑작스러운 변화나 충격이 있을 수 있는 날입니다. 하지만 무너지는 것은 사실 불필요한 것일 수 있습니다.",
+     advice:"예상치 못한 일이 생겨도 당황하지 말고 중심을 잡으세요.",
+     menu:{icon:"⚡",title:"빠르고 간편한 식사",desc:"오늘은 식사에 시간을 쏟기보다 편의점 도시락이나 간편식으로 빠르게 해결하고 에너지를 중요한 곳에 아끼세요."},
+     place:{icon:"🌆",title:"높은 곳에서 전망 보기",desc:"건물 옥상, 전망대, 언덕 등 높은 곳에 올라 시야를 넓혀보세요. 큰 그림을 보면 지금의 혼란이 작아 보입니다."},
+     activity:{icon:"🆘",title:"비상 플랜 미리 세우기",desc:"걱정되는 상황의 플랜 B를 간단히 메모해 두세요. 대비책이 있으면 흔들려도 중심을 잡기 쉽습니다."}},
+    {num:"ⅩⅦ",name:"별 THE STAR",emoji:"⭐",keywords:["희망","치유","영감"],
+     desc:"어둠 뒤에 찾아오는 희망과 치유의 에너지가 충만합니다. 지치고 힘들었다면 서서히 회복되는 흐름이 시작됩니다.",
+     advice:"오늘은 스스로를 응원하고, 작은 기쁨도 소중히 여겨보세요.",
+     menu:{icon:"🌟",title:"좋아하는 음식으로 자기 보상",desc:"오늘은 스스로에게 보상하는 날입니다. 가장 좋아하는 음식을 맛있게 즐기며 자신을 위로해 주세요."},
+     place:{icon:"🌙",title:"야경 명소 또는 별 보는 곳",desc:"밤하늘을 볼 수 있는 곳이나 야경이 아름다운 장소에 가보세요. 빛나는 풍경이 희망을 떠올리게 합니다."},
+     activity:{icon:"💆",title:"나를 위한 힐링 타임",desc:"좋아하는 음악 틀기, 따뜻한 목욕, 향초 켜기 등 자신을 위한 작은 의식을 만들어 보세요."}},
+    {num:"ⅩⅧ",name:"달 THE MOON",emoji:"🌕",keywords:["불안","환상","무의식"],
+     desc:"혼란스럽거나 불명확한 감정이 올라올 수 있는 날입니다. 보이는 것만이 전부가 아닐 수 있으니 판단을 늦춰보세요.",
+     advice:"직관을 믿되, 섣부른 결론은 피하고 상황을 좀 더 지켜보세요.",
+     menu:{icon:"🥛",title:"따뜻한 우유 또는 라떼",desc:"불안한 마음을 달래주는 따뜻한 우유나 바닐라 라떼가 오늘의 기분을 부드럽게 감싸줍니다."},
+     place:{icon:"🌊",title:"야간 산책 — 달 아래 걷기",desc:"밤에 조용한 공원이나 한강변을 달빛 아래 천천히 걸어보세요. 혼자 있어도 외롭지 않은 시간이 됩니다."},
+     activity:{icon:"🌀",title:"꿈 일기 쓰기",desc:"어젯밤 꿈이나 요즘 자주 드는 감정을 기록해 보세요. 무의식 속 신호를 잡아내는 데 도움이 됩니다."}},
+    {num:"ⅩⅨ",name:"태양 THE SUN",emoji:"☀️",keywords:["기쁨","활력","성공"],
+     desc:"밝고 긍정적인 에너지로 가득한 날입니다. 자신감을 갖고 당당하게 나아가면 좋은 결과가 따라올 것입니다.",
+     advice:"오늘은 밖에 나가거나 좋아하는 사람과 시간을 보내보세요.",
+     menu:{icon:"🍦",title:"밝고 달콤한 디저트",desc:"선명한 색의 빙수, 아이스크림, 과일 타르트 등 보기만 해도 기분 좋아지는 디저트로 오늘을 더 빛내보세요."},
+     place:{icon:"☀️",title:"야외 테라스 카페 또는 공원",desc:"햇살이 잘 드는 야외에서 시간을 보내보세요. 태양 에너지를 직접 받는 것이 오늘의 긍정 에너지를 배가시킵니다."},
+     activity:{icon:"📸",title:"사진 찍기 또는 브이로그",desc:"오늘처럼 좋은 날은 기록해 두세요. 산책하며 마음에 드는 장면을 사진으로 남겨보세요."}},
+    {num:"ⅩⅩ",name:"심판 JUDGEMENT",emoji:"🎺",keywords:["각성","변화","부활"],
+     desc:"과거를 돌아보고 새로운 결단을 내리기에 좋은 날입니다. 과감한 결정이 삶에 새로운 전환점을 만들어 줄 것입니다.",
+     advice:"미루어 왔던 중요한 결정을 오늘 마주해 보세요.",
+     menu:{icon:"🍽️",title:"특별한 날을 위한 레스토랑",desc:"평소 가기 망설였던 분위기 좋은 레스토랑에 가보세요. 스스로를 위한 특별한 식사가 결단의 기운을 북돋습니다."},
+     place:{icon:"🎙️",title:"강연장 또는 세미나",desc:"관심 있는 분야의 강연이나 토크 행사에 참석해 보세요. 새로운 자극이 중요한 결정의 계기가 될 수 있습니다."},
+     activity:{icon:"📣",title:"오래 미뤄온 연락 또는 신청",desc:"망설여온 지원서 제출, 연락, 신청을 오늘 실행에 옮겨보세요. 완벽한 때는 없습니다, 지금이 바로 그때입니다."}},
+    {num:"ⅩⅪ",name:"세계 THE WORLD",emoji:"🌍",keywords:["완성","성취","통합"],
+     desc:"오랜 노력이 결실을 맺는 에너지가 흐르는 날입니다. 현재의 상황에 감사하며 다음 사이클을 준비할 때입니다.",
+     advice:"지금까지의 여정을 축하하고, 새로운 목표를 설정해 보세요.",
+     menu:{icon:"🌍",title:"세계 각국 음식 도전",desc:"오늘은 평소 잘 모르던 나라의 음식을 찾아 먹어보세요. 멕시코, 인도, 터키 음식 등 세계의 맛이 기다립니다."},
+     place:{icon:"✈️",title:"공항 또는 기차역 근처 산책",desc:"여행의 설렘을 느낄 수 있는 공항 주변이나 큰 역 근처를 걸어보세요. 다음 여행지를 구체적으로 계획해봐도 좋습니다."},
+     activity:{icon:"🗺️",title:"다음 목표 지도에 그리기",desc:"이루어진 것에 감사하며 다음 목표를 지도나 비전보드에 시각화해 보세요. 완성은 또 다른 시작입니다."}}
   ];
 
-  // ?? ?좎쭨 ?щ㎎ ??
+  // ── 날짜 포맷 ──
   function formatDate(d){
-    return d.getFullYear()+'??'+(d.getMonth()+1)+'??'+d.getDate()+'??;
+    return d.getFullYear()+'년 '+(d.getMonth()+1)+'월 '+d.getDate()+'일';
   }
 
-  // ?? ?ㅻ뒛 ?좎쭨 ??(YYYYMMDD_v2) ??v2 suffix濡??댁쟾 localStorage 媛?臾댄슚????
+  // ── 오늘 날짜 키 (YYYYMMDD_v2) — v2 suffix로 이전 localStorage 값 무효화 ──
   function todayKey(){
     var d = new Date();
     return 'tarot_v2_'+d.getFullYear()+('0'+(d.getMonth()+1)).slice(-2)+('0'+d.getDate()).slice(-2);
   }
 
-  // ?? DOM 以鍮???
+  // ── DOM 준비 ──
   var today = new Date();
   var dateStr = formatDate(today);
   document.getElementById('tarot-today-date').textContent = dateStr;
-  document.getElementById('tarotDateLabel').textContent = dateStr+' 湲곗?';
+  document.getElementById('tarotDateLabel').textContent = dateStr+' 기준';
 
   var btn = document.getElementById('tarotBtn');
   var cardEl = document.getElementById('tarotCard');
   var resultEl = document.getElementById('tarotResult');
   var revealed = false;
 
-  // ?? 移대뱶 寃곌낵 ?쒖떆 (諛섎뱶??reveal/initFromStorage 蹂대떎 癒쇱? ?좎뼵) ??
+  // ── 카드 결과 표시 (반드시 reveal/initFromStorage 보다 먼저 선언) ──
   function showCard(card, instant){
     revealed = true;
     document.getElementById('tarotEmoji').textContent = card.emoji;
@@ -925,38 +925,38 @@ footer{
     }
     var kwHtml = card.keywords.map(function(k){ return '<span>'+k+'</span>'; }).join('');
     resultEl.innerHTML =
-      '<div class="result-label">TODAY\'S CARD 쨌 '+dateStr+'</div>'+
+      '<div class="result-label">TODAY\'S CARD · '+dateStr+'</div>'+
       '<div class="result-title">'+card.emoji+' '+card.name+'</div>'+
       '<div class="result-keyword">'+kwHtml+'</div>'+
       '<p class="result-desc">'+card.desc+'</p>'+
-      '<p class="result-advice">?뮕 '+card.advice+'</p>';
+      '<p class="result-advice">💡 '+card.advice+'</p>';
     btn.disabled = true;
-    btn.textContent = '???ㅻ뒛??移대뱶媛 怨듦컻?섏뿀?듬땲??;
+    btn.textContent = '✅ 오늘의 카드가 공개되었습니다';
 
-    // ?? ?ㅻⅨ履?議곗뼵 ?⑤꼸 ?뚮뜑留???
+    // ── 오른쪽 조언 패널 렌더링 ──
     var adviceEl = document.getElementById('tarotAdvice');
     if(adviceEl){
       adviceEl.innerHTML =
-        '<h3 style="font-size:15px;font-weight:800;color:#28204a;margin:0 0 14px">'+card.emoji+' ?ㅻ뒛??議곗뼵</h3>'+
+        '<h3 style="font-size:15px;font-weight:800;color:#28204a;margin:0 0 14px">'+card.emoji+' 오늘의 조언</h3>'+
         '<div class="advice-item">'+
           '<div class="advice-icon">'+card.menu.icon+'</div>'+
-          '<div><h4>?띂 ?ㅻ뒛 異붿쿇 硫붾돱<span class="advice-sub">'+card.menu.title+'</span></h4>'+
+          '<div><h4>🍽 오늘 추천 메뉴<span class="advice-sub">'+card.menu.title+'</span></h4>'+
           '<p>'+card.menu.desc+'</p></div>'+
         '</div>'+
         '<div class="advice-item">'+
           '<div class="advice-icon">'+card.place.icon+'</div>'+
-          '<div><h4>?뱧 諛⑸Ц?섎㈃ 醫뗭? ?μ냼<span class="advice-sub">'+card.place.title+'</span></h4>'+
+          '<div><h4>📍 방문하면 좋은 장소<span class="advice-sub">'+card.place.title+'</span></h4>'+
           '<p>'+card.place.desc+'</p></div>'+
         '</div>'+
         '<div class="advice-item">'+
           '<div class="advice-icon">'+card.activity.icon+'</div>'+
-          '<div><h4>???ㅻ뒛??異붿쿇 ?쒕룞<span class="advice-sub">'+card.activity.title+'</span></h4>'+
+          '<div><h4>✨ 오늘의 추천 활동<span class="advice-sub">'+card.activity.title+'</span></h4>'+
           '<p>'+card.activity.desc+'</p></div>'+
         '</div>';
     }
   }
 
-  // ?? 戮묎린: ?대┃ ??Math.random()?쇰줈 寃곗젙 ???????
+  // ── 뽑기: 클릭 시 Math.random()으로 결정 후 저장 ──
   function reveal(){
     if(revealed) return;
     var idx = Math.floor(Math.random() * CARDS.length);
@@ -964,11 +964,11 @@ footer{
     showCard(CARDS[idx], false);
   }
 
-  // ?? 珥덇린?? 援щ쾭?????뺣━ + ?ㅻ뒛 ?대? 戮묒? 移대뱶 蹂듭썝 ??
+  // ── 초기화: 구버전 키 정리 + 오늘 이미 뽑은 카드 복원 ──
   (function init(){
     var key = todayKey();
     try {
-      // tarot_ 濡??쒖옉?섎뒗 紐⑤뱺 援щ쾭???댁젣 ?곗씠????젣
+      // tarot_ 로 시작하는 모든 구버전/어제 데이터 삭제
       var toDelete = [];
       for(var i = 0; i < localStorage.length; i++){
         var k = localStorage.key(i);
@@ -976,7 +976,7 @@ footer{
       }
       toDelete.forEach(function(k){ localStorage.removeItem(k); });
 
-      // ?ㅻ뒛 ??λ맂 移대뱶媛 ?덉쑝硫?蹂듭썝
+      // 오늘 저장된 카드가 있으면 복원
       var saved = localStorage.getItem(key);
       if(saved !== null){
         var idx = parseInt(saved, 10);
@@ -984,11 +984,11 @@ footer{
           showCard(CARDS[idx], true);
           return;
         }
-        // ?섎せ??媛믪씠硫?吏?
+        // 잘못된 값이면 지움
         localStorage.removeItem(key);
       }
     } catch(e){}
-    // ????놁쓬 ??踰꾪듉 ?湲??곹깭 ?좎?
+    // 저장 없음 → 버튼 대기 상태 유지
   })();
 
   btn.addEventListener('click', reveal);
@@ -999,10 +999,11 @@ footer{
 })();
 </script>
 
-<!-- ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
-     ?묒썝 蹂대뱶 ?ㅽ????먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧 -->
+<!-- ══════════════════════════════════════
+     응원 보드 스타일
+══════════════════════════════════════ -->
 <style>
-/* ?묒썝 蹂대뱶 ?뱀뀡 */
+/* 응원 보드 섹션 */
 #cheers .hp-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1124,28 +1125,28 @@ footer{
 }
 </style>
 
-<!-- ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
-     ?묒썝 蹂대뱶 HTML (Backlog ?욎뿉 ?쎌엯)
-?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧 -->
+<!-- ══════════════════════════════════════
+     응원 보드 HTML (Backlog 앞에 삽입)
+══════════════════════════════════════ -->
 <script>
-// ?묒썝 蹂대뱶
+// 응원 보드
 (function () {
   var MOVIES = [
-    { id: 'hp1', title: 'Sorcerer\'s Stone', ko: '留덈쾿?ъ쓽 ??, year: 2001,
+    { id: 'hp1', title: 'Sorcerer\'s Stone', ko: '마법사의 돌', year: 2001,
       poster: 'assets/posters/hp1.jpg' },
-    { id: 'hp2', title: 'Chamber of Secrets', ko: '鍮꾨???諛?, year: 2002,
+    { id: 'hp2', title: 'Chamber of Secrets', ko: '비밀의 방', year: 2002,
       poster: 'assets/posters/hp2.jpg' },
-    { id: 'hp3', title: 'Prisoner of Azkaban', ko: '?꾩쫰移대컲??二꾩닔', year: 2004,
+    { id: 'hp3', title: 'Prisoner of Azkaban', ko: '아즈카반의 죄수', year: 2004,
       poster: 'assets/posters/hp3.jpg' },
-    { id: 'hp4', title: 'Goblet of Fire', ko: '遺덉쓽 ??, year: 2005,
+    { id: 'hp4', title: 'Goblet of Fire', ko: '불의 잔', year: 2005,
       poster: 'assets/posters/hp4.jpg' },
-    { id: 'hp5', title: 'Order of the Phoenix', ko: '遺덉궗議?湲곗궗??, year: 2007,
+    { id: 'hp5', title: 'Order of the Phoenix', ko: '불사조 기사단', year: 2007,
       poster: 'assets/posters/hp5.jpg' },
-    { id: 'hp6', title: 'Half-Blood Prince', ko: '?쇳삁 ?뺤옄', year: 2009,
+    { id: 'hp6', title: 'Half-Blood Prince', ko: '혼혈 왕자', year: 2009,
       poster: 'assets/posters/hp6.jpg' },
-    { id: 'hp7', title: 'Deathly Hallows Pt.1', ko: '二쎌쓬???깅Ъ 1遺', year: 2010,
+    { id: 'hp7', title: 'Deathly Hallows Pt.1', ko: '죽음의 성물 1부', year: 2010,
       poster: 'assets/posters/hp7.jpg' },
-    { id: 'hp8', title: 'Deathly Hallows Pt.2', ko: '二쎌쓬???깅Ъ 2遺', year: 2011,
+    { id: 'hp8', title: 'Deathly Hallows Pt.2', ko: '죽음의 성물 2부', year: 2011,
       poster: 'assets/posters/hp8.jpg' },
   ];
 
@@ -1153,7 +1154,8 @@ footer{
   var counts = {};
   MOVIES.forEach(function (m) { counts[m.id] = 0; });
 
-  // DOM??移대뱶 ?뚮뜑留?  function renderCards() {
+  // DOM에 카드 렌더링
+  function renderCards() {
     var grid = document.getElementById('hp-grid');
     if (!grid) return;
     grid.innerHTML = '';
@@ -1161,16 +1163,16 @@ footer{
       var card = document.createElement('article');
       card.className = 'hp-card';
       card.innerHTML =
-        '<img class="hp-poster" src="' + m.poster + '" alt="?대━?ы꽣 ' + m.ko + ' ?ъ뒪?? loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">' +
-        '<div class="hp-poster-fallback" style="display:none;align-items:center;justify-content:center;aspect-ratio:2/3;background:linear-gradient(160deg,#3a2e00,#2e2400);font-size:40px;">?렗</div>' +
+        '<img class="hp-poster" src="' + m.poster + '" alt="해리포터 ' + m.ko + ' 포스터" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">' +
+        '<div class="hp-poster-fallback" style="display:none;align-items:center;justify-content:center;aspect-ratio:2/3;background:linear-gradient(160deg,#3a2e00,#2e2400);font-size:40px;">🎬</div>' +
         '<div class="hp-info">' +
-          '<div class="hp-meta">HARRY POTTER 쨌 ' + m.year + '</div>' +
+          '<div class="hp-meta">HARRY POTTER · ' + m.year + '</div>' +
           '<h3 class="hp-title">' + m.ko + '</h3>' +
           '<div class="hp-cheer-row">' +
-            '<button class="hp-cheer-btn" data-id="' + m.id + '" type="button" aria-label="' + m.ko + ' ?묒썝?섍린">?챷 ?묒썝?섍린</button>' +
+            '<button class="hp-cheer-btn" data-id="' + m.id + '" type="button" aria-label="' + m.ko + ' 응원하기">🪄 응원하기</button>' +
             '<div>' +
               '<span class="hp-count" id="count-' + m.id + '">-</span>' +
-              '<span class="hp-count-label"> ??/span>' +
+              '<span class="hp-count-label"> 회</span>' +
             '</div>' +
           '</div>' +
           '<div class="hp-cheer-msg" id="msg-' + m.id + '"></div>' +
@@ -1178,19 +1180,20 @@ footer{
       grid.appendChild(card);
     });
 
-    // 踰꾪듉 ?대깽??諛붿씤??    grid.querySelectorAll('.hp-cheer-btn').forEach(function (btn) {
+    // 버튼 이벤트 바인딩
+    grid.querySelectorAll('.hp-cheer-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
         handleCheer(btn.dataset.id, btn);
       });
     });
   }
 
-  // 吏묎퀎 濡쒕뱶
+  // 집계 로드
   function loadCounts() {
-    setStatus('?묒썝 ?섎? 遺덈윭?ㅻ뒗 以묅?);
+    setStatus('응원 수를 불러오는 중…');
     fetch(API)
       .then(function (res) {
-        if (!res.ok) throw new Error('?쒕쾭 ?ㅻ쪟 ' + res.status);
+        if (!res.ok) throw new Error('서버 오류 ' + res.status);
         return res.json();
       })
       .then(function (data) {
@@ -1202,11 +1205,11 @@ footer{
       })
       .catch(function (err) {
         console.error(err);
-        setStatus('?묒썝 ?섎? 遺덈윭?ㅼ? 紐삵뻽?듬땲?? ?좎떆 ???덈줈怨좎묠??二쇱꽭??');
+        setStatus('응원 수를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.');
       });
   }
 
-  // 移댁슫???붾㈃ 媛깆떊
+  // 카운트 화면 갱신
   function updateCountDisplay() {
     MOVIES.forEach(function (m) {
       var el = document.getElementById('count-' + m.id);
@@ -1214,11 +1217,11 @@ footer{
     });
   }
 
-  // ?묒썝 ?꾩넚
+  // 응원 전송
   function handleCheer(itemId, btn) {
     btn.disabled = true;
     setMsg(itemId, '', '');
-    setStatus('???以묅?);
+    setStatus('저장 중…');
 
     fetch(API, {
       method: 'POST',
@@ -1232,19 +1235,20 @@ footer{
       })
       .then(function (result) {
         if (!result.ok) {
-          throw new Error(result.data.error || '??μ뿉 ?ㅽ뙣?덉뒿?덈떎.');
+          throw new Error(result.data.error || '저장에 실패했습니다.');
         }
         counts[itemId] = (counts[itemId] || 0) + 1;
         updateCountDisplay();
-        setMsg(itemId, '?묒썝????λ릺?덉뒿?덈떎 ?챷', 'success');
+        setMsg(itemId, '응원이 저장되었습니다 🪄', 'success');
         setStatus('');
       })
       .catch(function (err) {
-        setMsg(itemId, err.message || '??μ뿉 ?ㅽ뙣?덉뒿?덈떎.', 'error');
+        setMsg(itemId, err.message || '저장에 실패했습니다.', 'error');
         setStatus('');
       })
       .finally(function () {
-        // 1.5珥???踰꾪듉 ?ㅼ떆 ?쒖꽦??        setTimeout(function () { btn.disabled = false; }, 1500);
+        // 1.5초 뒤 버튼 다시 활성화
+        setTimeout(function () { btn.disabled = false; }, 1500);
       });
   }
 
@@ -1260,7 +1264,8 @@ footer{
     if (el) el.textContent = text;
   }
 
-  // 珥덇린??  document.addEventListener('DOMContentLoaded', function () {
+  // 초기화
+  document.addEventListener('DOMContentLoaded', function () {
     renderCards();
     loadCounts();
   });
