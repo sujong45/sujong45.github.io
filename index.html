@@ -598,8 +598,8 @@ footer{
         <ol style="margin:0 0 16px;padding-left:20px;line-height:2;font-size:14px;color:var(--text2)">
           <li>버튼을 눌러 ChatGPT 열기</li>
           <li>내 얼굴 사진 업로드 + 프롬프트 전송</li>
-          <li>완성된 이미지를 우클릭 → <strong>이미지 주소 복사</strong></li>
-          <li>아래 방명록의 <strong>사진 주소</strong> 칸에 붙여넣기</li>
+          <li>완성된 이미지를 <strong>내 기기에 다운로드</strong></li>
+          <li>아래 방명록의 <strong>프로필 사진 업로드</strong>에서 그 파일 선택</li>
         </ol>
         <a class="btn-link" id="ai-chatgpt-btn" href="https://chat.openai.com/" target="_blank" rel="noopener noreferrer" style="margin-top:0">🪄 ChatGPT에서 프사 만들기 ↗</a>
         <p style="margin:14px 0 0;font-size:12px;color:var(--text2);opacity:.8">
@@ -631,12 +631,18 @@ footer{
               <option value="hufflepuff">🦡 후플푸프</option>
             </select>
           </div>
-          <input type="url" id="gb-photo" class="gb-input" placeholder="사진 주소 (선택 · http/https 링크)" maxlength="500" autocomplete="off">
+          <label class="gb-file-label" for="gb-photo-file">🖼️ 프로필 사진 업로드 (선택 · 최대 3MB)</label>
+          <input type="file" id="gb-photo-file" class="gb-file" accept="image/png,image/jpeg,image/webp,image/gif">
           <div class="gb-preview" id="gb-preview" style="display:none">
             <img id="gb-preview-img" alt="프로필 미리보기">
             <span>미리보기</span>
+            <button type="button" id="gb-photo-clear" class="gb-clear-btn">✕ 제거</button>
           </div>
           <textarea id="gb-message" class="gb-textarea" placeholder="메시지 남기기 (최대 300자)" maxlength="300" rows="3"></textarea>
+          <div class="gb-field-row">
+            <input type="password" id="gb-pw" class="gb-input" inputmode="numeric" pattern="\d{4}" placeholder="삭제 비밀번호 (숫자 4자리)" maxlength="4" autocomplete="off">
+            <label class="gb-remember"><input type="checkbox" id="gb-remember" checked> 내 정보 기억</label>
+          </div>
           <div class="gb-form-row">
             <span class="gb-count" id="gb-char-count">0 / 300</span>
             <button type="submit" class="btn-link" id="gb-submit" style="margin-top:0">✍️ 등록하기</button>
@@ -1294,11 +1300,36 @@ footer{
   border-color:var(--yellow);
   box-shadow:0 0 0 2px #c8860a22;
 }
+.gb-file-label{
+  font-size:12px;color:var(--text2);cursor:pointer;
+  display:inline-block;
+}
+.gb-file{
+  font-size:12px;color:var(--text);
+  width:100%;
+}
+.gb-file::file-selector-button{
+  background:#c8860a14;border:1px solid var(--yellow);border-radius:4px;
+  color:var(--yellow2);padding:6px 10px;margin-right:8px;cursor:pointer;
+  font-family:'Cinzel',serif;font-size:11px;font-weight:700;
+}
+.gb-remember{font-size:11px;color:var(--text2);display:flex;align-items:center;gap:5px;white-space:nowrap}
+.gb-remember input{accent-color:var(--amber)}
 .gb-preview{display:flex;align-items:center;gap:10px;font-size:11px;color:var(--text2)}
 .gb-preview img{
   width:54px;height:54px;border-radius:50%;object-fit:cover;
   border:2px solid var(--yellow);
 }
+.gb-clear-btn{
+  background:none;border:1px solid var(--border);border-radius:4px;
+  color:var(--text2);font-size:11px;padding:4px 8px;cursor:pointer;
+}
+.gb-clear-btn:hover{border-color:var(--yellow);color:var(--yellow2)}
+.gb-entry .gb-del-btn{
+  background:none;border:none;color:var(--text2);
+  font-size:11px;cursor:pointer;opacity:.6;padding:2px 4px;margin-top:4px;
+}
+.gb-entry .gb-del-btn:hover{opacity:1;color:#c0392b}
 .gb-form-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .gb-count{font-size:11px;color:var(--text2)}
 .gb-msg{font-size:12px;min-height:16px}
@@ -1601,45 +1632,78 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
 // 방명록
 (function () {
   var API = '/api/guestbook';
+  var STORE_KEY = 'gb_profile';
   var form = document.getElementById('gb-form');
   var nickInput = document.getElementById('gb-nickname');
   var houseSelect = document.getElementById('gb-house');
-  var photoInput = document.getElementById('gb-photo');
+  var fileInput = document.getElementById('gb-photo-file');
   var msgInput = document.getElementById('gb-message');
+  var pwInput = document.getElementById('gb-pw');
+  var rememberChk = document.getElementById('gb-remember');
   var submitBtn = document.getElementById('gb-submit');
   var statusEl = document.getElementById('gb-status');
   var listEl = document.getElementById('gb-list');
   var countEl = document.getElementById('gb-char-count');
   var previewWrap = document.getElementById('gb-preview');
   var previewImg = document.getElementById('gb-preview-img');
+  var clearBtn = document.getElementById('gb-photo-clear');
 
   if (!form) return;
 
   var HOUSE_LABEL = {
-    gryffindor: '🦁 그리핀도르',
-    slytherin:  '🐍 슬리데린',
-    ravenclaw:  '🦅 래번클로',
-    hufflepuff: '🦡 후플푸프',
+    gryffindor: '🦁 그리핀도르', slytherin: '🐍 슬리데린',
+    ravenclaw: '🦅 래번클로', hufflepuff: '🦡 후플푸프',
   };
-  var HOUSE_EMOJI = {
-    gryffindor: '🦁', slytherin: '🐍', ravenclaw: '🦅', hufflepuff: '🦡',
-  };
+  var HOUSE_EMOJI = { gryffindor: '🦁', slytherin: '🐍', ravenclaw: '🦅', hufflepuff: '🦡' };
+
+  // 현재 선택한 사진의 base64 data URL
+  var currentPhotoData = null;
+
+  // ── 저장된 프로필 불러오기 ──
+  (function restoreProfile() {
+    try {
+      var saved = JSON.parse(localStorage.getItem(STORE_KEY) || 'null');
+      if (!saved) return;
+      if (saved.nickname) nickInput.value = saved.nickname;
+      if (saved.house) houseSelect.value = saved.house;
+      if (saved.pw) pwInput.value = saved.pw;
+      if (saved.photo) {
+        currentPhotoData = saved.photo;
+        previewImg.src = saved.photo;
+        previewWrap.style.display = 'flex';
+      }
+    } catch (e) {}
+  })();
 
   // 글자 수 카운터
   msgInput.addEventListener('input', function () {
     countEl.textContent = msgInput.value.length + ' / 300';
   });
 
-  // 사진 URL 미리보기
-  photoInput.addEventListener('input', function () {
-    var v = photoInput.value.trim();
-    if (/^https?:\/\//i.test(v)) {
-      previewImg.src = v;
-      previewWrap.style.display = 'flex';
-      previewImg.onerror = function () { previewWrap.style.display = 'none'; };
-    } else {
-      previewWrap.style.display = 'none';
+  // 파일 선택 → base64 변환 + 미리보기
+  fileInput.addEventListener('change', function () {
+    var file = fileInput.files && fileInput.files[0];
+    if (!file) return;
+    if (file.size > 3 * 1024 * 1024) {
+      setStatus('이미지 크기는 3MB 이하만 가능합니다.', 'error');
+      fileInput.value = '';
+      return;
     }
+    var reader = new FileReader();
+    reader.onload = function () {
+      currentPhotoData = reader.result;
+      previewImg.src = currentPhotoData;
+      previewWrap.style.display = 'flex';
+      setStatus('', '');
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // 사진 제거
+  clearBtn.addEventListener('click', function () {
+    currentPhotoData = null;
+    fileInput.value = '';
+    previewWrap.style.display = 'none';
   });
 
   function setStatus(text, type) {
@@ -1656,7 +1720,7 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
     } catch (e) { return ''; }
   }
 
-  // 목록 렌더링 (XSS 방지: textContent / src 속성만 사용)
+  // 목록 렌더링 (XSS 방지: textContent / src만 사용)
   function renderList(entries) {
     listEl.innerHTML = '';
     if (!entries || entries.length === 0) {
@@ -1670,7 +1734,6 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
       var entry = document.createElement('div');
       entry.className = 'gb-entry';
 
-      // 아바타 (사진 URL 있으면 이미지, 없으면 기숙사 이모지)
       if (e.photo_url && /^https?:\/\//i.test(e.photo_url)) {
         var img = document.createElement('img');
         img.className = 'gb-avatar';
@@ -1710,9 +1773,16 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
       time.className = 'gb-time';
       time.textContent = formatTime(e.created_at);
 
+      var delBtn = document.createElement('button');
+      delBtn.className = 'gb-del-btn';
+      delBtn.type = 'button';
+      delBtn.textContent = '🗑 삭제';
+      delBtn.addEventListener('click', function () { handleDelete(e.id); });
+
       bodyDiv.appendChild(nick);
       bodyDiv.appendChild(text);
       bodyDiv.appendChild(time);
+      bodyDiv.appendChild(delBtn);
       entry.appendChild(bodyDiv);
       listEl.appendChild(entry);
     });
@@ -1731,29 +1801,47 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
       });
   }
 
+  // 삭제 처리 (본인 비번 또는 마스터 비번)
+  function handleDelete(id) {
+    var pw = window.prompt('삭제 비밀번호를 입력하세요 (본인 4자리 또는 운영자 비번):');
+    if (pw === null) return;
+    pw = pw.trim();
+    if (!pw) return;
+
+    fetch(API, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: id, pw: pw }),
+    })
+      .then(function (res) {
+        return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+      })
+      .then(function (result) {
+        if (!result.ok) throw new Error(result.data.error || '삭제에 실패했습니다.');
+        setStatus('글이 삭제되었습니다.', 'success');
+        loadList();
+      })
+      .catch(function (err) {
+        setStatus(err.message || '삭제에 실패했습니다.', 'error');
+      });
+  }
+
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     var nickname = nickInput.value.trim();
     var house = houseSelect.value;
-    var photo = photoInput.value.trim();
     var message = msgInput.value.trim();
+    var pw = pwInput.value.trim();
 
-    // 브라우저 측 검증
     if (nickname.length < 2 || nickname.length > 12) {
-      setStatus('별명은 2~12자로 입력해 주세요.', 'error');
-      return;
+      setStatus('별명은 2~12자로 입력해 주세요.', 'error'); return;
     }
-    if (!house) {
-      setStatus('기숙사를 선택해 주세요.', 'error');
-      return;
-    }
+    if (!house) { setStatus('기숙사를 선택해 주세요.', 'error'); return; }
     if (message.length < 1 || message.length > 300) {
-      setStatus('메시지는 1~300자로 입력해 주세요.', 'error');
-      return;
+      setStatus('메시지는 1~300자로 입력해 주세요.', 'error'); return;
     }
-    if (photo && !/^https?:\/\//i.test(photo)) {
-      setStatus('사진 주소는 http 또는 https 링크만 가능합니다.', 'error');
-      return;
+    if (!/^\d{4}$/.test(pw)) {
+      setStatus('삭제 비밀번호는 숫자 4자리로 입력해 주세요.', 'error'); return;
     }
 
     submitBtn.disabled = true;
@@ -1763,26 +1851,31 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        nickname: nickname,
-        house: house,
-        photo_url: photo || null,
-        message: message,
+        nickname: nickname, house: house, message: message,
+        delete_pw: pw, photo_data: currentPhotoData || null,
       }),
     })
       .then(function (res) {
-        return res.json().then(function (data) {
-          return { ok: res.ok, data: data };
-        });
+        return res.json().then(function (data) { return { ok: res.ok, data: data }; });
       })
       .then(function (result) {
         if (!result.ok) throw new Error(result.data.error || '저장에 실패했습니다.');
         setStatus('방명록이 등록되었습니다 📖', 'success');
-        nickInput.value = '';
-        houseSelect.value = '';
-        photoInput.value = '';
+
+        // 프로필 기억 (체크 시)
+        if (rememberChk.checked) {
+          try {
+            localStorage.setItem(STORE_KEY, JSON.stringify({
+              nickname: nickname, house: house, pw: pw, photo: currentPhotoData || null,
+            }));
+          } catch (e) {}
+        } else {
+          try { localStorage.removeItem(STORE_KEY); } catch (e) {}
+        }
+
+        // 메시지만 비우고 프로필 정보는 유지
         msgInput.value = '';
         countEl.textContent = '0 / 300';
-        previewWrap.style.display = 'none';
         loadList();
       })
       .catch(function (err) {
