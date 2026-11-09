@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f0c040">
 <title>배수종 | Personal Homepage</title>
+<script>
+  // 저장된 테마를 렌더링 전에 즉시 적용 (깜빡임 방지)
+  (function(){
+    try {
+      var saved = localStorage.getItem('theme');
+      if(saved === 'dark') document.documentElement.setAttribute('data-theme','dark');
+    } catch(e){}
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Serif+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -34,6 +43,80 @@
   color:var(--text);
   background:var(--bg);
   color-scheme:light;
+}
+
+/* ── 다크 모드 ── */
+html[data-theme="dark"]{
+  --bg:       #2e2400;
+  --bg2:      #382d00;
+  --surface:  #443600;
+  --yellow:   #f0c040;
+  --yellow2:  #ffe082;
+  --yellow3:  #ffd740;
+  --amber:    #ffab00;
+  --black:    #1a1400;
+  --earth:    #3d2b00;
+  --earth2:   #5a4000;
+  --parchment:#fdf3d0;
+  --parch2:   #f5e8b0;
+  --text:     #f5e8c0;
+  --text2:    #d8b860;
+  --border:   #5a4600;
+  --border2:  #f0c04055;
+  color-scheme:dark;
+}
+html[data-theme="dark"] body{
+  background:
+    radial-gradient(ellipse at 15% 0%,   #4a3800 0%,transparent 45%),
+    radial-gradient(ellipse at 85% 8%,   #342800 0%,transparent 40%),
+    radial-gradient(ellipse at 50% 100%, #3e3000 0%,transparent 50%),
+    linear-gradient(180deg,#2e2400 0%,#382c00 100%);
+}
+html[data-theme="dark"] .hero h1,
+html[data-theme="dark"] .section-head h2,
+html[data-theme="dark"] .card h3,
+html[data-theme="dark"] .hp-title,
+html[data-theme="dark"] .profile h2{ color:var(--parchment); }
+html[data-theme="dark"] .profile{
+  background:linear-gradient(135deg,#3e3000 0%,#2e2400 50%,#4a3800 100%);
+  color:var(--parchment);
+}
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .hp-card{
+  background:linear-gradient(160deg,#3a2e00 0%,#2e2400 100%);
+}
+html[data-theme="dark"] .tarot-back,
+html[data-theme="dark"] .tarot-face,
+html[data-theme="dark"] .tarot-result{
+  background:linear-gradient(160deg,#3a2e00 0%,#2e2400 100%);
+}
+html[data-theme="dark"] #news .card:first-child,
+html[data-theme="dark"] #music .card:first-child{
+  background:linear-gradient(160deg,#402e00 0%,#342400 100%);
+}
+html[data-theme="dark"] #activity .card:first-child{
+  background:linear-gradient(160deg,#303400 0%,#282c00 100%);
+}
+html[data-theme="dark"] body::after{ opacity:.04; filter:sepia(1) hue-rotate(15deg); }
+
+/* ── 테마 토글 버튼 ── */
+.theme-toggle{
+  background:#c8860a14;
+  border:1px solid var(--border2);
+  border-radius:4px;
+  color:var(--text);
+  font-size:16px;
+  width:38px;height:38px;
+  cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:all .2s;
+  flex-shrink:0;
+}
+.theme-toggle:hover,.theme-toggle:focus-visible{
+  background:var(--amber);
+  border-color:var(--yellow);
+  transform:translateY(-1px);
+  outline:none;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -166,6 +249,14 @@ nav a:hover,nav a:focus-visible{
   );pointer-events:none;
 }
 .avatar{font-size:60px;position:relative;z-index:1}
+.avatar-img{
+  width:96px;height:96px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid var(--yellow);
+  box-shadow:0 4px 18px #c8860a33;
+  position:relative;z-index:1;
+}
 .profile small{color:var(--amber);font-size:10px;font-family:'Cinzel',serif;letter-spacing:2px;position:relative;z-index:1}
 .profile h2{margin:6px 0;font-size:22px;font-family:'Cinzel',serif;color:var(--black);position:relative;z-index:1}
 .profile p{margin:0;font-size:13px;color:var(--text2);position:relative;z-index:1}
@@ -415,6 +506,7 @@ footer{
     <a href="#cheers">응원 보드</a>
     <a href="#restaurants">추천 맛집</a>
     <a href="#backlog">Backlog</a>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="라이트/다크 모드 전환" title="테마 전환">🌙</button>
   </nav>
 </header>
 <main>
@@ -430,7 +522,7 @@ footer{
       </div>
     </div>
     <aside class="profile">
-      <div class="avatar">�</div>
+      <img class="avatar-img" src="assets/profile.png" alt="배수종 프로필 사진" loading="lazy">
       <div>
         <small>PROFILE / ABOUT ME</small>
         <h2>배수종</h2>
@@ -1367,6 +1459,34 @@ footer{
   document.addEventListener('DOMContentLoaded', function () {
     renderCards();
     loadCounts();
+  });
+})();
+
+// 라이트/다크 모드 전환
+(function () {
+  var btn = document.getElementById('themeToggle');
+  if (!btn) return;
+
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+
+  function updateIcon() {
+    // 다크일 때 해(☀️)로 전환 유도, 라이트일 때 달(🌙)
+    btn.textContent = currentTheme() === 'dark' ? '☀️' : '🌙';
+  }
+
+  updateIcon();
+
+  btn.addEventListener('click', function () {
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    if (next === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    updateIcon();
   });
 })();
 </script>
