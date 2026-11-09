@@ -250,16 +250,26 @@ nav a:hover,nav a:focus-visible{
 }
 .avatar{font-size:60px;position:relative;z-index:1}
 .avatar-img{
-  width:96px;height:96px;
+  width:160px;height:160px;
   border-radius:50%;
   object-fit:cover;
-  border:3px solid var(--yellow);
-  box-shadow:0 4px 18px #c8860a33;
+  border:4px solid var(--yellow);
+  box-shadow:0 6px 24px #c8860a40;
   position:relative;z-index:1;
 }
 .profile small{color:var(--amber);font-size:10px;font-family:'Cinzel',serif;letter-spacing:2px;position:relative;z-index:1}
 .profile h2{margin:6px 0;font-size:22px;font-family:'Cinzel',serif;color:var(--black);position:relative;z-index:1}
 .profile p{margin:0;font-size:13px;color:var(--text2);position:relative;z-index:1}
+.house-badge{
+  margin-top:10px!important;
+  display:inline-block;
+  background:linear-gradient(135deg,#f0c75e,#c8860a);
+  color:#2c1a00!important;
+  font-weight:700;font-size:12px!important;
+  padding:5px 12px;border-radius:20px;
+  font-family:'Cinzel',serif;letter-spacing:.5px;
+  box-shadow:0 2px 8px #c8860a44;
+}
 
 /* ── 섹션 공통 ── */
 section{margin-top:42px;scroll-margin-top:20px}
@@ -498,8 +508,8 @@ footer{
   <a class="logo" href="/">HUFFLE<span>PUFF.</span></a>
   <nav>
     <a href="#tarot">오늘의 운세</a>
-    <a href="#news">소식</a>
-    <a href="#activity">최근 활동</a>
+    <a href="#guestbook">방명록</a>
+    <a href="#news">소식 &amp; 활동</a>
     <a href="#interests">관심사</a>
     <a href="#music">음악</a>
     <a href="#movies">인생영화</a>
@@ -519,6 +529,7 @@ footer{
         <span class="pill">비즈니스 IT</span>
         <span class="pill">미디어 부전공</span>
         <span class="pill">독서와 영화</span>
+        <span class="pill">🦡 후플푸프</span>
       </div>
     </div>
     <aside class="profile">
@@ -527,6 +538,7 @@ footer{
         <small>PROFILE / ABOUT ME</small>
         <h2>배수종</h2>
         <p>학번 20245244<br>전공 비즈니스 IT · 부전공 미디어</p>
+        <p class="house-badge">🦡 기숙사 · 후플푸프 Hufflepuff</p>
       </div>
     </aside>
   </div>
@@ -568,8 +580,36 @@ footer{
     </div>
   </section>
 
+  <!-- 방명록 섹션 -->
+  <section id="guestbook">
+    <div class="section-head">
+      <h2>� 방명록</h2>
+      <small>짧은 응원 한 줄을 남겨주세요!</small>
+    </div>
+    <div class="grid">
+      <article class="card wide">
+        <div class="meta">LEAVE A MESSAGE</div>
+        <form id="gb-form" class="gb-form">
+          <input type="text" id="gb-nickname" class="gb-input" placeholder="별명 (2~12자)" maxlength="12" autocomplete="off">
+          <textarea id="gb-message" class="gb-textarea" placeholder="한 줄 메시지 (1~100자)" maxlength="100" rows="2"></textarea>
+          <div class="gb-form-row">
+            <span class="gb-count" id="gb-char-count">0 / 100</span>
+            <button type="submit" class="btn-link" id="gb-submit" style="margin-top:0">✍️ 등록하기</button>
+          </div>
+          <div class="gb-msg" id="gb-status"></div>
+        </form>
+      </article>
+      <article class="card">
+        <div class="meta">RECENT MESSAGES</div>
+        <div id="gb-list" class="gb-list">
+          <p class="gb-empty">불러오는 중…</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <section id="news">
-    <div class="section-head"><h2>📣 나의 소식</h2><small>What's new?</small></div>
+    <div class="section-head"><h2>📣 소식 &amp; 최근 활동</h2><small>News &amp; Activity</small></div>
     <div class="grid">
       <article class="card wide">
         <div class="meta">요즘의 소식</div>
@@ -583,13 +623,6 @@ footer{
           </div>
         </div>
       </article>
-
-    </div>
-  </section>
-
-  <section id="activity">
-    <div class="section-head"><h2>🗓️ 최근 활동</h2><small>Recent activity</small></div>
-    <div class="grid">
       <article class="card wide">
         <div class="meta">최근 기록</div>
         <h3>🔖 민음사 책갈피 구매</h3>
@@ -658,7 +691,7 @@ footer{
         <div class="meta">HOGWARTS SORTING HAT</div>
         <h3>🏰 내 기숙사는 어디일까?</h3>
         <div id="quiz-body">
-          <div id="quiz-progress" style="font-size:11px;color:#9098b0;margin-bottom:12px"></div>
+          <div id="quiz-progress" style="font-size:11px;color:var(--text2);margin-bottom:12px"></div>
           <div id="quiz-question"></div>
           <div id="quiz-options" style="display:flex;flex-direction:column;gap:8px;margin-top:12px"></div>
           <div id="quiz-result" style="display:none"></div>
@@ -857,7 +890,7 @@ footer{
     if(current >= QUESTIONS.length){ showResult(); return; }
     var q = QUESTIONS[current];
     progressEl.textContent = (current+1) + ' / ' + QUESTIONS.length;
-    questionEl.innerHTML = '<p style="font-size:14px;font-weight:700;color:var(--parchment,#f5ecd4);margin:0 0 4px">' + q.q + '</p>';
+    questionEl.innerHTML = '<p style="font-size:14px;font-weight:700;color:var(--black);margin:0 0 4px">' + q.q + '</p>';
     optionsEl.innerHTML = '';
 
     // 선택지 버튼
@@ -1194,6 +1227,43 @@ footer{
      응원 보드 스타일
 ══════════════════════════════════════ -->
 <style>
+/* 방명록 섹션 */
+.gb-form{display:flex;flex-direction:column;gap:10px}
+.gb-input,.gb-textarea{
+  width:100%;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:10px 12px;
+  color:var(--text);
+  font-family:'Noto Serif KR',serif;
+  font-size:14px;
+  resize:vertical;
+}
+.gb-input:focus,.gb-textarea:focus{
+  outline:none;
+  border-color:var(--yellow);
+  box-shadow:0 0 0 2px #c8860a22;
+}
+.gb-form-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.gb-count{font-size:11px;color:var(--text2)}
+.gb-msg{font-size:12px;min-height:16px}
+.gb-msg.success{color:#3a9d5d}
+.gb-msg.error{color:#c0392b}
+html[data-theme="dark"] .gb-msg.success{color:#6fcf97}
+html[data-theme="dark"] .gb-msg.error{color:#eb5757}
+.gb-list{display:flex;flex-direction:column;gap:10px;max-height:320px;overflow-y:auto}
+.gb-entry{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:10px 12px;
+}
+.gb-entry .gb-nick{font-weight:700;color:var(--yellow2);font-size:13px;font-family:'Cinzel',serif}
+.gb-entry .gb-text{color:var(--text);font-size:13px;line-height:1.6;margin:4px 0 0;word-break:break-word}
+.gb-entry .gb-time{color:var(--text2);font-size:10px;margin-top:4px}
+.gb-empty{color:var(--text2);font-size:13px;text-align:center;padding:20px 0;opacity:.7}
+
 /* 응원 보드 섹션 */
 #cheers .hp-grid {
   display: grid;
@@ -1460,6 +1530,132 @@ footer{
     renderCards();
     loadCounts();
   });
+})();
+
+// 방명록
+(function () {
+  var API = '/api/guestbook';
+  var form = document.getElementById('gb-form');
+  var nickInput = document.getElementById('gb-nickname');
+  var msgInput = document.getElementById('gb-message');
+  var submitBtn = document.getElementById('gb-submit');
+  var statusEl = document.getElementById('gb-status');
+  var listEl = document.getElementById('gb-list');
+  var countEl = document.getElementById('gb-char-count');
+
+  if (!form) return;
+
+  // 글자 수 카운터
+  msgInput.addEventListener('input', function () {
+    countEl.textContent = msgInput.value.length + ' / 100';
+  });
+
+  function setStatus(text, type) {
+    statusEl.textContent = text;
+    statusEl.className = 'gb-msg' + (type ? ' ' + type : '');
+  }
+
+  function formatTime(iso) {
+    try {
+      var d = new Date(iso);
+      var p = function (n) { return (n < 10 ? '0' : '') + n; };
+      return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) +
+             ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+    } catch (e) { return ''; }
+  }
+
+  // 목록 렌더링 (XSS 방지: textContent만 사용)
+  function renderList(entries) {
+    listEl.innerHTML = '';
+    if (!entries || entries.length === 0) {
+      var empty = document.createElement('p');
+      empty.className = 'gb-empty';
+      empty.textContent = '아직 남겨진 글이 없어요. 첫 글을 남겨보세요!';
+      listEl.appendChild(empty);
+      return;
+    }
+    entries.forEach(function (e) {
+      var entry = document.createElement('div');
+      entry.className = 'gb-entry';
+
+      var nick = document.createElement('div');
+      nick.className = 'gb-nick';
+      nick.textContent = e.nickname;
+
+      var text = document.createElement('p');
+      text.className = 'gb-text';
+      text.textContent = e.message;
+
+      var time = document.createElement('div');
+      time.className = 'gb-time';
+      time.textContent = formatTime(e.created_at);
+
+      entry.appendChild(nick);
+      entry.appendChild(text);
+      entry.appendChild(time);
+      listEl.appendChild(entry);
+    });
+  }
+
+  function loadList() {
+    fetch(API)
+      .then(function (res) {
+        if (!res.ok) throw new Error('목록을 불러오지 못했습니다.');
+        return res.json();
+      })
+      .then(function (data) { renderList(data.entries); })
+      .catch(function (err) {
+        console.error(err);
+        listEl.innerHTML = '<p class="gb-empty">목록을 불러오지 못했습니다.</p>';
+      });
+  }
+
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var nickname = nickInput.value.trim();
+    var message = msgInput.value.trim();
+
+    // 브라우저 측 검증
+    if (nickname.length < 2 || nickname.length > 12) {
+      setStatus('별명은 2~12자로 입력해 주세요.', 'error');
+      return;
+    }
+    if (message.length < 1 || message.length > 100) {
+      setStatus('메시지는 1~100자로 입력해 주세요.', 'error');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    setStatus('저장 중…', '');
+
+    fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nickname: nickname, message: message }),
+    })
+      .then(function (res) {
+        return res.json().then(function (data) {
+          return { ok: res.ok, data: data };
+        });
+      })
+      .then(function (result) {
+        if (!result.ok) throw new Error(result.data.error || '저장에 실패했습니다.');
+        setStatus('방명록이 등록되었습니다 📖', 'success');
+        nickInput.value = '';
+        msgInput.value = '';
+        countEl.textContent = '0 / 100';
+        loadList();
+      })
+      .catch(function (err) {
+        setStatus(err.message || '저장에 실패했습니다.', 'error');
+      })
+      .finally(function () {
+        setTimeout(function () { submitBtn.disabled = false; }, 1000);
+      });
+  });
+
+  document.addEventListener('DOMContentLoaded', loadList);
+  loadList();
 })();
 
 // 라이트/다크 모드 전환
