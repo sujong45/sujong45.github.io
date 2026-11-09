@@ -3,64 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#2e2400">
+<meta name="theme-color" content="#f0c040">
 <title>배수종 | Personal Homepage</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Serif+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════
-   후플푸프 테마 — 기본 설정
-   Colors: Yellow #f0c040 / Black #1a1400 / Earth tones
+   후플푸프 테마 — 라이트 에디션
+   Colors: Amber gold + Warm parchment (가독성 개선)
 ══════════════════════════════════════ */
 :root{
-  --bg:       #2e2400;
-  --bg2:      #382d00;
-  --surface:  #443600;
-  --yellow:   #f0c040;
-  --yellow2:  #ffe082;
-  --yellow3:  #ffd740;
-  --amber:    #ffab00;
-  --black:    #1a1400;
-  --earth:    #3d2b00;
-  --earth2:   #5a4000;
-  --parchment:#fdf3d0;
-  --parch2:   #f5e8b0;
-  --text:     #f5e8c0;
-  --text2:    #c8a84a;
-  --border:   #3a2e00;
-  --border2:  #f0c04055;
+  --bg:       #fdf6e3;
+  --bg2:      #f5ead0;
+  --surface:  #fff8ec;
+  --yellow:   #c8860a;
+  --yellow2:  #a86c00;
+  --yellow3:  #e8a000;
+  --amber:    #d4900f;
+  --black:    #2c1a00;
+  --earth:    #6b4c1e;
+  --earth2:   #8a6230;
+  --parchment:#fff8ec;
+  --parch2:   #fdf0d0;
+  --text:     #2c1a00;
+  --text2:    #6b4c1e;
+  --border:   #e0c880;
+  --border2:  #c8860a55;
   font-family:'Noto Serif KR',Georgia,serif;
   color:var(--text);
   background:var(--bg);
-  color-scheme:dark;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
   background:
-    radial-gradient(ellipse at 15% 0%,   #4a3800 0%,transparent 45%),
-    radial-gradient(ellipse at 85% 8%,   #342800 0%,transparent 40%),
-    radial-gradient(ellipse at 50% 100%, #3e3000 0%,transparent 50%),
-    linear-gradient(180deg,#2e2400 0%,#382c00 100%);
+    radial-gradient(ellipse at 15% 0%,   #fdeec0 0%,transparent 45%),
+    radial-gradient(ellipse at 85% 8%,   #fae8b0 0%,transparent 40%),
+    radial-gradient(ellipse at 50% 100%, #fdf0d0 0%,transparent 50%),
+    linear-gradient(180deg,#fdf6e3 0%,#f5ead0 100%);
   min-height:100vh;
 }
 
-/* 밀밭 · 반짝이 배경 */
+/* 양피지 질감 반짝이 */
 body::before{
   content:'';
   position:fixed;inset:0;
   background-image:
-    radial-gradient(1.5px 1.5px at  8% 12%, #f0c04066, transparent),
-    radial-gradient(1px   1px   at 25% 35%, #ffe08244, transparent),
-    radial-gradient(1.5px 1.5px at 55%  8%, #f0c04055, transparent),
-    radial-gradient(1px   1px   at 78% 55%, #ffd74033, transparent),
-    radial-gradient(1.5px 1.5px at 40% 78%, #f0c04044, transparent),
-    radial-gradient(1px   1px   at 68% 25%, #ffe08233, transparent),
-    radial-gradient(1.5px 1.5px at 18% 65%, #f0c04033, transparent),
-    radial-gradient(1px   1px   at 92% 80%, #ffd74022, transparent),
-    radial-gradient(2px   2px   at 50% 50%, #f0c04011, transparent);
+    radial-gradient(1.5px 1.5px at  8% 12%, #c8860a22, transparent),
+    radial-gradient(1px   1px   at 25% 35%, #e8a00018, transparent),
+    radial-gradient(1.5px 1.5px at 55%  8%, #c8860a1a, transparent),
+    radial-gradient(1px   1px   at 78% 55%, #d4900f14, transparent),
+    radial-gradient(1.5px 1.5px at 40% 78%, #c8860a18, transparent),
+    radial-gradient(1px   1px   at 68% 25%, #e8a00012, transparent),
+    radial-gradient(1.5px 1.5px at 18% 65%, #c8860a14, transparent),
+    radial-gradient(1px   1px   at 92% 80%, #d4900f0e, transparent),
+    radial-gradient(2px   2px   at 50% 50%, #c8860a08, transparent);
   pointer-events:none;z-index:0;
 }
 
@@ -70,10 +70,10 @@ body::after{
   position:fixed;
   right:-2%;bottom:-2%;
   font-size:340px;
-  opacity:.04;
+  opacity:.06;
   pointer-events:none;
   z-index:0;
-  filter:sepia(1) hue-rotate(15deg);
+  filter:sepia(.5);
 }
 
 .wrap{position:relative;z-index:1;max-width:1120px;margin:auto;padding:28px 22px 80px}
@@ -91,25 +91,25 @@ header{
   font-family:'Cinzel',serif;
   font-weight:900;font-size:22px;letter-spacing:2px;
   color:var(--yellow2);
-  text-shadow:0 0 24px #f0c04099;
+  text-shadow:none;
 }
-.logo span{color:#fff;opacity:.5}
+.logo span{color:var(--earth2);opacity:.7}
 nav{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;font-weight:600;font-family:'Cinzel',serif;letter-spacing:.8px}
 nav a{
-  background:#f0c04010;
+  background:#c8860a0d;
   padding:8px 13px;
   border:1px solid var(--border2);
   border-radius:4px;
-  color:var(--text2);
+  color:var(--earth);
   transition:all .2s;
 }
 nav a:hover,nav a:focus-visible{
-  color:var(--black);
-  background:var(--yellow);
-  border-color:var(--yellow2);
+  color:#fff;
+  background:var(--amber);
+  border-color:var(--yellow);
   text-shadow:none;
   transform:translateY(-1px);
-  box-shadow:0 4px 14px #f0c04055;
+  box-shadow:0 4px 14px #c8860a33;
 }
 
 /* ── 히어로 ── */
@@ -122,8 +122,8 @@ nav a:hover,nav a:focus-visible{
   font-family:'Cinzel',serif;
   font-size:clamp(30px,5vw,58px);
   letter-spacing:-1px;line-height:1.15;margin:18px 0;
-  color:var(--parchment);
-  text-shadow:0 2px 20px #00000088;
+  color:var(--black);
+  text-shadow:none;
 }
 .hero h1 em{
   font-style:normal;
@@ -137,38 +137,37 @@ nav a:hover,nav a:focus-visible{
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:23px}
 .pill{
   border:1px solid var(--yellow);
-  background:#f0c04022;
+  background:#c8860a14;
   color:var(--yellow2);
   font-weight:700;font-size:11px;
   font-family:'Cinzel',serif;letter-spacing:1px;
   padding:7px 14px;border-radius:3px;
-  box-shadow:0 0 14px #f0c04022;
 }
 
 /* 프로필 카드 */
 .profile{
-  background:linear-gradient(135deg,#3e3000 0%,#2e2400 50%,#4a3800 100%);
+  background:linear-gradient(135deg,#fff8ec 0%,#fdf0d0 50%,#fae8b8 100%);
   border:2px solid var(--yellow);
   border-radius:8px;padding:30px;
   display:flex;flex-direction:column;justify-content:space-between;
-  min-height:300px;color:var(--parchment);
-  box-shadow:0 0 50px #f0c04033,inset 0 0 40px #00000055;
+  min-height:300px;color:var(--black);
+  box-shadow:0 4px 24px #c8860a28,inset 0 0 40px #c8860a08;
   position:relative;overflow:hidden;
 }
 .profile::before{
   content:'🦡';position:absolute;right:10px;top:10px;
-  font-size:80px;opacity:.10;pointer-events:none;
+  font-size:80px;opacity:.08;pointer-events:none;
 }
 .profile::after{
   content:'';position:absolute;inset:0;
   background:repeating-linear-gradient(
     -45deg,transparent,transparent 22px,
-    #f0c04008 22px,#f0c04008 23px
+    #c8860a06 22px,#c8860a06 23px
   );pointer-events:none;
 }
 .avatar{font-size:60px;position:relative;z-index:1}
-.profile small{color:var(--yellow);font-size:10px;font-family:'Cinzel',serif;letter-spacing:2px;position:relative;z-index:1}
-.profile h2{margin:6px 0;font-size:22px;font-family:'Cinzel',serif;color:var(--yellow2);position:relative;z-index:1;text-shadow:0 0 16px #f0c04066}
+.profile small{color:var(--amber);font-size:10px;font-family:'Cinzel',serif;letter-spacing:2px;position:relative;z-index:1}
+.profile h2{margin:6px 0;font-size:22px;font-family:'Cinzel',serif;color:var(--black);position:relative;z-index:1}
 .profile p{margin:0;font-size:13px;color:var(--text2);position:relative;z-index:1}
 
 /* ── 섹션 공통 ── */
@@ -176,41 +175,40 @@ section{margin-top:42px;scroll-margin-top:20px}
 .section-head{
   display:flex;align-items:center;justify-content:space-between;
   gap:12px;margin-bottom:18px;
-  border-bottom:2px solid var(--border2);
+  border-bottom:2px solid var(--border);
   padding-bottom:12px;
 }
 .section-head h2{
   font-family:'Cinzel',serif;
   font-size:20px;letter-spacing:.5px;margin:0;
-  color:var(--yellow2);
-  text-shadow:0 0 16px #f0c04066;
+  color:var(--black);
 }
 .section-head small{color:var(--text2);font-size:11px;letter-spacing:1px;font-family:'Cinzel',serif}
 
 /* ── 카드 ── */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
 .card{
-  background:linear-gradient(160deg,#3a2e00 0%,#2e2400 100%);
+  background:linear-gradient(160deg,#fffdf5 0%,#fdf6e3 100%);
   border:1px solid var(--border);
-  box-shadow:0 8px 24px #00000066;
+  box-shadow:0 4px 16px #c8860a18;
   transition:transform .2s,box-shadow .2s,border-color .2s;
   border-radius:6px;padding:22px;min-height:150px;
   position:relative;overflow:hidden;
 }
 .card::before{
   content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--amber),var(--yellow2),var(--yellow3),var(--yellow2),var(--amber));
+  background:linear-gradient(90deg,var(--amber),var(--yellow3),var(--amber));
 }
 .card:hover{
   transform:translateY(-3px);
-  box-shadow:0 14px 32px #00000077,0 0 24px #f0c04033;
+  box-shadow:0 10px 28px #c8860a28,0 0 16px #e8a00022;
   border-color:var(--yellow);
 }
 .card .meta{
-  color:var(--yellow);font-size:10px;font-weight:700;
+  color:var(--amber);font-size:10px;font-weight:700;
   font-family:'Cinzel',serif;letter-spacing:2px;
 }
-.card h3{color:var(--parchment);font-size:17px;margin:12px 0 8px;font-family:'Cinzel',serif}
+.card h3{color:var(--black);font-size:17px;margin:12px 0 8px;font-family:'Cinzel',serif}
 .card p{color:var(--text2);font-size:14px;line-height:1.75;margin:0}
 .wide{grid-column:span 2}
 .interest{font-size:29px}
@@ -221,12 +219,12 @@ section{margin-top:42px;scroll-margin-top:20px}
   width:110px;height:150px;object-fit:cover;
   border-radius:6px;
   border:2px solid var(--yellow);
-  box-shadow:0 8px 20px #00000077,0 0 20px #f0c04033;
+  box-shadow:0 6px 18px #c8860a2e;
 }
 .bookmark-photo{grid-template-columns:220px 1fr;align-items:center}
 .bookmark-photo img{width:220px;height:auto;aspect-ratio:3/4;object-fit:contain;border-radius:6px;border:2px solid var(--yellow)}
 .music-tile{display:grid;grid-template-columns:112px 1fr;gap:16px;align-items:center;margin-top:15px}
-.music-thumb{display:block;border-radius:6px;overflow:hidden;border:2px solid var(--yellow);box-shadow:0 8px 20px #00000066}
+.music-thumb{display:block;border-radius:6px;overflow:hidden;border:2px solid var(--yellow);box-shadow:0 6px 18px #c8860a2e}
 .music-thumb img{width:100%;height:100%;display:block;object-fit:cover}
 .song-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 
@@ -234,14 +232,14 @@ section{margin-top:42px;scroll-margin-top:20px}
 .btn-link,.place-link{
   display:inline-flex;align-items:center;gap:7px;
   margin-top:16px;padding:9px 14px;border-radius:4px;
-  background:#f0c04022;
+  background:#c8860a15;
   color:var(--yellow2);
   border:1px solid var(--yellow);
   font-size:12px;font-weight:700;font-family:'Cinzel',serif;letter-spacing:.8px;
 }
 .btn-link:hover,.btn-link:focus-visible,.place-link:hover,.place-link:focus-visible{
-  background:var(--yellow);color:var(--black);
-  outline:none;box-shadow:0 0 16px #f0c04066;
+  background:var(--yellow);color:#fff;
+  outline:none;box-shadow:0 0 12px #c8860a33;
 }
 
 /* ── 체크리스트 ── */
@@ -251,13 +249,13 @@ section{margin-top:42px;scroll-margin-top:20px}
   color:var(--text2);font-size:14px;
 }
 .todo:last-child{border:0}
-.todo input{accent-color:var(--yellow);margin-top:3px}
+.todo input{accent-color:var(--amber);margin-top:3px}
 .note{font-size:12px;color:var(--text2);margin-top:12px;opacity:.7}
 
 /* ── 푸터 ── */
 footer{
   margin-top:60px;padding-top:22px;
-  border-top:2px solid var(--border2);
+  border-top:2px solid var(--border);
   color:var(--text2);font-size:11px;
   display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   font-family:'Cinzel',serif;letter-spacing:.5px;
@@ -265,41 +263,41 @@ footer{
 
 /* ── 섹션별 카드 테마 ── */
 #news .card:first-child{
-  background:linear-gradient(160deg,#402e00 0%,#342400 100%);
+  background:linear-gradient(160deg,#fffbf0 0%,#fdf6e3 100%);
 }
 #news .card:first-child::before{
-  background:linear-gradient(90deg,var(--amber),var(--yellow2),var(--amber));
+  background:linear-gradient(90deg,var(--amber),var(--yellow3),var(--amber));
 }
 #activity .card:first-child{
-  background:linear-gradient(160deg,#303400 0%,#282c00 100%);
-  border-color:#5a6000aa;
+  background:linear-gradient(160deg,#f5faf0 0%,#edf5e8 100%);
+  border-color:#90b870aa;
 }
 #activity .card:first-child::before{
-  background:linear-gradient(90deg,#8a9400,#c8d400,#8a9400);
+  background:linear-gradient(90deg,#6a9440,#90b860,#6a9440);
 }
-#interests .card{border-color:#f0c04033}
+#interests .card{border-color:#d4a84888}
 #music .card:first-child{
-  background:linear-gradient(160deg,#3c2c00 0%,#302000 100%);
+  background:linear-gradient(160deg,#fffaf0 0%,#fdf5e0 100%);
 }
 #music .card:first-child::before{background:linear-gradient(90deg,var(--amber),var(--yellow3),var(--amber))}
 
 /* ── 기숙사 배정 카드 ── */
 #house-quiz-card{
-  background:linear-gradient(160deg,#ecb93922 0%,#f0c75e11 100%)!important;
+  background:linear-gradient(160deg,#fff8e822 0%,#fdf0d011 100%)!important;
   border-color:var(--yellow)!important;
 }
 #house-quiz-card::before{
-  background:linear-gradient(90deg,#ecb939,#f0c75e,#372e29,#f0c75e,#ecb939)!important;
+  background:linear-gradient(90deg,var(--amber),var(--yellow3),var(--amber))!important;
 }
 .quiz-opt{
-  background:#f0c04010;
-  border:1px solid var(--border2);
-  color:var(--parchment);font-size:13px;font-weight:600;
+  background:#c8860a10;
+  border:1px solid var(--border);
+  color:var(--black);font-size:13px;font-weight:600;
   font-family:'Noto Serif KR',serif;
   border-radius:4px;padding:9px 13px;cursor:pointer;text-align:left;
   transition:all .15s;
 }
-.quiz-opt:hover{background:var(--yellow);border-color:var(--yellow2);color:var(--black);font-weight:700}
+.quiz-opt:hover{background:var(--amber);border-color:var(--yellow);color:#fff;font-weight:700}
 .house-result{border-radius:6px;padding:16px;text-align:center;margin-top:4px}
 .house-gryffindor{background:linear-gradient(135deg,#7b0000 0%,#ae0001 60%,#eeba30 100%);color:#fff}
 .house-slytherin{background:linear-gradient(135deg,#1a472a 0%,#2a623d 60%,#aaaaaa 100%);color:#fff}
@@ -327,56 +325,56 @@ footer{
 .tarot-card.flipped .tarot-card-inner{transform:rotateY(180deg)}
 .tarot-face,.tarot-back{position:absolute;inset:0;border-radius:10px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
 .tarot-back{
-  background:linear-gradient(135deg,#3e3000 0%,#2e2400 50%,#4a3800 100%);
+  background:linear-gradient(135deg,#fff8ec 0%,#fdf0d0 50%,#fae8b8 100%);
   border:2px solid var(--yellow);
-  box-shadow:0 12px 32px #00000077,0 0 28px #f0c04044;
-  color:var(--yellow2);font-size:42px;
+  box-shadow:0 8px 24px #c8860a28,0 0 20px #e8a00018;
+  color:var(--amber);font-size:42px;
 }
 .tarot-back::after{content:'🦡';position:absolute;font-size:90px;opacity:.08}
-.tarot-back-label{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--yellow);font-family:'Cinzel',serif;margin-top:4px}
+.tarot-back-label{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--amber);font-family:'Cinzel',serif;margin-top:4px}
 .tarot-face{
-  background:linear-gradient(160deg,var(--parchment) 0%,var(--parch2) 100%);
+  background:linear-gradient(160deg,#fffdf8 0%,#fdf6e8 100%);
   border:2px solid var(--yellow);
-  box-shadow:0 12px 32px #00000077,0 0 20px #f0c04033;
+  box-shadow:0 8px 24px #c8860a28,0 0 16px #e8a00018;
   transform:rotateY(180deg);padding:16px;text-align:center;
 }
 .tarot-face .card-emoji{font-size:52px;line-height:1}
-.tarot-face .card-name{font-size:12px;font-weight:700;color:#3a2000;margin-top:8px;font-family:'Cinzel',serif;letter-spacing:.5px}
-.tarot-face .card-num{font-size:11px;color:#7a5020}
+.tarot-face .card-name{font-size:12px;font-weight:700;color:var(--black);margin-top:8px;font-family:'Cinzel',serif;letter-spacing:.5px}
+.tarot-face .card-num{font-size:11px;color:var(--text2)}
 .tarot-btn{
   background:linear-gradient(110deg,var(--earth),var(--earth2));
-  color:var(--yellow2);border:1px solid var(--yellow);border-radius:4px;
+  color:#fff;border:1px solid var(--yellow);border-radius:4px;
   padding:10px 18px;font-size:11px;font-weight:700;cursor:pointer;
   font-family:'Cinzel',serif;letter-spacing:1px;
-  box-shadow:0 4px 14px #00000055;
+  box-shadow:0 4px 14px #c8860a22;
   transition:all .2s;white-space:nowrap;
 }
 .tarot-btn:hover{
-  background:var(--yellow);color:var(--black);
-  box-shadow:0 4px 22px #f0c04066;
+  background:var(--amber);color:#fff;
+  box-shadow:0 4px 22px #c8860a44;
 }
 .tarot-btn:disabled{opacity:.4;cursor:default}
 .tarot-result{
-  background:linear-gradient(160deg,#3a2e00 0%,#2e2400 100%);
-  border:1px solid var(--border2);border-radius:6px;
-  padding:22px 24px;box-shadow:0 8px 22px #00000055;
+  background:linear-gradient(160deg,#fffdf5 0%,#fdf6e3 100%);
+  border:1px solid var(--border);border-radius:6px;
+  padding:22px 24px;box-shadow:0 4px 16px #c8860a18;
   min-height:160px;display:flex;flex-direction:column;justify-content:center;
 }
-.tarot-result .result-label{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--yellow);font-family:'Cinzel',serif;margin-bottom:10px}
-.tarot-result .result-title{font-size:18px;font-weight:700;color:var(--parchment);margin:0 0 8px;font-family:'Cinzel',serif}
+.tarot-result .result-label{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--amber);font-family:'Cinzel',serif;margin-bottom:10px}
+.tarot-result .result-title{font-size:18px;font-weight:700;color:var(--black);margin:0 0 8px;font-family:'Cinzel',serif}
 .tarot-result .result-keyword{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
-.tarot-result .result-keyword span{background:#f0c04022;color:var(--yellow2);font-size:11px;font-weight:700;padding:4px 10px;border-radius:3px;border:1px solid var(--border2)}
+.tarot-result .result-keyword span{background:#c8860a15;color:var(--amber);font-size:11px;font-weight:700;padding:4px 10px;border-radius:3px;border:1px solid var(--border)}
 .tarot-result .result-desc{font-size:13px;line-height:1.85;color:var(--text2);margin:0}
-.tarot-result .result-advice{margin-top:12px;font-size:12px;color:var(--yellow);font-style:italic;border-left:2px solid var(--yellow);padding-left:10px}
+.tarot-result .result-advice{margin-top:12px;font-size:12px;color:var(--amber);font-style:italic;border-left:2px solid var(--amber);padding-left:10px}
 .tarot-date{font-size:10px;color:var(--text2);margin-top:14px;text-align:center;font-family:'Cinzel',serif;letter-spacing:1px}
 .tarot-pending{color:var(--text2);font-size:14px;text-align:center;padding:20px 0;opacity:.7}
 #tarot-section-card{border-color:var(--yellow)!important}
-#tarot-section-card::before{background:linear-gradient(90deg,var(--amber),var(--yellow2),var(--yellow3),var(--yellow2),var(--amber))!important}
-#tarot-advice-card::before{background:linear-gradient(90deg,var(--earth2),var(--yellow),var(--earth2))!important}
+#tarot-section-card::before{background:linear-gradient(90deg,var(--amber),var(--yellow3),var(--amber))!important}
+#tarot-advice-card::before{background:linear-gradient(90deg,var(--earth2),var(--amber),var(--earth2))!important}
 .advice-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)}
 .advice-item:last-child{border-bottom:none;padding-bottom:0}
 .advice-icon{font-size:22px;line-height:1;flex-shrink:0;margin-top:2px}
-.advice-item h4{font-size:11px;font-weight:700;color:var(--yellow);margin:0 0 3px;font-family:'Cinzel',serif;letter-spacing:.5px}
+.advice-item h4{font-size:11px;font-weight:700;color:var(--amber);margin:0 0 3px;font-family:'Cinzel',serif;letter-spacing:.5px}
 .advice-item h4 .advice-sub{display:block;font-size:11px;font-weight:600;color:var(--text2);margin-top:1px;font-family:'Noto Serif KR',serif;letter-spacing:0}
 .advice-item p{font-size:13px;color:var(--text2);margin:0;line-height:1.6}
 
@@ -1111,18 +1109,18 @@ footer{
   gap: 14px;
 }
 .hp-card {
-  background: linear-gradient(160deg, #3a2e00 0%, #2e2400 100%);
+  background: linear-gradient(160deg, #fffdf5 0%, #fdf6e3 100%);
   border: 1px solid var(--border);
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 8px 24px #00000066;
+  box-shadow: 0 4px 16px #c8860a18;
   transition: transform .2s, box-shadow .2s, border-color .2s;
   display: flex;
   flex-direction: column;
 }
 .hp-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 32px #00000077, 0 0 24px #f0c04033;
+  box-shadow: 0 10px 28px #c8860a28, 0 0 16px #e8a00022;
   border-color: var(--yellow);
 }
 .hp-card::before {
@@ -1152,7 +1150,7 @@ footer{
   letter-spacing: 2px;
 }
 .hp-title {
-  color: var(--parchment);
+  color: var(--black);
   font-size: 13px;
   font-weight: 700;
   font-family: 'Cinzel', serif;
@@ -1170,7 +1168,7 @@ footer{
   margin-top: auto;
 }
 .hp-cheer-btn {
-  background: #f0c04018;
+  background: #c8860a14;
   border: 1px solid var(--yellow);
   color: var(--yellow2);
   font-size: 11px;
@@ -1185,9 +1183,9 @@ footer{
   flex-shrink: 0;
 }
 .hp-cheer-btn:hover:not(:disabled) {
-  background: var(--yellow);
-  color: var(--black);
-  box-shadow: 0 0 12px #f0c04055;
+  background: var(--amber);
+  color: #fff;
+  box-shadow: 0 0 12px #c8860a33;
 }
 .hp-cheer-btn:disabled {
   opacity: .5;
@@ -1265,7 +1263,7 @@ footer{
       card.className = 'hp-card';
       card.innerHTML =
         '<img class="hp-poster" src="' + m.poster + '" alt="해리포터 ' + m.ko + ' 포스터" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">' +
-        '<div class="hp-poster-fallback" style="display:none;align-items:center;justify-content:center;aspect-ratio:2/3;background:linear-gradient(160deg,#3a2e00,#2e2400);font-size:40px;">🎬</div>' +
+        '<div class="hp-poster-fallback" style="display:none;align-items:center;justify-content:center;aspect-ratio:2/3;background:linear-gradient(160deg,#fdf0d0,#f5ead0);font-size:40px;">🎬</div>' +
         '<div class="hp-info">' +
           '<div class="hp-meta">HARRY POTTER · ' + m.year + '</div>' +
           '<h3 class="hp-title">' + m.ko + '</h3>' +
