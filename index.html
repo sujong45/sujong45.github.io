@@ -338,6 +338,56 @@ section{margin-top:42px;scroll-margin-top:20px}
 }
 .bookmark-photo{grid-template-columns:220px 1fr;align-items:center}
 .bookmark-photo img{width:220px;height:auto;aspect-ratio:3/4;object-fit:contain;border-radius:6px;border:2px solid var(--yellow)}
+/* ── 음악 플레이리스트 ── */
+.song-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.song-card{
+  background:linear-gradient(160deg,#fffdf5 0%,#fdf6e3 100%);
+  border:1px solid var(--border);
+  border-radius:8px;overflow:hidden;
+  box-shadow:0 4px 16px #c8860a18;
+  display:flex;flex-direction:column;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.song-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px #c8860a28;border-color:var(--yellow)}
+html[data-theme="dark"] .song-card{background:linear-gradient(160deg,#3a2e00 0%,#2e2400 100%)}
+.song-cover{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--surface)}
+.song-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.song-cover .song-emoji{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-size:48px;background:linear-gradient(135deg,#fdeec0,#f5ead0);
+}
+html[data-theme="dark"] .song-cover .song-emoji{background:linear-gradient(135deg,#4a3800,#2e2400)}
+.song-info{padding:12px 13px 14px;display:flex;flex-direction:column;gap:3px;flex:1}
+.song-name{font-size:14px;font-weight:700;color:var(--black);font-family:'Cinzel',serif;line-height:1.35;margin:0}
+html[data-theme="dark"] .song-name{color:var(--parchment)}
+.song-artist{font-size:12px;color:var(--text2);margin:0 0 8px}
+.song-play{
+  margin-top:auto;
+  background:#c8860a14;border:1px solid var(--yellow);border-radius:4px;
+  color:var(--yellow2);font-size:12px;font-weight:700;font-family:'Cinzel',serif;
+  padding:7px 10px;cursor:pointer;transition:all .15s;white-space:nowrap;
+}
+.song-play:hover{background:var(--amber);color:#fff;box-shadow:0 0 12px #c8860a33}
+.player-wrap{
+  margin-top:18px;border:1px solid var(--border);border-radius:8px;
+  overflow:hidden;background:var(--surface);box-shadow:0 4px 16px #c8860a18;
+}
+.player-head{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:10px 14px;font-size:13px;font-weight:700;color:var(--black);
+  font-family:'Cinzel',serif;border-bottom:1px solid var(--border);
+}
+html[data-theme="dark"] .player-head{color:var(--parchment)}
+.player-close{
+  background:none;border:1px solid var(--border);border-radius:4px;
+  color:var(--text2);font-size:11px;padding:4px 10px;cursor:pointer;white-space:nowrap;
+}
+.player-close:hover{border-color:var(--yellow);color:var(--yellow2)}
+.player-frame{position:relative;width:100%;aspect-ratio:16/9}
+.player-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media(max-width:860px){.song-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.song-grid{grid-template-columns:1fr 1fr;gap:10px}}
+
 .music-tile{display:grid;grid-template-columns:112px 1fr;gap:16px;align-items:center;margin-top:15px}
 .music-thumb{display:block;border-radius:6px;overflow:hidden;border:2px solid var(--yellow);box-shadow:0 6px 18px #c8860a2e}
 .music-thumb img{width:100%;height:100%;display:block;object-fit:cover}
@@ -725,25 +775,13 @@ footer{
       </div>
       <small>My favorites</small>
     </div>
-    <div class="grid">
-      <article class="card wide">
-        <div class="meta">FAVORITE ARTIST</div>
-        <h3>✨ 우주소녀 (WJSN)</h3>
-        <p>제가 좋아하는 아티스트입니다. 몽환적인 분위기와 멤버들의 음색이 매력적이라고 생각합니다.</p>
-      </article>
-      <article class="card">
-        <div class="meta">FAVORITE SONG</div>
-        <div class="music-tile">
-          <a class="music-thumb" href="https://www.youtube.com/watch?v=2wOBbRu3OOc" target="_blank" rel="noopener noreferrer" aria-label="우주소녀 부탁해 뮤직비디오 유튜브로 이동">
-            <img src="https://img.youtube.com/vi/2wOBbRu3OOc/hqdefault.jpg" alt="우주소녀 부탁해 뮤직비디오 커버 이미지">
-          </a>
-          <div>
-            <div class="song-title"><h3 style="margin:0">부탁해</h3></div>
-            <p>우주소녀 · 좋아하는 노래</p>
-            <a class="btn-link" href="https://www.youtube.com/watch?v=2wOBbRu3OOc" target="_blank" rel="noopener noreferrer">▶ 유튜브에서 듣기 ↗</a>
-          </div>
-        </div>
-      </article>
+    <div class="song-grid" id="song-grid"></div>
+    <div class="player-wrap" id="player-wrap" style="display:none">
+      <div class="player-head">
+        <span id="player-title"></span>
+        <button type="button" class="player-close" id="player-close" aria-label="플레이어 닫기">✕ 닫기</button>
+      </div>
+      <div class="player-frame" id="player-frame"></div>
     </div>
   </section>
 
@@ -2077,6 +2115,104 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
     } else {
       window.prompt('아래 내용을 복사하세요:', text);
     }
+  });
+})();
+
+// 음악 플레이리스트
+(function () {
+  // videoId가 있으면 사이트 내 바로 재생, 없으면 유튜브 검색 결과 새 탭
+  var SONGS = [
+    { title: '이럴거면',       artist: '아이비',         emoji: '🎤', videoId: '' },
+    { title: '후라이의 꿈',     artist: '악동뮤지션',     emoji: '🍳', videoId: '' },
+    { title: 'LIKE THAT',      artist: '베이비몬스터',   emoji: '💛', videoId: '' },
+    { title: '부탁해',         artist: '우주소녀',       emoji: '✨', videoId: '2wOBbRu3OOc' },
+    { title: '내게 오는 길',    artist: '성시경',         emoji: '🌙', videoId: '' },
+    { title: '기다리는 이유',   artist: '임창정',         emoji: '🎸', videoId: '' },
+    { title: '처음 그 자리에',  artist: '범진',           emoji: '🎶', videoId: '' },
+  ];
+
+  var grid = document.getElementById('song-grid');
+  var playerWrap = document.getElementById('player-wrap');
+  var playerFrame = document.getElementById('player-frame');
+  var playerTitle = document.getElementById('player-title');
+  var playerClose = document.getElementById('player-close');
+  if (!grid) return;
+
+  function searchUrl(s) {
+    return 'https://www.youtube.com/results?search_query=' +
+      encodeURIComponent(s.artist + ' ' + s.title);
+  }
+
+  // 사이트 내 재생
+  function playInline(s) {
+    playerTitle.textContent = s.artist + ' - ' + s.title;
+    playerFrame.innerHTML = '';
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube.com/embed/' + s.videoId + '?autoplay=1&rel=0';
+    iframe.title = s.artist + ' ' + s.title;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    playerFrame.appendChild(iframe);
+    playerWrap.style.display = 'block';
+    playerWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  playerClose.addEventListener('click', function () {
+    playerFrame.innerHTML = '';
+    playerWrap.style.display = 'none';
+  });
+
+  SONGS.forEach(function (s) {
+    var card = document.createElement('article');
+    card.className = 'song-card';
+
+    var cover = document.createElement('div');
+    cover.className = 'song-cover';
+    if (s.videoId) {
+      var img = document.createElement('img');
+      img.src = 'https://img.youtube.com/vi/' + s.videoId + '/hqdefault.jpg';
+      img.alt = s.artist + ' ' + s.title + ' 앨범 커버';
+      img.loading = 'lazy';
+      img.onerror = function () {
+        var em = document.createElement('div');
+        em.className = 'song-emoji';
+        em.textContent = s.emoji;
+        cover.replaceChild(em, img);
+      };
+      cover.appendChild(img);
+    } else {
+      var em = document.createElement('div');
+      em.className = 'song-emoji';
+      em.textContent = s.emoji;
+      cover.appendChild(em);
+    }
+
+    var info = document.createElement('div');
+    info.className = 'song-info';
+    var name = document.createElement('p');
+    name.className = 'song-name';
+    name.textContent = s.title;
+    var artist = document.createElement('p');
+    artist.className = 'song-artist';
+    artist.textContent = s.artist;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'song-play';
+    btn.textContent = '▶ 노래듣기';
+    btn.addEventListener('click', function () {
+      if (s.videoId) {
+        playInline(s);
+      } else {
+        window.open(searchUrl(s), '_blank', 'noopener');
+      }
+    });
+
+    info.appendChild(name);
+    info.appendChild(artist);
+    info.appendChild(btn);
+    card.appendChild(cover);
+    card.appendChild(info);
+    grid.appendChild(card);
   });
 })();
 
