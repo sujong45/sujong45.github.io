@@ -139,9 +139,11 @@ export default async function handler(req) {
       if (rows.length === 0) return bad('해당 글을 찾을 수 없습니다.', 404)
 
       const row = rows[0]
-      const masterPw = process.env.GUESTBOOK_MASTER_PW
-      const isMaster = masterPw && safeCompare(pw, masterPw)
-      const isOwner = safeCompare(hashPw(pw), row.delete_pw)
+      const inputPw = String(pw).trim()
+      const masterPw = (process.env.GUESTBOOK_MASTER_PW || '').trim()
+      console.log('DELETE 요청 — 마스터 비번 설정됨:', masterPw.length > 0)
+      const isMaster = masterPw.length > 0 && safeCompare(inputPw, masterPw)
+      const isOwner = safeCompare(hashPw(inputPw), row.delete_pw)
 
       if (!isMaster && !isOwner) {
         return bad('비밀번호가 일치하지 않습니다.', 403)
