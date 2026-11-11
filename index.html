@@ -289,9 +289,12 @@ section{margin-top:42px;scroll-margin-top:20px}
 .section-head .head-left{display:flex;align-items:center;gap:12px;min-width:0}
 .char-avatar{
   width:52px;height:52px;border-radius:50%;object-fit:cover;
+  object-position:center 20%;
   border:2px solid var(--yellow);flex-shrink:0;
   box-shadow:0 3px 12px #c8860a33;
 }
+/* 세로로 긴 인물 사진 — 머리가 잘리지 않게 위쪽을 보여줌 */
+.char-avatar.top{object-position:center top}
 @media(max-width:620px){
   .char-avatar{width:42px;height:42px}
   .section-head h2{font-size:17px}
@@ -557,7 +560,7 @@ footer{
   <section id="tarot">
     <div class="section-head">
       <div class="head-left">
-        <img class="char-avatar" src="assets/prof-trelawney.png" alt="트릴로니 교수" loading="lazy">
+        <img class="char-avatar top" src="assets/prof-trelawney.png" alt="트릴로니 교수" loading="lazy">
         <h2>🔮 트릴로니 교수님의 타로 운세</h2>
       </div>
       <small>Daily Tarot · <span id="tarot-today-date"></span></small>
