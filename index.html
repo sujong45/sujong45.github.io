@@ -285,6 +285,17 @@ section{margin-top:42px;scroll-margin-top:20px}
   color:var(--black);
 }
 .section-head small{color:var(--text2);font-size:11px;letter-spacing:1px;font-family:'Cinzel',serif}
+/* 캐릭터가 소개하는 섹션 헤더 */
+.section-head .head-left{display:flex;align-items:center;gap:12px;min-width:0}
+.char-avatar{
+  width:52px;height:52px;border-radius:50%;object-fit:cover;
+  border:2px solid var(--yellow);flex-shrink:0;
+  box-shadow:0 3px 12px #c8860a33;
+}
+@media(max-width:620px){
+  .char-avatar{width:42px;height:42px}
+  .section-head h2{font-size:17px}
+}
 
 /* ── 카드 ── */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
@@ -516,7 +527,6 @@ footer{
     <a href="#movies">인생영화</a>
     <a href="#cheers">응원 보드</a>
     <a href="#restaurants">추천 맛집</a>
-    <a href="#backlog">Backlog</a>
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="라이트/다크 모드 전환" title="테마 전환">🌙</button>
   </nav>
 </header>
@@ -545,7 +555,13 @@ footer{
   </div>
 
   <section id="tarot">
-    <div class="section-head"><h2>🔮 타로로 보는 오늘의 운세</h2><small>Daily Tarot · <span id="tarot-today-date"></span></small></div>
+    <div class="section-head">
+      <div class="head-left">
+        <img class="char-avatar" src="assets/prof-trelawney.png" alt="트릴로니 교수" loading="lazy">
+        <h2>🔮 트릴로니 교수님의 타로 운세</h2>
+      </div>
+      <small>Daily Tarot · <span id="tarot-today-date"></span></small>
+    </div>
     <div class="grid">
       <article class="card wide" id="tarot-section-card">
         <div class="meta">TODAY'S TAROT READING</div>
@@ -666,7 +682,13 @@ footer{
   </section>
 
   <section id="news">
-    <div class="section-head"><h2>📣 나의 소식</h2><small>What's new?</small></div>
+    <div class="section-head">
+      <div class="head-left">
+        <img class="char-avatar" src="assets/prof-colin.png" alt="콜린 크리비" loading="lazy">
+        <h2>📣 콜린 크리비의 배수종 소식 보도</h2>
+      </div>
+      <small>What's new?</small>
+    </div>
     <div class="grid">
       <article class="card wide">
         <div class="meta">요즘의 소식</div>
@@ -693,7 +715,13 @@ footer{
   </section>
 
   <section id="music">
-    <div class="section-head"><h2>🎵 좋아하는 음악</h2><small>My favorites</small></div>
+    <div class="section-head">
+      <div class="head-left">
+        <img class="char-avatar" src="assets/prof-flitwick.png" alt="플리트윅 교수" loading="lazy">
+        <h2>🎵 플리트윅 교수님 인증! 내 최애 음악</h2>
+      </div>
+      <small>My favorites</small>
+    </div>
     <div class="grid">
       <article class="card wide">
         <div class="meta">FAVORITE ARTIST</div>
@@ -747,7 +775,13 @@ footer{
   </section>
 
   <section id="restaurants">
-    <div class="section-head"><h2>🍽️ 추천 맛집</h2><small>My favorite places</small></div>
+    <div class="section-head">
+      <div class="head-left">
+        <img class="char-avatar" src="assets/prof-molly.png" alt="몰리 위즐리" loading="lazy">
+        <h2>🍽️ 몰리 위즐리의 추천 맛집</h2>
+      </div>
+      <small>My favorite places</small>
+    </div>
     <div class="grid">
       <article class="card">
         <div class="meta">RECOMMENDED RESTAURANT · 목동</div>
@@ -774,23 +808,6 @@ footer{
     <div class="hp-grid" id="hp-grid"></div>
   </section>
 
-  <section id="backlog">
-    <div class="section-head"><h2>🛠️ Next Sprint Backlog</h2><small>Version 1.6 → 2.0</small></div>
-    <div class="card">
-      <label class="todo"><input type="checkbox" checked disabled> 첫 번째 홈페이지(index.html) 구현</label>
-      <label class="todo"><input type="checkbox" checked disabled> 모바일 반응형 디자인 적용</label>
-      <label class="todo"><input type="checkbox" checked disabled> 실제 이름과 학적 정보 입력</label>
-      <label class="todo"><input type="checkbox" checked disabled> 좋아하는 아티스트와 노래 업데이트</label>
-      <label class="todo"><input type="checkbox" checked disabled> 추천 맛집 및 지도 링크 추가</label>
-      <label class="todo"><input type="checkbox" checked disabled> 인생영화 항목 추가</label>
-      <label class="todo"><input type="checkbox" checked disabled> 최근 활동에 이미지 첨부</label>
-      <label class="todo"><input type="checkbox" checked disabled> GitHub Pages 배포 및 루트 주소 접속 확인</label>
-      <label class="todo"><input type="checkbox" checked disabled> 밝은 컬러 테마 및 가독성 개선</label>
-      <label class="todo"><input type="checkbox"> 활동/취향을 더 쉽게 수정할 수 있는 데이터 구조 추가</label>
-      <label class="todo"><input type="checkbox" checked disabled> 타로 일일 운세 섹션 추가</label>
-      <p class="note">체크박스는 진행 현황 표시용입니다. 다음 Sprint에서 index.html과 assets를 함께 수정해 계속 발전시킬 수 있습니다.</p>
-    </div>
-  </section>
 </main>
 <footer><span>© 2026 배수종. Made with curiosity.</span><span>Powered by GitHub Pages · v1.9 Hufflepuff Edition 🦡</span></footer>
 </div>
