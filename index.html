@@ -633,10 +633,16 @@ footer{
           </div>
           <label class="gb-file-label" for="gb-photo-file">🖼️ 프로필 사진 업로드 (선택 · 최대 3MB)</label>
           <input type="file" id="gb-photo-file" class="gb-file" accept="image/png,image/jpeg,image/webp,image/gif">
-          <div class="gb-preview" id="gb-preview" style="display:none">
-            <img id="gb-preview-img" alt="프로필 미리보기">
-            <span>미리보기</span>
-            <button type="button" id="gb-photo-clear" class="gb-clear-btn">✕ 제거</button>
+          <div class="gb-crop" id="gb-crop" style="display:none">
+            <div class="gb-crop-hint">사진을 드래그해 위치를 맞추고, 슬라이더로 확대/축소하세요</div>
+            <div class="gb-crop-stage" id="gb-crop-stage">
+              <img id="gb-crop-img" alt="프로필 자르기">
+            </div>
+            <div class="gb-crop-zoom">
+              <label>🔍</label>
+              <input type="range" id="gb-crop-zoom" min="1" max="3" step="0.01" value="1">
+              <button type="button" id="gb-photo-clear" class="gb-clear-btn">✕ 제거</button>
+            </div>
           </div>
           <textarea id="gb-message" class="gb-textarea" placeholder="메시지 남기기 (최대 300자)" maxlength="300" rows="3"></textarea>
           <div class="gb-field-row">
@@ -1315,14 +1321,34 @@ footer{
 }
 .gb-remember{font-size:11px;color:var(--text2);display:flex;align-items:center;gap:5px;white-space:nowrap}
 .gb-remember input{accent-color:var(--amber)}
-.gb-preview{display:flex;align-items:center;gap:10px;font-size:11px;color:var(--text2)}
-.gb-preview img{
-  width:54px;height:54px;border-radius:50%;object-fit:cover;
-  border:2px solid var(--yellow);
+/* 사진 크롭 UI */
+.gb-crop{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.gb-crop-stage{
+  position:relative;
+  width:180px;height:180px;
+  border-radius:50%;
+  overflow:hidden;
+  border:3px solid var(--yellow);
+  box-shadow:0 4px 18px #c8860a33;
+  cursor:grab;
+  touch-action:none;
+  background:var(--surface);
 }
+.gb-crop-stage:active{cursor:grabbing}
+.gb-crop-stage img{
+  position:absolute;
+  top:0;left:0;
+  transform-origin:0 0;
+  user-select:none;-webkit-user-drag:none;pointer-events:none;
+  max-width:none;
+}
+.gb-crop-hint{font-size:11px;color:var(--text2)}
+.gb-crop-zoom{display:flex;align-items:center;gap:8px;width:180px}
+.gb-crop-zoom input[type=range]{flex:1;accent-color:var(--amber)}
+.gb-crop-zoom label{font-size:11px;color:var(--text2)}
 .gb-clear-btn{
   background:none;border:1px solid var(--border);border-radius:4px;
-  color:var(--text2);font-size:11px;padding:4px 8px;cursor:pointer;
+  color:var(--text2);font-size:11px;padding:4px 10px;cursor:pointer;
 }
 .gb-clear-btn:hover{border-color:var(--yellow);color:var(--yellow2)}
 .gb-entry .gb-del-btn{
@@ -1346,13 +1372,13 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
   padding:10px 12px;
 }
 .gb-entry .gb-avatar{
-  width:40px;height:40px;border-radius:50%;object-fit:cover;
+  width:72px;height:72px;border-radius:50%;object-fit:cover;
   border:2px solid var(--yellow);flex-shrink:0;
 }
 .gb-entry .gb-avatar-fallback{
-  width:40px;height:40px;border-radius:50%;flex-shrink:0;
+  width:72px;height:72px;border-radius:50%;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,#f0c75e,#c8860a);font-size:20px;
+  background:linear-gradient(135deg,#f0c75e,#c8860a);font-size:34px;
 }
 .gb-entry .gb-body{flex:1;min-width:0}
 .gb-entry .gb-nick{font-weight:700;color:var(--yellow2);font-size:13px;font-family:'Cinzel',serif}
@@ -1644,9 +1670,12 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
   var statusEl = document.getElementById('gb-status');
   var listEl = document.getElementById('gb-list');
   var countEl = document.getElementById('gb-char-count');
-  var previewWrap = document.getElementById('gb-preview');
-  var previewImg = document.getElementById('gb-preview-img');
   var clearBtn = document.getElementById('gb-photo-clear');
+  // 크롭 UI 요소
+  var cropWrap = document.getElementById('gb-crop');
+  var cropStage = document.getElementById('gb-crop-stage');
+  var cropImg = document.getElementById('gb-crop-img');
+  var zoomRange = document.getElementById('gb-crop-zoom');
 
   if (!form) return;
 
@@ -1656,8 +1685,12 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
   };
   var HOUSE_EMOJI = { gryffindor: '🦁', slytherin: '🐍', ravenclaw: '🦅', hufflepuff: '🦡' };
 
-  // 현재 선택한 사진의 base64 data URL
-  var currentPhotoData = null;
+  var STAGE = 180;        // 크롭 영역 크기(px)
+  var OUTPUT = 400;       // 최종 저장 이미지 크기(px)
+  var currentPhotoData = null; // 이미 크롭 완료되어 저장된 data URL (불러온 경우)
+
+  // 크롭 상태
+  var crop = { img: null, baseW: 0, baseH: 0, scale: 1, minScale: 1, x: 0, y: 0, active: false };
 
   // ── 저장된 프로필 불러오기 ──
   (function restoreProfile() {
@@ -1668,9 +1701,9 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
       if (saved.house) houseSelect.value = saved.house;
       if (saved.pw) pwInput.value = saved.pw;
       if (saved.photo) {
+        // 이전에 크롭 완료된 사진 — 스테이지에 원형으로 보여주고 재조정 가능하게
         currentPhotoData = saved.photo;
-        previewImg.src = saved.photo;
-        previewWrap.style.display = 'flex';
+        loadIntoCrop(saved.photo);
       }
     } catch (e) {}
   })();
@@ -1680,7 +1713,7 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
     countEl.textContent = msgInput.value.length + ' / 300';
   });
 
-  // 파일 선택 → base64 변환 + 미리보기
+  // 파일 선택 → 크롭 스테이지에 로드
   fileInput.addEventListener('change', function () {
     var file = fileInput.files && fileInput.files[0];
     if (!file) return;
@@ -1691,19 +1724,130 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
     }
     var reader = new FileReader();
     reader.onload = function () {
-      currentPhotoData = reader.result;
-      previewImg.src = currentPhotoData;
-      previewWrap.style.display = 'flex';
+      loadIntoCrop(reader.result);
       setStatus('', '');
     };
     reader.readAsDataURL(file);
   });
 
+  // 이미지를 크롭 스테이지에 로드하고 초기 배치
+  function loadIntoCrop(dataUrl) {
+    var img = new Image();
+    img.onload = function () {
+      crop.img = img;
+      // 이미지가 스테이지를 꽉 채우도록 기본 배율 계산 (cover)
+      var coverScale = Math.max(STAGE / img.width, STAGE / img.height);
+      crop.minScale = coverScale;
+      crop.scale = coverScale;
+      crop.baseW = img.width;
+      crop.baseH = img.height;
+      // 가운데 정렬
+      centerCrop();
+      cropImg.src = dataUrl;
+      applyCropTransform();
+      cropWrap.style.display = 'flex';
+      // 줌 슬라이더: minScale ~ minScale*3
+      zoomRange.min = coverScale.toFixed(3);
+      zoomRange.max = (coverScale * 3).toFixed(3);
+      zoomRange.step = (coverScale * 0.01).toFixed(4);
+      zoomRange.value = coverScale.toFixed(3);
+    };
+    img.src = dataUrl;
+  }
+
+  function centerCrop() {
+    var w = crop.baseW * crop.scale;
+    var h = crop.baseH * crop.scale;
+    crop.x = (STAGE - w) / 2;
+    crop.y = (STAGE - h) / 2;
+    clampCrop();
+  }
+
+  // 이미지가 스테이지를 항상 덮도록 위치 제한
+  function clampCrop() {
+    var w = crop.baseW * crop.scale;
+    var h = crop.baseH * crop.scale;
+    if (crop.x > 0) crop.x = 0;
+    if (crop.y > 0) crop.y = 0;
+    if (crop.x < STAGE - w) crop.x = STAGE - w;
+    if (crop.y < STAGE - h) crop.y = STAGE - h;
+  }
+
+  function applyCropTransform() {
+    cropImg.style.width = crop.baseW + 'px';
+    cropImg.style.height = crop.baseH + 'px';
+    cropImg.style.transform =
+      'translate(' + crop.x + 'px,' + crop.y + 'px) scale(' + crop.scale + ')';
+  }
+
+  // 드래그 (마우스 + 터치)
+  var dragStart = null;
+  function onDragStart(e) {
+    if (!crop.img) return;
+    crop.active = true;
+    var p = getPoint(e);
+    dragStart = { px: p.x, py: p.y, ox: crop.x, oy: crop.y };
+  }
+  function onDragMove(e) {
+    if (!crop.active || !dragStart) return;
+    var p = getPoint(e);
+    crop.x = dragStart.ox + (p.x - dragStart.px);
+    crop.y = dragStart.oy + (p.y - dragStart.py);
+    clampCrop();
+    applyCropTransform();
+    if (e.cancelable) e.preventDefault();
+  }
+  function onDragEnd() { crop.active = false; dragStart = null; }
+  function getPoint(e) {
+    if (e.touches && e.touches[0]) return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    return { x: e.clientX, y: e.clientY };
+  }
+  cropStage.addEventListener('mousedown', onDragStart);
+  window.addEventListener('mousemove', onDragMove);
+  window.addEventListener('mouseup', onDragEnd);
+  cropStage.addEventListener('touchstart', onDragStart, { passive: true });
+  cropStage.addEventListener('touchmove', onDragMove, { passive: false });
+  cropStage.addEventListener('touchend', onDragEnd);
+
+  // 줌 슬라이더
+  zoomRange.addEventListener('input', function () {
+    if (!crop.img) return;
+    // 스테이지 중심 기준으로 확대
+    var cx = STAGE / 2, cy = STAGE / 2;
+    var prevScale = crop.scale;
+    var newScale = parseFloat(zoomRange.value);
+    var ratio = newScale / prevScale;
+    crop.x = cx - (cx - crop.x) * ratio;
+    crop.y = cy - (cy - crop.y) * ratio;
+    crop.scale = newScale;
+    clampCrop();
+    applyCropTransform();
+  });
+
+  // 현재 크롭 상태를 정사각형 canvas로 렌더 → data URL
+  function getCroppedDataUrl() {
+    if (!crop.img) return currentPhotoData; // 새 사진 없으면 기존 값
+    var canvas = document.createElement('canvas');
+    canvas.width = OUTPUT;
+    canvas.height = OUTPUT;
+    var ctx = canvas.getContext('2d');
+    var r = OUTPUT / STAGE; // 스테이지 → 출력 배율
+    // 스테이지 좌표계를 출력 크기로 확대해서 그대로 그림
+    ctx.drawImage(
+      crop.img,
+      crop.x * r, crop.y * r,
+      crop.baseW * crop.scale * r, crop.baseH * crop.scale * r
+    );
+    return canvas.toDataURL('image/jpeg', 0.9);
+  }
+
   // 사진 제거
   clearBtn.addEventListener('click', function () {
     currentPhotoData = null;
+    crop.img = null;
     fileInput.value = '';
-    previewWrap.style.display = 'none';
+    cropImg.removeAttribute('src');
+    cropWrap.style.display = 'none';
   });
 
   function setStatus(text, type) {
@@ -1844,6 +1988,9 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
       setStatus('삭제 비밀번호는 숫자 4자리로 입력해 주세요.', 'error'); return;
     }
 
+    // 현재 크롭 상태를 정사각형 이미지로 생성 (새 사진이 있으면)
+    var photoData = getCroppedDataUrl();
+
     submitBtn.disabled = true;
     setStatus('저장 중…', '');
 
@@ -1852,7 +1999,7 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         nickname: nickname, house: house, message: message,
-        delete_pw: pw, photo_data: currentPhotoData || null,
+        delete_pw: pw, photo_data: photoData || null,
       }),
     })
       .then(function (res) {
@@ -1862,11 +2009,11 @@ html[data-theme="dark"] .gb-msg.error{color:#eb5757}
         if (!result.ok) throw new Error(result.data.error || '저장에 실패했습니다.');
         setStatus('방명록이 등록되었습니다 📖', 'success');
 
-        // 프로필 기억 (체크 시)
+        // 프로필 기억 (체크 시) — 크롭 완료된 이미지를 저장
         if (rememberChk.checked) {
           try {
             localStorage.setItem(STORE_KEY, JSON.stringify({
-              nickname: nickname, house: house, pw: pw, photo: currentPhotoData || null,
+              nickname: nickname, house: house, pw: pw, photo: photoData || null,
             }));
           } catch (e) {}
         } else {
