@@ -1363,12 +1363,13 @@ footer{
   max-width:none;
 }
 .gb-crop-hint{font-size:11px;color:var(--text2)}
-.gb-crop-zoom{display:flex;align-items:center;gap:8px;width:180px}
-.gb-crop-zoom input[type=range]{flex:1;accent-color:var(--amber)}
-.gb-crop-zoom label{font-size:11px;color:var(--text2)}
+.gb-crop-zoom{display:flex;align-items:center;gap:8px;width:220px;max-width:100%}
+.gb-crop-zoom input[type=range]{flex:1;min-width:0;accent-color:var(--amber)}
+.gb-crop-zoom label{font-size:11px;color:var(--text2);flex-shrink:0}
 .gb-clear-btn{
   background:none;border:1px solid var(--border);border-radius:4px;
   color:var(--text2);font-size:11px;padding:4px 10px;cursor:pointer;
+  white-space:nowrap;flex-shrink:0;
 }
 .gb-clear-btn:hover{border-color:var(--yellow);color:var(--yellow2)}
 .gb-entry .gb-del-btn{
